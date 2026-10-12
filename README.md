@@ -68,6 +68,11 @@ The audit starts with `pynxtools-xps`, covering these parsers:
 ├── CONTRIBUTING.md        # How to add a finding and the expected evidence format
 ├── TEMPLATE.md            # Per-parser documentation template
 ├── findings-table.md      # Master overview across all plugins
+├── audit_scan.py          #
+├── results/               # Results from audit_scan.py in .csv format for each pynxtools plugin
+│   ├── xps.csv
+│   ├── mpes.csv
+│   └── ...
 └── docs/
     ├── xps/
     │   ├── README.md      # Plugin overview
@@ -94,6 +99,20 @@ Each parser document follows the same structure (see [`TEMPLATE.md`](TEMPLATE.md
 6. **Units**
 7. **Behaviour to investigate**: status: `open` / `confirmed` / `reported upstream`
 8. **Evidence**: code snippets, tests, docs
+
+---
+
+## `audit_scan.py` 
+
+A rule-based static analysis tool for Python packages, with a focus on pynxtools plugins and their data-processing and configuration logic. It uses Python's Abstract Syntax Tree (AST) and tokenization to inspect Python source files, and dedicated parsers and pattern-based checks to analyse JSON and YAML configuration files.
+
+Its rule set covers unit-string validation and canonicalization, hard-coded physical constants and numeric values, default parameters and silent fallbacks, data transformations and reductions, array reversals and truncation, exception handling, datetime and timezone operations, duplicate dictionary and JSON keys, inconsistent key naming, duplicated or divergent function implementations, hard-coded configuration values, syntax and parsing errors, and TODO/FIXME markers. 
+
+Findings are collected with rule identifiers, severity levels, file paths, line numbers, qualified function or class names where applicable, diagnostic messages, and source snippets, then written to a CSV report for manual inspection. The command-line interface supports configurable severity filtering, selective rule suppression, optional scanning of tests and NOMAD example directories, and integration with an existing CSV inventory to aggregate findings by code unit.
+
+The scanner is intended as a review aid for identifying potentially error-prone or inconsistent implementation patterns; its findings are heuristic indicators rather than definitive evidence of defects.
+
+The results from this file are found in the `results/` folder in `.csv` format.
 
 ---
 
