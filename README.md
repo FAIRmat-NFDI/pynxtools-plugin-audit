@@ -67,15 +67,16 @@ The audit starts with `pynxtools-xps`, covering these parsers:
 ├── README.md
 ├── CONTRIBUTING.md        # How to add a finding and the expected evidence format
 ├── TEMPLATE.md            # Per-parser documentation template
-├── findings-table.md      # Master overview across all plugins
+├── overview-table.csv      # Master overview across all plugins
 ├── audit_scan.py          #
 ├── results/               # Results from audit_scan.py in .csv format for each pynxtools plugin
-│   ├── xps.csv
-│   ├── mpes.csv
+│   ├── audit_xps.csv
+│   ├── audit_mpes.csv
 │   └── ...
 └── docs/
     ├── xps/
     │   ├── README.md      # Plugin overview
+    │   ├── xps.md         # Plugin table overview
     │   ├── scienta-omicron.md
     │   ├── specs.md
     │   ├── phi.md
@@ -116,11 +117,21 @@ The results from this file are found in the `results/` folder in `.csv` format.
 
 ---
 
-## Master findings table
+## General `overview-table.csv`
 
-[`findings-table.md`](findings-table.md) aggregates all findings across plugins with these columns:
+This table gives a general overview of the goal of this repo, general documentation and basic information for each `pynxtools` plugin with these columns:
 
-| Parser | Input format | URL | Documentation | Standard behaviour | Special behaviour | Behaviour to investigate | Formula / transformation | Units |
+| Plugin | State | Field | (Relevant) NeXus Application Definition | (GitHub) URL | Documentation | Reader | Known Issues |
+|---|---|---|---|---|---|---|---|
+
+
+---
+
+## Plugin findings table
+
+Inside docs, the general plugin findings table, for example, [`docs/xps/xps.csv`](docs/xps/xps.csv),  aggregates all findings across parsers for that specific plugin (in this case for `pynxtools-xps`) with these columns:
+
+| Parser | Input format | URL | Documentation | Standard behaviour | Special behaviour | Formula / transformation | Metadata maps| Notes |
 |---|---|---|---|---|---|---|---|---|
 
 ---
