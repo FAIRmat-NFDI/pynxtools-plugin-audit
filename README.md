@@ -67,7 +67,7 @@ The audit starts with `pynxtools-xps`, covering these parsers:
 ├── README.md
 ├── CONTRIBUTING.md        # How to add a finding and the expected evidence format
 ├── TEMPLATE.md            # Per-parser documentation template
-├── overview-table.csv      # Master overview across all plugins
+├── overview-table.pdf      # Master overview across all plugins
 ├── audit_scan.py          #
 ├── results/               # Results from audit_scan.py in .csv format for each pynxtools plugin
 │   ├── audit_xps.csv
@@ -117,7 +117,7 @@ The results from this file are found in the `results/` folder in `.csv` format.
 
 ---
 
-## General `overview-table.csv`
+## General `overview-table.pdf`
 
 This table gives a general overview of the goal of this repo, general documentation and basic information for each `pynxtools` plugin with these columns:
 
