@@ -159,7 +159,3 @@ otherwise: KE = energy                           (l. 485)
   - `"micrometer"` unit not in the scanner's list (`metadata.py` l. 123), probably a scanner heuristic and benign.
 - **Low/info:** silent `except IndexError`/`KeyError`/`sqlite3.OperationalError` (l. 281, 334, 541, 591, 1012), `.get('ValuesPerCurve', 1)` (l. 572) and `.get('NumValues', 1)` (l. 887) fallbacks, `interp1d` data-changing operation (l. 443), `min(len(a), len(b))` truncation (l. 489), `or 'entry'` fallback (l. 203), 15 hits for keys spelled differently.
 
-## Not verified
-
-- The NeXus writer and any code outside the excerpts inspected.
-- Whether `np.flip` of only the axis is compensated elsewhere.

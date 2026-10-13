@@ -109,7 +109,3 @@ Example (my own numbers): `energy_start = 1200.0` and `energy_start_units = "eV"
 
 - **Medium:** empty `_parse` (`parser.py` l. 54).
 - **Low/info:** silent `except ValueError` (l. 97), 6 TODO/FIXME markers, 1 hit for keys spelled differently.
-
-## Not verified
-
-- The bodies of `normalize_key`, `format` and `validate_types` (in `pynxtools_xps/mapping` and `data_model`), and what the VAMAS handler does with exceptions.

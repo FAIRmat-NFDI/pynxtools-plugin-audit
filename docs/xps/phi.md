@@ -33,7 +33,7 @@ n_values      = int(def_split[4])
 step          = −float(def_split[5])
 start         = float(def_split[6])
 stop          = float(def_split[7])
-dwell_time    = float(def_split[-3])     (units "s", hard-coded)
+- Kratos:dwell_time    = float(def_split[-3])     (units "s", hard-coded)
 pass_energy   = float(def_split[-2])
 energy_type   = "binding";  energy_units = "eV"     (hard-coded)
 ```
@@ -126,8 +126,3 @@ energy_reference   -> _convert_energy_referencing   (l. 215)
 - **Medium:** `np.flip` on the axis (l. 320); `matches_file` swallows `Exception` (l. 79).
 - **Low/info:** `or 'entry'` fallback (l. 115); zero-filled array default (`data_model.py` l. 351); 2 reductions; 7 hits for keys spelled differently.
 
-## Not verified
-
-- The bodies of `safe_arange_with_edges` and `validate_types`.
-- How `region_definition` and `spectrum_dict["data"]` are produced, and the signature the `(stop, start, step)` call maps to.
-- The file format specification for the region definition fields.

@@ -159,8 +159,3 @@ energy_unit     -> energy_scale_2 (l. 153);  energy_scale (l. 191), energy_scale
 - **Medium:** hard-coded `"eV"` and `"counts_per_second"` (`txt_parser.py` l. 220-221); `matches_file` swallows `Exception` in `hdf5_parser.py` l. 56, `igor_parser.py` l. 311 and 382 (classes `ScientaIgorParserOld` and `ScientaIgorParserPEAK`), and `txt_parser.py` l. 73.
 - **Low/info:** silent `except KeyError` (`hdf5_parser.py` l. 136), `except ValueError` (`metadata.py` l. 96, 105; `txt_parser.py` l. 195), zero-filled array default (`data_model.py` l. 41), 20 hits for keys spelled differently (e.g. case or underscore variants), 4 exact string comparisons, 1 `print`.
 
-## Not verified
-
-- The bodies of `get_default_unit`, `map_unit`, `map_value` and `_convert_energy_type`.
-- How `axes_labels_with_units` is built, and how the HDF5 reader sets units and `energy_scale`.
-- `_filter_metadata` exclusions, and whether `energy_axis` from the header ends up in the output metadata.

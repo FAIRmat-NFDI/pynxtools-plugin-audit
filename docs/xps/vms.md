@@ -173,7 +173,3 @@ Units are `"eV"` for excitation energy, sputter source energy, work function, pa
 - **Config:** 16 medium hits in `config_vms.json` are fallback chains (e.g. `['@attrs:energy_units', 'eV']`), a scanner false positive. One of them, `pass_energy/@units` (l. 136), has no literal fallback.
 - **Low/info:** 59 exact string comparisons, 5 TODO markers, `int(float(...))` or `split('.')[0]` truncations (2).
 
-## Not verified
-
-- The `y` extraction in `_add_irregular_data` (after l. 475), and the full `_add_mapping_data` context.
-- Where `abscissa_start`, `abscissa_step` and `source_energy` are read, and whether anything outside this folder flips `y`.

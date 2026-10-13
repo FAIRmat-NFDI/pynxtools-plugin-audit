@@ -73,7 +73,7 @@ values = [float(v) for v in line.strip().split()]
 data_channels[label].append(v)     for each (label, v) in zip(labels, values)
 ```
 
-Each data line is split on whitespace and converted to floats. If `in_remote_channel` is true, column 0 (`i == 0`) is skipped. `data_channels` is a dict of lists, one list per column label.
+- Kratos:Each data line is split on whitespace and converted to floats. If `in_remote_channel` is true, column 0 (`i == 0`) is skipped. `data_channels` is a dict of lists, one list per column label.
 
 **Step 7: step size (l. 790-793)**
 
@@ -97,7 +97,7 @@ scan_mode         -> _convert_energy_scan_mode (l. 90)
 Float conversion for `excitation_energy`, `kinetic_energy`, `work_function` and `pass_energy` (l. 93-99). Units are `"eV"` for `work_function`, `excitation_energy` and `pass_energy` (l. 111-113).
 
 ## Special behaviour
-
+- Kratos:
 1. **No binding/kinetic conversion.** The axis stays in the scale of the file. `excitation_energy` and `work_function` are parsed into metadata but are not used in any calculation.
 2. **No flip or reorder.** The axis direction is whatever the file contains.
 3. **Metadata from the first scan only (l. 286-296).** Every key not in `self._metadata_exclude_keys` is copied from `primary_scans[0]`. `analysis_method` also gets a `_long_name` entry via `_get_measurement_method_long`.
@@ -123,7 +123,3 @@ Float conversion for `excitation_energy`, `kinetic_energy`, `work_function` and 
 - **Medium:** UTC time zone assumed (`metadata.py` l. 55, 63); `matches_file` swallows `Exception` (`parser.py` l. 72); export-option defaults (`parser.py` l. 215, 247, 301).
 - **Low/info:** silent `except ValueError` (`metadata.py` l. 61) and `except UnicodeDecodeError` (`parser.py` l. 346); 11 exact string comparisons; 5 `.get(..., default)` fallbacks.
 
-## Not verified
-
-- Bodies of `check_uniform_step_width`, `_get_minimal_step` and `_convert_energy_type`. Note that `_get_minimal_step` lives in `numerics.py` and rounds to 2 decimals (`numerics.py` l. 105).
-- Where axis units and `_metadata_exclude_keys` are set, and how `in_remote_channel` and `normalized_labels_and_units` are built.

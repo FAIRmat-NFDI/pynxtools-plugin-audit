@@ -100,6 +100,3 @@ Each point says what the code does, why it may matter and how to check it.
 - **Medium:** `matches_file` swallows `Exception` (l. 69).
 - **Low/info:** silent fallback `.get('scan_mode', 'fixed_analyzer_transmission')` (l. 660); `np.zeros` allocations (l. 686, 713, 714, 718); rounding to 8 decimals (l. 691); 3 NeXus path literals in code; 7 exact string comparisons; 2 hits for keys spelled differently.
 
-## Not verified
-
-- Items 4 and 6 come from grep and `sed` output only.
