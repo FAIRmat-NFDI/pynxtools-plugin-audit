@@ -117,7 +117,7 @@ The results from this file are found in the `results/` folder in `.csv` format.
 
 ---
 
-## General `overview-table.xlsx`
+## General `overview-table.odt`
 
 This table gives a general overview of the goal of this repo, general documentation and basic information for each `pynxtools` plugin with these columns:
 
