@@ -15,7 +15,7 @@ The raw axis is relative (`i · step_size`). In FAT mode, per-channel shifts are
 | **Documentation** | [Data from SPECS instruments](https://fairmat-nfdi.github.io/pynxtools-xps/reference/specs.html) |
 | **Metadata map** | [metadata.py](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/main/src/pynxtools_xps/parsers/specs/sle/metadata.py), [config_specs_sle.json](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/main/src/pynxtools_xps/config/config_specs_sle.json) |
 
-**Standard behaviour.** Maps SPECS metadata to NeXus names (`Ebin`, `Ekin`, `Epass`, `Eexc`, `wf`) with eV units. Energy axis from start, step and number of points (BE: `start − i·step`; KE: `start + i·step`; `parser.py` l. 1077-1090; in my reading this branch is reached only when no axis is stored, see Step 8 below). Data is reshaped to `(n_energy, n_channels)` and stored as `(cycle, scan, energy)` or `(cycle, scan, channel, energy)`. Transmission-function KE axis: `KE = excitation_energy − BE`, with a flat transmission function of ones if absent.
+**Standard behaviour.** Maps SPECS metadata to SPECS file keys (`Ebin`, `Ekin`, `Epass`, `Eexc`, `wf`) with eV units. Energy axis from start, step and number of points (BE: `start − i·step`; KE: `start + i·step`; `parser.py` l. 1077-1090; in my reading this branch is reached only when no axis is stored, see Step 8 below). Data is reshaped to `(n_energy, n_channels)` and stored as `(cycle, scan, energy)` or `(cycle, scan, channel, energy)`. Transmission-function KE axis: `KE = excitation_energy − BE`, with a flat transmission function of ones if absent.
 
 **Special behaviour.**
 

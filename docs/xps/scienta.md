@@ -13,7 +13,7 @@ Three readers share no axis code. The axis comes from the file array (HDF5), the
 | **Documentation** | [Data from Scienta Omicron instruments](https://fairmat-nfdi.github.io/pynxtools-xps/reference/scienta.html) |
 | **Metadata map** | [metadata.py](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/main/src/pynxtools_xps/parsers/scienta/metadata.py), [config_scienta.json](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/main/src/pynxtools_xps/config/config_scienta.json), [config_scienta_hdf5.json](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/main/src/pynxtools_xps/config/config_scienta_hdf5.json) |
 
-**Standard behaviour.** The parser is chosen by file extension. The output is a `ParsedSpectrum` whose data is an xarray with `(cycle, scan, energy)` dims. Header fields are mapped to NeXus names in `metadata.py`.
+**Standard behaviour.** The parser is chosen by file extension. The output is a `ParsedSpectrum` whose data is an xarray with `(cycle, scan, energy)` dims. Header fields are mapped to parser-internal metadata keys in `metadata.py`.
 
 **Special behaviour.**
 
