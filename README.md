@@ -25,7 +25,6 @@ pynxtools parsers do a lot of implicit work: building axes, applying offsets, co
 | **Formulas / transformations** | Energy-axis construction, offsets, scaling, reshaping/transposing, unit conversions and any other math applied to the data, with file and line references. |
 | **Special behaviour** | Format-specific quirks, fallbacks and implicit assumptions (e.g. index fallbacks when an axis is missing). |
 | **Behaviour to investigate** | Unclear, undocumented or possibly inconsistent logic, flagged for verification or an upstream issue. |
-| **Units** | Which units are assumed, read from the file, or converted, and where. |
 
 ---
 
@@ -35,18 +34,15 @@ Plugins covered or planned:
 
 | Plugin | Status |
 |---|---|
-| `pynxtools-xps` | In progress |
+| `pynxtools-xps` | Completed |
 | `pynxtools-apm` | Planned |
-| `pynxtools-camels` | Planned |
 | `pynxtools-ellips` | Planned |
 | `pynxtools-em` | Planned |
-| `pynxtools-em-insitu` | Planned |
-| `pynxtools-focus` | Planned |
 | `pynxtools-igor` | Planned |
 | `pynxtools-mpes` | Planned |
 | `pynxtools-microstructure` | Planned |
 | `pynxtools-raman` | Planned |
-| `pynxtools-spm` | Planned |
+| `pynxtools-spm` | In progress |
 | `pynxtools-stm` | Planned |
 | `pynxtools-xrd` | Planned |
 
