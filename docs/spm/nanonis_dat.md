@@ -63,10 +63,10 @@ self.bias_sweep.scan_size_bias = (
 
 Formula:
 
-\[
+$$
 \Delta V_{\mathrm{bias}} =
 \frac{V_{\mathrm{end}}-V_{\mathrm{start}}}{N}
-\]
+$$
 
 where `scan_start_bias` and `scan_end_bias` are the sweep endpoints and `scan_points_bias` is the point count (l. 122–129). The result is written as `step_size_bias` with units at l. 132–137.
 
@@ -84,9 +84,9 @@ self.template[current_field] = flip_number * value
 
 Formula:
 
-\[
+$$
 I_{\mathrm{formatted}} = f_{\mathrm{flip}} I_{\mathrm{raw}}
-\]
+$$
 
 The formatter tries to obtain `flip_number` from an ELN key ending in `flip_sign` (l. 312–320), and defaults to `1` when the expression at l. 323 evaluates to a falsy value. A factor of `-1` reverses the current sign; `+1` leaves it unchanged.
 
@@ -103,9 +103,9 @@ di_by_dv = cal_dy_by_dx(
 
 The intended derived quantity is differential conductance:
 
-\[
+$$
 \frac{dI}{dV}
-\]
+$$
 
 `cal_dy_by_dx` is imported from `pynxtools_spm.nxformatters.helpers` (l. 40–44 ). It is calculated numerically using a second-order-accurate finite-difference method, implemented as Diff(axis=0, grid=V, acc=2) (helpers.py, lines 489–492) and the actual voltage values are used as the differentiation grid.
 
@@ -149,4 +149,3 @@ Because the current is multiplied by `flip_number` at l. 332 before `_construct_
 ## Scanner findings
 
 No scanner run was perform for `pynxtools-spm`.
-

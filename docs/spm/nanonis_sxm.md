@@ -127,3 +127,6 @@ The SXM parser reads the Nanonis file through `nanonispy`, normalizes header met
 - Calibration, offset, and numerical unit conversion
 - State shared between files or formatter instances
 - Timestamp parsing and acquisition-duration handling
+## Scanner findings
+
+No scanner run was perform for `pynxtools-spm`.
