@@ -127,7 +127,6 @@ Comment l. 250: "The step is the pixel pitch, so the axis values are pixel centr
 15. **Frame direction** missing in all layers gives an unsigned `y` silently (formatter l. 228–237).
 16. **Stale docstring.** `_nxdata_grp_from_conf_description()` docstring (formatter l. 277) describes forward/backward and line scans, not what the method does.
 17. **Memory.** The whole file is read for the header (l. 163–164) and again by gwyddionpy.
-18. **Inherited code.** Review `BrukerBase.rearrange_data_according_to_axes`, `derive_scan_2d_start_end()`, `_pixel_centres()` (not read).
 
 ## Scanner findings
 

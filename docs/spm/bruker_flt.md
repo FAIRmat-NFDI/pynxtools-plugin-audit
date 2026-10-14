@@ -135,7 +135,6 @@ Only when the config has no `0`/`1` axis entries (l. 390), the signal is 2D (l. 
 13. **Timestamp.** Naive, no timezone (formatter l. 188–196); unparsed date only logs a warning (l. 171–177).
 14. **Calibration of `channel.data`.** Confirm gwyddionpy returns the values in `si_unit_z` for all channel types (parser l. 150–151).
 15. **Cross-parser consistency.** Step size `R/N` matches the SPM formatter but not the TXT formatter (`R/(N-1)`).
-16. **Inherited code.** Review `BrukerBase`, `derive_scan_2d_start_end()`, `_pixel_centres()` and `_get_data_unit_and_others()` (not read).
 
 ## Scanner findings
 
