@@ -2,7 +2,7 @@
 
 ## Source files reviewed
 
-The descriptions below are based on the supplied parser sources from `src/pynxtools_em/parsers/` in [FAIRmat-NFDI/pynxtools-em](https://github.com/FAIRmat-NFDI/pynxtools-em/tree/develop/src/pynxtools_em/parsers), with line numbers referring to the main branch on 14th October. The repository's `develop` branch can change, so line numbers should be rechecked after updates.
+The descriptions below are based on the supplied parser sources from `src/pynxtools_em/parsers/` in [FAIRmat-NFDI/pynxtools-em](https://github.com/FAIRmat-NFDI/pynxtools-em/tree/develop/src/pynxtools_em/parsers), with line numbers referring to the develop branch on 14th October. The repository's `develop` branch can change, so line numbers should be rechecked after updates.
 
 - `hfive_base.py` — shared `HdfFiveBaseParser` (675 lines; HDF5 visitor, cache and report helpers).
 - `hfive_apex.py` — `HdfFiveEdaxApexParser` (899 lines).
