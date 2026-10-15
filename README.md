@@ -42,8 +42,8 @@ Plugins covered or planned:
 | `pynxtools-mpes` | Completed |
 | `pynxtools-microstructure` | Planned |
 | `pynxtools-raman` | In progress |
-| `pynxtools-spm` | Comppleted |
-| `pynxtools-stm` | Planned |
+| `pynxtools-spm` | Completed |
+| `pynxtools-xas` | Planned |
 | `pynxtools-xrd` | Planned |
 
 The audit starts with `pynxtools-xps`, covering these parsers:
