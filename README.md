@@ -37,12 +37,12 @@ Plugins covered or planned:
 | `pynxtools-xps` | Completed |
 | `pynxtools-apm` | Planned |
 | `pynxtools-ellips` | Planned |
-| `pynxtools-em` | Planned |
+| `pynxtools-em` | Completed |
 | `pynxtools-igor` | Planned |
-| `pynxtools-mpes` | Planned |
+| `pynxtools-mpes` | Completed |
 | `pynxtools-microstructure` | Planned |
-| `pynxtools-raman` | Planned |
-| `pynxtools-spm` | In progress |
+| `pynxtools-raman` | In progress |
+| `pynxtools-spm` | Comppleted |
 | `pynxtools-stm` | Planned |
 | `pynxtools-xrd` | Planned |
 
@@ -63,11 +63,11 @@ The audit starts with `pynxtools-xps`, covering these parsers:
 ├── README.md
 ├── CONTRIBUTING.md        # How to add a finding and the expected evidence format
 ├── TEMPLATE.md            # Per-parser documentation template
-├── overview-table.xlsx    # Master overview across all plugins
+├── overview-table.ods    # Master overview across all plugins
 ├── audit_scan.py          #
 ├── results/               # Results from audit_scan.py in .csv format for each pynxtools plugin
 │   ├── audit_xps.csv
-│   ├── audit_mpes.csv
+│   ├── ...
 │   └── ...
 └── docs/
     ├── xps/
