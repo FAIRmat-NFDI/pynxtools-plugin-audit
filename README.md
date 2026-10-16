@@ -144,6 +144,6 @@ When a finding appears to be a bug or a documentation gap, open an issue in the 
 
 ---
 
-## License
+## Contact person in FAIRmat for this audit repository
 
-TBD (e.g. CC BY 4.0 for documentation).
+Keila Moral Figueroa
