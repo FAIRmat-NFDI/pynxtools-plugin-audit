@@ -35,24 +35,16 @@ Plugins covered or planned:
 | Plugin | Status |
 |---|---|
 | `pynxtools-xps` | Completed |
-| `pynxtools-apm` | Planned |
-| `pynxtools-ellips` | Planned |
+| `pynxtools-apm` | Completed |
+| `pynxtools-ellips` | Completed |
 | `pynxtools-em` | Completed |
-| `pynxtools-igor` | Planned |
+| `pynxtools-igor` | Completed |
 | `pynxtools-mpes` | Completed |
-| `pynxtools-microstructure` | Planned |
-| `pynxtools-raman` | In progress |
+| `pynxtools-microstructure` | Completed |
+| `pynxtools-raman` | Completed |
 | `pynxtools-spm` | Completed |
-| `pynxtools-xas` | Planned |
-| `pynxtools-xrd` | Planned |
-
-The audit starts with `pynxtools-xps`, covering these parsers:
-
-- Scienta Omicron
-- SPECS
-- PHI Electronics
-- VAMAS (ISO)
-- Kratos
+| `pynxtools-xas` | Completed |
+| `pynxtools-xrd` | Completed |
 
 ---
 
