@@ -360,12 +360,12 @@ Same as xps. The numpy `ParsedSpectrum` becomes a `ParsedData` subclass, and `ge
 ## Phase 6: Resource optimisation
 
 ### Step 6.1: Detection without loading data
-- Velox: replace `emd.file_reader` in detection with an `h5py` check of `/Data` and `/Version` in the probe ([rsciio_velox.py:101](../packages/pynxtools-em/src/pynxtools_em/parsers/rsciio_velox.py#L101)).
+- Velox: replace `emd.file_reader` in detection with an `h5py` check of `/Data` and `/Version` in the probe ([rsciio_velox.py:101](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L101)).
 - TIFF: one tag read in the probe, shared by all TIFF parsers.
 - Target: on the benchmark from Step 0.2, peak RSS during detection stays below 2× the probe size, and each input file is opened at most twice (probe and parse).
 
 ### Step 6.2: Lazy data in the template
-- Allow handlers and parsers to place `h5py.Dataset`, `dask.array` or a `LazyArray(callable)` in `ParsedData.data`, and teach the `Writer` to stream them chunk-wise. The writer already supports chunked writes ([chunk.py](../packages/pynxtools/src/pynxtools/dataconverter/chunk.py)).
+- Allow handlers and parsers to place `h5py.Dataset`, `dask.array` or a `LazyArray(callable)` in `ParsedData.data`, and teach the `Writer` to stream them chunk-wise. The writer already supports chunked writes ([chunk.py](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/chunk.py)).
 - JsonMapReader: `hdfdict.load(lazy=True)` and read attributes in the same pass (one open).
 
 ### Step 6.3: Hashing once, optionally
