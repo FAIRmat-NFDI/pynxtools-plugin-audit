@@ -55,8 +55,11 @@ Plugins covered or planned:
 ├── README.md
 ├── CONTRIBUTING.md        # How to add a finding and the expected evidence format
 ├── TEMPLATE.md            # Per-parser documentation template
-├── overview-table.ods    # Master overview across all plugins
-├── audit_scan.py          #
+├── overview-table.ods     # Master overview across all plugins
+├── audit_scan.py       
+├── pynxtools-unification  # Comparison and unification strategy suggestion across plugins
+│   ├── FINDINGS.csv
+│   ├── IMPLEMENTATION.csv
 ├── results/               # Results from audit_scan.py in .csv format for each pynxtools plugin
 │   ├── audit_xps.csv
 │   ├── ...
