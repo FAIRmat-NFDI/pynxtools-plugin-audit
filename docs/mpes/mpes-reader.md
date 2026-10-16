@@ -378,7 +378,7 @@ If no xarray is found, the reader logs an informational message and skips the ob
 
 ## Special behaviour
 
-- The reader does not parse arbitrary MPES vendor files. It requires `/binned/BinnedData`, `/axes`, and optionally `/metadata` (`reader l.` 72–96).
+- The reader does not parse arbitrary MPES vendor files. It requires `/binned/BinnedData`, `/axes`, and, nominally, optionally `/metadata` (`reader l.` 72–96); in practice a file without `/metadata` raises `AttributeError` at `reader l.` 99 (see *Behaviour to investigate*).
 - Metadata before or outside `/metadata` is not captured; only the `/metadata` group is recursively converted (`reader l.` 93–96).
 - `VSet` keys are renamed only inside `metadata["file"]`; other metadata branches are untouched (`reader l.` 98–104).
 - Axis names come from HDF5 attributes, not from the dataset names `ax0`, `ax1`, etc. (`reader l.` 85–87).
@@ -393,7 +393,7 @@ If no xarray is found, the reader logs an informational message and skips the ob
 
 - **Required HDF5 layout.** The reader fails unless `/binned/BinnedData` and `/axes` exist. There is no support for alternative dataset names or layouts.
 - **Axis naming assumptions.** The code iterates all entries in `/axes`, but later reads units specifically from `ax{axis}` (`reader l.` 112–118). Nonstandard axis dataset names may cause units to be missed.
-- **Metadata presence.** `if "file" in metadata.keys()` (`reader l.` 99) assumes `metadata` is a dictionary. If `/metadata` is absent, `metadata` is `None`; the guard works, but an unexpected non-dict metadata structure could fail.
+- **Missing `/metadata` raises.** `metadata` is set to `None` when the group is absent (`reader l.` 95–97), but the next statement is `if "file" in metadata.keys()` (`reader l.` 99). `None.keys()` raises `AttributeError`, so a file without `/metadata` fails here even though the metadata is documented as optional. The `"metadata" in h5_file` check protects only the assignment, not this line. Not run on a real file; check with one that has no `/metadata`. A guard such as `if metadata and "file" in metadata` would fix it.
 - **`VSet` renaming is broad.** Any metadata key containing `VSet` is renamed, not only lens-voltage keys (`reader l.` 101–104).
 - **Silent lookup failures.** `get_data()` and `get_attr()` may return `None` after logging a warning. Whether the resulting NeXus field is omitted, written as null, or causes validation problems depends on the converter and JSON config.
 - **ELN path convention.** `get_eln_data()` uses `path`, while the method signature also accepts `key`. Config authors must know which value the `MultiFormatReader` passes for `@eln` mappings.
