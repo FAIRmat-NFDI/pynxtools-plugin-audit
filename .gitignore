@@ -1,0 +1,5 @@
+# log files from running 
+# uv run --directory packages/<pynxtools_package> pytest -v 2>&1 | tee pytest_<pynxtools_package>.log
+# from nomad-distro-dev/
+
+logs/
