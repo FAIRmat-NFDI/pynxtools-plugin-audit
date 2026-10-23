@@ -60,6 +60,11 @@ Plugins covered or planned:
 ├── pynxtools-unification  # Comparison and unification strategy suggestion across plugins
 │   ├── FINDINGS.csv
 │   ├── IMPLEMENTATION.csv
+│   └── pynxtools_baseline_scripts/   
+│       ├── BASELINE_GUIDE.md      # baseline building stratey overview
+│       ├── run_baseline.sh        # baseline orchestrating bash file
+│       ├── compare_baselines.py   # baseline comparison file
+│       ├── monitor_resources.py   # baseline computing resources monitoring file
 ├── results/               # Results from audit_scan.py in .csv format for each pynxtools plugin
 │   ├── audit_xps.csv
 │   ├── ...
