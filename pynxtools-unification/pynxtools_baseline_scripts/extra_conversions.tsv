@@ -1,0 +1,9 @@
+# package	case	reader	nxdl	ignore_undocumented	input_globs (relative to the package dir; $BASELINE_SCRIPT_DIR = folder of run_baseline.sh)	[optional convert kwargs, e.g. skip_verify=1]
+# NOTE: the em reader accepts ONE instrument file per conversion (several .edaxh5 at once -> "combination not supported"), so one row per file.
+pynxtools-em	default	em	NXem	1	tests/data/default/*
+pynxtools-em	ingan_eds_spectra	em	NXem	1	$BASELINE_SCRIPT_DIR/test_data/em/**/InGaN_nanowires_spectra.edaxh5 tests/data/default/em.oasis.specific.yaml tests/data/default/output.nxs_eln_data.yaml
+pynxtools-em	ingan_eds_map	em	NXem	1	$BASELINE_SCRIPT_DIR/test_data/em/**/InGaN_nanowires_map.edaxh5 tests/data/default/em.oasis.specific.yaml tests/data/default/output.nxs_eln_data.yaml
+pynxtools-em	ingan_eds_linescan	em	NXem	1	$BASELINE_SCRIPT_DIR/test_data/em/**/InGaN_nanowires_linescan.edaxh5 tests/data/default/em.oasis.specific.yaml tests/data/default/output.nxs_eln_data.yaml
+# microstructure: the reader needs ONE *.mtex.h5 (the suffix matters); a *.oasis.specific.yaml is optional.
+# It converts with reader=microstructure, nxdl=NXem, ignore_undocumented, skip_verify (see examples/oasisb/batch_process.py L227).
+pynxtools-microstructure	mtex_example	microstructure	NXem	1	$BASELINE_SCRIPT_DIR/test_data/microstructure/**/*.mtex.h5	skip_verify=1

@@ -29,7 +29,9 @@
 #                    `git status` stays clean)
 #   PACKAGES         space-separated package dir names to run, e.g.
 #                    "pynxtools pynxtools-xps"           (default: packages/pynxtools*)
-#   EXTRA_TSV        TSV of extra conversions (see write_default_extra_tsv below)
+#   EXTRA_TSV        TSV of extra conversions (default: extra_conversions.tsv next to
+#                    this script if it exists, else the built-in list below). Input
+#                    paths may use $BASELINE_SCRIPT_DIR and ** globs.
 #   STEP_TIMEOUT     seconds before one pytest run / conversion is killed (default 7200)
 #   SKIP_PYTEST=1    skip step 1 (then step 2 has nothing to replay)
 #   SKIP_REPLAY=1    skip step 2
@@ -69,6 +71,7 @@ PYBIN="$(dirname "$PYTHON")"
 export PATH="$PYBIN:$PATH"          # dataconverter / pynx / validate_nexus from the venv
 export PYTHONDONTWRITEBYTECODE=1    # keep package trees clean
 export PYTHONUNBUFFERED=1
+export BASELINE_SCRIPT_DIR="$SCRIPT_DIR"   # usable in extra_conversions.tsv paths
 export MPLBACKEND=Agg               # no plot windows from readers/tests
 
 mkdir -p "$OUT" "$TOOLS" "$ENVDIR"
@@ -288,13 +291,30 @@ if extra_tsv and os.path.isfile(extra_tsv):
         if len(cols) < 6 or cols[0] != pkg_name:
             continue
         _, case, reader, nxdl, ignore_undoc, patterns = cols[:6]
-        files = sorted(
-            f for p in patterns.split() for f in glob.glob(os.path.join(pkg_dir, p)) if os.path.isfile(f)
-        )
+        # optional 7th column: extra convert() kwargs, e.g. "skip_verify=1 append=0"
+        extra_kwargs = {}
+        for item in (cols[6].split() if len(cols) > 6 else []):
+            if "=" in item:
+                k, v = item.split("=", 1)
+                extra_kwargs[k] = {"1": True, "true": True, "True": True,
+                                   "0": False, "false": False, "False": False}.get(v, v)
+        files, missing = [], []
+        for p in patterns.split():
+            expanded = os.path.join(pkg_dir, os.path.expandvars(os.path.expanduser(p)))
+            hits = sorted(f for f in glob.glob(expanded, recursive=True) if os.path.isfile(f))
+            files += hits
+            if not hits:
+                missing.append(f"{p} -> {expanded}")
         call = {"input_file": files, "reader": reader, "nxdl": nxdl,
-                "ignore_undocumented": ignore_undoc.strip() in ("1", "true", "True")}
+                "ignore_undocumented": ignore_undoc.strip() in ("1", "true", "True"),
+                **extra_kwargs}
+        # every pattern must match something; otherwise the reader would silently
+        # convert only the remaining files (e.g. just the YAMLs)
+        for m in missing:
+            print(f"[extra_conversions] {pkg_name}/{case}: NO FILE MATCHES {m}", file=sys.stderr)
         emit(f"extra_{case}", {"source": "extra_tsv", "test_id": f"extra::{case}",
-                               "replayable": bool(files), "call": call})
+                               "replayable": bool(files) and not missing,
+                               "missing_inputs": missing, "call": call})
 PY
 
 # replay_convert.py: run one recorded conversion in a fresh process.
@@ -443,7 +463,7 @@ print(f"\nconversions: {len(crow)} total, {ok} OK, {len(crow) - ok} not OK "
 PY
 
 # Default extra conversions. Format (tab separated):
-#   package  case  reader  nxdl  ignore_undocumented(0/1)  input globs (relative to package dir)
+#   package  case  reader  nxdl  ignore_undocumented(0/1)  input globs (relative to package dir)  [extra convert kwargs]
 # pynxtools-em and pynxtools-apm currently mark their conversion test as skipped,
 # so their bundled default example is converted here explicitly.
 write_default_extra_tsv() {
@@ -453,7 +473,11 @@ write_default_extra_tsv() {
         "pynxtools-apm	default	apm	NXapm	1	tests/data/default/*" \
         > "$1"
 }
+if [[ -z "${EXTRA_TSV:-}" && -f "$SCRIPT_DIR/extra_conversions.tsv" ]]; then
+    EXTRA_TSV="$SCRIPT_DIR/extra_conversions.tsv"
+fi
 if [[ -n "${EXTRA_TSV:-}" ]]; then
+    echo "Extra conversions from: $EXTRA_TSV"
     cp "$EXTRA_TSV" "$TOOLS/extra_conversions.tsv"
 else
     write_default_extra_tsv "$TOOLS/extra_conversions.tsv"
@@ -666,7 +690,7 @@ for pkg in "${PKGS[@]}"; do
         F="$cdir/$name"
         export BASELINE_PACKAGE="$pkg" BASELINE_CASE="$name" BASELINE_STEP=convert
         if ! "$PYTHON" -c "import json,sys; sys.exit(0 if json.load(open('${F}_call.json'))['replayable'] else 1)"; then
-            echo "NOT_REPLAYABLE" > "${F}_STATUS.txt"; log "[$pkg] $name: not replayable (see ${name}_call.json)"; continue
+            echo "NOT_REPLAYABLE" > "${F}_STATUS.txt"; log "[$pkg] $name: NOT RUN - missing inputs or not replayable (see ${name}_call.json)"; continue
         fi
         ( cd "$cdir" && "$PYTHON" "$TOOLS/measure.py" "${F}_convert_resources.json" "$STEP_TIMEOUT" -- \
             "$PYTHON" "$TOOLS/replay_convert.py" "${F}_call.json" "${F}_output.nxs" ) > "${F}_convert.log" 2>&1
