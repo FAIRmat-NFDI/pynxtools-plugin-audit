@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 """
-unorthodox_scan.py - static scanner that flags suspicious behaviour in a pynxtools
+audit_scan.py - static scanner that flags suspicious behaviour in a pynxtools
 plugin (or any Python package): hard-coded values, unusual units, silent
 fallbacks, data-changing operations, swallowed exceptions, copy-pasted logic.
 
 It does NOT prove a bug. Every finding is a pointer for manual review.
 
 Usage (from the plugin root, next to pyproject.toml; Python >= 3.9):
-    python unorthodox_scan.py
-    python unorthodox_scan.py --inventory inventory.csv      # also annotate the ledger
-    python unorthodox_scan.py --include-tests --min-severity low
-    python unorthodox_scan.py --disable D01,D05,A03          # silence noisy rules
+    python audit_scan.py
+    python audit_scan.py --inventory inventory.csv      # also annotate the ledger
+    python audit_scan.py --include-tests --min-severity low
+    python audit_scan.py --disable D01,D05,A03          # silence noisy rules
 
 Outputs (written next to the script's working directory):
-    unorthodox_findings.csv           one row per finding
+    audit_findings.csv           one row per finding
     inventory_with_findings.csv  (only with --inventory) ledger + counts per unit
 """
 from __future__ import annotations
@@ -652,7 +652,7 @@ def iter_files(root: Path, include_tests: bool, include_nomad: bool):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     ap.add_argument("root", nargs="?", default=".")
-    ap.add_argument("--out", default="unorthodox_findings.csv")
+    ap.add_argument("--out", default="audit_findings.csv")
     ap.add_argument("--inventory", help="path to inventory.csv to annotate")
     ap.add_argument("--min-severity", choices=list(SEV), default="info")
     ap.add_argument("--disable", default="", help="comma-separated rule ids to skip")
