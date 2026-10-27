@@ -431,8 +431,10 @@ Never push the raw `baseline_<ts>` folder. Make a public copy with `sanitize_bas
 
 ```bash
 .venv/bin/python pynxtools_baseline_scripts/sanitize_baseline.py \
-    pynxtools_baseline_scripts/baseline_results/baseline_<ts> ~/public/baseline_<ts>
-# extra strings: --replace "Keila Moral=NAME"; just audit: --audit-only
+    pynxtools_baseline_scripts/baseline_results/baseline_<ts> ~/public/baseline_<ts> \
+    --term <first-name> --term <last-name> --keep <branch-to-keep>
+# --term: extra personal strings (case-insensitive); --keep: allowed exceptions;
+# github.com/<login>/<repo> URLs are kept unless --replace-github-urls; just audit: --audit-only
 ```
 
 Read `~/public/baseline_<ts>_sanitize_report.txt` (it is written next to the copy, not inside it) and fix every hit before `git push`. Install `gitleaks` or `trufflehog` for a second opinion; the script runs them when present. Mind GitHub's 100 MB per-file limit (use Git LFS for large `.nxs`) and the data licenses in `DATA_SOURCES.md`. Since 2026-10-27 `run_baseline.sh` no longer records host or user name (set `BASELINE_RECORD_IDENTITY=1` to keep them), strips credentials from git remote URLs, drops secret-looking env vars and redacts secret values in the copied `nomad.yaml`.

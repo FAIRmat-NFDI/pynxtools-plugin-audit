@@ -55,6 +55,7 @@ except ImportError:
     )
 
 TAG_VARS = ("BASELINE_PACKAGE", "BASELINE_STEP", "BASELINE_CASE")
+HOME = os.path.expanduser("~").rstrip("/") if os.path.expanduser("~") not in ("~", "/") else ""
 MB = 2**20
 
 PROC_FIELDS = [
@@ -140,7 +141,9 @@ class Monitor:
                             cmd = " ".join(proc.cmdline())
                         except (psutil.Error, OSError):
                             cmd = ""
-                        self.meta[key] = {"name": proc.name(), "ppid": proc.ppid(), "cmdline": cmd[:400]}
+                        # home path -> "~" before truncating, so no cut-off user name ends up in the csv
+                        cmd = cmd.replace(HOME, "~")[:400] if HOME else cmd[:400]
+                        self.meta[key] = {"name": proc.name(), "ppid": proc.ppid(), "cmdline": cmd}
                 tag = self._tag(key, proc)
             except (psutil.NoSuchProcess, psutil.ZombieProcess, psutil.AccessDenied):
                 continue

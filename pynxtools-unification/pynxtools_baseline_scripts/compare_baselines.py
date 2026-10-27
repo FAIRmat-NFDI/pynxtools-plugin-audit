@@ -338,6 +338,14 @@ def compare_h5(old, new, ignore, rtol, atol):
                 if ob.shape != nb.shape:
                     tgt.append(f"SHAPE   {p}: {ob.shape} -> {nb.shape}")
                     continue
+                if ob.is_virtual or nb.is_virtual:
+                    # compare the mapping, not the values: a sanitized copy points to $HOME/... sources
+                    # that do not exist, so its values read back as fill values
+                    vmap = lambda d: [(normalise_paths(v.file_name), v.dset_name) for v in d.virtual_sources()] \
+                        if d.is_virtual else "not virtual"
+                    if vmap(ob) != vmap(nb):
+                        tgt.append(f"VIRTUAL {p}: {vmap(ob)} -> {vmap(nb)}"[:400])
+                    continue
                 ok, why = values_equal(ob[()], nb[()], rtol, atol)
                 if not ok:
                     tgt.append(f"VALUE   {p}: {why}")
