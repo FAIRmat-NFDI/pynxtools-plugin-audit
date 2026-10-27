@@ -63,6 +63,9 @@ DEFAULT_IGNORE = [
     r"(^|/)profiling(/|$)",
     r"_elapsed_time$",
 ]
+# comma-separated lists whose order is not meaningful (built from Python sets, so the order
+# changes between runs with string hash randomisation, e.g. pynxtools-em hfive_apex.py atom_types)
+DEFAULT_UNORDERED = [r"(^|/)atom_types$"]
 VOLATILE_LINE = re.compile(
     r"(file_time|file_update_time|file_name|h5py_version|HDF5_Version|creator_version|NeXus_release|NeXus_repository|@version)"
 )
@@ -74,8 +77,13 @@ BASELINE_DIR = re.compile(r"[^\s'\"`]*baseline_\d{8}_\d{6}")
 HOME_DIR = re.compile(r"(/home/[^/\s'\"`]+|/Users/[^/\s'\"`]+|\$HOME)(?=/|\b|$)")
 
 
+_HOME = os.path.expanduser("~").rstrip("/")
+
+
 def normalise_paths(text):
     text = BASELINE_DIR.sub("<BASELINE>", text)
+    if len(_HOME) > 1:  # this machine's home, wherever it lives
+        text = text.replace(_HOME, "<HOME>")
     text = HOME_DIR.sub("<HOME>", text)
     return text.replace("$USER", "<USER>").replace("$HOSTNAME", "<HOST>")
 
@@ -312,7 +320,20 @@ def values_equal(a, b, rtol, atol):
         return repr(a) == repr(b), f"compare error: {exc}"
 
 
-def compare_h5(old, new, ignore, rtol, atol):
+def same_unordered(a, b):
+    """True if a and b are the same comma-separated items in another order."""
+    a, b = to_comparable(a), to_comparable(b)
+    if isinstance(a, np.ndarray) and a.size == 1:
+        a = a.item()
+    if isinstance(b, np.ndarray) and b.size == 1:
+        b = b.item()
+    if not (isinstance(a, str) and isinstance(b, str)):
+        return False
+    items = lambda s: sorted(x.strip() for x in s.split(","))
+    return items(a) == items(b)
+
+
+def compare_h5(old, new, ignore, rtol, atol, unordered=()):
     """returns (real_diffs, volatile_diffs) as lists of strings"""
     real, volatile = [], []
     is_volatile = lambda p: any(r.search(p) for r in ignore)
@@ -347,6 +368,9 @@ def compare_h5(old, new, ignore, rtol, atol):
                         tgt.append(f"VIRTUAL {p}: {vmap(ob)} -> {vmap(nb)}"[:400])
                     continue
                 ok, why = values_equal(ob[()], nb[()], rtol, atol)
+                if not ok and any(r.search(p) for r in unordered) and same_unordered(ob[()], nb[()]):
+                    volatile.append(f"ORDER   {p}: {why}")
+                    continue
                 if not ok:
                     tgt.append(f"VALUE   {p}: {why}")
         for p in sorted(set(ao) | set(an)):
@@ -390,6 +414,8 @@ def main():
     ap.add_argument("--rtol", type=float, default=1e-9, help="relative tolerance for float values")
     ap.add_argument("--atol", type=float, default=0.0, help="absolute tolerance for float values")
     ap.add_argument("--ignore", action="append", default=[], help="extra regex of HDF5 paths to treat as volatile")
+    ap.add_argument("--unordered", action="append", default=[],
+                    help="extra regex of HDF5 paths holding comma-separated lists whose order does not matter")
     ap.add_argument("--fail-on-resources", action="store_true")
     a = ap.parse_args()
 
@@ -401,6 +427,7 @@ def main():
     out = os.path.abspath(a.out or f"compare_{os.path.basename(old)}__vs__{os.path.basename(new)}")
     os.makedirs(out, exist_ok=True)
     ignore = [re.compile(r) for r in DEFAULT_IGNORE + a.ignore]
+    unordered = [re.compile(r) for r in DEFAULT_UNORDERED + a.unordered]
     if h5py is None:
         print("WARNING: h5py/numpy not importable, NeXus content will not be compared", file=sys.stderr)
 
@@ -497,7 +524,7 @@ def main():
             if h5py is not None:
                 try:
                     real, vol = compare_h5(onxs, nnxs,
-                                           ignore, a.rtol, a.atol)
+                                           ignore, a.rtol, a.atol, unordered)
                 except Exception as exc:
                     real, vol = [f"could not compare: {exc}"], []
                 row["h5_real_diffs"], row["h5_volatile_diffs"] = len(real), len(vol)

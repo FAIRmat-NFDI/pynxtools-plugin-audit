@@ -372,7 +372,8 @@ def h5_hits(p: Path, rx):
             for path, parent, name, link in _walk(f):
                 check(path + " (name)", name)
                 if isinstance(link, h5py.SoftLink):
-                    check(path + " (soft link)", link.path)
+                    check(path + " (soft link)", link.path)  # may dangle: do not follow
+                    continue
                 elif isinstance(link, h5py.ExternalLink):
                     check(path + " (external link)", f"{link.filename}:{link.path}")
                     continue
@@ -391,7 +392,7 @@ def h5_hits(p: Path, rx):
                         except Exception:
                             pass
     except Exception as e:
-        hits.append(("<file>", f"cannot open with h5py: {e}"))
+        hits.append(("<file>", f"could not be fully checked with h5py ({e}); the raw-byte check still applies"))
     return hits
 
 
