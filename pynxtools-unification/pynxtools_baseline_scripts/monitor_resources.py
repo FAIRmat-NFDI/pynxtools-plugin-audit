@@ -346,7 +346,6 @@ def main():
     mon = Monitor(root, a.out, a.interval)
     with open(os.path.join(a.out, "monitor_info.json"), "w") as fh:
         json.dump({"root_pid": root, "cmd": cmd, "interval_s": a.interval, "started": mon.t0,
-                   "host": os.uname().nodename if hasattr(os, "uname") else "",
                    "cpu_count": psutil.cpu_count(), "ram_total_mb": round(psutil.virtual_memory().total / MB)},
                   fh, indent=2)
     mon.run()

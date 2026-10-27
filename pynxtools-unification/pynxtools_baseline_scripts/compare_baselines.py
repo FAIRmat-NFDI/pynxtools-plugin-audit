@@ -68,6 +68,16 @@ VOLATILE_LINE = re.compile(
 )
 TIMESTAMP = re.compile(r"\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}:\d{2}(\.\d+)?([+-]\d{2}:?\d{2}|Z)?")
 LEVEL_MSG = re.compile(r"\b(WARNING|ERROR)\b:?\s*(.*)")
+# paths that differ between runs or machines, and the placeholders written by sanitize_baseline.py,
+# so a raw run and a sanitized (public) copy compare equal
+BASELINE_DIR = re.compile(r"[^\s'\"`]*baseline_\d{8}_\d{6}")
+HOME_DIR = re.compile(r"(/home/[^/\s'\"`]+|/Users/[^/\s'\"`]+|\$HOME)(?=/|\b|$)")
+
+
+def normalise_paths(text):
+    text = BASELINE_DIR.sub("<BASELINE>", text)
+    text = HOME_DIR.sub("<HOME>", text)
+    return text.replace("$USER", "<USER>").replace("$HOSTNAME", "<HOST>")
 
 
 # ----------------------------------------------------------------------------
@@ -148,6 +158,7 @@ def pct(r):
 def normalise_line(line, root):
     line = re.sub(r"[^\s'\"`]*/(conversions|tmp_files)/[^\s'\"`]*", "<PATH>", line)
     line = line.replace(root, "<BASELINE>")
+    line = normalise_paths(line)
     line = TIMESTAMP.sub("<TIME>", line)
     return line.rstrip()
 
@@ -269,10 +280,11 @@ def h5_items(path):
 
 def to_comparable(v):
     if isinstance(v, bytes):
-        return v.decode("utf-8", "replace")
+        v = v.decode("utf-8", "replace")
+    if isinstance(v, str):
+        return normalise_paths(v)
     if isinstance(v, np.ndarray) and v.dtype.kind in "OSU":
-        return np.array([x.decode("utf-8", "replace") if isinstance(x, bytes) else x for x in v.ravel()],
-                        dtype=object).reshape(v.shape)
+        return np.array([to_comparable(x) for x in v.ravel()], dtype=object).reshape(v.shape)
     return v
 
 
@@ -393,11 +405,17 @@ def main():
     rep += ["## 1. Environment", "", "| item | old | new |", "|---|---|---|"]
     so, sn = (os.path.join(b, "00_environment", "system.txt") for b in (old, new))
     po, pn = (os.path.join(b, "00_environment", "python.txt") for b in (old, new))
+    # the machine is identified by CPU model, CPU count and RAM, not by host name: host and user
+    # are no longer recorded, and sanitized copies show $HOSTNAME
+    machine_keys = ("CPU model", "CPUs", "RAM total (MB)")
     for label, fo_, fn_, key in [("host", so, sn, "host"), ("OS", so, sn, "PRETTY_NAME"),
-                                 ("CPUs", so, sn, "cpus"), ("Python", po, pn, "version")]:
+                                 ("CPU model", so, sn, "Model name"), ("CPUs", so, sn, "cpus"),
+                                 ("RAM total (MB)", so, sn, "Mem"), ("Python", po, pn, "version")]:
         vo, vn = first_line_with(fo_, key), first_line_with(fn_, key)
-        rep.append(f"| {label} | {vo} | {vn} |" + (" ⚠️ differs" if vo != vn and label in ("host", "CPUs") else ""))
-    if first_line_with(so, "host") != first_line_with(sn, "host"):
+        if key == "Mem":
+            vo, vn = (v.split()[0] if v else "" for v in (vo, vn))
+        rep.append(f"| {label} | {vo or '–'} | {vn or '–'} |" + (" ⚠️ differs" if vo != vn and label in machine_keys else ""))
+    if any(first_line_with(so, k) != first_line_with(sn, k) for k in ("Model name", "cpus")):
         rep += ["", "> ⚠️ Different machines: resource numbers are not directly comparable."]
     go, gn = parse_git(old), parse_git(new)
     rep += ["", "**Git state**", "", "| repo | old | new |", "|---|---|---|"]

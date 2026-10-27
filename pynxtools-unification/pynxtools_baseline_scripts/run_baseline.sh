@@ -540,9 +540,12 @@ log "Recording environment in $ENVDIR"
 export BASELINE_PACKAGE="-" BASELINE_STEP="environment" BASELINE_CASE="-"
 {
     echo "date:       $(date -Iseconds 2>/dev/null || date)"
-    echo "host:       $(hostname)"
-    echo "user:       $(id -un)"
-    echo "uname:      $(uname -a)"
+    # host and user name are only recorded on request (results may be published)
+    if [[ "${BASELINE_RECORD_IDENTITY:-0}" == "1" ]]; then
+        echo "host:       $(hostname)"
+        echo "user:       $(id -un)"
+    fi
+    echo "uname:      $(uname -srmv)"
     [[ -f /etc/os-release ]] && grep -E '^(PRETTY_NAME|VERSION_ID)=' /etc/os-release
     command -v sw_vers >/dev/null && sw_vers
     echo "cpus:       $(getconf _NPROCESSORS_ONLN 2>/dev/null)"
@@ -613,7 +616,7 @@ git_state() {  # $1 = label, $2 = repo dir
         "$(git -C "$dir" rev-parse --abbrev-ref HEAD)" \
         "$dirty" \
         "$(git -C "$dir" log -1 --format=%cI)" \
-        "$(git -C "$dir" remote get-url origin 2>/dev/null)"
+        "$(git -C "$dir" remote get-url origin 2>/dev/null | sed -E 's#(://)[^/@]*@#\1#')"
     if [[ "$dirty" != "0" ]]; then
         mkdir -p "$ENVDIR/uncommitted_changes"
         { git -C "$dir" status --porcelain; echo; git -C "$dir" diff HEAD; } \
@@ -628,11 +631,16 @@ git_state() {  # $1 = label, $2 = repo dir
     [[ -e "$defs/.git" ]] && git_state nexus-definitions "$defs"
 } > "$ENVDIR/git_state.tsv"
 git -C "$DISTRO_DIR" submodule status --recursive > "$ENVDIR/git_submodules.txt" 2>&1
-for f in pyproject.toml uv.lock nomad.yaml; do
+for f in pyproject.toml uv.lock; do
     [[ -f "$DISTRO_DIR/$f" ]] && cp "$DISTRO_DIR/$f" "$ENVDIR/distro_$f"
 done
+# nomad.yaml can hold passwords and API secrets: keep its structure, redact the values
+[[ -f "$DISTRO_DIR/nomad.yaml" ]] && sed -E \
+    's/^([[:space:]]*[A-Za-z0-9_]*(password|passwd|secret|token|api_key|key|auth)[A-Za-z0-9_]*:[[:space:]]*).+$/\1<redacted>/I' \
+    "$DISTRO_DIR/nomad.yaml" > "$ENVDIR/distro_nomad.yaml"
 # selected env vars only (never dump the full environment: it may hold secrets)
 env | grep -E '^(NOMAD_[A-Z_]*(MODE|CONFIG)|UV_[A-Z_]*|VIRTUAL_ENV|PYTHON[A-Z_]*|OMP_NUM_THREADS|MKL_NUM_THREADS|HDF5_[A-Z_]*)=' \
+    | grep -viE '(TOKEN|PASSWORD|PASSWD|SECRET|KEY|AUTH|CREDENTIAL)[A-Z_]*=' \
     > "$ENVDIR/env_vars.txt" 2>/dev/null || true
 
 # CLI entry point names changed over time (pynx vs. dataconverter/validate_nexus/read_nexus)

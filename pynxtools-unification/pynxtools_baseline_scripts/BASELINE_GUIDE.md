@@ -340,7 +340,13 @@ For each package, the script does this:
 5. **Runs extra conversions from a TSV file**, for cases that the test suites
    skip. The built-in list covers the em and apm `default` examples. To add more
    (for example datasets from a plugin's `examples/` folder), write a
-   tab-separated file and pass it with `EXTRA_TSV=...`:
+   tab-separated file named `extra_conversions.tsv` and put it next to `run_baseline.sh`.
+   The script picks it up automatically, or you can pass any other file with `EXTRA_TSV=...`.
+   Input paths may use `$BASELINE_SCRIPT_DIR` (the folder of the script) and `**`
+   globs. A ready file with the em `default` and Zenodo `ingan_eds` cases is in
+   `extra_conversions.tsv`. A conversion can report `OK` even when the reader
+   silently skipped an unreadable file, so check `output_mb` and `*_read.log` to
+   confirm that the data really ended up in the file:
 
    ```
    # package	case	reader	nxdl	ignore_undocumented	input_globs (relative to package dir)
@@ -418,6 +424,18 @@ step 1. `MANIFEST.sha256` lists a checksum for every file, so you can later
 prove the baseline was not altered.
 
 ---
+
+## Step 9: Publish a sanitized copy (optional)
+
+Never push the raw `baseline_<ts>` folder. Make a public copy with `sanitize_baseline.py`; it replaces your home path, user name and host name with `$HOME`, `$USER` and `$HOSTNAME` (in text files, file names and HDF5/.nxs strings), rewrites `MANIFEST.sha256`, and audits the copy for secrets:
+
+```bash
+.venv/bin/python pynxtools_baseline_scripts/sanitize_baseline.py \
+    pynxtools_baseline_scripts/baseline_results/baseline_<ts> ~/public/baseline_<ts>
+# extra strings: --replace "Keila Moral=NAME"; just audit: --audit-only
+```
+
+Read `~/public/baseline_<ts>_sanitize_report.txt` (it is written next to the copy, not inside it) and fix every hit before `git push`. Install `gitleaks` or `trufflehog` for a second opinion; the script runs them when present. Mind GitHub's 100 MB per-file limit (use Git LFS for large `.nxs`) and the data licenses in `DATA_SOURCES.md`. Since 2026-10-27 `run_baseline.sh` no longer records host or user name (set `BASELINE_RECORD_IDENTITY=1` to keep them), strips credentials from git remote URLs, drops secret-looking env vars and redacts secret values in the copied `nomad.yaml`.
 
 ## Output layout
 
