@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-raman/conversions/pynxtools-raman-rod-reader-nxraman/pynxtools-raman-rod-reader-nxraman_output.nxs"
+  ],
+  "started": "2026-10-26T16:25:01",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.816,
+  "user_cpu_s": 0.948,
+  "sys_cpu_s": 0.906,
+  "peak_rss_mb": 111.0
+}

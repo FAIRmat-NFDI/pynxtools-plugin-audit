@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-sle-reader-nxxps/pynxtools-xps-specs-sle-reader-nxxps_output.nxs"
+  ],
+  "started": "2026-10-26T16:30:34",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 3.022,
+  "user_cpu_s": 3.078,
+  "sys_cpu_s": 0.984,
+  "peak_rss_mb": 199.3
+}

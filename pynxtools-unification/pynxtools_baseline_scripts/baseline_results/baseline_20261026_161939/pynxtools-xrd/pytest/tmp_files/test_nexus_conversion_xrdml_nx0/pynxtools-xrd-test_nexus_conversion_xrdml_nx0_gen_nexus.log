@@ -1,0 +1,486 @@
+════════════════════════════════════════════════════════════
+NeXus file: output.nxs
+
+GROUP / [NXroot]
+  @HDF5_Version = 2.0.0  [OPTIONAL]
+  @NeXus_release = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+  @NeXus_repository = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+  @creator = pynxtools  [OPTIONAL]
+  @creator_version = 0.16.0.post1.dev18+g59f03be0d  [OPTIONAL]
+  @default = entry  [OPTIONAL]
+  @file_name = output.nxs  [OPTIONAL]
+  @file_time = 2026-10-26 16:31:35.329676+01:00  [OPTIONAL]
+  @file_update_time = 2026-10-26 16:31:35.329676+01:00  [OPTIONAL]
+  @h5py_version = 3.16.0  [OPTIONAL]
+════════════════════════════════════════════════════════════
+
+GROUP /entry [NXentry]  (6 members)
+  Concept   : NXxrd_pan/ENTRY  [REQUIRED]
+  Inheritance:
+    NXxrd_pan/ENTRY
+    NXxrd/ENTRY
+    NXmonopd/ENTRY
+    NXentry
+      Doc       : (**required**) :ref:`NXentry` describes the measurement. The top-level NeXus group
+                  which contains all the data and associated information that comprise a single
+                  measurement. It is mandatory that there is at least one group of this type in the
+                  NeXus file.
+  @default = experiment_result  [OPTIONAL]
+  FIELD /entry/definition  shape=()  dtype=object
+    Value     : NXxrd_pan
+    Concept   : NXxrd_pan/ENTRY/definition  [REQUIRED]
+    Inheritance:
+      NXxrd_pan/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXxrd/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms
+      NXmonopd/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms
+      NXentry/definition
+        Doc       : (alternate use: see same field in :ref:`NXsubentry` for preferred) Official
+                    NeXus NXDL schema to which this entry conforms which must be the name of the
+                    NXDL file (case sensitive without the file extension) that the NXDL schema is
+                    defined in. For example the ``definition`` field for a file that conformed to
+                    the *NXarpes.nxdl.xml* definition must contain the string **NXarpes**. This
+                    field is provided so that :ref:`NXentry` can be the overlay position in a NeXus
+                    data file for an application definition and its set of groups, fields, and
+                    attributes. *It is advised* to use :ref:`NXsubentry`, instead, as the overlay
+                    position.
+    Enums     : [NXxrd_pan] NXxrd_pan
+    Enums     : [NXxrd_pan] NXxrd_pan
+    Enums     : [NXxrd] NXxrd
+    Enums     : [NXmonopd] NXmonopd
+    @URL = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+    @version = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+
+  GROUP /entry/experiment_config [NXobject]  (3 members)
+    Concept   : NXxrd_pan/ENTRY/experiment_config  [OPTIONAL]
+    Inheritance:
+      NXxrd_pan/ENTRY/experiment_config
+        Doc       : Collect user inputs e.g. name or path of the input file.
+    FIELD /entry/experiment_config/count_time  shape=(1,)  dtype=float64
+      Value     : [39.27]
+      Concept   : NXxrd_pan/ENTRY/experiment_config/count_time  [REQUIRED]
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_config/count_time
+          Doc       : Total time of count.
+      @units = s  [UNIT: NX_TIME]
+
+    GROUP /entry/experiment_config/omega [NXobject]  (3 members)
+      Concept   : NXxrd_pan/ENTRY/experiment_config/omega  [REQUIRED]
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_config/omega
+      FIELD /entry/experiment_config/omega/end  shape=()  dtype=float64
+        Value     : 34.99968294
+        Concept   : NXxrd_pan/ENTRY/experiment_config/omega/end  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/experiment_config/omega/end
+            Doc       : Ending value of the incident angle.
+        @units = deg  [UNIT: NX_ANGLE]
+      FIELD /entry/experiment_config/omega/start  shape=()  dtype=float64
+        Value     : 2.00328257
+        Concept   : NXxrd_pan/ENTRY/experiment_config/omega/start  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/experiment_config/omega/start
+            Doc       : Starting value of the incident angle.
+        @units = deg  [UNIT: NX_ANGLE]
+      FIELD /entry/experiment_config/omega/step  shape=()  dtype=float64
+        Value     : 0.01
+        Concept   : NXxrd_pan/ENTRY/experiment_config/omega/step  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/experiment_config/omega/step
+            Doc       : Minimum step size in the between two incident angles.
+        @units = deg  [UNIT: NX_ANGLE]
+
+    GROUP /entry/experiment_config/two_theta [NXobject]  (3 members)
+      Concept   : NXxrd_pan/ENTRY/experiment_config/two_theta  [REQUIRED]
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_config/two_theta
+      FIELD /entry/experiment_config/two_theta/end  shape=()  dtype=float64
+        Value     : 69.99936587
+        Concept   : NXxrd_pan/ENTRY/experiment_config/two_theta/end  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/experiment_config/two_theta/end
+            Doc       : Ending value of the diffraction angle.
+        @units = deg  [UNIT: NX_ANGLE]
+      FIELD /entry/experiment_config/two_theta/start  shape=()  dtype=float64
+        Value     : 4.00656514
+        Concept   : NXxrd_pan/ENTRY/experiment_config/two_theta/start  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/experiment_config/two_theta/start
+            Doc       : Starting value of the diffraction angle.
+        @units = deg  [UNIT: NX_ANGLE]
+      FIELD /entry/experiment_config/two_theta/step  shape=()  dtype=float64
+        Value     : 0.01
+        Concept   : NXxrd_pan/ENTRY/experiment_config/two_theta/step  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/experiment_config/two_theta/step
+            Doc       : Minimum step size in-between two diffraction angles.
+        @units = deg  [UNIT: NX_ANGLE]
+
+  GROUP /entry/experiment_result [NXdata]  (4 members)
+    Concept   : NXxrd_pan/ENTRY/experiment_result  [REQUIRED]
+    Inheritance:
+      NXxrd_pan/ENTRY/experiment_result
+        Doc       : All experiment results data such as scattering angle (2theta), intensity,
+                    incident angle, scattering vector, etc will be stored here.
+      NXxrd/ENTRY/DATA
+      NXmonopd/ENTRY/DATA
+      NXentry/DATA
+        Doc       : The data group .. note:: Before the NIAC2016 meeting [#]_, at least one
+                    :ref:`NXdata` group was required in each :ref:`NXentry` group. At the NIAC2016
+                    meeting, it was decided to make :ref:`NXdata` an optional group in
+                    :ref:`NXentry` groups for data files that do not use an application definition.
+                    It is recommended strongly that all NeXus data files provide a NXdata group. It
+                    is permissible to omit the NXdata group only when defining the default plot is
+                    not practical or possible from the available data. For example, neutron event
+                    data may not have anything that makes a useful plot without extensive
+                    processing. Certain application definitions override this decision and require
+                    an :ref:`NXdata` group in the :ref:`NXentry` group. The ``minOccurs=0``
+                    attribute in the application definition will indicate the :ref:`NXdata` group is
+                    optional, otherwise, it is required. .. [#] NIAC2016:
+                    https://www.nexusformat.org/NIAC2016.html,
+                    https://github.com/nexusformat/NIAC/issues/16
+      NXobject/DATA
+      NXdata
+        Doc       : The :ref:`NXdata` class is designed to encapsulate all the information required
+                    for a set of data to be plotted. NXdata groups contain plottable data (also
+                    referred to as *signals* or *dependent variables*) and their associated axis
+                    coordinates (also referred to as *axes* or *independent variables*). The actual
+                    names of the :ref:`DATA </NXdata/DATA-field>` and :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields can be chosen :ref:`freely <validItemName>`, as
+                    indicated by the upper case (this is a common convention in all NeXus classes).
+                    .. note:: ``NXdata`` provides data and coordinates to be plotted but does not
+                    describe how the data is to be plotted or even the dimensionality of the plot.
+                    https://www.nexusformat.org/NIAC2018Minutes.html#nxdata-plottype--attribute ..
+                    include:: data/index.rst :start-line: 1 .. admonition:: Example of a simple
+                    curve plot .. code-block:: data:NXdata @signal = "data" @axes = ["x"] data:
+                    float[100] x: float[100] More complex cases are supported * histogram data:
+                    ``x`` has one more value than ``data``. * alternative axes: instead of a single
+                    ``x`` axis you can have several axes, one of which being the default. * signals
+                    with more than one dimension: ``data`` could be 2D with axes ``x`` and ``y``
+                    along each dimension. * axes with more than one dimension: ``data`` could be 2D
+                    with axes ``x`` and ``y`` also being 2D, providing a unique ``(x, y)``
+                    coordinate for each ``data`` point. **Signals:** .. index:: plotting ..
+                    admonition:: Defined by * :ref:`DATA </NXdata/DATA-field>` fields * the
+                    :ref:`signal </NXdata@signal-attribute>` attribute * the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute The
+                    :ref:`DATA </NXdata/DATA-field>` fields contain the signal values to be plotted.
+                    The name of the field to be used as the *default plot signal* is provided by the
+                    :ref:`signal </NXdata@signal-attribute>` attribute. The names of the fields to
+                    be used as *secondary plot signals* are provided by the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute. ..
+                    admonition:: An example with three signals, one of which being the default ..
+                    code-block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2",
+                    "data3"] data1: float[10,20,30] # the default signal data2: float[10,20,30]
+                    data3: float[10,20,30] **Axes:** .. index:: axes (attribute) .. index::
+                    coordinates .. admonition:: Defined by * :ref:`AXISNAME </NXdata/AXISNAME-
+                    field>` fields * the :ref:`axes </NXdata@axes-attribute>` attribute *
+                    :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` attributes The
+                    fields and attributes are defined as follows 1. The :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields contain the axis coordinates associated with
+                    the signal values. 2. The :ref:`axes </NXdata@axes-attribute>` attribute
+                    provides the names of the :ref:`AXISNAME </NXdata/AXISNAME-field>` fields to be
+                    used as the `default axis` for each dimension of the :ref:`DATA </NXdata/DATA-
+                    field>` fields. 3. The :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-
+                    attribute>` attributes describe the :ref:`DATA </NXdata/DATA-field>` dimensions
+                    spanned by the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` fields.
+                    The fields and attributes have the following constraints 1. The length of the
+                    :ref:`axes </NXdata@axes-attribute>` attribute must be equal to the rank of the
+                    :ref:`DATA </NXdata/DATA-field>` fields. When a particular dimension has no
+                    default axis, the string “.” is used in that position. 2. The number of values
+                    in :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` must be equal to
+                    the rank of the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` field. 3.
+                    When :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` is missing for
+                    a given :ref:`AXISNAME </NXdata/AXISNAME-field>` field, the positions of the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field name in the :ref:`axes
+                    </NXdata@axes-attribute>` attribute are used. 4. When :ref:`AXISNAME_indices
+                    </NXdata@AXISNAME_indices-attribute>` is the same as the indices of "AXISNAME"
+                    in the :ref:`axes </NXdata@axes-attribute>` attribute, there is no need to
+                    provide :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 5. The
+                    indices of "AXISNAME" in the :ref:`axes </NXdata@axes-attribute>` attribute must
+                    be a subset of :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 6.
+                    The shape of an :ref:`AXISNAME </NXdata/AXISNAME-field>` field must correspond
+                    to the shape of the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This
+                    means that for each dimension ``i`` in ``[0, AXISNAME.ndim)`` spanned by axis
+                    field :ref:`AXISNAME </NXdata/AXISNAME-field>`, the number of axis values
+                    ``AXISNAME.shape[i]`` along dimension ``i`` must be equal to the number of data
+                    points ``DATA.shape[AXISNAME_indices[i]]`` along dimension ``i`` or one more
+                    than the number of data points ``DATA.shape[AXISNAME_indices[i]]+1`` in case the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field contains histogram bin edges
+                    along dimension ``i``. Highlight consequences of these constraints 1. An
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field can have more than one dimension
+                    and can therefore span more than one :ref:`DATA </NXdata/DATA-field>` dimension.
+                    Conversely, one :ref:`DATA </NXdata/DATA-field>` dimension can be spanned by
+                    more than one :ref:`AXISNAME </NXdata/AXISNAME-field>` field. The default axis
+                    name (if any) of each dimension can be found in the :ref:`axes </NXdata@axes-
+                    attribute>` attribute. 2. A list of all available axes is not provided directly.
+                    All strings in the :ref:`axes </NXdata@axes-attribute>` attribute (excluding the
+                    “.” string) are axis field names. In addition the prefix of an attribute ending
+                    with the string "_indices" is also an axis field name. .. admonition:: The
+                    following example covers all axes features supported (see
+                    :ref:`sphx_glr_classes_base_classes_data_plot_fscan2d.py`) .. code-block::
+                    data:NXdata @signal = "data" @axes = ["x_set", "y_set", "."] # default axes for
+                    all three dimensions @x_encoder_indices = [0, 1] @y_encoder_indices = 1 # or [1]
+                    data: float[10,7,1024] x_encoder: float[11,7] # coordinates along the first and
+                    second dimensions y_encoder: float[7] # coordinates along the second dimension
+                    x_set: float[10] # default coordinates along the first dimension y_set: float[7]
+                    # default coordinates along the second dimension **Uncertainties:** ..
+                    admonition:: Defined by * :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-
+                    field>` fields Standard deviations on data values as well as coordinates can be
+                    provided by :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-field>` fields
+                    where ``FIELDNAME`` is the name of a :ref:`DATA </NXdata/DATA-field>` field or
+                    an :ref:`AXISNAME </NXdata/AXISNAME-field>` field. .. admonition:: An example of
+                    uncertainties on the signal, auxiliary signals and axis coordinates .. code-
+                    block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2", "data3"]
+                    @axes = ["x", ".", "z"] data1: float[10,20,30] data2: float[10,20,30] data3:
+                    float[10,20,30] x: float[10] z: float[30] data1_errors: float[10,20,30]
+                    data2_errors: float[10,20,30] data3_errors: float[10,20,30] x_errors: float[10]
+                    z_errors: float[30]
+    NXdata    : [v3] signal=intensity, 1 axis dataset(s)
+    @axes = two_theta  [OPTIONAL]
+    @signal = intensity  [OPTIONAL]
+    FIELD /entry/experiment_result/intensity  shape=(5027,)  dtype=float64
+      Dataset referenced as NXdata SIGNAL
+      Value     : [1305. 1310. 1345. ...  170.  189.  171.]
+      Concept   : NXxrd_pan/ENTRY/experiment_result/intensity  [REQUIRED]
+      Dims      : nDet
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_result/intensity
+          Doc       : Number of scattered electrons per unit time.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+    FIELD /entry/experiment_result/omega  shape=(5027,)  dtype=float64
+      Value     : [ 2.00328257  2.00984771  2.01641285 ... 34.98655266 34.9931178...
+      Concept   : NXxrd_pan/ENTRY/experiment_result/omega  [OPTIONAL]
+      Dims      : nDet
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_result/omega
+          Doc       : Incident angle of the diffractogram.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+      @units = deg  [OPTIONAL]
+    FIELD /entry/experiment_result/phi  shape=(1,)  dtype=float64
+      Value     : [260.6]
+      Concept   : NXxrd_pan/ENTRY/experiment_result/phi  [OPTIONAL]
+      Dims      : nDet
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_result/phi
+          Doc       : The phi range of the diffractogram.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+      @units = deg  [OPTIONAL]
+    FIELD /entry/experiment_result/two_theta  shape=(5027,)  dtype=float64
+      Dataset referenced as NXdata AXIS #0
+      Value     : [ 4.00656514  4.01969542  4.03282571 ... 69.9731053  69.98623559...
+      Concept   : NXxrd_pan/ENTRY/experiment_result/two_theta  [REQUIRED]
+      Dims      : nDet
+      Inheritance:
+        NXxrd_pan/ENTRY/experiment_result/two_theta
+          Doc       : Two-theta (scattering angle) of the diffractogram.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+      @units = deg  [OPTIONAL]
+
+  GROUP /entry/instrument [NXinstrument]  (2 members)
+    Concept   : NXxrd_pan/ENTRY/INSTRUMENT  [REQUIRED]
+    Inheritance:
+      NXxrd_pan/ENTRY/INSTRUMENT
+      NXxrd/ENTRY/INSTRUMENT
+      NXmonopd/ENTRY/INSTRUMENT
+      NXentry/INSTRUMENT
+      NXinstrument
+        Doc       : Collection of the components of the instrument or beamline. Template of
+                    instrument descriptions comprising various beamline components. Each component
+                    will also be a NeXus group defined by its distance from the sample. Negative
+                    distances represent beamline components that are before the sample while
+                    positive distances represent components that are after the sample. This device
+                    allows the unique identification of beamline components in a way that is valid
+                    for both reactor and pulsed instrumentation.
+
+    GROUP /entry/instrument/detector [NXdetector]  (2 members)
+      Concept   : NXxrd_pan/ENTRY/INSTRUMENT/DETECTOR  [REQUIRED]
+      Inheritance:
+        NXxrd_pan/ENTRY/INSTRUMENT/DETECTOR
+        NXxrd/ENTRY/INSTRUMENT/DETECTOR
+        NXmonopd/ENTRY/INSTRUMENT/DETECTOR
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /entry/instrument/detector/scan_axis  shape=()  dtype=object
+        Value     : Gonio
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/DETECTOR/scan_axis  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/DETECTOR/scan_axis
+            Doc       : Axis scanned.
+      FIELD /entry/instrument/detector/scan_mode  shape=()  dtype=object
+        Value     : line
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/DETECTOR/scan_mode  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/DETECTOR/scan_mode
+            Doc       : Mode of scan.
+
+    GROUP /entry/instrument/source [NXsource]  (7 members)
+      Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE  [REQUIRED]
+      Inheritance:
+        NXxrd_pan/ENTRY/INSTRUMENT/SOURCE
+        NXmonopd/ENTRY/INSTRUMENT/SOURCE
+        NXinstrument/SOURCE
+        NXsource
+          Doc       : Radiation source emitting a beam. Examples include particle sources
+                      (electrons, neutrons, protons) or sources for electromagnetic radiation
+                      (photons). This base class can also be used to describe neutron or x-ray
+                      storage ring/facilities.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /entry/instrument/source/k_alpha_one  shape=()  dtype=float64
+        Value     : 1.540598
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/k_alpha_one  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/k_alpha_one
+            Doc       : Wavelength of the K\u03b1 1 line.
+        @units = angstrom  [REQUIRED]
+      FIELD /entry/instrument/source/k_alpha_two  shape=()  dtype=float64
+        Value     : 1.544426
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/k_alpha_two  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/k_alpha_two
+            Doc       : Wavelength of the K\u03b1 2 line.
+        @units = angstrom  [REQUIRED]
+      FIELD /entry/instrument/source/kbeta  shape=()  dtype=float64
+        Value     : 1.39225
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/kbeta  [OPTIONAL]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/kbeta
+            Doc       : Wavelength of the K\u00df line.
+        @units =   [REQUIRED]
+        @units_custom = True  [NOT IN SCHEMA]
+      FIELD /entry/instrument/source/ratio_k_alphatwo_k_alphaone  shape=()  dtype=float64
+        Value     : 0.5
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/ratio_k_alphatwo_k_alphaone  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/ratio_k_alphatwo_k_alphaone
+            Doc       : K\u03b1 2/K\u03b1 1 intensity ratio.
+        @units =   [UNIT: NX_DIMENSIONLESS]
+      FIELD /entry/instrument/source/xray_tube_current  shape=()  dtype=float64
+        Value     : 40.0
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/xray_tube_current  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/xray_tube_current
+            Doc       : Current of the X-ray tube.
+        @units = mA  [UNIT: NX_CURRENT]
+      FIELD /entry/instrument/source/xray_tube_material  shape=()  dtype=object
+        Value     : Cu
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/xray_tube_material  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/xray_tube_material
+            Doc       : Type of the X-ray tube.
+        Enums     : [NXxrd_pan] Cu, Cr, Mo, Fe, Ag, In, Ga
+        Enums     : [NXxrd_pan] Cu, Cr, Mo, Fe, Ag, In, Ga
+      FIELD /entry/instrument/source/xray_tube_voltage  shape=()  dtype=float64
+        Value     : 45.0
+        Concept   : NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/xray_tube_voltage  [REQUIRED]
+        Inheritance:
+          NXxrd_pan/ENTRY/INSTRUMENT/SOURCE/xray_tube_voltage
+            Doc       : Voltage of the X-ray tube.
+        @units = kV  [UNIT: NX_VOLTAGE]
+  FIELD /entry/measurement_type  shape=()  dtype=object
+    Value     : Scan
+    Concept   : NXxrd_pan/ENTRY/measurement_type  [REQUIRED]
+    Inheritance:
+      NXxrd_pan/ENTRY/measurement_type
+        Doc       : Type of measurement.
+  FIELD /entry/method  shape=()  dtype=object
+    Value     : X-Ray Diffraction (XRD)
+    Concept   : NXxrd_pan/ENTRY/method  [REQUIRED]
+    Inheritance:
+      NXxrd_pan/ENTRY/method
+        Doc       : Method used to collect the data default='X-Ray Diffraction (XRD)'
+    Enums     : [NXxrd_pan] X-Ray Diffraction (XRD)
+    Enums     : [NXxrd_pan] X-Ray Diffraction (XRD)
+
+========================
+=== Default Plottable ===
+========================
+
+NXentry has been identified: /entry
+
+NXdata group has been identified: /entry/experiment_result
+
+Signal has been identified: /entry/experiment_result/intensity
+
+For Axis #0, 1 axes have been identified: [<HDF5 dataset "two_theta": shape (5027,), type "<f8">]

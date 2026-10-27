@@ -1,0 +1,8 @@
+The unit /NiO__Ni2p/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+The entry `NiO__Ni2p` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-vms-txt-export-reader-nxxps/pynxtools-xps-vms-txt-export-reader-nxxps_output.nxs` is valid according to the `NXxps` application definition.
+The unit /NiO__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+The entry `NiO__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-vms-txt-export-reader-nxxps/pynxtools-xps-vms-txt-export-reader-nxxps_output.nxs` is valid according to the `NXxps` application definition.
+The unit /Ni__Ni2p/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+The entry `Ni__Ni2p` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-vms-txt-export-reader-nxxps/pynxtools-xps-vms-txt-export-reader-nxxps_output.nxs` is valid according to the `NXxps` application definition.
+The unit /Ni__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+The entry `Ni__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-vms-txt-export-reader-nxxps/pynxtools-xps-vms-txt-export-reader-nxxps_output.nxs` is valid according to the `NXxps` application definition.

@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-mpes/conversions/pynxtools-mpes-conversion-with-eln-nxmpes/pynxtools-mpes-conversion-with-eln-nxmpes_output.nxs"
+  ],
+  "started": "2026-10-26T15:57:16",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.116,
+  "user_cpu_s": 1.228,
+  "sys_cpu_s": 0.953,
+  "peak_rss_mb": 117.1
+}

@@ -1,0 +1,18 @@
+{
+  "test_id": "tests/dataconverter/test_convert.py::test_compression",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.148,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools/tests/dataconverter/../data/dataconverter/readers/example/testdata.json"
+    ],
+    "reader": "example",
+    "nxdl": "NXtest",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools/pytest/tmp_files/test_compression0/test_output.h5"
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-test_compression"
+}

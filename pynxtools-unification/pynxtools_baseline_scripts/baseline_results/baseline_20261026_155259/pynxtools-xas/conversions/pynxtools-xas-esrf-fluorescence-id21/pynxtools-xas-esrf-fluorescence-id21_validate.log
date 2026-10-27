@@ -1,0 +1,8 @@
+WARNING: Attribute /scan_1_1/intensity/@long_name has no documentation.
+WARNING: Invalid: The entry `scan_1_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-fluorescence-id21/pynxtools-xas-esrf-fluorescence-id21_output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: Attribute /scan_2_1/intensity/@long_name has no documentation.
+WARNING: Invalid: The entry `scan_2_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-fluorescence-id21/pynxtools-xas-esrf-fluorescence-id21_output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: Attribute /scan_3_1/intensity/@long_name has no documentation.
+WARNING: Invalid: The entry `scan_3_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-fluorescence-id21/pynxtools-xas-esrf-fluorescence-id21_output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: Attribute /scan_4_1/intensity/@long_name has no documentation.
+WARNING: Invalid: The entry `scan_4_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-fluorescence-id21/pynxtools-xas-esrf-fluorescence-id21_output.nxs` is NOT valid according to the `NXxas` application definition.

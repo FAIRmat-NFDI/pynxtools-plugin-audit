@@ -1,0 +1,952 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-raman
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 128 items
+
+tests/nomad/test_nomad_apps.py::test_importing_app PASSED                [  0%]
+tests/parsers/test_parsers_rod.py::TestRodParser::test_bare_numeric_scalar_stays_a_string PASSED [  1%]
+tests/parsers/test_parsers_rod.py::TestRodParser::test_quoted_scalar_is_unquoted PASSED [  2%]
+tests/parsers/test_parsers_rod.py::TestRodParser::test_multiline_semicolon_value_is_joined_to_one_line PASSED [  3%]
+tests/parsers/test_parsers_rod.py::TestRodParser::test_loop_of_quoted_strings_stays_quoted PASSED [  3%]
+tests/parsers/test_parsers_rod.py::TestRodParser::test_numeric_loop_is_parsed_as_floats PASSED [  4%]
+tests/parsers/test_parsers_rod.py::TestRodParser::test_rod_and_publication_identifiers_are_parsed PASSED [  5%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes['Kanzaki, M.'-Kanzaki, M.] PASSED [  6%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes["Kanzaki, M."-Kanzaki, M.] PASSED [  7%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes[Kanzaki, M.-Kanzaki, M.] PASSED [  7%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes[  'Kanzaki, M.'  -Kanzaki, M.] PASSED [  8%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes[-] PASSED [  9%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[author_names0-Kanzaki, M.; Xue, X.; Amalberti, J.; Zhang, Q.] PASSED [ 10%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors['Kanzaki, M.'-Kanzaki, M.] PASSED [ 10%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[author_names2-Kanzaki, M.] PASSED [ 11%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[author_names3-None] PASSED [ 12%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[None-None] PASSED [ 13%]
+tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[-None] PASSED [ 14%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_real_rod_entry_produces_both_citations PASSED [ 14%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_empty_input_produces_no_citations PASSED [ 15%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_partial_input_only_builds_available_citations[raman_data0-expected_missing_keys0] PASSED [ 16%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_partial_input_only_builds_available_citations[raman_data1-expected_missing_keys1] PASSED [ 17%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_single_author_string_is_accepted PASSED [ 17%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_doi_alone_produces_no_description PASSED [ 18%]
+tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_pages_fall_back_to_whichever_page_is_available PASSED [ 19%]
+tests/parsers/test_parsers_rod.py::TestRodParserMatchesFile::test_matches_real_rod_fixture PASSED [ 20%]
+tests/parsers/test_parsers_rod.py::TestRodParserMatchesFile::test_does_not_match_witec_fixture PASSED [ 21%]
+tests/parsers/test_parsers_rod.py::TestRodParserMatchesFile::test_does_not_match_nonexistent_file PASSED [ 21%]
+tests/parsers/test_parsers_rod.py::TestPostProcessRod::test_wavelength_and_resolution_are_converted_to_nm PASSED [ 22%]
+tests/parsers/test_parsers_rod.py::TestPostProcessRod::test_diffraction_grating_is_converted_to_period PASSED [ 23%]
+tests/parsers/test_parsers_rod.py::TestPostProcessRod::test_no_diffraction_grating_key_added_when_absent PASSED [ 24%]
+tests/parsers/test_parsers_witec.py::TestWitecParserMatchesFile::test_matches_real_witec_fixture PASSED [ 25%]
+tests/parsers/test_parsers_witec.py::TestWitecParserMatchesFile::test_does_not_match_rod_fixture PASSED [ 25%]
+tests/parsers/test_parsers_witec.py::TestWitecParserMatchesFile::test_does_not_match_nonexistent_file PASSED [ 26%]
+tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_data_arrays_are_extracted PASSED [ 27%]
+tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_header_fields_land_in_attrs PASSED [ 28%]
+tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_data_unit_is_normalized PASSED [ 28%]
+tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_header_fields_start_out_unused PASSED [ 29%]
+tests/parsers/test_parsers_witec.py::TestWitecParserPostProcess::test_zero_shift_when_measured_equals_laser_wavelength PASSED [ 30%]
+tests/parsers/test_parsers_witec.py::TestWitecParserPostProcess::test_raman_shift_is_computed_from_wavelength PASSED [ 31%]
+tests/rod_database/test_nomad_upload_metadata.py::test_write_nomad_json_creates_file_with_expected_name PASSED [ 32%]
+tests/rod_database/test_nomad_upload_metadata.py::test_write_nomad_json_content_is_valid_json_with_expected_keys PASSED [ 32%]
+tests/rod_database/test_nomad_upload_metadata.py::test_comment_cites_rod_and_its_license PASSED [ 33%]
+tests/rod_database/test_nomad_upload_metadata.py::test_references_include_doi_wiki_and_license_urls PASSED [ 34%]
+tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_creates_file_with_expected_name PASSED [ 35%]
+tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_lists_given_filenames_sorted PASSED [ 35%]
+tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_cites_rod_and_its_license PASSED [ 36%]
+tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_mentions_entry_count PASSED [ 37%]
+tests/rod_database/test_rod_batch.py::test_download_and_build_upload_batch_share_the_same_option_surface PASSED [ 38%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_downloads_are_written_to_output_dir PASSED [ 39%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_failed_downloads_are_skipped_not_raised PASSED [ 39%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_creates_output_dir_if_missing PASSED [ 40%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_existing_file_is_not_re_downloaded PASSED [ 41%]
+tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_real_rod_fixture_to_nxs PASSED [ 42%]
+tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_into_separate_output_dir PASSED [ 42%]
+tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_no_rod_files_returns_empty_list PASSED [ 43%]
+tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_conversion_failure_is_logged_and_skipped PASSED [ 44%]
+tests/rod_database/test_rod_batch.py::TestCollectRodIds::test_collects_ids_from_args_only PASSED [ 45%]
+tests/rod_database/test_rod_batch.py::TestCollectRodIds::test_collects_ids_from_file_only PASSED [ 46%]
+tests/rod_database/test_rod_batch.py::TestCollectRodIds::test_combines_args_and_file PASSED [ 46%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_no_ids_given_fails_with_usage_error PASSED [ 47%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_declining_confirmation_cancels PASSED [ 48%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_yes_flag_skips_confirmation_and_downloads_multiple PASSED [ 49%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_no_prompt_when_all_files_already_present PASSED [ 50%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_prompt_counts_only_the_missing_files PASSED [ 50%]
+tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_all_flag_uses_bundled_known_ids_file PASSED [ 51%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_no_ids_given_fails_with_usage_error PASSED [ 52%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_declining_confirmation_cancels_before_converting PASSED [ 53%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_full_pipeline_produces_rod_nxs_and_nomad_json PASSED [ 53%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_declining_convert_confirmation_cancels_before_writing_metadata PASSED [ 54%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_accepting_convert_confirmation_overwrites_existing_nxs PASSED [ 55%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_yes_flag_skips_convert_confirmation_too PASSED [ 56%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_no_convert_prompt_when_no_existing_nxs_files PASSED [ 57%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_ids_file_is_combined_with_positional_ids PASSED [ 57%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_all_flag_uses_bundled_known_ids_file PASSED [ 58%]
+tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_all_flag_de_duplicates_against_positional_ids PASSED [ 59%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_without_publish_stays_in_staging PASSED [ 60%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_upload_name_is_set_after_processing_not_before PASSED [ 60%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_publish_with_yes_publishes PASSED [ 61%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_publish_without_yes_asks_and_declining_cancels PASSED [ 62%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_failed_processing_is_not_published_even_with_publish_and_yes PASSED [ 63%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_no_nxs_files_errors PASSED [ 64%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_batch_size_without_nomad_json_errors PASSED [ 64%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_batch_size_splits_into_multiple_uploads PASSED [ 65%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_upload_name_is_suffixed_per_batch PASSED [ 66%]
+tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_publish_confirmation_is_asked_once_for_multiple_batches PASSED [ 67%]
+tests/rod_database/test_rod_batch.py::test_bundled_rod_id_list_is_package_data PASSED [ 67%]
+tests/rod_database/test_rod_get_file.py::test_save_rod_file_writes_into_output_dir PASSED [ 68%]
+tests/rod_database/test_rod_get_file.py::test_save_rod_file_creates_output_dir_if_missing PASSED [ 69%]
+tests/rod_database/test_rod_get_file.py::test_save_rod_file_returns_none_on_request_error PASSED [ 70%]
+tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_counts_keys_in_a_single_file PASSED [ 71%]
+tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_counts_keys_across_multiple_files PASSED [ 71%]
+tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_sorted_by_descending_frequency PASSED [ 72%]
+tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_empty_directory_returns_empty_dict PASSED [ 73%]
+tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_writes_report_file_at_explicit_output PASSED [ 74%]
+tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_summary_reports_key_and_file_counts PASSED [ 75%]
+tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_default_output_is_written_inside_rod_dir PASSED [ 75%]
+tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_rod_dir_defaults_to_shared_batch_dir PASSED [ 76%]
+tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_nonexistent_rod_dir_fails PASSED [ 77%]
+tests/rod_database/test_rod_upload.py::test_zip_upload_batch_writes_files_at_archive_root PASSED [ 78%]
+tests/rod_database/test_rod_upload.py::test_zip_upload_batch_honors_explicit_zip_path PASSED [ 78%]
+tests/rod_database/test_rod_upload.py::TestBatchFiles::test_splits_into_groups_of_at_most_batch_size PASSED [ 79%]
+tests/rod_database/test_rod_upload.py::TestBatchFiles::test_exact_multiple_produces_evenly_sized_batches PASSED [ 80%]
+tests/rod_database/test_rod_upload.py::TestBatchFiles::test_batch_size_larger_than_input_produces_one_batch PASSED [ 81%]
+tests/rod_database/test_rod_upload.py::TestBatchFiles::test_empty_input_produces_no_batches PASSED [ 82%]
+tests/rod_database/test_rod_upload.py::TestStageBatch::test_populates_batch_dir_and_zips_cleanly PASSED [ 82%]
+tests/rod_database/test_rod_upload.py::TestStageBatch::test_readme_lists_only_this_batch_files PASSED [ 83%]
+tests/rod_database/test_rod_upload.py::test_upload_batch_uploads_and_returns_upload_id PASSED [ 84%]
+tests/rod_database/test_rod_upload.py::test_set_upload_name_calls_edit_upload_metadata PASSED [ 85%]
+tests/rod_database/test_rod_upload.py::test_upload_batch_raises_usage_error_when_client_cannot_be_imported PASSED [ 85%]
+tests/rod_database/test_rod_upload.py::test_wait_for_processing_polls_until_not_running PASSED [ 86%]
+tests/rod_database/test_rod_upload.py::test_publish_batch_upload_calls_publish PASSED [ 87%]
+tests/test_cli.py::TestPynxRamanGroup::test_lists_all_subcommands PASSED [ 88%]
+tests/test_cli.py::TestPynxRamanGroup::test_unknown_command_fails PASSED [ 89%]
+tests/test_cli.py::TestPynxRamanGroup::test_download_and_build_upload_batch_share_options PASSED [ 89%]
+tests/test_cli.py::TestPynxRamanGroup::test_analyze_keys_subcommand_help PASSED [ 90%]
+tests/test_reader.py::test_nexus_conversion[rod-reader-nxraman] PASSED   [ 91%]
+tests/test_reader.py::test_nexus_conversion[witec-reader-nxraman] PASSED [ 92%]
+tests/test_reader_unit.py::TestGetAttr::test_resolves_from_attrs_and_consumes_missing_meta_data PASSED [ 92%]
+tests/test_reader_unit.py::TestGetAttr::test_space_group_under_sample_stays_a_string PASSED [ 93%]
+tests/test_reader_unit.py::TestGetAttr::test_missing_key_returns_none_and_warns PASSED [ 94%]
+tests/test_reader_unit.py::TestGetData::test_resolves_from_data PASSED   [ 95%]
+tests/test_reader_unit.py::TestGetData::test_does_not_touch_missing_meta_data PASSED [ 96%]
+tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_rod_file_skips_a_non_matching_file PASSED [ 96%]
+tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_txt_file_skips_a_non_matching_file PASSED [ 97%]
+tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_rod_file_parses_a_matching_file PASSED [ 98%]
+tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_txt_file_parses_a_matching_file PASSED [ 99%]
+tests/test_utils_versioning.py::test_get_pynxtools_raman_version PASSED  [100%]
+
+=============================== warnings summary ===============================
+tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_data_arrays_are_extracted
+  $HOME/nomad-distro-dev/.venv/lib/python3.12/site-packages/_pytest/fixtures.py:1313: PytestRemovedIn10Warning: Class-scoped fixture defined as instance method is deprecated.
+  Instance attributes set in this fixture will NOT be visible to test methods,
+  as each test gets a new instance while the fixture runs only once per class.
+  Use @classmethod decorator and set attributes on cls instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method
+    fixturefunc = resolve_fixture_function(fixturedef, request)
+
+tests/rod_database/test_rod_batch.py: 171 warnings
+tests/rod_database/test_rod_get_file.py: 1 warning
+tests/test_reader.py: 19 warnings
+tests/test_reader_unit.py: 3 warnings
+  $HOME/nomad-distro-dev/.venv/lib/python3.12/site-packages/logstash/formatter.py:73: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    tstamp = datetime.utcfromtimestamp(time)
+
+tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_rod_dir_defaults_to_shared_batch_dir
+  $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/rod_database/test_rod_stats.py:99: DeprecationWarning: 'isolated_filesystem' is deprecated and will be removed in Click 9.0. Use 'tempfile.TemporaryDirectory' or pytest's 'tmp_path' fixture with absolute paths instead.
+    with runner.isolated_filesystem():
+
+tests/test_reader.py::test_nexus_conversion[rod-reader-nxraman]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:19: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParser(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[rod-reader-nxraman]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:37: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParserV2(**self.dict())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+__________ TestConvertRodFiles.test_converts_real_rod_fixture_to_nxs ___________
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_real_rod_fixture0/rod_file_1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_real_rod_fixture0/rod_file_1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_real_rod_fixture0/rod_file_1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_real_rod_fixture0/rod_file_1000679.nxs.
+__________ TestConvertRodFiles.test_converts_into_separate_output_dir __________
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_into_separate_ou0/in/rod_file_1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_into_separate_ou0/out/rod_file_1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_into_separate_ou0/in/rod_file_1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_converts_into_separate_ou0/out/rod_file_1000679.nxs.
+______ TestConvertRodFiles.test_conversion_failure_is_logged_and_skipped _______
+------------------------------ Captured log call -------------------------------
+ERROR    $HOME/nomad-distro-dev/packages/pynxtools-raman/src/pynxtools_raman/rod_database/rod_batch.py:rod_batch.py:124 Failed to convert $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_conversion_failure_is_log0/broken.rod to NeXus.
+Traceback (most recent call last):
+  File "$HOME/nomad-distro-dev/packages/pynxtools-raman/src/pynxtools_raman/rod_database/rod_batch.py", line 115, in convert_rod_files
+    raise ValueError(f"{rod_file} does not look like a ROD .rod file.")
+ValueError: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_conversion_failure_is_log0/broken.rod does not look like a ROD .rod file.
+_ TestBuildRodUploadBatchCli.test_full_pipeline_produces_rod_nxs_and_nomad_json _
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_full_pipeline_produces_ro0/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_full_pipeline_produces_ro0/1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_full_pipeline_produces_ro0/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_full_pipeline_produces_ro0/1000679.nxs.
+_ TestBuildRodUploadBatchCli.test_accepting_convert_confirmation_overwrites_existing_nxs _
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_accepting_convert_confirm0/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_accepting_convert_confirm0/1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_accepting_convert_confirm0/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_accepting_convert_confirm0/1000679.nxs.
+___ TestBuildRodUploadBatchCli.test_yes_flag_skips_convert_confirmation_too ____
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_yes_flag_skips_convert_co0/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_yes_flag_skips_convert_co0/1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_yes_flag_skips_convert_co0/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_yes_flag_skips_convert_co0/1000679.nxs.
+_ TestBuildRodUploadBatchCli.test_no_convert_prompt_when_no_existing_nxs_files _
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_no_convert_prompt_when_no0/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_no_convert_prompt_when_no0/1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_no_convert_prompt_when_no0/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_no_convert_prompt_when_no0/1000679.nxs.
+___ TestBuildRodUploadBatchCli.test_ids_file_is_combined_with_positional_ids ___
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_ids_file_is_combined_with0/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_ids_file_is_combined_with0/1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_ids_file_is_combined_with0/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_ids_file_is_combined_with0/1000679.nxs.
+_____ TestBuildRodUploadBatchCli.test_all_flag_uses_bundled_known_ids_file _____
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000679.nxs.
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000680.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000680.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000679.nxs.
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000680.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_uses_bundled_kno1/1000680.nxs.
+_ TestBuildRodUploadBatchCli.test_all_flag_de_duplicates_against_positional_ids _
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_de_duplicates_ag0/1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_de_duplicates_ag0/1000679.nxs.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_de_duplicates_ag0/1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:151 The unit /ENTRY[entry]/INSTRUMENT[instrument]/beam_incident/wavelength/@units = nm has no documentation.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_all_flag_de_duplicates_ag0/1000679.nxs.
+_______________ test_save_rod_file_returns_none_on_request_error _______________
+------------------------------ Captured log call -------------------------------
+ERROR    $HOME/nomad-distro-dev/packages/pynxtools-raman/src/pynxtools_raman/rod_database/rod_get_file.py:rod_get_file.py:59 ConnectionError occurred: no network
+__________________ test_nexus_conversion[rod-reader-nxraman] ___________________
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/rod/rod_file_1000679.rod
+WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING: No axis name corresponding to the path _cell_volume.
+WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING: No axis name corresponding to the path COD_service_name.
+The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_rod_read0///output.nxs.
+WARNING: The value at /entry/identifier_entry should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+The value 'Raman open database ID' at /entry/identifier_entry/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN'].
+The value 'other' at /entry/instrument/objective_lens/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none'].
+The value 'argon' at /entry/instrument/source_532nmlaser/type does not match with the enumerated items from the open enumeration: ['Synchrotron X-ray Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Optical Laser', 'Laser', 'Dye-Laser', 'Broadband Tunable Light Source', 'Halogen lamp', 'LED', 'Mercury Cadmium Telluride', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+The value 'other' at /entry/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)'].
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_rod_read0///output.nxs` is NOT valid according to the `NXraman` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/rod/rod_file_1000679.rod
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _[local]_chemical_compound_state.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_length_abc.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path rod_unit_cell_angles_alphabetagamma.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _exptl_crystal_density_diffrn.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cell_volume.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _space_group_IT_number.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path _cod_database_code.
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path COD_service_name.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'other' at /ENTRY[entry]/INSTRUMENT[instrument]/OPTICAL_LENS[objective_lens]/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'argon' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_abc/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_alphabetagamma/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/density/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/density.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/density/@units will not be written.
+WARNING  pynxtools:helpers.py:217 WARNING: Unit /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units in dataset without its field /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume.
+WARNING  pynxtools:helpers.py:257 WARNING: The attribute /ENTRY[entry]/SAMPLE[sample]/unit_cell_volume/@units will not be written.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /ENTRY[entry]/identifierNAME[identifier_entry] should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:179 The value 'Raman open database ID' at /ENTRY[entry]/identifierNAME[identifier_entry]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_rod_read0///output.nxs.
+WARNING  pynxtools:helpers.py:189 WARNING: The value at /entry/identifier_entry should be one of the following Python types: (<class 'str'>, <class 'numpy.character'>), as defined in the NXDL as NX_CHAR.
+INFO     pynxtools:helpers.py:164 The value 'Raman open database ID' at /entry/identifier_entry/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN'].
+INFO     pynxtools:helpers.py:164 The value 'other' at /entry/instrument/objective_lens/type does not match with the enumerated items from the open enumeration: ['objective', 'lens', 'glass fiber', 'none'].
+INFO     pynxtools:helpers.py:164 The value 'argon' at /entry/instrument/source_532nmlaser/type does not match with the enumerated items from the open enumeration: ['Synchrotron X-ray Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Optical Laser', 'Laser', 'Dye-Laser', 'Broadband Tunable Light Source', 'Halogen lamp', 'LED', 'Mercury Cadmium Telluride', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+INFO     pynxtools:helpers.py:164 The value 'other' at /entry/raman_experiment_type does not match with the enumerated items from the open enumeration: ['in situ Raman spectroscopy', 'resonant Raman spectroscopy', 'non-resonant Raman spectroscopy', 'Raman imaging', 'tip-enhanced Raman spectroscopy (TERS)', 'surface-enhanced Raman spectroscopy (SERS)', 'surface plasmon polariton enhanced Raman scattering (SPPERS)', 'hyper Raman spectroscopy (HRS)', 'stimulated Raman spectroscopy (SRS)', 'inverse Raman spectroscopy (IRS)', 'coherent anti-Stokes Raman spectroscopy (CARS)'].
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_rod_read0///output.nxs` is NOT valid according to the `NXraman` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:11:49Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:11:49Z"}
+_________________ test_nexus_conversion[witec-reader-nxraman] __________________
+----------------------------- Captured stderr call -----------------------------
+Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/witec/Si-wafer-Raman-Spectrum-1.txt
+• $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/witec/eln_data.yaml
+The value 'Serial Number' at /ENTRY[entry]/INSTRUMENT[instrument]/detector_TYPE[detector_ccd]/FABRICATION[device_information]/identifierNAME[identifier]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value 'laser' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_witec_re0///output.nxs.
+The value 'Serial Number' at /entry/instrument/detector_ccd/device_information/identifier/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN'].
+The value 'laser' at /entry/instrument/source_532nmlaser/type does not match with the enumerated items from the open enumeration: ['Synchrotron X-ray Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Optical Laser', 'Laser', 'Dye-Laser', 'Broadband Tunable Light Source', 'Halogen lamp', 'LED', 'Mercury Cadmium Telluride', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_witec_re0///output.nxs` is valid according to the `NXraman` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using raman reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/witec/Si-wafer-Raman-Spectrum-1.txt
+• $HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/witec/eln_data.yaml
+INFO     pynxtools:helpers.py:179 The value 'Serial Number' at /ENTRY[entry]/INSTRUMENT[instrument]/detector_TYPE[detector_ccd]/FABRICATION[device_information]/identifierNAME[identifier]/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:helpers.py:179 The value 'laser' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source_532nmlaser]/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_witec_re0///output.nxs.
+INFO     pynxtools:helpers.py:164 The value 'Serial Number' at /entry/instrument/detector_ccd/device_information/identifier/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN'].
+INFO     pynxtools:helpers.py:164 The value 'laser' at /entry/instrument/source_532nmlaser/type does not match with the enumerated items from the open enumeration: ['Synchrotron X-ray Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Optical Laser', 'Laser', 'Dye-Laser', 'Broadband Tunable Light Source', 'Halogen lamp', 'LED', 'Mercury Cadmium Telluride', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_witec_re0///output.nxs` is valid according to the `NXraman` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:11:50Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:11:50Z"}
+_____________ TestGetAttr.test_missing_key_returns_none_and_warns ______________
+----------------------------- Captured stderr call -----------------------------
+WARNING: No axis name corresponding to the path foo.
+------------------------------ Captured log call -------------------------------
+WARNING  pynxtools:reader.py:206 WARNING: No axis name corresponding to the path foo.
+_ TestHandleFileSkipsOnMismatch.test_handle_rod_file_skips_a_non_matching_file _
+----------------------------- Captured stderr call -----------------------------
+WARNING: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_handle_rod_file_skips_a_n0/not_a_rod_file.rod does not look like a ROD .rod file; skipping.
+------------------------------ Captured log call -------------------------------
+WARNING  pynxtools:reader.py:93 WARNING: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_handle_rod_file_skips_a_n0/not_a_rod_file.rod does not look like a ROD .rod file; skipping.
+_ TestHandleFileSkipsOnMismatch.test_handle_txt_file_skips_a_non_matching_file _
+----------------------------- Captured stderr call -----------------------------
+WARNING: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_handle_txt_file_skips_a_n0/not_a_witec_file.txt does not look like a WITec .txt export; skipping.
+------------------------------ Captured log call -------------------------------
+WARNING  pynxtools:reader.py:115 WARNING: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/tmp_files/test_handle_txt_file_skips_a_n0/not_a_witec_file.txt does not look like a WITec .txt export; skipping.
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/pytest/pynxtools-raman_junit.xml -
+============================== slowest durations ===============================
+19.55s call     tests/test_reader.py::test_nexus_conversion[rod-reader-nxraman]
+1.10s call     tests/test_reader.py::test_nexus_conversion[witec-reader-nxraman]
+0.67s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_all_flag_uses_bundled_known_ids_file
+0.63s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_no_convert_prompt_when_no_existing_nxs_files
+0.36s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_full_pipeline_produces_rod_nxs_and_nomad_json
+0.34s call     tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_real_rod_fixture_to_nxs
+0.34s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_yes_flag_skips_convert_confirmation_too
+0.33s call     tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_into_separate_output_dir
+0.33s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_all_flag_de_duplicates_against_positional_ids
+0.32s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_accepting_convert_confirmation_overwrites_existing_nxs
+0.32s call     tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_ids_file_is_combined_with_positional_ids
+
+(373 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/nomad/test_nomad_apps.py::test_importing_app
+PASSED tests/parsers/test_parsers_rod.py::TestRodParser::test_bare_numeric_scalar_stays_a_string
+PASSED tests/parsers/test_parsers_rod.py::TestRodParser::test_quoted_scalar_is_unquoted
+PASSED tests/parsers/test_parsers_rod.py::TestRodParser::test_multiline_semicolon_value_is_joined_to_one_line
+PASSED tests/parsers/test_parsers_rod.py::TestRodParser::test_loop_of_quoted_strings_stays_quoted
+PASSED tests/parsers/test_parsers_rod.py::TestRodParser::test_numeric_loop_is_parsed_as_floats
+PASSED tests/parsers/test_parsers_rod.py::TestRodParser::test_rod_and_publication_identifiers_are_parsed
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes['Kanzaki, M.'-Kanzaki, M.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes["Kanzaki, M."-Kanzaki, M.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes[Kanzaki, M.-Kanzaki, M.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes[  'Kanzaki, M.'  -Kanzaki, M.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_strip_cif_quotes[-]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[author_names0-Kanzaki, M.; Xue, X.; Amalberti, J.; Zhang, Q.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors['Kanzaki, M.'-Kanzaki, M.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[author_names2-Kanzaki, M.]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[author_names3-None]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[None-None]
+PASSED tests/parsers/test_parsers_rod.py::TestCifQuoteHelpers::test_join_authors[-None]
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_real_rod_entry_produces_both_citations
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_empty_input_produces_no_citations
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_partial_input_only_builds_available_citations[raman_data0-expected_missing_keys0]
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_partial_input_only_builds_available_citations[raman_data1-expected_missing_keys1]
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_single_author_string_is_accepted
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_doi_alone_produces_no_description
+PASSED tests/parsers/test_parsers_rod.py::TestBuildCitationFields::test_pages_fall_back_to_whichever_page_is_available
+PASSED tests/parsers/test_parsers_rod.py::TestRodParserMatchesFile::test_matches_real_rod_fixture
+PASSED tests/parsers/test_parsers_rod.py::TestRodParserMatchesFile::test_does_not_match_witec_fixture
+PASSED tests/parsers/test_parsers_rod.py::TestRodParserMatchesFile::test_does_not_match_nonexistent_file
+PASSED tests/parsers/test_parsers_rod.py::TestPostProcessRod::test_wavelength_and_resolution_are_converted_to_nm
+PASSED tests/parsers/test_parsers_rod.py::TestPostProcessRod::test_diffraction_grating_is_converted_to_period
+PASSED tests/parsers/test_parsers_rod.py::TestPostProcessRod::test_no_diffraction_grating_key_added_when_absent
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserMatchesFile::test_matches_real_witec_fixture
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserMatchesFile::test_does_not_match_rod_fixture
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserMatchesFile::test_does_not_match_nonexistent_file
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_data_arrays_are_extracted
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_header_fields_land_in_attrs
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_data_unit_is_normalized
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserParse::test_header_fields_start_out_unused
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserPostProcess::test_zero_shift_when_measured_equals_laser_wavelength
+PASSED tests/parsers/test_parsers_witec.py::TestWitecParserPostProcess::test_raman_shift_is_computed_from_wavelength
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_write_nomad_json_creates_file_with_expected_name
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_write_nomad_json_content_is_valid_json_with_expected_keys
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_comment_cites_rod_and_its_license
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_references_include_doi_wiki_and_license_urls
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_creates_file_with_expected_name
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_lists_given_filenames_sorted
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_cites_rod_and_its_license
+PASSED tests/rod_database/test_nomad_upload_metadata.py::test_write_readme_mentions_entry_count
+PASSED tests/rod_database/test_rod_batch.py::test_download_and_build_upload_batch_share_the_same_option_surface
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_downloads_are_written_to_output_dir
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_failed_downloads_are_skipped_not_raised
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_creates_output_dir_if_missing
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFiles::test_existing_file_is_not_re_downloaded
+PASSED tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_real_rod_fixture_to_nxs
+PASSED tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_into_separate_output_dir
+PASSED tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_no_rod_files_returns_empty_list
+PASSED tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_conversion_failure_is_logged_and_skipped
+PASSED tests/rod_database/test_rod_batch.py::TestCollectRodIds::test_collects_ids_from_args_only
+PASSED tests/rod_database/test_rod_batch.py::TestCollectRodIds::test_collects_ids_from_file_only
+PASSED tests/rod_database/test_rod_batch.py::TestCollectRodIds::test_combines_args_and_file
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_no_ids_given_fails_with_usage_error
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_declining_confirmation_cancels
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_yes_flag_skips_confirmation_and_downloads_multiple
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_no_prompt_when_all_files_already_present
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_prompt_counts_only_the_missing_files
+PASSED tests/rod_database/test_rod_batch.py::TestDownloadRodFilesCli::test_all_flag_uses_bundled_known_ids_file
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_no_ids_given_fails_with_usage_error
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_declining_confirmation_cancels_before_converting
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_full_pipeline_produces_rod_nxs_and_nomad_json
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_declining_convert_confirmation_cancels_before_writing_metadata
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_accepting_convert_confirmation_overwrites_existing_nxs
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_yes_flag_skips_convert_confirmation_too
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_no_convert_prompt_when_no_existing_nxs_files
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_ids_file_is_combined_with_positional_ids
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_all_flag_uses_bundled_known_ids_file
+PASSED tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_all_flag_de_duplicates_against_positional_ids
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_without_publish_stays_in_staging
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_upload_name_is_set_after_processing_not_before
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_publish_with_yes_publishes
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_publish_without_yes_asks_and_declining_cancels
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_failed_processing_is_not_published_even_with_publish_and_yes
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_no_nxs_files_errors
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_batch_size_without_nomad_json_errors
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_batch_size_splits_into_multiple_uploads
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_upload_name_is_suffixed_per_batch
+PASSED tests/rod_database/test_rod_batch.py::TestUploadRodBatchCli::test_publish_confirmation_is_asked_once_for_multiple_batches
+PASSED tests/rod_database/test_rod_batch.py::test_bundled_rod_id_list_is_package_data
+PASSED tests/rod_database/test_rod_get_file.py::test_save_rod_file_writes_into_output_dir
+PASSED tests/rod_database/test_rod_get_file.py::test_save_rod_file_creates_output_dir_if_missing
+PASSED tests/rod_database/test_rod_get_file.py::test_save_rod_file_returns_none_on_request_error
+PASSED tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_counts_keys_in_a_single_file
+PASSED tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_counts_keys_across_multiple_files
+PASSED tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_sorted_by_descending_frequency
+PASSED tests/rod_database/test_rod_stats.py::TestCountRodKeys::test_empty_directory_returns_empty_dict
+PASSED tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_writes_report_file_at_explicit_output
+PASSED tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_summary_reports_key_and_file_counts
+PASSED tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_default_output_is_written_inside_rod_dir
+PASSED tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_rod_dir_defaults_to_shared_batch_dir
+PASSED tests/rod_database/test_rod_stats.py::TestAnalyzeRodKeysCli::test_nonexistent_rod_dir_fails
+PASSED tests/rod_database/test_rod_upload.py::test_zip_upload_batch_writes_files_at_archive_root
+PASSED tests/rod_database/test_rod_upload.py::test_zip_upload_batch_honors_explicit_zip_path
+PASSED tests/rod_database/test_rod_upload.py::TestBatchFiles::test_splits_into_groups_of_at_most_batch_size
+PASSED tests/rod_database/test_rod_upload.py::TestBatchFiles::test_exact_multiple_produces_evenly_sized_batches
+PASSED tests/rod_database/test_rod_upload.py::TestBatchFiles::test_batch_size_larger_than_input_produces_one_batch
+PASSED tests/rod_database/test_rod_upload.py::TestBatchFiles::test_empty_input_produces_no_batches
+PASSED tests/rod_database/test_rod_upload.py::TestStageBatch::test_populates_batch_dir_and_zips_cleanly
+PASSED tests/rod_database/test_rod_upload.py::TestStageBatch::test_readme_lists_only_this_batch_files
+PASSED tests/rod_database/test_rod_upload.py::test_upload_batch_uploads_and_returns_upload_id
+PASSED tests/rod_database/test_rod_upload.py::test_set_upload_name_calls_edit_upload_metadata
+PASSED tests/rod_database/test_rod_upload.py::test_upload_batch_raises_usage_error_when_client_cannot_be_imported
+PASSED tests/rod_database/test_rod_upload.py::test_wait_for_processing_polls_until_not_running
+PASSED tests/rod_database/test_rod_upload.py::test_publish_batch_upload_calls_publish
+PASSED tests/test_cli.py::TestPynxRamanGroup::test_lists_all_subcommands
+PASSED tests/test_cli.py::TestPynxRamanGroup::test_unknown_command_fails
+PASSED tests/test_cli.py::TestPynxRamanGroup::test_download_and_build_upload_batch_share_options
+PASSED tests/test_cli.py::TestPynxRamanGroup::test_analyze_keys_subcommand_help
+PASSED tests/test_reader.py::test_nexus_conversion[rod-reader-nxraman]
+PASSED tests/test_reader.py::test_nexus_conversion[witec-reader-nxraman]
+PASSED tests/test_reader_unit.py::TestGetAttr::test_resolves_from_attrs_and_consumes_missing_meta_data
+PASSED tests/test_reader_unit.py::TestGetAttr::test_space_group_under_sample_stays_a_string
+PASSED tests/test_reader_unit.py::TestGetAttr::test_missing_key_returns_none_and_warns
+PASSED tests/test_reader_unit.py::TestGetData::test_resolves_from_data
+PASSED tests/test_reader_unit.py::TestGetData::test_does_not_touch_missing_meta_data
+PASSED tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_rod_file_skips_a_non_matching_file
+PASSED tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_txt_file_skips_a_non_matching_file
+PASSED tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_rod_file_parses_a_matching_file
+PASSED tests/test_reader_unit.py::TestHandleFileSkipsOnMismatch::test_handle_txt_file_parses_a_matching_file
+PASSED tests/test_utils_versioning.py::test_get_pynxtools_raman_version
+====================== 128 passed, 198 warnings in 26.42s ======================

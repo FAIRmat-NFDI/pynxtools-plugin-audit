@@ -1,0 +1,3 @@
+WARNING: The required field /entry/height/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/height/DATA hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_f/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_f_output.nxs` is NOT valid according to the `NXafm` application definition.

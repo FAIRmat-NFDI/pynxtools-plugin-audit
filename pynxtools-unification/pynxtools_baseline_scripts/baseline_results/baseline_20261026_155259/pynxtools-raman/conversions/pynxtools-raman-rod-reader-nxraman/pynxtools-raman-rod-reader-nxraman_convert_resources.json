@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-raman/conversions/pynxtools-raman-rod-reader-nxraman/pynxtools-raman-rod-reader-nxraman_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-raman/conversions/pynxtools-raman-rod-reader-nxraman/pynxtools-raman-rod-reader-nxraman_output.nxs"
+  ],
+  "started": "2026-10-26T15:58:19",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.067,
+  "user_cpu_s": 1.16,
+  "sys_cpu_s": 0.965,
+  "peak_rss_mb": 139.3
+}

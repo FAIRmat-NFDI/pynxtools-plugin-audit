@@ -1,0 +1,24 @@
+The unit /Au_in_25mBar_O2__Au4f/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_25mBar_O2__Au4f/instrument/electronanalyzer/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Attribute /Au_in_25mBar_O2__Au4f/method/@long_name has no documentation.
+The unit /Au_in_25mBar_O2__Au4f/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_25mBar_O2__Au4f/transmission_correction/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Invalid: The entry `Au_in_25mBar_O2__Au4f` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-sle-reader-nxxps/pynxtools-xps-specs-sle-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+The unit /Au_in_25mBar_O2__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_25mBar_O2__Survey/instrument/electronanalyzer/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Attribute /Au_in_25mBar_O2__Survey/method/@long_name has no documentation.
+The unit /Au_in_25mBar_O2__Survey/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_25mBar_O2__Survey/transmission_correction/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Invalid: The entry `Au_in_25mBar_O2__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-sle-reader-nxxps/pynxtools-xps-specs-sle-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+The unit /Au_in_vacuum__Au4f/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_vacuum__Au4f/instrument/electronanalyzer/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Attribute /Au_in_vacuum__Au4f/method/@long_name has no documentation.
+The unit /Au_in_vacuum__Au4f/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_vacuum__Au4f/transmission_correction/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Invalid: The entry `Au_in_vacuum__Au4f` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-sle-reader-nxxps/pynxtools-xps-specs-sle-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+The unit /Au_in_vacuum__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_vacuum__Survey/instrument/electronanalyzer/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Attribute /Au_in_vacuum__Survey/method/@long_name has no documentation.
+The unit /Au_in_vacuum__Survey/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: The value 'kinetic_energy' at /Au_in_vacuum__Survey/transmission_correction/transmission_function/@axes should be one of the following: [['kinetic_energy']].
+WARNING: Invalid: The entry `Au_in_vacuum__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-sle-reader-nxxps/pynxtools-xps-specs-sle-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.

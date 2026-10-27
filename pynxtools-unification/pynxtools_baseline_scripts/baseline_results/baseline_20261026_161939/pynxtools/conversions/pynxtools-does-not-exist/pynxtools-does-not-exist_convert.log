@@ -1,0 +1,22 @@
+Replaying conversion from test: tests/dataconverter/test_convert.py::test_find_nxdl[does-not-exist]
+{
+  "input_file": [],
+  "reader": "example",
+  "nxdl": "NXdoesnotexist",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools/conversions/pynxtools-does-not-exist/pynxtools-does-not-exist_output.nxs",
+  "skip_verify": false,
+  "append": false,
+  "ignore_undocumented": false,
+  "fail": false
+}
+2026-10-26 16:21:26,609 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:21:26,853 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Traceback (most recent call last):
+  File "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py", line 16, in <module>
+    convert(**call)
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/dataconverter/convert.py", line 200, in convert
+    nxdl_root, nxdl_f_path = helpers.get_nxdl_root_and_path(nxdl)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nexus/utils.py", line 153, in get_nxdl_root_and_path
+    raise FileNotFoundError(f"The nxdl file, {nxdl}, was not found.")
+FileNotFoundError: The nxdl file, NXdoesnotexist, was not found.

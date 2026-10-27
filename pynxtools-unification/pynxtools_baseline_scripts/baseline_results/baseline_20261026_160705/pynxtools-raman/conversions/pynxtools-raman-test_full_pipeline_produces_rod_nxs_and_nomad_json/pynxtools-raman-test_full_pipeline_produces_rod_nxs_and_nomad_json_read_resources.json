@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/conversions/pynxtools-raman-test_full_pipeline_produces_rod_nxs_and_nomad_json/pynxtools-raman-test_full_pipeline_produces_rod_nxs_and_nomad_json_output.nxs"
+  ],
+  "started": "2026-10-26T16:12:03",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.816,
+  "user_cpu_s": 0.93,
+  "sys_cpu_s": 0.975,
+  "peak_rss_mb": 110.8
+}

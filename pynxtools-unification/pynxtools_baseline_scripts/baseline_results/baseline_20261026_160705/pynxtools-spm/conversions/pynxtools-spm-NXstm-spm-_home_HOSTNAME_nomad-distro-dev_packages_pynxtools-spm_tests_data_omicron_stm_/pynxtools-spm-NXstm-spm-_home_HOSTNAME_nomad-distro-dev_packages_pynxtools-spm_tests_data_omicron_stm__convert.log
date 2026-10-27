@@ -1,0 +1,20 @@
+Replaying conversion from test: tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up/VT220120_A2_0001.sm4",
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up/eln_data.yaml"
+  ],
+  "reader": "spm",
+  "nxdl": "NXstm",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm_/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm__output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:14:35,582 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:14:35,824 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using spm reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up/VT220120_A2_0001.sm4
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up/eln_data.yaml
+No auxiliary files provided. If there are auxiliary files, please provide them as a list of file paths to the formatter.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm_/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm__output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm_/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm__output.nxs

@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs"
+  ],
+  "started": "2026-10-26T16:28:33",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 3.023,
+  "user_cpu_s": 4.101,
+  "sys_cpu_s": 1.068,
+  "peak_rss_mb": 205.3
+}

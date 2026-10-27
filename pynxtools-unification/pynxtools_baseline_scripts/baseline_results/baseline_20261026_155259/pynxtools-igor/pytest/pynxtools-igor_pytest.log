@@ -1,0 +1,119 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-igor
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 6 items
+
+tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[NOTSET] SKIPPED [ 16%]
+tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[igor_example_upload] PASSED [ 33%]
+tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot] PASSED    [ 50%]
+tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-with-entry-nxroot] PASSED [ 66%]
+tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot] PASSED [ 83%]
+tests/test_utils_versioning.py::test_get_pynxtools_igor_version PASSED   [100%]
+
+=============================== warnings summary ===============================
+tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:19: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParser(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:37: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParserV2(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-with-entry-nxroot]
+tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+  $HOME/nomad-distro-dev/.venv/lib/python3.12/site-packages/logstash/formatter.py:73: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    tstamp = datetime.utcfromtimestamp(time)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+___________________ test_nexus_conversion[ibw-to-nxs-nxroot] ___________________
+----------------------------- Captured stderr call -----------------------------
+Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0057.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0059.ibw
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n0///output.nxs.
+The entry `Norm_0057` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+The entry `Norm_0059` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0057.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0059.ibw
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `Norm_0057` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `Norm_0059` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T14:56:14Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T14:56:15Z"}
+_____________ test_nexus_conversion[ibw-to-nxs-with-entry-nxroot] ______________
+----------------------------- Captured stderr call -----------------------------
+Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0057.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0059.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm57.yaml.entry
+WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n1///output.nxs.
+The entry `Norm_0059` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n1///output.nxs` is valid according to the `NXroot` application definition.
+The entry `Scan57` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n1///output.nxs` is valid according to the `NXroot` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0057.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0059.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm57.yaml.entry
+WARNING  pynxtools:writer.py:403 WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n1///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `Norm_0059` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n1///output.nxs` is valid according to the `NXroot` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `Scan57` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_ibw_to_n1///output.nxs` is valid according to the `NXroot` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T14:56:15Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T14:56:15Z"}
+_____________ test_nexus_conversion[pxp-to-nxs-with-entry-nxroot] ______________
+----------------------------- Captured stderr call -----------------------------
+Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Fig2a.pxp
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Scan57_59.yaml.entry
+WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/AXISNAME[l]/@units' are not valid. Please provide a valid unit.
+WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+WARNING: Units provided for path: '/ENTRY[Scan59]/DATA[data]/AXISNAME[l]/@units' are not valid. Please provide a valid unit.
+WARNING: Units provided for path: '/ENTRY[Scan59]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_pxp_to_n0///output.nxs.
+The entry `Scan57` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_pxp_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+The entry `Scan59` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_pxp_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Fig2a.pxp
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Scan57_59.yaml.entry
+WARNING  pynxtools:writer.py:403 WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/AXISNAME[l]/@units' are not valid. Please provide a valid unit.
+WARNING  pynxtools:writer.py:403 WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+WARNING  pynxtools:writer.py:403 WARNING: Units provided for path: '/ENTRY[Scan59]/DATA[data]/AXISNAME[l]/@units' are not valid. Please provide a valid unit.
+WARNING  pynxtools:writer.py:403 WARNING: Units provided for path: '/ENTRY[Scan59]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_pxp_to_n0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `Scan57` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_pxp_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `Scan59` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/tmp_files/test_nexus_conversion_pxp_to_n0///output.nxs` is valid according to the `NXroot` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T14:56:15Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T14:56:15Z"}
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-igor/pytest/pynxtools-igor_junit.xml -
+============================== slowest durations ===============================
+18.41s call     tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]
+0.31s call     tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+0.29s call     tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-with-entry-nxroot]
+0.04s call     tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[igor_example_upload]
+
+(13 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[igor_example_upload]
+PASSED tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]
+PASSED tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-with-entry-nxroot]
+PASSED tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+PASSED tests/test_utils_versioning.py::test_get_pynxtools_igor_version
+SKIPPED [1] tests/nomad/test_nomad_example_uploads.py:52: got empty parameter set for (mainfile)
+================== 5 passed, 1 skipped, 7 warnings in 20.68s ===================

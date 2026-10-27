@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[regular-vms-reader-nxxps]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xps",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.449,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_regular/eln_data_vms_regular.yaml",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_regular/regular.vms"
+    ],
+    "reader": "xps",
+    "nxdl": "NXxps",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/pytest/tmp_files/test_nexus_conversion_regular_0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xps-regular-vms-reader-nxxps"
+}

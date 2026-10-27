@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-microstructure
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 6 items
+
+tests/nomad/test_nomad_apps.py::test_importing_app PASSED                [ 16%]
+tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[NOTSET] SKIPPED [ 33%]
+tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[microstructure_example_upload] PASSED [ 50%]
+tests/nomad/test_nomad_north_tools.py::test_importing_north_tool SKIPPED [ 66%]
+tests/test_reader.py::test_nexus_conversion[test-id-nxem] SKIPPED (N...) [ 83%]
+tests/test_utils_versioning.py::test_get_pynxtools_microstructure_version SKIPPED [100%]
+
+==================================== PASSES ====================================
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-microstructure/pytest/pynxtools-microstructure_junit.xml -
+============================== slowest durations ===============================
+
+(14 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/nomad/test_nomad_apps.py::test_importing_app
+PASSED tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[microstructure_example_upload]
+SKIPPED [1] tests/nomad/test_nomad_example_uploads.py:52: got empty parameter set for (mainfile)
+SKIPPED [1] tests/nomad/test_nomad_north_tools.py:14: No functional north tool yet
+SKIPPED [1] tests/test_reader.py:54: No example yet
+SKIPPED [1] tests/test_utils_versioning.py:26: No tags available yet as we use still git describe --always
+========================= 2 passed, 4 skipped in 1.64s =========================

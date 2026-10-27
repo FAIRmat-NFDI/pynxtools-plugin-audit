@@ -1,0 +1,132 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-xas
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 4 items
+
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey] PASSED         [ 25%]
+tests/test_reader.py::test_nexus_conversion[esrf-transmission-exafs] PASSED [ 50%]
+tests/test_reader.py::test_nexus_conversion[esrf-fluorescence-id21] PASSED [ 75%]
+tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission] PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]
+tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]
+tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]
+  $HOME/nomad-distro-dev/.venv/lib/python3.12/site-packages/logstash/formatter.py:73: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    tstamp = datetime.utcfromtimestamp(time)
+
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:19: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParser(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:37: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParserV2(**self.dict())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+_____________________ test_nexus_conversion[specs-xy-aey] ______________________
+----------------------------- Captured stderr call -----------------------------
+Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/2023-12-07_ID-39088_LaSrCoO3_BARIS_H2-500C.xy
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/eln_data_specs_xy_aey.yaml
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs.
+WARNING: A link was used for /Spectrum_Group__Co_L_135/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING: Invalid: The entry `Spectrum_Group__Co_L_135` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: A link was used for /Spectrum_Group__La_M_136/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING: Invalid: The entry `Spectrum_Group__La_M_136` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: A link was used for /Spectrum_Group__O_K_134/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING: Invalid: The entry `Spectrum_Group__O_K_134` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs` is NOT valid according to the `NXxas` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/2023-12-07_ID-39088_LaSrCoO3_BARIS_H2-500C.xy
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/eln_data_specs_xy_aey.yaml
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs.
+WARNING  pynxtools:helpers.py:229 WARNING: A link was used for /Spectrum_Group__Co_L_135/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `Spectrum_Group__Co_L_135` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING  pynxtools:helpers.py:229 WARNING: A link was used for /Spectrum_Group__La_M_136/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `Spectrum_Group__La_M_136` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING  pynxtools:helpers.py:229 WARNING: A link was used for /Spectrum_Group__O_K_134/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `Spectrum_Group__O_K_134` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs` is NOT valid according to the `NXxas` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:28Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:29Z"}
+________________ test_nexus_conversion[esrf-transmission-exafs] ________________
+----------------------------- Captured stderr call -----------------------------
+Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/esrf_transmission_exafs/DAC6-QMo_ambient_10.1.h5
+Main element /ENTRY[scan_10_1]/PROCESS[process]/note/data not provided. Removing the parent group /ENTRY[scan_10_1]/PROCESS[process]/note.
+Main element /ENTRY[scan_10_1]/PROCESS[process]/PARAMETERS[parameters]/normalized_intensity not provided. Removing the parent group /ENTRY[scan_10_1]/PROCESS[process]/PARAMETERS[parameters].
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_tra0///output.nxs.
+The entry `scan_10_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_tra0///output.nxs` is valid according to the `NXxas_trans` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/esrf_transmission_exafs/DAC6-QMo_ambient_10.1.h5
+INFO     pynxtools:reader.py:208 Main element /ENTRY[scan_10_1]/PROCESS[process]/note/data not provided. Removing the parent group /ENTRY[scan_10_1]/PROCESS[process]/note.
+INFO     pynxtools:reader.py:208 Main element /ENTRY[scan_10_1]/PROCESS[process]/PARAMETERS[parameters]/normalized_intensity not provided. Removing the parent group /ENTRY[scan_10_1]/PROCESS[process]/PARAMETERS[parameters].
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_tra0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `scan_10_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_tra0///output.nxs` is valid according to the `NXxas_trans` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:29Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:29Z"}
+________________ test_nexus_conversion[esrf-fluorescence-id21] _________________
+----------------------------- Captured stderr call -----------------------------
+Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/esrf_fluorescence_id21/ID21.h5
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs.
+The entry `scan_1_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+The entry `scan_2_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+The entry `scan_3_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+The entry `scan_4_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/esrf_fluorescence_id21/ID21.h5
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `scan_1_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `scan_2_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `scan_3_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `scan_4_1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs` is valid according to the `NXxas` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:30Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:30Z"}
+________________ test_nexus_conversion[oscars-xdi-transmission] ________________
+----------------------------- Captured stderr call -----------------------------
+Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/oscars_xdi_transmission/Fe_XDIFiles_prepared.h5
+WARNING: The required field /ENTRY[feo]/INSTRUMENT[instrument]/SOURCE[source]/name hasn't been supplied.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs.
+The entry `fe2o3` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs` is valid according to the `NXxas_trans` application definition.
+The entry `fe_metal` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs` is valid according to the `NXxas_trans` application definition.
+WARNING: The required field /feo/instrument/source/name hasn't been supplied.
+WARNING: Invalid: The entry `feo` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs` is NOT valid according to the `NXxas_trans` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/oscars_xdi_transmission/Fe_XDIFiles_prepared.h5
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[feo]/INSTRUMENT[instrument]/SOURCE[source]/name hasn't been supplied.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `fe2o3` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs` is valid according to the `NXxas_trans` application definition.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `fe_metal` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs` is valid according to the `NXxas_trans` application definition.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /feo/instrument/source/name hasn't been supplied.
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `feo` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs` is NOT valid according to the `NXxas_trans` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:32Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:01:32Z"}
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/pynxtools-xas_junit.xml -
+============================== slowest durations ===============================
+19.35s call     tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+1.91s call     tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]
+0.94s call     tests/test_reader.py::test_nexus_conversion[esrf-fluorescence-id21]
+0.66s call     tests/test_reader.py::test_nexus_conversion[esrf-transmission-exafs]
+
+(8 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+PASSED tests/test_reader.py::test_nexus_conversion[esrf-transmission-exafs]
+PASSED tests/test_reader.py::test_nexus_conversion[esrf-fluorescence-id21]
+PASSED tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]
+======================= 4 passed, 11 warnings in 26.11s ========================

@@ -1,0 +1,17 @@
+{
+  "source": "extra_tsv",
+  "test_id": "extra::ingan_eds_spectra",
+  "replayable": true,
+  "missing_inputs": [],
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/test_data/em/InGaN_nanowires_spectra.edaxh5",
+      "$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/em.oasis.specific.yaml",
+      "$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/output.nxs_eln_data.yaml"
+    ],
+    "reader": "em",
+    "nxdl": "NXem",
+    "ignore_undocumented": true
+  },
+  "conversion_name": "pynxtools-em-extra_ingan_eds_spectra"
+}

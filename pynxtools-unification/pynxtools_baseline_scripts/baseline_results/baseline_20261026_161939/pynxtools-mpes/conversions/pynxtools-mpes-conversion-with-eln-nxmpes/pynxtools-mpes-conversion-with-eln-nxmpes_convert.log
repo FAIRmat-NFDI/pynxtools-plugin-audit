@@ -1,0 +1,21 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[conversion-with-eln-nxmpes]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/xarray_saved_small_calibration.h5",
+    "$HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/config_file.json",
+    "$HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/eln_data.yaml"
+  ],
+  "reader": "mpes",
+  "nxdl": "NXmpes",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/conversions/pynxtools-mpes-conversion-with-eln-nxmpes/pynxtools-mpes-conversion-with-eln-nxmpes_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:23:52,481 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:23:52,718 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using mpes reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/xarray_saved_small_calibration.h5
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/eln_data.yaml
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/conversions/pynxtools-mpes-conversion-with-eln-nxmpes/pynxtools-mpes-conversion-with-eln-nxmpes_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/conversions/pynxtools-mpes-conversion-with-eln-nxmpes/pynxtools-mpes-conversion-with-eln-nxmpes_output.nxs

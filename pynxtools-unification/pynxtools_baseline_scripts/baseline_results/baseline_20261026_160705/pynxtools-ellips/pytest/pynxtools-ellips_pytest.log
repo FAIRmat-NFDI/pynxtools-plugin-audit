@@ -1,0 +1,132 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-ellips
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 19 items
+
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[0] PASSED    [  5%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[1] PASSED    [ 10%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[2] PASSED    [ 15%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[3] PASSED    [ 21%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[4] PASSED    [ 26%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[5] PASSED    [ 31%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[6] PASSED    [ 36%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[7] PASSED    [ 42%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[8] PASSED    [ 47%]
+tests/mock/test_mock_ellips.py::test_mock_shape_consistency[9] PASSED    [ 52%]
+tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[Psi/Delta] PASSED [ 57%]
+tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[tan(Psi)/cos(Delta)] PASSED [ 63%]
+tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[Mueller matrix] PASSED [ 68%]
+tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[ellips.scheme.archive.yml] PASSED [ 73%]
+tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[ellips_example_upload] PASSED [ 78%]
+tests/test_nomad_examples.py::test_parse_nomad_examples[ellips.scheme.archive.yml] PASSED [ 84%]
+tests/test_nomad_examples.py::test_example_upload_entry_point_valid[ellips_example_upload] PASSED [ 89%]
+tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry] PASSED [ 94%]
+tests/test_utils_versioning.py::test_get_pynxtools_ellips_version PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+  $HOME/nomad-distro-dev/.venv/lib/python3.12/site-packages/logstash/formatter.py:73: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    tstamp = datetime.utcfromtimestamp(time)
+
+tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:19: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParser(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:37: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParserV2(**self.dict())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+_________ test_example_upload_entry_point_valid[ellips_example_upload] _________
+----------------------------- Captured stdout call -----------------------------
+>>>>>$HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/nomad/../../src/pynxtools_ellips/nomad/example_uploads/example
+______________ test_nexus_conversion[reader-test-nxellipsometry] _______________
+----------------------------- Captured stderr call -----------------------------
+Using ellips reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./eln_data.yaml
+• $HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./test-data.dat
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Psi_60deg]/@long_name with value @data:Psi_60deg_long_name.
+Tried prefixes: [('@data', 'Psi_60deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Psi_70deg]/@long_name with value @data:Psi_70deg_long_name.
+Tried prefixes: [('@data', 'Psi_70deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_50deg]/@long_name with value @data:Delta_50deg_long_name.
+Tried prefixes: [('@data', 'Delta_50deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_60deg]/@long_name with value @data:Delta_60deg_long_name.
+Tried prefixes: [('@data', 'Delta_60deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_70deg]/@long_name with value @data:Delta_70deg_long_name.
+Tried prefixes: [('@data', 'Delta_70deg_long_name')].
+Could not find value for key /ENTRY[entry]/SAMPLE[sample]/atom_types with value @data:atom_types.
+Tried prefixes: [('@data', 'atom_types')].
+WARNING: Length of axis /ENTRY[entry]/data_collection/AXISNAME[wavelength] does not match to /ENTRY[entry]/data_collection/Psi_50deg in dimension 0
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/pytest/tmp_files/test_nexus_conversion_reader_t0///output.nxs.
+WARNING: Length of axis data_collection/wavelength does not match to /entry/data_collection/@Psi_50deg in dimension 0
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/pytest/tmp_files/test_nexus_conversion_reader_t0///output.nxs` is NOT valid according to the `NXellipsometry` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using ellips reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./eln_data.yaml
+• $HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./test-data.dat
+INFO     pynxtools:reader.py:218 Could not find value for key /ENTRY[entry]/data_collection/DATA[Psi_60deg]/@long_name with value @data:Psi_60deg_long_name.
+Tried prefixes: [('@data', 'Psi_60deg_long_name')].
+INFO     pynxtools:reader.py:218 Could not find value for key /ENTRY[entry]/data_collection/DATA[Psi_70deg]/@long_name with value @data:Psi_70deg_long_name.
+Tried prefixes: [('@data', 'Psi_70deg_long_name')].
+INFO     pynxtools:reader.py:218 Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_50deg]/@long_name with value @data:Delta_50deg_long_name.
+Tried prefixes: [('@data', 'Delta_50deg_long_name')].
+INFO     pynxtools:reader.py:218 Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_60deg]/@long_name with value @data:Delta_60deg_long_name.
+Tried prefixes: [('@data', 'Delta_60deg_long_name')].
+INFO     pynxtools:reader.py:218 Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_70deg]/@long_name with value @data:Delta_70deg_long_name.
+Tried prefixes: [('@data', 'Delta_70deg_long_name')].
+INFO     pynxtools:reader.py:218 Could not find value for key /ENTRY[entry]/SAMPLE[sample]/atom_types with value @data:atom_types.
+Tried prefixes: [('@data', 'atom_types')].
+WARNING  pynxtools:helpers.py:242 WARNING: Length of axis /ENTRY[entry]/data_collection/AXISNAME[wavelength] does not match to /ENTRY[entry]/data_collection/Psi_50deg in dimension 0
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/pytest/tmp_files/test_nexus_conversion_reader_t0///output.nxs.
+WARNING  pynxtools:helpers.py:242 WARNING: Length of axis data_collection/wavelength does not match to /entry/data_collection/@Psi_50deg in dimension 0
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/pytest/tmp_files/test_nexus_conversion_reader_t0///output.nxs` is NOT valid according to the `NXellipsometry` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:09:23Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:09:24Z"}
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/pytest/pynxtools-ellips_junit.xml -
+============================== slowest durations ===============================
+19.59s call     tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+0.07s call     tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[ellips.scheme.archive.yml]
+0.04s call     tests/test_nomad_examples.py::test_parse_nomad_examples[ellips.scheme.archive.yml]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[0]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[1]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[2]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[3]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[4]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[6]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[Mueller matrix]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[7]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[5]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[tan(Psi)/cos(Delta)]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[Psi/Delta]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[8]
+0.01s setup    tests/mock/test_mock_ellips.py::test_mock_shape_consistency[9]
+
+(41 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[0]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[1]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[2]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[3]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[4]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[5]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[6]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[7]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[8]
+PASSED tests/mock/test_mock_ellips.py::test_mock_shape_consistency[9]
+PASSED tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[Psi/Delta]
+PASSED tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[tan(Psi)/cos(Delta)]
+PASSED tests/mock/test_mock_ellips.py::test_mock_covers_each_data_type[Mueller matrix]
+PASSED tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[ellips.scheme.archive.yml]
+PASSED tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[ellips_example_upload]
+PASSED tests/test_nomad_examples.py::test_parse_nomad_examples[ellips.scheme.archive.yml]
+PASSED tests/test_nomad_examples.py::test_example_upload_entry_point_valid[ellips_example_upload]
+PASSED tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+PASSED tests/test_utils_versioning.py::test_get_pynxtools_ellips_version
+======================= 19 passed, 5 warnings in 21.41s ========================

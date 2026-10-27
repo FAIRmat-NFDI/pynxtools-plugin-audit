@@ -1,0 +1,720 @@
+{"t": 1793026708.3545527, "event": "start", "nodeid": "tests/nomad/test_nomad_apps.py::test_importing_app", "pid": 89831}
+{"t": 1793026708.3586938, "event": "finish", "nodeid": "tests/nomad/test_nomad_apps.py::test_importing_app", "pid": 89831}
+{"t": 1793026708.3589199, "event": "start", "nodeid": "tests/nomad/test_nomad_examples.py::test_parse_nomad_examples[sts.scheme.archive.yaml]", "pid": 89831}
+{"t": 1793026708.4179711, "event": "finish", "nodeid": "tests/nomad/test_nomad_examples.py::test_parse_nomad_examples[sts.scheme.archive.yaml]", "pid": 89831}
+{"t": 1793026708.418171, "event": "start", "nodeid": "tests/nomad/test_nomad_examples.py::test_parse_nomad_examples[stm.scheme.archive.yaml]", "pid": 89831}
+{"t": 1793026708.4489198, "event": "finish", "nodeid": "tests/nomad/test_nomad_examples.py::test_parse_nomad_examples[stm.scheme.archive.yaml]", "pid": 89831}
+{"t": 1793026708.4490683, "event": "start", "nodeid": "tests/nomad/test_nomad_examples.py::test_parse_nomad_examples[afm.scheme.archive.yaml]", "pid": 89831}
+{"t": 1793026708.4782717, "event": "finish", "nodeid": "tests/nomad/test_nomad_examples.py::test_parse_nomad_examples[afm.scheme.archive.yaml]", "pid": 89831}
+{"t": 1793026708.4784114, "event": "start", "nodeid": "tests/nomad/test_nomad_examples.py::test_example_upload_entry_point_valid[sts_example_with_customization]", "pid": 89831}
+{"t": 1793026708.482097, "event": "finish", "nodeid": "tests/nomad/test_nomad_examples.py::test_example_upload_entry_point_valid[sts_example_with_customization]", "pid": 89831}
+{"t": 1793026708.4822223, "event": "start", "nodeid": "tests/nomad/test_nomad_examples.py::test_example_upload_entry_point_valid[stm_example_with_customization]", "pid": 89831}
+{"t": 1793026708.486337, "event": "finish", "nodeid": "tests/nomad/test_nomad_examples.py::test_example_upload_entry_point_valid[stm_example_with_customization]", "pid": 89831}
+{"t": 1793026708.4864433, "event": "start", "nodeid": "tests/nomad/test_nomad_examples.py::test_example_upload_entry_point_valid[afm_example_with_customization]", "pid": 89831}
+{"t": 1793026708.4909039, "event": "finish", "nodeid": "tests/nomad/test_nomad_examples.py::test_example_upload_entry_point_valid[afm_example_with_customization]", "pid": 89831}
+{"t": 1793026708.4911857, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[Jun.17.2026 08:03:43-2026-06-17T08:03:43]", "pid": 89831}
+{"t": 1793026708.4927676, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[Jun.17.2026 08:03:43-2026-06-17T08:03:43]", "pid": 89831}
+{"t": 1793026708.4928806, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[Jan.1.2020 00:00:00-2020-01-01T00:00:00]", "pid": 89831}
+{"t": 1793026708.493401, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[Jan.1.2020 00:00:00-2020-01-01T00:00:00]", "pid": 89831}
+{"t": 1793026708.4934967, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[DEC.31.1999 23:59:59-1999-12-31T23:59:59]", "pid": 89831}
+{"t": 1793026708.493988, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[DEC.31.1999 23:59:59-1999-12-31T23:59:59]", "pid": 89831}
+{"t": 1793026708.4940882, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[  Mar.05.2024 12:30:00  -2024-03-05T12:30:00]", "pid": 89831}
+{"t": 1793026708.4945498, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_valid_timestamps[  Mar.05.2024 12:30:00  -2024-03-05T12:30:00]", "pid": 89831}
+{"t": 1793026708.4946432, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[]", "pid": 89831}
+{"t": 1793026708.4950855, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[]", "pid": 89831}
+{"t": 1793026708.4951835, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[   ]", "pid": 89831}
+{"t": 1793026708.4955842, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[   ]", "pid": 89831}
+{"t": 1793026708.4956694, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[not a date]", "pid": 89831}
+{"t": 1793026708.4966495, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[not a date]", "pid": 89831}
+{"t": 1793026708.496828, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[2026-06-17T08:03:43]", "pid": 89831}
+{"t": 1793026708.4974418, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[2026-06-17T08:03:43]", "pid": 89831}
+{"t": 1793026708.4975562, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[Jun.17.2026]", "pid": 89831}
+{"t": 1793026708.4980977, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[Jun.17.2026]", "pid": 89831}
+{"t": 1793026708.4982092, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[Xyz.17.2026 08:03:43]", "pid": 89831}
+{"t": 1793026708.498754, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[Xyz.17.2026 08:03:43]", "pid": 89831}
+{"t": 1793026708.4988546, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[None]", "pid": 89831}
+{"t": 1793026708.4992716, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[None]", "pid": 89831}
+{"t": 1793026708.499362, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[12345]", "pid": 89831}
+{"t": 1793026708.499756, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestBrukerFltTimestamp::test_unparsable_timestamps_write_nothing[12345]", "pid": 89831}
+{"t": 1793026708.4998434, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[1.0000 \\xb5m-expected0]", "pid": 89831}
+{"t": 1793026708.5002966, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[1.0000 \\xb5m-expected0]", "pid": 89831}
+{"t": 1793026708.500387, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[0.030000 V-expected1]", "pid": 89831}
+{"t": 1793026708.5008075, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[0.030000 V-expected1]", "pid": 89831}
+{"t": 1793026708.500892, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[0.0 \\xb0-expected2]", "pid": 89831}
+{"t": 1793026708.5013309, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[0.0 \\xb0-expected2]", "pid": 89831}
+{"t": 1793026708.501421, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[1.0000 \\xb5m/s-expected3]", "pid": 89831}
+{"t": 1793026708.501838, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[1.0000 \\xb5m/s-expected3]", "pid": 89831}
+{"t": 1793026708.501927, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[0.7731 \\xb5m/V-expected4]", "pid": 89831}
+{"t": 1793026708.5023577, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[0.7731 \\xb5m/V-expected4]", "pid": 89831}
+{"t": 1793026708.502447, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[-1.5e-3 nm-expected5]", "pid": 89831}
+{"t": 1793026708.5028565, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[-1.5e-3 nm-expected5]", "pid": 89831}
+{"t": 1793026708.5029483, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[+2.5E+2 nm-expected6]", "pid": 89831}
+{"t": 1793026708.5033643, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[+2.5E+2 nm-expected6]", "pid": 89831}
+{"t": 1793026708.5034537, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[.5 nm-expected7]", "pid": 89831}
+{"t": 1793026708.5038567, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[.5 nm-expected7]", "pid": 89831}
+{"t": 1793026708.5039496, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[  2.5 nm  -expected8]", "pid": 89831}
+{"t": 1793026708.5043643, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_value_and_unit_are_separated[  2.5 nm  -expected8]", "pid": 89831}
+{"t": 1793026708.504452, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[0.800000 (1000.000000)-0.800000]", "pid": 89831}
+{"t": 1793026708.5048583, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[0.800000 (1000.000000)-0.800000]", "pid": 89831}
+{"t": 1793026708.5049446, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[12.000000 (1200.000000)-12.000000]", "pid": 89831}
+{"t": 1793026708.5053418, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[12.000000 (1200.000000)-12.000000]", "pid": 89831}
+{"t": 1793026708.5054283, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[0.000000 (1000.000000)-0.000000]", "pid": 89831}
+{"t": 1793026708.5058157, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[0.000000 (1000.000000)-0.000000]", "pid": 89831}
+{"t": 1793026708.5058975, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[-1.5e-3 (1200.000000)--1.5e-3]", "pid": 89831}
+{"t": 1793026708.5063019, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[-1.5e-3 (1200.000000)--1.5e-3]", "pid": 89831}
+{"t": 1793026708.50639, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[1.0(1200.0)-1.0]", "pid": 89831}
+{"t": 1793026708.5067914, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[1.0(1200.0)-1.0]", "pid": 89831}
+{"t": 1793026708.5068822, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[1.0 (auto)-1.0 (auto)]", "pid": 89831}
+{"t": 1793026708.5074403, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[1.0 (auto)-1.0 (auto)]", "pid": 89831}
+{"t": 1793026708.507527, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[1.0 (1000.0-1.0 (1000.0]", "pid": 89831}
+{"t": 1793026708.5079494, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_gain_keeps_only_the_gain_itself[1.0 (1000.0-1.0 (1000.0]", "pid": 89831}
+{"t": 1793026708.5080388, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[1.0 2.0]", "pid": 89831}
+{"t": 1793026708.5084093, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[1.0 2.0]", "pid": 89831}
+{"t": 1793026708.508497, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[1D Line Fit]", "pid": 89831}
+{"t": 1793026708.5088675, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[1D Line Fit]", "pid": 89831}
+{"t": 1793026708.5089612, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[Peak Force Tapping]", "pid": 89831}
+{"t": 1793026708.509324, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[Peak Force Tapping]", "pid": 89831}
+{"t": 1793026708.5094068, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[Jun.17.2026 08:03:43]", "pid": 89831}
+{"t": 1793026708.509761, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[Jun.17.2026 08:03:43]", "pid": 89831}
+{"t": 1793026708.5098445, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[SIG_TOPO]", "pid": 89831}
+{"t": 1793026708.5102193, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[SIG_TOPO]", "pid": 89831}
+{"t": 1793026708.5103006, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[None]", "pid": 89831}
+{"t": 1793026708.5106587, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[None]", "pid": 89831}
+{"t": 1793026708.510741, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[TRUE]", "pid": 89831}
+{"t": 1793026708.511111, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[TRUE]", "pid": 89831}
+{"t": 1793026708.5111957, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[512]", "pid": 89831}
+{"t": 1793026708.5115538, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[512]", "pid": 89831}
+{"t": 1793026708.5116343, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[]", "pid": 89831}
+{"t": 1793026708.5119846, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[]", "pid": 89831}
+{"t": 1793026708.5120704, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[   ]", "pid": 89831}
+{"t": 1793026708.5124333, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_values_without_a_unit_return_none[   ]", "pid": 89831}
+{"t": 1793026708.5125196, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[1.0 on]", "pid": 89831}
+{"t": 1793026708.512885, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[1.0 on]", "pid": 89831}
+{"t": 1793026708.5129685, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[3 off]", "pid": 89831}
+{"t": 1793026708.5133305, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[3 off]", "pid": 89831}
+{"t": 1793026708.5134137, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[4 On/Off]", "pid": 89831}
+{"t": 1793026708.513775, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[4 On/Off]", "pid": 89831}
+{"t": 1793026708.5138557, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[5 off/on]", "pid": 89831}
+{"t": 1793026708.51422, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_switch_states_are_not_units[5 off/on]", "pid": 89831}
+{"t": 1793026708.5143087, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[None]", "pid": 89831}
+{"t": 1793026708.5146744, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[None]", "pid": 89831}
+{"t": 1793026708.514755, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[512]", "pid": 89831}
+{"t": 1793026708.5151122, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[512]", "pid": 89831}
+{"t": 1793026708.5151916, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[1.5]", "pid": 89831}
+{"t": 1793026708.5155504, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[1.5]", "pid": 89831}
+{"t": 1793026708.5156324, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[raw_value3]", "pid": 89831}
+{"t": 1793026708.515993, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerSplitValueAndUnit::test_non_string_values_are_passed_through[raw_value3]", "pid": 89831}
+{"t": 1793026708.5160768, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_whole_header_is_parsed_section_wise[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.5170357, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_whole_header_is_parsed_section_wise[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.5171294, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_whole_header_is_parsed_section_wise[bruker-spmlab-1.00-synthetic]", "pid": 89831}
+{"t": 1793026708.517844, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_whole_header_is_parsed_section_wise[bruker-spmlab-1.00-synthetic]", "pid": 89831}
+{"t": 1793026708.517945, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_header_is_read_past_the_first_chunk[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.5194118, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_header_is_read_past_the_first_chunk[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.5195065, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_header_is_read_past_the_first_chunk[bruker-spmlab-1.00-synthetic]", "pid": 89831}
+{"t": 1793026708.5208714, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_header_is_read_past_the_first_chunk[bruker-spmlab-1.00-synthetic]", "pid": 89831}
+{"t": 1793026708.5209754, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_missing_data_offset_yields_an_empty_dict[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.5222192, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_missing_data_offset_yields_an_empty_dict[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.5223384, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_missing_data_offset_yields_an_empty_dict[bruker-spmlab-1.00-synthetic]", "pid": 89831}
+{"t": 1793026708.5232015, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerHeader::test_missing_data_offset_yields_an_empty_dict[bruker-spmlab-1.00-synthetic]", "pid": 89831}
+{"t": 1793026708.5233126, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_structure_is_flat_and_holds_one_channel[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.6650147, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_structure_is_flat_and_holds_one_channel[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.6654413, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_expected_entries_are_parsed[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.719571, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_expected_entries_are_parsed[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.7200758, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_image_and_physical_size[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.7734082, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_image_and_physical_size[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.7738366, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_every_config_path_of_the_default_config_resolves[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.8177645, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltBrukerParse::test_every_config_path_of_the_default_config_resolves[bruker-spmlab-1.00]", "pid": 89831}
+{"t": 1793026708.8180132, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::test_flt_parser_rejects_a_missing_file", "pid": 89831}
+{"t": 1793026708.8189707, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::test_flt_parser_rejects_a_missing_file", "pid": 89831}
+{"t": 1793026708.8191006, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[SPMLab 1.00]", "pid": 89831}
+{"t": 1793026708.8590472, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[SPMLab 1.00]", "pid": 89831}
+{"t": 1793026708.859298, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[SPMLab 1.0]", "pid": 89831}
+{"t": 1793026708.9024327, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[SPMLab 1.0]", "pid": 89831}
+{"t": 1793026708.9026926, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[SPMLab]", "pid": 89831}
+{"t": 1793026708.9456952, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[SPMLab]", "pid": 89831}
+{"t": 1793026708.9459498, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[1.00]", "pid": 89831}
+{"t": 1793026708.9888074, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_selected_from_the_eln_software_model[1.00]", "pid": 89831}
+{"t": 1793026708.9890876, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[None]", "pid": 89831}
+{"t": 1793026709.0318322, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[None]", "pid": 89831}
+{"t": 1793026709.0320914, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[eln1]", "pid": 89831}
+{"t": 1793026709.074735, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[eln1]", "pid": 89831}
+{"t": 1793026709.074997, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[eln2]", "pid": 89831}
+{"t": 1793026709.1346061, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[eln2]", "pid": 89831}
+{"t": 1793026709.1350446, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[eln3]", "pid": 89831}
+{"t": 1793026709.181099, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_falls_back_to_the_extension[eln3]", "pid": 89831}
+{"t": 1793026709.1813674, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_uppercase_extension_is_accepted", "pid": 89831}
+{"t": 1793026709.2821963, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_uppercase_extension_is_accepted", "pid": 89831}
+{"t": 1793026709.282637, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_unknown_extension_is_rejected", "pid": 89831}
+{"t": 1793026709.2838407, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_unknown_extension_is_rejected", "pid": 89831}
+{"t": 1793026709.284134, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_module_level_helper_parses_the_file", "pid": 89831}
+{"t": 1793026709.3370137, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltParserSelection::test_module_level_helper_parses_the_file", "pid": 89831}
+{"t": 1793026709.337489, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_nxafm_is_supported", "pid": 89831}
+{"t": 1793026709.338744, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_nxafm_is_supported", "pid": 89831}
+{"t": 1793026709.3390486, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_template_is_filled_from_the_flt_file", "pid": 89831}
+{"t": 1793026709.4127712, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_template_is_filled_from_the_flt_file", "pid": 89831}
+{"t": 1793026709.4133542, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_definition_version_is_stamped", "pid": 89831}
+{"t": 1793026709.4139225, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_definition_version_is_stamped", "pid": 89831}
+{"t": 1793026709.414077, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_empty_values_are_dropped", "pid": 89831}
+{"t": 1793026709.4145765, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_empty_values_are_dropped", "pid": 89831}
+{"t": 1793026709.414703, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_eln_file_is_required", "pid": 89831}
+{"t": 1793026709.4152708, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_eln_file_is_required", "pid": 89831}
+{"t": 1793026709.4153852, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_data_file_is_required", "pid": 89831}
+{"t": 1793026709.4172616, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_data_file_is_required", "pid": 89831}
+{"t": 1793026709.417371, "event": "start", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_wrong_technique_for_the_extension_is_rejected", "pid": 89831}
+{"t": 1793026709.419745, "event": "finish", "nodeid": "tests/test_bruker_SPMlab_format.py::TestFltReaderDispatch::test_wrong_technique_for_the_extension_is_rejected", "pid": 89831}
+{"t": 1793026709.419942, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_every_image_is_turned_upside_down[True]", "pid": 89831}
+{"t": 1793026709.4206498, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_every_image_is_turned_upside_down[True]", "pid": 89831}
+{"t": 1793026709.4207556, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_every_image_is_turned_upside_down[False]", "pid": 89831}
+{"t": 1793026709.4212484, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_every_image_is_turned_upside_down[False]", "pid": 89831}
+{"t": 1793026709.4213424, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_every_image_is_turned_upside_down[None]", "pid": 89831}
+{"t": 1793026709.4218044, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_every_image_is_turned_upside_down[None]", "pid": 89831}
+{"t": 1793026709.4219007, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data0]", "pid": 89831}
+{"t": 1793026709.4223616, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data0]", "pid": 89831}
+{"t": 1793026709.4224532, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data1]", "pid": 89831}
+{"t": 1793026709.422897, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data1]", "pid": 89831}
+{"t": 1793026709.4230106, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_raw_file_has_the_frame_direction_of_its_folder[spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.424715, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_raw_file_has_the_frame_direction_of_its_folder[spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.4248161, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_raw_file_has_the_frame_direction_of_its_folder[spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.4257698, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_raw_file_has_the_frame_direction_of_its_folder[spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.4258683, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.8271642, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.8274076, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.9843428, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.9846423, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.98547, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.9855728, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.98611, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.986208, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.9867623, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.9868553, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.9873922, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.987484, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.9899964, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026709.990101, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.9917023, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026709.991804, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_signal_is_the_gwyddion_channel_turned_upside_down[flt_dflt_conf]", "pid": 89831}
+{"t": 1793026710.1240866, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_signal_is_the_gwyddion_channel_turned_upside_down[flt_dflt_conf]", "pid": 89831}
+{"t": 1793026710.124318, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_signal_is_the_gwyddion_channel_turned_upside_down[flt_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026710.246326, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_signal_is_the_gwyddion_channel_turned_upside_down[flt_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026710.2465572, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_axes_are_pixel_centres_around_the_scan_offset[flt_dflt_conf]", "pid": 89831}
+{"t": 1793026710.3027477, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_axes_are_pixel_centres_around_the_scan_offset[flt_dflt_conf]", "pid": 89831}
+{"t": 1793026710.303066, "event": "start", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_axes_are_pixel_centres_around_the_scan_offset[flt_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026710.3851783, "event": "finish", "nodeid": "tests/test_bruker_image_orientation.py::TestStoredFltImages::test_axes_are_pixel_centres_around_the_scan_offset[flt_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026710.385965, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yy_NM[yy_nm]-x-yy_NM[yy_x]]", "pid": 89831}
+{"t": 1793026710.3879917, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yy_NM[yy_nm]-x-yy_NM[yy_x]]", "pid": 89831}
+{"t": 1793026710.3883252, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yy_M_N[yy_m_n]-x-yy_M_N[yy_x]]", "pid": 89831}
+{"t": 1793026710.3898125, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yy_M_N[yy_m_n]-x-yy_M_N[yy_x]]", "pid": 89831}
+{"t": 1793026710.3901095, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[Myy[myy]-x-Myy[x_yy]]", "pid": 89831}
+{"t": 1793026710.3914433, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[Myy[myy]-x-Myy[x_yy]]", "pid": 89831}
+{"t": 1793026710.391676, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yyM[yym]-x-yyM[yy_x]]", "pid": 89831}
+{"t": 1793026710.3927763, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yyM[yym]-x-yyM[yy_x]]", "pid": 89831}
+{"t": 1793026710.3929887, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yyM[yy_m]-x-yyM[yy_x]]", "pid": 89831}
+{"t": 1793026710.3939698, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yyM[yy_m]-x-yyM[yy_x]]", "pid": 89831}
+{"t": 1793026710.3941495, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[y_M_yy[y_m_yy]-x-y_M_yy[y_x_yy]]", "pid": 89831}
+{"t": 1793026710.3950064, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[y_M_yy[y_m_yy]-x-y_M_yy[y_x_yy]]", "pid": 89831}
+{"t": 1793026710.3951654, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[y_M_N_yy[y_x_yy]-x-y_M_N_yy[y_x_yy]]", "pid": 89831}
+{"t": 1793026710.3959134, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[y_M_N_yy[y_x_yy]-x-y_M_N_yy[y_x_yy]]", "pid": 89831}
+{"t": 1793026710.396065, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yy_ff[yy_mn]-x-yy_ff[yy_mn]]", "pid": 89831}
+{"t": 1793026710.3967698, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[yy_ff[yy_mn]-x-yy_ff[yy_mn]]", "pid": 89831}
+{"t": 1793026710.3968945, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[ALL_UPPER-all_lower-ALL_UPPER[all_lower]]", "pid": 89831}
+{"t": 1793026710.3975694, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[ALL_UPPER-all_lower-ALL_UPPER[all_lower]]", "pid": 89831}
+{"t": 1793026710.3976953, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[test[abc]-z-test[abc]]", "pid": 89831}
+{"t": 1793026710.3983896, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[test[abc]-z-test[abc]]", "pid": 89831}
+{"t": 1793026710.3984997, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[prefixM[prefix_m]-_y-prefixM[prefix_y]]", "pid": 89831}
+{"t": 1793026710.3990364, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[prefixM[prefix_m]-_y-prefixM[prefix_y]]", "pid": 89831}
+{"t": 1793026710.3991463, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[no_brackets-x-no_brackets]", "pid": 89831}
+{"t": 1793026710.3996773, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[no_brackets-x-no_brackets]", "pid": 89831}
+{"t": 1793026710.3997858, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[[only]-x-[only]]", "pid": 89831}
+{"t": 1793026710.4002662, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[[only]-x-[only]]", "pid": 89831}
+{"t": 1793026710.4003577, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[multi_M_N_M[multi_m_n_m]-_z-multi_M_N_M[multi_z]]", "pid": 89831}
+{"t": 1793026710.4007974, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[multi_M_N_M[multi_m_n_m]-_z-multi_M_N_M[multi_z]]", "pid": 89831}
+{"t": 1793026710.4008844, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[-x-]", "pid": 89831}
+{"t": 1793026710.4013028, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[-x-]", "pid": 89831}
+{"t": 1793026710.4013863, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[complex_M_N[complex_m_n]-a-complex_M_N[complex_a]]", "pid": 89831}
+{"t": 1793026710.4018114, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[complex_M_N[complex_m_n]-a-complex_M_N[complex_a]]", "pid": 89831}
+{"t": 1793026710.4018967, "event": "start", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[already_x[already_x]-x-already_x[already_x]]", "pid": 89831}
+{"t": 1793026710.402316, "event": "finish", "nodeid": "tests/test_functionality.py::test_replace_variadic_name_part[already_x[already_x]-x-already_x[already_x]]", "pid": 89831}
+{"t": 1793026710.4023995, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[0-nm-expected0]", "pid": 89831}
+{"t": 1793026710.4028273, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[0-nm-expected0]", "pid": 89831}
+{"t": 1793026710.4029095, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750.5-nm-expected1]", "pid": 89831}
+{"t": 1793026710.4033406, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750.5-nm-expected1]", "pid": 89831}
+{"t": 1793026710.4034288, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[None-nm-expected2]", "pid": 89831}
+{"t": 1793026710.4038885, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[None-nm-expected2]", "pid": 89831}
+{"t": 1793026710.4039783, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750 nm-nm-expected3]", "pid": 89831}
+{"t": 1793026710.4048038, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750 nm-nm-expected3]", "pid": 89831}
+{"t": 1793026710.404902, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[20 um-nm-expected4]", "pid": 89831}
+{"t": 1793026710.4057755, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[20 um-nm-expected4]", "pid": 89831}
+{"t": 1793026710.4058754, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750 nm--expected5]", "pid": 89831}
+{"t": 1793026710.406583, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750 nm--expected5]", "pid": 89831}
+{"t": 1793026710.4066784, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750 nm-None-expected6]", "pid": 89831}
+{"t": 1793026710.4073634, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-3750 nm-None-expected6]", "pid": 89831}
+{"t": 1793026710.4074628, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[20 um-second-expected7]", "pid": 89831}
+{"t": 1793026710.4081154, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[20 um-second-expected7]", "pid": 89831}
+{"t": 1793026710.4082177, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[3750-nm-expected8]", "pid": 89831}
+{"t": 1793026710.4087648, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[3750-nm-expected8]", "pid": 89831}
+{"t": 1793026710.408854, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[1e-3-nm-expected9]", "pid": 89831}
+{"t": 1793026710.409371, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[1e-3-nm-expected9]", "pid": 89831}
+{"t": 1793026710.4094625, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[abc-nm-expected10]", "pid": 89831}
+{"t": 1793026710.4102328, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[abc-nm-expected10]", "pid": 89831}
+{"t": 1793026710.4103467, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-nm-expected11]", "pid": 89831}
+{"t": 1793026710.410932, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[-nm-expected11]", "pid": 89831}
+{"t": 1793026710.4110355, "event": "start", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[   -nm-expected12]", "pid": 89831}
+{"t": 1793026710.411643, "event": "finish", "nodeid": "tests/test_functionality.py::test_bruker_spm_scalar_with_unit[   -nm-expected12]", "pid": 89831}
+{"t": 1793026710.4117448, "event": "start", "nodeid": "tests/test_functionality.py::test_write_multiple_concepts_instance_rejects_the_shared_convert_dict", "pid": 89831}
+{"t": 1793026710.412184, "event": "finish", "nodeid": "tests/test_functionality.py::test_write_multiple_concepts_instance_rejects_the_shared_convert_dict", "pid": 89831}
+{"t": 1793026710.4122696, "event": "start", "nodeid": "tests/test_functionality.py::test_write_multiple_concepts_instance_expands_variadic_instances", "pid": 89831}
+{"t": 1793026710.4126256, "event": "finish", "nodeid": "tests/test_functionality.py::test_write_multiple_concepts_instance_expands_variadic_instances", "pid": 89831}
+{"t": 1793026710.4127815, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_scan_list/0/@2:CantFrequency-V (0.00001164153 kHz/LSB) 87.0 kHz-87.0-/Ciao_scan_list/0/@2:CantFrequency/unit-kHz]", "pid": 89831}
+{"t": 1793026710.4134564, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_scan_list/0/@2:CantFrequency-V (0.00001164153 kHz/LSB) 87.0 kHz-87.0-/Ciao_scan_list/0/@2:CantFrequency/unit-kHz]", "pid": 89831}
+{"t": 1793026710.413548, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_scan_list/0/AFMMode-S [AFMMode] Contact-None-None-None]", "pid": 89831}
+{"t": 1793026710.4142237, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_scan_list/0/AFMMode-S [AFMMode] Contact-None-None-None]", "pid": 89831}
+{"t": 1793026710.4143152, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_scan_list/0/Free_Amplitude-500 nm-500-/Ciao_scan_list/0/Free_Amplitude/unit-nm]", "pid": 89831}
+{"t": 1793026710.4149754, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_scan_list/0/Free_Amplitude-500 nm-500-/Ciao_scan_list/0/Free_Amplitude/unit-nm]", "pid": 89831}
+{"t": 1793026710.4150696, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_force_list/0/Samps/line-512-512-None-None]", "pid": 89831}
+{"t": 1793026710.4156363, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestExtractDataUnit::test_unit_key_uses_slash_unit_suffix[/Ciao_force_list/0/Samps/line-512-512-None-None]", "pid": 89831}
+{"t": 1793026710.4157255, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestAmplitudeSetpoint::test_computes_product_of_ratio_and_reference", "pid": 89831}
+{"t": 1793026710.4163423, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestAmplitudeSetpoint::test_computes_product_of_ratio_and_reference", "pid": 89831}
+{"t": 1793026710.416439, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestAmplitudeSetpoint::test_skips_when_ratio_missing", "pid": 89831}
+{"t": 1793026710.416917, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestAmplitudeSetpoint::test_skips_when_ratio_missing", "pid": 89831}
+{"t": 1793026710.4170215, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestScanRegionGeometry::test_approach_retrace_start_end_range", "pid": 89831}
+{"t": 1793026710.4176948, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestScanRegionGeometry::test_approach_retrace_start_end_range", "pid": 89831}
+{"t": 1793026710.417794, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestScanRegionGeometry::test_template_fields_written", "pid": 89831}
+{"t": 1793026710.4183297, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestScanRegionGeometry::test_template_fields_written", "pid": 89831}
+{"t": 1793026710.4184225, "event": "start", "nodeid": "tests/test_nano_scope_FC.py::TestPointForceScanStepSize::test_step_size_from_shared_samps_line", "pid": 89831}
+{"t": 1793026710.4187717, "event": "finish", "nodeid": "tests/test_nano_scope_FC.py::TestPointForceScanStepSize::test_step_size_from_shared_samps_line", "pid": 89831}
+{"t": 1793026710.418924, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[up-+y]", "pid": 89831}
+{"t": 1793026710.419413, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[up-+y]", "pid": 89831}
+{"t": 1793026710.4195, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[down--y]", "pid": 89831}
+{"t": 1793026710.4199429, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[down--y]", "pid": 89831}
+{"t": 1793026710.4200337, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[UP-+y]", "pid": 89831}
+{"t": 1793026710.420479, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[UP-+y]", "pid": 89831}
+{"t": 1793026710.420565, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[ Down --y]", "pid": 89831}
+{"t": 1793026710.4209912, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[ Down --y]", "pid": 89831}
+{"t": 1793026710.4210782, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[-y]", "pid": 89831}
+{"t": 1793026710.4214845, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[-y]", "pid": 89831}
+{"t": 1793026710.4215665, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[sideways-y]", "pid": 89831}
+{"t": 1793026710.4220839, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_lines_run_along_x_and_advance_along_the_scan_direction[sideways-y]", "pid": 89831}
+{"t": 1793026710.4221754, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_unknown_direction_keeps_the_recorded_order[]", "pid": 89831}
+{"t": 1793026710.4227057, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_unknown_direction_keeps_the_recorded_order[]", "pid": 89831}
+{"t": 1793026710.4228034, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_unknown_direction_keeps_the_recorded_order[sideways]", "pid": 89831}
+{"t": 1793026710.4232721, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestScanAxes::test_unknown_direction_keeps_the_recorded_order[sideways]", "pid": 89831}
+{"t": 1793026710.4233615, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[up-True-none]", "pid": 89831}
+{"t": 1793026710.4238646, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[up-True-none]", "pid": 89831}
+{"t": 1793026710.4239628, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[up-None-none]", "pid": 89831}
+{"t": 1793026710.4244523, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[up-None-none]", "pid": 89831}
+{"t": 1793026710.4245427, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[up-False-fliplr]", "pid": 89831}
+{"t": 1793026710.4250522, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[up-False-fliplr]", "pid": 89831}
+{"t": 1793026710.4251425, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[down-True-flipud]", "pid": 89831}
+{"t": 1793026710.425647, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[down-True-flipud]", "pid": 89831}
+{"t": 1793026710.425739, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[down-None-flipud]", "pid": 89831}
+{"t": 1793026710.4262366, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[down-None-flipud]", "pid": 89831}
+{"t": 1793026710.4263268, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[down-False-flip]", "pid": 89831}
+{"t": 1793026710.426837, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_flip_follows_scan_and_line_direction[down-False-flip]", "pid": 89831}
+{"t": 1793026710.4269242, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_non_square_image_is_flipped_along_both_dimensions", "pid": 89831}
+{"t": 1793026710.4273107, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_non_square_image_is_flipped_along_both_dimensions", "pid": 89831}
+{"t": 1793026710.4274006, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data0]", "pid": 89831}
+{"t": 1793026710.4278123, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data0]", "pid": 89831}
+{"t": 1793026710.427896, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data1]", "pid": 89831}
+{"t": 1793026710.4283261, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_non_image_data_is_left_alone[data1]", "pid": 89831}
+{"t": 1793026710.4284167, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_data_without_scan_axes_is_left_alone", "pid": 89831}
+{"t": 1793026710.4287746, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestOrientationHook::test_data_without_scan_axes_is_left_alone", "pid": 89831}
+{"t": 1793026710.428865, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026710.5559676, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026710.5561955, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026710.5831554, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026710.5833879, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026710.6077757, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026710.6079934, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.6353264, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.6355827, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026710.667111, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026710.6673443, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.692922, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.6931224, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.7290654, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.729309, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026710.7620947, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026710.7623093, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026710.789828, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_folder_holds_an_image_for_each_direction_of_z[afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026710.7900593, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026710.829796, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026710.8300636, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026710.8922942, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026710.8926392, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026710.9398224, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026710.940364, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.9856076, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026710.9861312, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.0350902, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.0353014, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.096623, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.0970724, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.3558233, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.356071, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.392663, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.392907, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4623878, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_signal_is_the_gwyddion_channel_flipped_upside_down[afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4626503, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4635274, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4636688, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4642997, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4644163, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4649947, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.465103, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.46563, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4657302, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4662519, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4663467, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4668589, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4669669, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4674826, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.467581, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4681427, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4682424, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4687827, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4688766, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.469395, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4694955, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4699988, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4700968, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4705944, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4706852, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4711854, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4712813, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4718132, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.47191, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.472394, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.472487, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4729693, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.473062, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4735668, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4736557, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.474159, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4742517, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4756393, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.47575, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4770262, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.477129, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4781716, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4782841, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4792957, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4793997, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4806426, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4807522, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4820137, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4821248, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4868488, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4870663, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.4886265, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.488756, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.490125, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::TestStoredImages::test_axes_are_pixel_centres_around_the_scan_offset[afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026711.4902494, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_forward-stm/v_gen_4_dflt_conf_up-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4926045, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_forward-stm/v_gen_4_dflt_conf_up-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4927256, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_forward-stm/v_gen_4_descrb_nx_dt_up-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4935882, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_forward-stm/v_gen_4_descrb_nx_dt_up-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.4936984, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_backward-stm/v_gen_4_dflt_conf_up-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.4957783, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_backward-stm/v_gen_4_dflt_conf_up-stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.495891, "event": "start", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_backward-stm/v_gen_4_descrb_nx_dt_up-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.5045419, "event": "finish", "nodeid": "tests/test_nanonis_sxm_orientation.py::test_up_and_down_scans_of_one_area_agree_without_a_flip[z_backward-stm/v_gen_4_descrb_nx_dt_up-stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026711.5048304, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_every_page_is_read_in_file_order", "pid": 89831}
+{"t": 1793026711.529019, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_every_page_is_read_in_file_order", "pid": 89831}
+{"t": 1793026711.5292113, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Current_Backward]", "pid": 89831}
+{"t": 1793026711.6014712, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Current_Backward]", "pid": 89831}
+{"t": 1793026711.6016345, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Current_Forward]", "pid": 89831}
+{"t": 1793026711.6021116, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Current_Forward]", "pid": 89831}
+{"t": 1793026711.6022124, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Topography_Backward]", "pid": 89831}
+{"t": 1793026711.6026232, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Topography_Backward]", "pid": 89831}
+{"t": 1793026711.6027184, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Topography_Forward]", "pid": 89831}
+{"t": 1793026711.6032147, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_page_id_pairs_the_page_with_its_gwyddion_channel[Topography_Forward]", "pid": 89831}
+{"t": 1793026711.6033385, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_Xsize-uint32]", "pid": 89831}
+{"t": 1793026711.6037936, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_Xsize-uint32]", "pid": 89831}
+{"t": 1793026711.6038883, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ScanType-uint32]", "pid": 89831}
+{"t": 1793026711.6043255, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ScanType-uint32]", "pid": 89831}
+{"t": 1793026711.6044233, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_Zscale-float32]", "pid": 89831}
+{"t": 1793026711.6048553, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_Zscale-float32]", "pid": 89831}
+{"t": 1793026711.604952, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_Xoffset-float32]", "pid": 89831}
+{"t": 1793026711.6053889, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_Xoffset-float32]", "pid": 89831}
+{"t": 1793026711.6054788, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_PiezoSensitivity_TubeX-float64]", "pid": 89831}
+{"t": 1793026711.6059074, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_PiezoSensitivity_TubeX-float64]", "pid": 89831}
+{"t": 1793026711.6060054, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ZPI_SetPoint-float64]", "pid": 89831}
+{"t": 1793026711.6064215, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ZPI_SetPoint-float64]", "pid": 89831}
+{"t": 1793026711.6065152, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ImageDrift_Time-float32]", "pid": 89831}
+{"t": 1793026711.6069438, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ImageDrift_Time-float32]", "pid": 89831}
+{"t": 1793026711.6070302, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ImageDrift_Filetime-uint64]", "pid": 89831}
+{"t": 1793026711.6074436, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_binary_values_keep_their_stored_dtype[RHK_ImageDrift_Filetime-uint64]", "pid": 89831}
+{"t": 1793026711.6075351, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_strings_and_derived_values", "pid": 89831}
+{"t": 1793026711.6078663, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_strings_and_derived_values", "pid": 89831}
+{"t": 1793026711.607955, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_file_name_is_the_path_the_file_is_read_from", "pid": 89831}
+{"t": 1793026711.6082704, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_file_name_is_the_path_the_file_is_read_from", "pid": 89831}
+{"t": 1793026711.6083517, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_units_become_unit_attributes", "pid": 89831}
+{"t": 1793026711.678593, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadata::test_units_become_unit_attributes", "pid": 89831}
+{"t": 1793026711.6787608, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_empty_file_raises", "pid": 89831}
+{"t": 1793026711.6796567, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_empty_file_raises", "pid": 89831}
+{"t": 1793026711.6797738, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_truncated_file_raises[1]", "pid": 89831}
+{"t": 1793026711.6811244, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_truncated_file_raises[1]", "pid": 89831}
+{"t": 1793026711.6812425, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_truncated_file_raises[60]", "pid": 89831}
+{"t": 1793026711.682424, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_truncated_file_raises[60]", "pid": 89831}
+{"t": 1793026711.6825385, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_truncated_file_raises[4096]", "pid": 89831}
+{"t": 1793026711.683727, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_truncated_file_raises[4096]", "pid": 89831}
+{"t": 1793026711.6838398, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_missing_object_raises", "pid": 89831}
+{"t": 1793026711.684266, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_missing_object_raises", "pid": 89831}
+{"t": 1793026711.6843624, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[0-_Forward]", "pid": 89831}
+{"t": 1793026711.6848354, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[0-_Forward]", "pid": 89831}
+{"t": 1793026711.6849442, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[1-_Backward]", "pid": 89831}
+{"t": 1793026711.6853967, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[1-_Backward]", "pid": 89831}
+{"t": 1793026711.6854901, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[2-_Up]", "pid": 89831}
+{"t": 1793026711.6859295, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[2-_Up]", "pid": 89831}
+{"t": 1793026711.6860273, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[3-_Down]", "pid": 89831}
+{"t": 1793026711.6864545, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[3-_Down]", "pid": 89831}
+{"t": 1793026711.6865492, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[7-]", "pid": 89831}
+{"t": 1793026711.6869962, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_image_label_carries_the_scan_direction[7-]", "pid": 89831}
+{"t": 1793026711.6870885, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_non_image_label_is_sanitized_without_direction[-dI dV-dI_dV]", "pid": 89831}
+{"t": 1793026711.687516, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_non_image_label_is_sanitized_without_direction[-dI dV-dI_dV]", "pid": 89831}
+{"t": 1793026711.6876087, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_non_image_label_is_sanitized_without_direction[ LIA Current-LIA_Current]", "pid": 89831}
+{"t": 1793026711.6880417, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_non_image_label_is_sanitized_without_direction[ LIA Current-LIA_Current]", "pid": 89831}
+{"t": 1793026711.6881313, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_page_without_label_is_named_after_its_id[attrs0]", "pid": 89831}
+{"t": 1793026711.6885061, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_page_without_label_is_named_after_its_id[attrs0]", "pid": 89831}
+{"t": 1793026711.6885924, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_page_without_label_is_named_after_its_id[attrs1]", "pid": 89831}
+{"t": 1793026711.6889808, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_page_without_label_is_named_after_its_id[attrs1]", "pid": 89831}
+{"t": 1793026711.6890678, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_enum_value_outside_the_format_is_unknown[1-B]", "pid": 89831}
+{"t": 1793026711.6894743, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_enum_value_outside_the_format_is_unknown[1-B]", "pid": 89831}
+{"t": 1793026711.6895616, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_enum_value_outside_the_format_is_unknown[2-UNKNOWN]", "pid": 89831}
+{"t": 1793026711.6899698, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_enum_value_outside_the_format_is_unknown[2-UNKNOWN]", "pid": 89831}
+{"t": 1793026711.6900544, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_enum_value_outside_the_format_is_unknown[-1-UNKNOWN]", "pid": 89831}
+{"t": 1793026711.690454, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_enum_value_outside_the_format_is_unknown[-1-UNKNOWN]", "pid": 89831}
+{"t": 1793026711.6905415, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_string_strips_trailing_nul_characters", "pid": 89831}
+{"t": 1793026711.693399, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_string_strips_trailing_nul_characters", "pid": 89831}
+{"t": 1793026711.69351, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_empty_string", "pid": 89831}
+{"t": 1793026711.6938748, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_empty_string", "pid": 89831}
+{"t": 1793026711.693978, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_string_with_a_lone_surrogate_is_empty", "pid": 89831}
+{"t": 1793026711.694321, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_string_with_a_lone_surrogate_is_empty", "pid": 89831}
+{"t": 1793026711.6944106, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_prm_data_is_read_plain_or_zlib_compressed[False]", "pid": 89831}
+{"t": 1793026711.6951072, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_prm_data_is_read_plain_or_zlib_compressed[False]", "pid": 89831}
+{"t": 1793026711.6952057, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_prm_data_is_read_plain_or_zlib_compressed[True]", "pid": 89831}
+{"t": 1793026711.6956716, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestMetadataEdgeCases::test_prm_data_is_read_plain_or_zlib_compressed[True]", "pid": 89831}
+{"t": 1793026711.6957679, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Current_Backward]", "pid": 89831}
+{"t": 1793026711.6988323, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Current_Backward]", "pid": 89831}
+{"t": 1793026711.69903, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Current_Forward]", "pid": 89831}
+{"t": 1793026711.7011366, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Current_Forward]", "pid": 89831}
+{"t": 1793026711.7012963, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Topography_Backward]", "pid": 89831}
+{"t": 1793026711.7032373, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Topography_Backward]", "pid": 89831}
+{"t": 1793026711.7034101, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Topography_Forward]", "pid": 89831}
+{"t": 1793026711.7054415, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_image_is_the_gwyddion_channel[Topography_Forward]", "pid": 89831}
+{"t": 1793026711.7056062, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_topography_sign_follows_a_negative_scale", "pid": 89831}
+{"t": 1793026711.7061434, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_topography_sign_follows_a_negative_scale", "pid": 89831}
+{"t": 1793026711.7062428, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_values_are_physical_not_counts[Topography_Forward-1e-05]", "pid": 89831}
+{"t": 1793026711.707056, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_values_are_physical_not_counts[Topography_Forward-1e-05]", "pid": 89831}
+{"t": 1793026711.7071576, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_values_are_physical_not_counts[Current_Forward-1e-07]", "pid": 89831}
+{"t": 1793026711.7079017, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_values_are_physical_not_counts[Current_Forward-1e-07]", "pid": 89831}
+{"t": 1793026711.7080362, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_page_attributes_are_left_untouched", "pid": 89831}
+{"t": 1793026711.7083848, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_page_attributes_are_left_untouched", "pid": 89831}
+{"t": 1793026711.7084737, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_coords_are_pixel_centres_around_the_offset[x]", "pid": 89831}
+{"t": 1793026711.7096121, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_coords_are_pixel_centres_around_the_offset[x]", "pid": 89831}
+{"t": 1793026711.7097166, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_coords_are_pixel_centres_around_the_offset[y]", "pid": 89831}
+{"t": 1793026711.7103162, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_coords_are_pixel_centres_around_the_offset[y]", "pid": 89831}
+{"t": 1793026711.7104175, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_page_without_gwyddion_channel_keeps_metadata_only", "pid": 89831}
+{"t": 1793026711.7307405, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageData::test_page_without_gwyddion_channel_keeps_metadata_only", "pid": 89831}
+{"t": 1793026711.7309976, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_hook_flips_a_two_dimensional_image", "pid": 89831}
+{"t": 1793026711.7315679, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_hook_flips_a_two_dimensional_image", "pid": 89831}
+{"t": 1793026711.7316692, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_scan_direction_causes_no_lateral_flip[True]", "pid": 89831}
+{"t": 1793026711.7321854, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_scan_direction_causes_no_lateral_flip[True]", "pid": 89831}
+{"t": 1793026711.732279, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_scan_direction_causes_no_lateral_flip[False]", "pid": 89831}
+{"t": 1793026711.7327213, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_scan_direction_causes_no_lateral_flip[False]", "pid": 89831}
+{"t": 1793026711.7328136, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_scan_direction_causes_no_lateral_flip[None]", "pid": 89831}
+{"t": 1793026711.7332697, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_scan_direction_causes_no_lateral_flip[None]", "pid": 89831}
+{"t": 1793026711.7333612, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_non_image_data_is_left_alone[data0]", "pid": 89831}
+{"t": 1793026711.733785, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_non_image_data_is_left_alone[data0]", "pid": 89831}
+{"t": 1793026711.7338736, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_non_image_data_is_left_alone[data1]", "pid": 89831}
+{"t": 1793026711.7343168, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_non_image_data_is_left_alone[data1]", "pid": 89831}
+{"t": 1793026711.7344038, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Current_Backward-current_backward]", "pid": 89831}
+{"t": 1793026711.8467715, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Current_Backward-current_backward]", "pid": 89831}
+{"t": 1793026711.8472536, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Current_Forward-current_forward]", "pid": 89831}
+{"t": 1793026711.8538685, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Current_Forward-current_forward]", "pid": 89831}
+{"t": 1793026711.8543522, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Topography_Backward-z_backward]", "pid": 89831}
+{"t": 1793026711.860811, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Topography_Backward-z_backward]", "pid": 89831}
+{"t": 1793026711.8612196, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Topography_Forward-z_forward]", "pid": 89831}
+{"t": 1793026711.8668363, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_signal_is_flipped_against_the_parsed_image[Topography_Forward-z_forward]", "pid": 89831}
+{"t": 1793026711.8671625, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[current_backward]", "pid": 89831}
+{"t": 1793026711.8681726, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[current_backward]", "pid": 89831}
+{"t": 1793026711.8683496, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[current_forward]", "pid": 89831}
+{"t": 1793026711.8691273, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[current_forward]", "pid": 89831}
+{"t": 1793026711.8692887, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[z_backward]", "pid": 89831}
+{"t": 1793026711.8700159, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[z_backward]", "pid": 89831}
+{"t": 1793026711.8701677, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[z_forward]", "pid": 89831}
+{"t": 1793026711.8708143, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_ascends_so_its_first_value_labels_row_zero[z_forward]", "pid": 89831}
+{"t": 1793026711.8709574, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[current_backward]", "pid": 89831}
+{"t": 1793026711.8715434, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[current_backward]", "pid": 89831}
+{"t": 1793026711.8716795, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[current_forward]", "pid": 89831}
+{"t": 1793026711.8722234, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[current_forward]", "pid": 89831}
+{"t": 1793026711.8723388, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[z_backward]", "pid": 89831}
+{"t": 1793026711.8728306, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[z_backward]", "pid": 89831}
+{"t": 1793026711.8729424, "event": "start", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[z_forward]", "pid": 89831}
+{"t": 1793026711.8735487, "event": "finish", "nodeid": "tests/test_omicron_sm4_format.py::TestImageOrientation::test_slow_axis_length_matches_the_signal[z_forward]", "pid": 89831}
+{"t": 1793026711.8737543, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_raw_file_has_the_scan_direction_of_its_folder[sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.8786404, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_raw_file_has_the_scan_direction_of_its_folder[sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026711.8787723, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_raw_file_has_the_scan_direction_of_its_folder[sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.8987796, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_raw_file_has_the_scan_direction_of_its_folder[sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026711.8989918, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026712.0831084, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026712.0833766, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026712.2990105, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_signal_is_a_gwyddion_channel_turned_upside_down[sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026712.299196, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026712.2998953, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026712.3000126, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026712.3005695, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[0-sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026712.3006828, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026712.301224, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026712.3013244, "event": "start", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026712.3018758, "event": "finish", "nodeid": "tests/test_omicron_sm4_orientation.py::TestStoredImages::test_axes_ascend_and_match_the_signal[1-sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026712.302053, "event": "start", "nodeid": "tests/test_reader.py::test_sts_reader[NXsts-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/sts/v_gen_5e_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026734.3535137, "event": "finish", "nodeid": "tests/test_reader.py::test_sts_reader[NXsts-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/sts/v_gen_5e_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026734.3539393, "event": "start", "nodeid": "tests/test_reader.py::test_sts_reader[NXsts-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/sts/v_gen_5_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026737.9874454, "event": "finish", "nodeid": "tests/test_reader.py::test_sts_reader[NXsts-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/sts/v_gen_5_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026737.9877415, "event": "start", "nodeid": "tests/test_reader.py::test_sts_reader[NXsts-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/sts/v_gen_5e_dflt_conf]", "pid": 89831}
+{"t": 1793026741.5978289, "event": "finish", "nodeid": "tests/test_reader.py::test_sts_reader[NXsts-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/sts/v_gen_5e_dflt_conf]", "pid": 89831}
+{"t": 1793026741.5981514, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026743.983091, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_5_dflt_conf_down]", "pid": 89831}
+{"t": 1793026743.983407, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026746.4403508, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_5e_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026746.440674, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026748.7773898, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_5_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026748.7777078, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026751.3745162, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026751.3748305, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026753.1184704, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026753.1187634, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026754.986586, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026754.9869182, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026756.8327081, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_down]", "pid": 89831}
+{"t": 1793026756.8330421, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026759.7740827, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026759.7744176, "event": "start", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026762.46733, "event": "finish", "nodeid": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026762.467658, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026765.7699728, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_descrb_nx_dt_up]", "pid": 89831}
+{"t": 1793026765.7703001, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026769.0481527, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026769.0484693, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_dflt_conf]", "pid": 89831}
+{"t": 1793026771.839161, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_dflt_conf]", "pid": 89831}
+{"t": 1793026771.8394186, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026773.442864, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_descrb_nx_dt]", "pid": 89831}
+{"t": 1793026773.4431343, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026775.0507789, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_down]", "pid": 89831}
+{"t": 1793026775.0511327, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026776.4618556, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_up]", "pid": 89831}
+{"t": 1793026776.4621792, "event": "start", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/txt_dflt_conf]", "pid": 89831}
+{"t": 1793026777.646926, "event": "finish", "nodeid": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/txt_dflt_conf]", "pid": 89831}
+{"t": 1793026777.6473238, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/flt_descrb_nx_dt/afm_flt_described_config.nxs]", "pid": 89831}
+{"t": 1793026777.658359, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/flt_descrb_nx_dt/afm_flt_described_config.nxs]", "pid": 89831}
+{"t": 1793026777.6585526, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/flt_dflt_conf/afm_flt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.6664903, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/flt_dflt_conf/afm_flt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.6666756, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_down/afm_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.676509, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_down/afm_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.6766627, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_up/afm_spm_v_9_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.6832628, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_up/afm_spm_v_9_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.683421, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/txt_dflt_conf/afm_txt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.6888926, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/bruker/afm/txt_dflt_conf/afm_txt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.6890483, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/afm/v_gen_4_descrb_nx_dt_up/afm_4_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7040322, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/afm/v_gen_4_descrb_nx_dt_up/afm_4_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7042077, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/afm/v_gen_4_dflt_conf_up/afm_4_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.718686, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/afm/v_gen_4_dflt_conf_up/afm_4_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.7188437, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_down/stm_4_descrb_nx_dt_down.nxs]", "pid": 89831}
+{"t": 1793026777.7278066, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_down/stm_4_descrb_nx_dt_down.nxs]", "pid": 89831}
+{"t": 1793026777.7279532, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_up/stm_4_descrb_nx_dt_up.nxs]", "pid": 89831}
+{"t": 1793026777.7366636, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_up/stm_4_descrb_nx_dt_up.nxs]", "pid": 89831}
+{"t": 1793026777.7367995, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_down/stm_4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026777.7450194, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_down/stm_4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026777.7451515, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_up/stm_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.7535303, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_up/stm_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.753677, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_5_descrb_nx_dt_down/stm_5_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7655659, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_5_descrb_nx_dt_down/stm_5_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7657301, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_5_dflt_conf_down/stm_5_with_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.7774596, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_5_dflt_conf_down/stm_5_with_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.777614, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_5e_descrb_nx_dt_down/stm_5e_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7888422, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/stm/v_gen_5e_descrb_nx_dt_down/stm_5e_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7889864, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/sts/v_gen_5_descrb_nx_dt/sts_5_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7962632, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/sts/v_gen_5_descrb_nx_dt/sts_5_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.7963834, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/sts/v_gen_5e_descrb_nx_dt/sts_5e_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.8037107, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/sts/v_gen_5e_descrb_nx_dt/sts_5e_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.803828, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/sts/v_gen_5e_dflt_conf/sts_5e_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.811596, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/nanonis/sts/v_gen_5e_dflt_conf/sts_5e_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8117151, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/omicron/stm/sm4_dflt_conf_down/omicron_sm4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026777.8255856, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/omicron/stm/sm4_dflt_conf_down/omicron_sm4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026777.8257434, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/omicron/stm/sm4_dflt_conf_up/omicron_stm_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8466365, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_start_and_end_bracket_the_offset[data/omicron/stm/sm4_dflt_conf_up/omicron_stm_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8468733, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/flt_descrb_nx_dt/afm_flt_described_config.nxs]", "pid": 89831}
+{"t": 1793026777.858026, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/flt_descrb_nx_dt/afm_flt_described_config.nxs]", "pid": 89831}
+{"t": 1793026777.858189, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/flt_dflt_conf/afm_flt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8685474, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/flt_dflt_conf/afm_flt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8687167, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_down/afm_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8808508, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_down/afm_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.881017, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_up/afm_spm_v_9_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.8912382, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/spm_v_9_4_dflt_conf_up/afm_spm_v_9_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.891385, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/txt_dflt_conf/afm_txt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8943748, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/bruker/afm/txt_dflt_conf/afm_txt_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.8944874, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/afm/v_gen_4_descrb_nx_dt_up/afm_4_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.917257, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/afm/v_gen_4_descrb_nx_dt_up/afm_4_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026777.9174259, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/afm/v_gen_4_dflt_conf_up/afm_4_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.939877, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/afm/v_gen_4_dflt_conf_up/afm_4_default_config.nxs]", "pid": 89831}
+{"t": 1793026777.9400504, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_down/stm_4_descrb_nx_dt_down.nxs]", "pid": 89831}
+{"t": 1793026777.9542763, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_down/stm_4_descrb_nx_dt_down.nxs]", "pid": 89831}
+{"t": 1793026777.954457, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_up/stm_4_descrb_nx_dt_up.nxs]", "pid": 89831}
+{"t": 1793026777.9687266, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_descrb_nx_dt_up/stm_4_descrb_nx_dt_up.nxs]", "pid": 89831}
+{"t": 1793026777.9688919, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_down/stm_4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026777.9823415, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_down/stm_4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026777.9825172, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_up/stm_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.9957342, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_4_dflt_conf_up/stm_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026777.995913, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_5_descrb_nx_dt_down/stm_5_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0138154, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_5_descrb_nx_dt_down/stm_5_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0139942, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_5_dflt_conf_down/stm_5_with_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.0317924, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_5_dflt_conf_down/stm_5_with_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.03196, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_5e_descrb_nx_dt_down/stm_5e_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0494747, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/stm/v_gen_5e_descrb_nx_dt_down/stm_5e_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0496492, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/sts/v_gen_5_descrb_nx_dt/sts_5_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0576584, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/sts/v_gen_5_descrb_nx_dt/sts_5_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0577953, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/sts/v_gen_5e_descrb_nx_dt/sts_5e_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.065834, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/sts/v_gen_5e_descrb_nx_dt/sts_5e_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.0659878, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/sts/v_gen_5e_dflt_conf/sts_5e_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.074163, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/nanonis/sts/v_gen_5e_dflt_conf/sts_5e_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.07429, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/omicron/stm/sm4_dflt_conf_down/omicron_sm4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026778.094198, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/omicron/stm/sm4_dflt_conf_down/omicron_sm4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026778.094369, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/omicron/stm/sm4_dflt_conf_up/omicron_stm_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.11538, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_axes_are_upper_case_and_centred_on_the_offset[data/omicron/stm/sm4_dflt_conf_up/omicron_stm_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.115557, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/flt_descrb_nx_dt/afm_flt_described_config.nxs]", "pid": 89831}
+{"t": 1793026778.1226234, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/flt_descrb_nx_dt/afm_flt_described_config.nxs]", "pid": 89831}
+{"t": 1793026778.1227705, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/flt_dflt_conf/afm_flt_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1296325, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/flt_dflt_conf/afm_flt_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1297798, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/spm_v_9_4_dflt_conf_down/afm_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1364646, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/spm_v_9_4_dflt_conf_down/afm_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1366048, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/spm_v_9_4_dflt_conf_up/afm_spm_v_9_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026778.1428387, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/spm_v_9_4_dflt_conf_up/afm_spm_v_9_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026778.1429996, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/txt_dflt_conf/afm_txt_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1464133, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/bruker/afm/txt_dflt_conf/afm_txt_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1465414, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/afm/v_gen_4_descrb_nx_dt_up/afm_4_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.1612086, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/afm/v_gen_4_descrb_nx_dt_up/afm_4_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.16139, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/afm/v_gen_4_dflt_conf_up/afm_4_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1752706, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/afm/v_gen_4_dflt_conf_up/afm_4_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.1754458, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_descrb_nx_dt_down/stm_4_descrb_nx_dt_down.nxs]", "pid": 89831}
+{"t": 1793026778.1845498, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_descrb_nx_dt_down/stm_4_descrb_nx_dt_down.nxs]", "pid": 89831}
+{"t": 1793026778.1846924, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_descrb_nx_dt_up/stm_4_descrb_nx_dt_up.nxs]", "pid": 89831}
+{"t": 1793026778.1931016, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_descrb_nx_dt_up/stm_4_descrb_nx_dt_up.nxs]", "pid": 89831}
+{"t": 1793026778.193233, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_dflt_conf_down/stm_4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026778.201402, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_dflt_conf_down/stm_4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026778.2015433, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_dflt_conf_up/stm_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026778.2101176, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_4_dflt_conf_up/stm_4_dflt_conf_up.nxs]", "pid": 89831}
+{"t": 1793026778.210275, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_5_descrb_nx_dt_down/stm_5_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.2216225, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_5_descrb_nx_dt_down/stm_5_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.2217762, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_5_dflt_conf_down/stm_5_with_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.2331712, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_5_dflt_conf_down/stm_5_with_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.2333202, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_5e_descrb_nx_dt_down/stm_5e_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.2446432, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/stm/v_gen_5e_descrb_nx_dt_down/stm_5e_with_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.2448, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/sts/v_gen_5_descrb_nx_dt/sts_5_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.2525492, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/sts/v_gen_5_descrb_nx_dt/sts_5_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.2526762, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/sts/v_gen_5e_descrb_nx_dt/sts_5e_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.260352, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/sts/v_gen_5e_descrb_nx_dt/sts_5e_described_nxdata.nxs]", "pid": 89831}
+{"t": 1793026778.260496, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/sts/v_gen_5e_dflt_conf/sts_5e_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.2684937, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/nanonis/sts/v_gen_5e_dflt_conf/sts_5e_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.2686288, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/omicron/stm/sm4_dflt_conf_down/omicron_sm4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026778.282107, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/omicron/stm/sm4_dflt_conf_down/omicron_sm4_dflt_conf_down.nxs]", "pid": 89831}
+{"t": 1793026778.2822735, "event": "start", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/omicron/stm/sm4_dflt_conf_up/omicron_stm_default_config.nxs]", "pid": 89831}
+{"t": 1793026778.296295, "event": "finish", "nodeid": "tests/test_scan_region_convention.py::test_independent_scan_axes_runs_fast_to_slow[data/omicron/stm/sm4_dflt_conf_up/omicron_stm_default_config.nxs]", "pid": 89831}

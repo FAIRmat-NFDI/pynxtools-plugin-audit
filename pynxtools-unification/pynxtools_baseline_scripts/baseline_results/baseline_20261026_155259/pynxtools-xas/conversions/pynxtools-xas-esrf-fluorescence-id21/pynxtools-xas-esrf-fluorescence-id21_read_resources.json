@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-fluorescence-id21/pynxtools-xas-esrf-fluorescence-id21_output.nxs"
+  ],
+  "started": "2026-10-26T16:01:52",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.766,
+  "user_cpu_s": 0.876,
+  "sys_cpu_s": 0.946,
+  "peak_rss_mb": 104.9
+}

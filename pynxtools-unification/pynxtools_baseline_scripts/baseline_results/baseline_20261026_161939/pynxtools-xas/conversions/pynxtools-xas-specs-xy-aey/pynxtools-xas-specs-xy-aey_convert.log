@@ -1,0 +1,19 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[specs-xy-aey]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/2023-12-07_ID-39088_LaSrCoO3_BARIS_H2-500C.xy",
+    "$HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/eln_data_specs_xy_aey.yaml"
+  ],
+  "reader": "xas",
+  "nxdl": "NXxas",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:28:18,481 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:28:18,718 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/2023-12-07_ID-39088_LaSrCoO3_BARIS_H2-500C.xy
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/specs_xy_aey/eln_data_specs_xy_aey.yaml
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs

@@ -1,0 +1,3 @@
+The unit /FeO__Fe2p/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+WARNING: Field /FeO__Fe2p/instrument/electronanalyzer/target_bias has no documentation.
+WARNING: Invalid: The entry `FeO__Fe2p` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-vms-reader-with-data-analysis-nxxps/pynxtools-xps-vms-reader-with-data-analysis-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.

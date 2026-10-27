@@ -1,0 +1,519 @@
+════════════════════════════════════════════════════════════
+NeXus file: pynxtools-em-extra_default_output.nxs
+
+GROUP / [NXroot]
+  @HDF5_Version = 2.0.0  [OPTIONAL]
+  @NeXus_release = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+  @NeXus_repository = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+  @creator = pynxtools  [OPTIONAL]
+  @creator_version = 0.16.0.post1.dev18+g59f03be0d  [OPTIONAL]
+  @file_name = pynxtools-em-extra_default_output.nxs  [OPTIONAL]
+  @file_time = 2026-10-26 16:22:13.758043+01:00  [OPTIONAL]
+  @file_update_time = 2026-10-26 16:22:13.758043+01:00  [OPTIONAL]
+  @h5py_version = 3.16.0  [OPTIONAL]
+════════════════════════════════════════════════════════════
+
+GROUP /entry1 [NXentry]  (11 members)
+  Concept   : NXem/ENTRY  [REQUIRED]
+  Inheritance:
+    NXem/ENTRY
+    NXentry
+      Doc       : (**required**) :ref:`NXentry` describes the measurement. The top-level NeXus group
+                  which contains all the data and associated information that comprise a single
+                  measurement. It is mandatory that there is at least one group of this type in the
+                  NeXus file.
+
+  GROUP /entry1/custom_reference_frame [NXcoordinate_system]  (9 members)
+    Concept   : NXem/ENTRY/NAMED_reference_frameID  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/NAMED_reference_frameID
+      NXcoordinate_system
+        Doc       : Base class to detail a coordinate system (CS). Instances of
+                    ``NXcoordinate_system`` can be used to describe coordinate systems other than
+                    the default `NeXus coordinate system
+                    <https://manual.nexusformat.org/design.html#the-nexus-coordinate-system>`_.
+                    Whenever possible, all instances of :ref:`NXcoordinate_system` should be used at
+                    the top-level (i.e, directly below ``NXentry``) within an application definition
+                    or within a NeXus file. ``NXcoordinate_system`` can be part of the
+                    transformations chain using :ref:`NXtransformations`, where it acts as a linear
+                    change-of-basis transformation (using a 3x3 matrix with the basis vectors ``x``,
+                    `y``, and ``z`` as columns). Any group that has an optional ``depends_on`` field
+                    or any field that has an optional ``depends_on`` attribute has a fallback when
+                    ``depends_on`` is not provided. The fallback behavior involves traversing up the
+                    hierarchy until the first ancestor that contains one and only one
+                    ``NXcoordinate_system`` group is found. If such an ancestor exists, its
+                    coordinate system applies. If none is found or more than one instance of
+                    ``NXcoordinate_system`` is found at the same level, then the current coordinate
+                    system is not defined with respect to anything else. As an example, if there is
+                    only one ``NXcoordinate_system`` called "my_coordinate_system" defined directly
+                    under ``NXentry``, each optional ``depends_on`` field/attribute that is not
+                    defined automatically defaults to ``depends_on=my_coordinate_system``. How many
+                    groups of type ``NXcoordinate_system`` should be used in an application
+                    definition? * 0; if there is no instance of ``NXcoordinate_system`` across the
+                    entire tree, you can use ``depends_on="."`` to state that this transformation
+                    depends on the default `NeXus coordinate system
+                    <https://manual.nexusformat.org/design.html#the-nexus-coordinate-system>`_
+                    (which is the same as the one used by `McStas <https://mcstas.org/>`_). For the
+                    sake of clarity, even in this case it is better to be explicit and consistent
+                    for every other coordinate system definition to support users with interpreting
+                    the content and logic behind every instance of the tree. The default NeXus
+                    coordinate system (i.e., the McStas coordinate system) can be expressed as
+                    follows: .. code-block:: mcstas@NXcoordinate_system x = [1, 0, 0] y = [0, 1, 0]
+                    z = [0, 0, 1] @y_direction = "opposite to gravity" @z_direction = "direction of
+                    the primary beam" Note that this assumes that the direction of the beam is not
+                    defined in the ``NXbeam`` instance. * 1; if only one :ref:`NXcoordinate_system`
+                    is defined, it should be placed as high up in the tree hierarchy (ideally right
+                    below an instance of NXentry) of the application definition tree as possible.
+                    This coordinate system shall be named such that it is clear how this coordinate
+                    system is typically referred to in a community. For the NeXus McStas coordinate
+                    system, it is advised to call it ``mcstas`` for the sake of improved clarity. If
+                    this is the case, it is assumed that this ``NXcoordinate_system`` overwrites the
+                    NeXus default McStas coordinate system, i.e. users can thereby conveniently and
+                    explicitly specify the coordinate system that they wish to use. This case has
+                    the advantage that it is explicit and offers no ambiguities. However, in reality
+                    typically multiple coordinate systems have to be mastered especially for complex
+                    multi-signal modality experiments. If this case is realized, the best practice
+                    is that in every case where this coordinate system should be referred to the
+                    respective group has a ``depends_on`` field, to clearly indicate which specific
+                    coordinate systems is referred to. * 2 and more; as soon as more than one
+                    :ref:`NXcoordinate_system` is specified somewhere in the tree, different
+                    interpretations are possible as to which of these coordinate systems apply or
+                    take preference. While these ambiguities should be avoided if possible, the
+                    opportunity for multiples instances enables to have coordinate system
+                    conventions that are specific for some part of the NeXus tree. This is
+                    especially useful for deep groups where multiple scientific methods are combined
+                    or cases where having a definition of global conversion tables how to convert
+                    between representations in different coordinate systems is not desired or
+                    available for now. To resolve the possible ambiguities which specific coordinate
+                    systems in an :ref:`NXtransformations` train is referred to, it is even more
+                    important to use the ``depends_on`` field in groups and the ``depends_on``
+                    attribute in NXtransformations to refer to one of the ``NXcoordinate_system``
+                    instances. In the case of two or more instances of ``NXcoordinate_system`` it is
+                    advised to specify the relationship between the two coordinate systems by using
+                    the :ref:`NXtransformations` group within ``NXcoordinate_system``. In any case,
+                    users are encouraged to write explicit and clean ``depends_on`` fields in all
+                    groups that encode information for which the interpretation of coordinate
+                    systems and transformations is relevant. If these ``depends_on`` instances are
+                    not provided or no instance of ``NX_coordinate_system`` exists in the upper part
+                    of the hierarchy, the application definition is considered underconstrained.
+                    Note that this is the case for all files that were created before
+                    ``NXcoordinate_system`` was added.
+    FIELD /entry1/custom_reference_frame/alias  shape=()  dtype=object
+      Value     : Following the idea of McStas that the z-axis points along the beam, electron microscopy as a beam line to study electron/matter interaction.
+      Concept   : NXem/ENTRY/NAMED_reference_frameID/alias  [OPTIONAL]
+      Inheritance:
+        NXem/ENTRY/NAMED_reference_frameID/alias
+    FIELD /entry1/custom_reference_frame/origin  shape=()  dtype=object
+      Value     : E.g. a characteristic point along electron-optical setup such as the point where the probe exits what is considered as the gun (source).
+      Concept   : NXem/ENTRY/NAMED_reference_frameID/origin  [RECOMMENDED]
+      Inheritance:
+        NXem/ENTRY/NAMED_reference_frameID/origin
+        NXcoordinate_system/origin
+          Doc       : Human-readable field describing where the origin of this CS is. Exemplar
+                      values could be *left corner of the lab bench*, *door handle* *pinhole through
+                      which the electron beam exits the pole piece*, *barycenter of the triangle*,
+                      *center of mass of the stone*.
+    FIELD /entry1/custom_reference_frame/type  shape=()  dtype=object
+      Value     : cartesian
+      Concept   : NXem/ENTRY/NAMED_reference_frameID/type  [REQUIRED]
+      Inheritance:
+        NXem/ENTRY/NAMED_reference_frameID/type
+        NXcoordinate_system/type
+          Doc       : Coordinate system type.
+      Enums     : [NXcoordinate_system] undefined, cartesian
+    FIELD /entry1/custom_reference_frame/x_alias  shape=()  dtype=object
+      Value     : x-axis
+      Concept   : NXcoordinate_system/ENTRY/NAMED_reference_frameID/x_alias  [OPTIONAL]
+      Inheritance:
+        NXcoordinate_system/x_alias
+          Doc       : Opportunity to define an alias for the name of the x-axis.
+    FIELD /entry1/custom_reference_frame/x_direction  shape=()  dtype=object
+      Value     : Direction 1 that is perpendicular to the z_direction for a right_handed cartesian
+      Concept   : NXem/ENTRY/NAMED_reference_frameID/x_direction  [RECOMMENDED]
+      Inheritance:
+        NXem/ENTRY/NAMED_reference_frameID/x_direction
+        NXcoordinate_system/x_direction
+          Doc       : Human-readable field telling in which direction the x-axis points if that
+                      instance of :ref:`NXcoordinate_system` has no reference to any parent and as
+                      such is the world reference frame. Exemplar values could be direction of
+                      gravity.
+    FIELD /entry1/custom_reference_frame/y_alias  shape=()  dtype=object
+      Value     : y-axis
+      Concept   : NXcoordinate_system/ENTRY/NAMED_reference_frameID/y_alias  [OPTIONAL]
+      Inheritance:
+        NXcoordinate_system/y_alias
+          Doc       : Opportunity to define an alias for the name of the y-axis.
+    FIELD /entry1/custom_reference_frame/y_direction  shape=()  dtype=object
+      Value     : Direction 2 that is perpendicular to the xaxis_direction and the z_direction for a right_handed cartesian
+      Concept   : NXem/ENTRY/NAMED_reference_frameID/y_direction  [RECOMMENDED]
+      Inheritance:
+        NXem/ENTRY/NAMED_reference_frameID/y_direction
+        NXcoordinate_system/y_direction
+          Doc       : Human-readable field telling in which direction the y-axis points if that
+                      instance of :ref:`NXcoordinate_system` has no reference to any parent and as
+                      such is the mighty world reference frame. See docstring of ``x_direction`` for
+                      further details.
+    FIELD /entry1/custom_reference_frame/z_alias  shape=()  dtype=object
+      Value     : Ideal beam direction
+      Concept   : NXcoordinate_system/ENTRY/NAMED_reference_frameID/z_alias  [OPTIONAL]
+      Inheritance:
+        NXcoordinate_system/z_alias
+          Doc       : Opportunity to define an alias for the name of the z-axis.
+    FIELD /entry1/custom_reference_frame/z_direction  shape=()  dtype=object
+      Value     : Direction of an electron travelling hypothetically exactly along the optical axis towards the specimen
+      Concept   : NXem/ENTRY/NAMED_reference_frameID/z_direction  [RECOMMENDED]
+      Inheritance:
+        NXem/ENTRY/NAMED_reference_frameID/z_direction
+        NXcoordinate_system/z_direction
+          Doc       : Human-readable field telling in which direction the z-axis points if that
+                      instance of :ref:`NXcoordinate_system` has no reference to any parent and as
+                      such is the mighty world reference frame. See docstring of x_alias for further
+                      details.
+  FIELD /entry1/definition  shape=()  dtype=object
+    Value     : NXem
+    Concept   : NXem/ENTRY/definition  [REQUIRED]
+    Inheritance:
+      NXem/ENTRY/definition
+      NXentry/definition
+        Doc       : (alternate use: see same field in :ref:`NXsubentry` for preferred) Official
+                    NeXus NXDL schema to which this entry conforms which must be the name of the
+                    NXDL file (case sensitive without the file extension) that the NXDL schema is
+                    defined in. For example the ``definition`` field for a file that conformed to
+                    the *NXarpes.nxdl.xml* definition must contain the string **NXarpes**. This
+                    field is provided so that :ref:`NXentry` can be the overlay position in a NeXus
+                    data file for an application definition and its set of groups, fields, and
+                    attributes. *It is advised* to use :ref:`NXsubentry`, instead, as the overlay
+                    position.
+    Enums     : [NXem] NXem
+    Enums     : [NXem] NXem
+    @URL = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+    @version = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+  FIELD /entry1/end_time  shape=()  dtype=object
+    Value     : 2025-03-22T10:02:00+00:00
+    Concept   : NXem/ENTRY/end_time  [RECOMMENDED]
+    Inheritance:
+      NXem/ENTRY/end_time
+        Doc       : ISO 8601 time code with local time zone offset to UTC included when the
+                    microscope session ended. See docstring of the start_time field to see how to
+                    use the start_time and end_time together.
+      NXentry/end_time
+        Doc       : Ending time of measurement
+  FIELD /entry1/experiment_alias  shape=()  dtype=object
+    Value     : InGaN
+    Concept   : NXem/ENTRY/experiment_alias  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/experiment_alias
+        Doc       : Alias (short name) which scientists can use to refer to this experiment.
+  FIELD /entry1/experiment_description  shape=()  dtype=object
+    Value     : <p>normal<br /><strong>bold</strong></p>...
+    Concept   : NXem/ENTRY/experiment_description  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/experiment_description
+        Doc       : Free-text description about the experiment. Users are strongly advised to
+                    parameterize the description of their experiment by using respective groups and
+                    fields and base classes instead of writing prose into the field.
+      NXentry/experiment_description
+        Doc       : Brief summary of the experiment, including key objectives.
+
+  GROUP /entry1/profiling [NXcs_profiling]  (7 members)
+    Concept   : NXem/ENTRY/profiling  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/profiling
+        Doc       : The configuration of the software that was used to generate this NeXus file.
+      NXcs_profiling
+        Doc       : Computer science description for performance and profiling data of an
+                    application. Performance monitoring and benchmarking of software is a task where
+                    questions can be asked at various levels of detail. In general, there are three
+                    main contributions to performance: * Hardware capabilities and configuration *
+                    Software configuration and capabilities * Dynamic effects of the system in
+                    operation and the system working together with eventually multiple computers,
+                    especially when these have to exchange information across a network and these
+                    are used usually by multiple users. At the most basic level users may wish to
+                    document how long e.g. a data analysis with a scientific software, i.e. an app
+                    took. A frequent idea is here to answer practical questions like how critical is
+                    the effect on the workflow of the scientists, i.e. is the analysis possible in a
+                    few seconds or would it take days if I were to run this analysis on a comparable
+                    machine? For this more qualitative performance monitoring, mainly the order of
+                    magnitude is relevant, as well as how this was achieved using parallelization
+                    (i.e. reporting the number of CPU and GPU resources used, the number of
+                    processes and threads configured, and providing basic details about the
+                    computer). At more advanced levels benchmarks may go as deep as detailed
+                    temporal tracking of individual processor instructions, their relation to other
+                    instructions, the state of call stacks; in short eventually the entire app
+                    execution history and hardware state history. Such analyses are mainly used for
+                    performance optimization, i.e. by software and hardware developers as well as
+                    for tracking bugs. Specialized software exists which documents such performance
+                    data in specifically-formatted event log files or databases. This base class
+                    cannot and should not replace these specific solutions for now. Instead, the
+                    intention of the base class is to serve scientists at the basic level to enable
+                    simple monitoring of performance data and log profiling data of key algorithmic
+                    steps or parts of computational workflows, so that these pieces of information
+                    can guide users which order of magnitude differences should be expected or not.
+                    Developers of application definitions should add additional fields and
+                    references to e.g. more detailed performance data to which they wish to link the
+                    metadata in this base class.
+    FIELD /entry1/profiling/architecture  shape=()  dtype=object
+      Value     : x86_64
+      <NOT IN SCHEMA>
+    FIELD /entry1/profiling/max_gpus  shape=()  dtype=uint32
+      Value     : 0
+      Concept   : NXcs_profiling/ENTRY/profiling/max_gpus  [OPTIONAL]
+      Inheritance:
+        NXcs_profiling/max_gpus
+          Doc       : The number of nominal GPUs that the app invoked at runtime.
+    FIELD /entry1/profiling/max_processes  shape=()  dtype=uint32
+      Value     : 1
+      Concept   : NXcs_profiling/ENTRY/profiling/max_processes  [OPTIONAL]
+      Inheritance:
+        NXcs_profiling/max_processes
+          Doc       : The number of nominal processes that the app invoked at runtime. The main idea
+                      behind this field e.g. for apps which use e.g. MPI (Message Passing Interface)
+                      parallelization is to communicate how many processes were used. For
+                      sequentially running apps number_of_processes and number_of_threads is one. If
+                      the app exclusively uses GPU parallelization, number_of_gpus can be larger
+                      than one. If no GPU is used, number_of_gpus is zero, even though the hardware
+                      may have GPUs installed.
+    FIELD /entry1/profiling/max_threads  shape=()  dtype=uint32
+      Value     : 1
+      Concept   : NXcs_profiling/ENTRY/profiling/max_threads  [OPTIONAL]
+      Inheritance:
+        NXcs_profiling/max_threads
+          Doc       : The number of nominal threads that the app invoked at runtime. Specifically
+                      here the maximum number of threads used for the high-level threading library
+                      used (e.g. OMP_NUM_THREADS), posix.
+    FIELD /entry1/profiling/operating_system  shape=()  dtype=object
+      Value     : Linux, 7.0.0-38-generic, #38~24.04.4-Ubuntu SMP PREEMPT_DYNAMIC Mon Sep 14 16:37:11 UTC 2
+      <NOT IN SCHEMA>
+
+    GROUP /entry1/profiling/program1 [NXprogram]  (1 members)
+      Concept   : NXem/ENTRY/profiling/programID  [OPTIONAL]
+      Inheritance:
+        NXem/ENTRY/profiling/programID
+          Doc       : A collection of all programs and libraries used to generate this NeXus file.
+                      Ideally, this would enable a binary recreation from the input data. Examples
+                      include the name and version of the libraries used to write the instance.
+                      Ideally, the software which writes these NXprogram instances also includes the
+                      version of the set of NeXus classes i.e. the specific set of base classes,
+                      application definitions, and contributed definitions with which the here
+                      described concepts can be resolved. For the `pynxtools library
+                      <https://github.com/FAIRmat-NFDI/pynxtools>`_ which is used by the `NOMAD
+                      <https://nomad-lab.eu/nomad-lab>`_ research data management system, it makes
+                      sense to store e.g. the GitHub repository commit and respective submodule
+                      references used. Instances can also be used to document the modules and
+                      libraries that are offered by the computational environment such as those
+                      parsed from conda or python virtualenv environments.
+        NXprogram
+          Doc       : Base class to describe a software tool or library.
+      FIELD /entry1/profiling/program1/program  shape=()  dtype=object
+        Value     : pynxtools-em
+        Concept   : NXem/ENTRY/profiling/programID/program  [REQUIRED]
+        Inheritance:
+          NXem/ENTRY/profiling/programID/program
+          NXprogram/program
+            Doc       : Given name of the program. Program can be a commercial one a script, or a
+                        library or a library component.
+        @version = 0.4.6.post1.dev2+g340f1545a  [REQUIRED]
+    FIELD /entry1/profiling/template_filling_elapsed_time  shape=()  dtype=float64
+      Value     : 0.026875913
+      <NOT IN SCHEMA>
+      @units = s  [NOT IN SCHEMA]
+
+  GROUP /entry1/sample [NXsample]  (5 members)
+    Concept   : NXem/ENTRY/sampleID  [REQUIRED]
+    Inheritance:
+      NXem/ENTRY/sampleID
+        Doc       : A physical entity which contains material intended to be investigated. Sample
+                    and specimen are treated as de facto synonyms. Samples can be real or virtual
+                    ones as annotated via is_simulation. The suggested best practice is to call this
+                    group sample. In those cases when multiple samples need to be grouped inside one
+                    entry, these SAMPLE groups should be named using the prefix sample followed an
+                    index starting from 1, i.e. (sample1, sample2). There are at least two
+                    strategies how to store (meta)data when one analyzes multiple samples - not
+                    different ROIs on a single sample though - in one session. One strategy is to
+                    store each sample and its results under an own NXem/ENTRY. This is one of the
+                    most frequent use cases as during most sessions typically only a single sample
+                    is investigated. In this case the name of this group should be sample. If
+                    multiple samples are investigated storing each of them in their own ENTRY group
+                    eventually will demand unnecessary duplication of instrument details. This can
+                    be avoided by using another strategy for storing samples and their results.
+                    Namely, by using only one instance of NXem/ENTRY. That NXem/ENTRY should then be
+                    named, like in the previous case, NXem/entry1 and the samples should be named
+                    sample1, sample2, etc., i.e. instances should use sample as a name prefix. In
+                    this case the collection of events should use identifier_sample to state clearly
+                    for which of the samples loaded the (characterization) event was detected. This
+                    concept is related to term `Specimen`_ of the EMglossary standard. .. _Specimen:
+                    https://purls.helmholtz-metadaten.de/emg/EMG_00000046
+      NXentry/SAMPLE
+      NXsample
+        Doc       : Any information on the sample. This could include scanned variables that are
+                    associated with one of the data dimensions, e.g. the magnetic field, or logged
+                    data, e.g. monitored temperature vs elapsed time.
+      NXcomponent
+        Doc       : Base class for components of an instrument - real ones or simulated ones.
+    FIELD /entry1/sample/chemical_formula  shape=()  dtype=object
+      Value     : InGaN
+      Concept   : NXsample/ENTRY/sampleID/chemical_formula  [OPTIONAL]
+      Inheritance:
+        NXsample/chemical_formula
+          Doc       : The chemical formula specified using CIF conventions. Abbreviated version of
+                      CIF standard: * Only recognized element symbols may be used. * Each element
+                      symbol is followed by a 'count' number. A count of '1' may be omitted. * A
+                      space or parenthesis must separate each cluster of (element symbol + count). *
+                      Where a group of elements is enclosed in parentheses, the multiplier for the
+                      group must follow the closing parentheses. That is, all element and group
+                      multipliers are assumed to be printed as subscripted numbers. * Unless the
+                      elements are ordered in a manner that corresponds to their chemical structure,
+                      the order of the elements within any group or moiety depends on whether or not
+                      carbon is present. * If carbon is present, the order should be: - C, then H,
+                      then the other elements in alphabetical order of their symbol. - If carbon is
+                      not present, the elements are listed purely in alphabetic order of their
+                      symbol. * This is the *Hill* system used by Chemical Abstracts.
+    FIELD /entry1/sample/is_simulation  shape=()  dtype=bool
+      Value     : False
+      Concept   : NXem/ENTRY/sampleID/is_simulation  [REQUIRED]
+      Inheritance:
+        NXem/ENTRY/sampleID/is_simulation
+          Doc       : Qualifier whether the sample is a real (in which case is_simulation should be
+                      set to false) or a virtual one (in which case is_simulation should be set to
+                      true).
+    FIELD /entry1/sample/name  shape=()  dtype=object
+      Value     : InGaN
+      Concept   : NXem/ENTRY/sampleID/name  [RECOMMENDED]
+      Inheritance:
+        NXem/ENTRY/sampleID/name
+          Doc       : Specimen name
+        NXsample/name
+          Doc       : Descriptive name of sample
+        NXcomponent/name
+          Doc       : Name of the component.
+    FIELD /entry1/sample/preparation_date  shape=()  dtype=object
+      Value     : 2025-03-22T10:02:00+00:00
+      Concept   : NXem/ENTRY/sampleID/preparation_date  [REQUIRED]
+      Inheritance:
+        NXem/ENTRY/sampleID/preparation_date
+          Doc       : ISO 8601 time code with local time zone offset to UTC information when the
+                      specimen was prepared. Ideally, report the end of the preparation, i.e. the
+                      last known timestamp when the measured specimen surface was actively prepared.
+                      Ideally, this matches the last timestamp that is mentioned in the digital
+                      resource pointed to by identifier_parent. Knowing when the specimen was
+                      exposed to e.g. specific atmosphere is especially required for material that
+                      is sensitive to the environment such as specimens that were charged with fast
+                      diffusing elements or short-lived radioactive tracers. Additional time stamps
+                      prior to preparation_date are better placed in resources which describe but do
+                      not pollute the description here with prose. Resolving these connected
+                      metadata is considered the responsibility of the research data management
+                      system and not the a NeXus file.
+        NXsample/preparation_date
+          Doc       : Date of preparation of the sample
+    FIELD /entry1/sample/thickness  shape=()  dtype=float64
+      Value     : 1e-06
+      Concept   : NXem/ENTRY/sampleID/thickness  [OPTIONAL]
+      Inheritance:
+        NXem/ENTRY/sampleID/thickness
+          Doc       : (Measured) sample thickness. The information is recorded to qualify if the
+                      beam used was likely able to shine through the specimen. For scanning electron
+                      microscopy, in many cases the specimen is typically thicker than what is
+                      illuminable by the electron beam. In this case the value should be set to the
+                      actual thickness of the specimen viewed for an illumination situation where
+                      the nominal surface normal of the specimen is parallel to the optical axis.
+      @units = meter  [UNIT: NX_LENGTH]
+  FIELD /entry1/start_time  shape=()  dtype=object
+    Value     : 2025-03-22T10:02:00+00:00
+    Concept   : NXem/ENTRY/start_time  [REQUIRED]
+    Inheritance:
+      NXem/ENTRY/start_time
+        Doc       : ISO 8601 time code with local time zone offset to UTC information included when
+                    the microscope session started. If the application demands that time codes in
+                    this section of the application definition should only be used for specifying
+                    when the experiment was performed - and the exact duration is not relevant - use
+                    this start_time field. Often though it is useful to specify a time interval via
+                    setting both a start_time and an end_time because this enables software tools
+                    and users to collect a more detailed bookkeeping of the experiment. Users should
+                    be aware though that even using only start_time and end_time may not be
+                    sufficient to infer how long the experiment took or for how long data were
+                    acquired. To bookkeep more fine-grained timestamps over the course of the
+                    experiment is possible with start_time and end_time fields of respective
+                    :ref:`NXem_event_data` instances.
+      NXentry/start_time
+        Doc       : Starting time of measurement
+
+  GROUP /entry1/user1 [NXuser]  (2 members)
+    Concept   : NXem/ENTRY/userID  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/userID
+        Doc       : Information about persons who performed or were involved in the microscope
+                    session or simulation run.
+      NXentry/USER
+      NXuser
+        Doc       : Contact information for a user. The format allows more than one user with the
+                    same affiliation and contact information, but a second :ref:`NXuser` group
+                    should be used if they have different affiliations, etc.
+    FIELD /entry1/user1/identifier  shape=()  dtype=object
+      Value     : 0000-0000-0000-0000
+      Concept   : NXem/ENTRY/userID/identifierNAME  [RECOMMENDED]
+      Inheritance:
+        NXem/ENTRY/userID/identifierNAME
+        NXobject/identifierNAME
+          Doc       : An identifier for a (persistent) resource. An identifier, provided by some
+                      authority, that has been assigned to an object described by this ``NXobject``.
+                      To be useful, the identifier must not be reassigned to a different real-world
+                      object. It is typical for there to be some mechanism to resolve an identifier,
+                      obtaining metadata about the object. Identifiers for which some guarantees
+                      exist regarding this resolution process are called persistent identifiers.
+                      Persistent identifiers are also known as PIDs.
+      @type = DOI  [REQUIRED]
+    FIELD /entry1/user1/name  shape=()  dtype=object
+      Value     : Aidan
+      Concept   : NXem/ENTRY/userID/name  [OPTIONAL]
+      Inheritance:
+        NXem/ENTRY/userID/name
+          Doc       : Given (first) name and surname.
+        NXuser/name
+          Doc       : Name of user responsible for this entry
+
+  GROUP /entry1/user2 [NXuser]  (1 members)
+    Concept   : NXem/ENTRY/userID  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/userID
+        Doc       : Information about persons who performed or were involved in the microscope
+                    session or simulation run.
+      NXentry/USER
+      NXuser
+        Doc       : Contact information for a user. The format allows more than one user with the
+                    same affiliation and contact information, but a second :ref:`NXuser` group
+                    should be used if they have different affiliations, etc.
+    FIELD /entry1/user2/name  shape=()  dtype=object
+      Value     : JonasL
+      Concept   : NXem/ENTRY/userID/name  [OPTIONAL]
+      Inheritance:
+        NXem/ENTRY/userID/name
+          Doc       : Given (first) name and surname.
+        NXuser/name
+          Doc       : Name of user responsible for this entry
+
+  GROUP /entry1/user3 [NXuser]  (1 members)
+    Concept   : NXem/ENTRY/userID  [OPTIONAL]
+    Inheritance:
+      NXem/ENTRY/userID
+        Doc       : Information about persons who performed or were involved in the microscope
+                    session or simulation run.
+      NXentry/USER
+      NXuser
+        Doc       : Contact information for a user. The format allows more than one user with the
+                    same affiliation and contact information, but a second :ref:`NXuser` group
+                    should be used if they have different affiliations, etc.
+    FIELD /entry1/user3/name  shape=()  dtype=object
+      Value     : MarkusK
+      Concept   : NXem/ENTRY/userID/name  [OPTIONAL]
+      Inheritance:
+        NXem/ENTRY/userID/name
+          Doc       : Given (first) name and surname.
+        NXuser/name
+          Doc       : Name of user responsible for this entry
+
+========================
+=== Default Plottable ===
+========================
+
+NXentry has been identified: /entry1
+No NXdata group has been found

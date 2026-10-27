@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools/conversions/pynxtools-test_compression/pynxtools-test_compression_output.nxs"
+  ],
+  "started": "2026-10-26T16:08:58",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.867,
+  "user_cpu_s": 0.959,
+  "sys_cpu_s": 0.926,
+  "peak_rss_mb": 107.1
+}

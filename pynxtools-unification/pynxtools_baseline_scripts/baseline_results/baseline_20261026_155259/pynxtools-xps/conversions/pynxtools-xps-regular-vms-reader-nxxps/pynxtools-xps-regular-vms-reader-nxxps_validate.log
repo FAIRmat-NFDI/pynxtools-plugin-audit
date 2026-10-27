@@ -1,0 +1,3 @@
+The unit /1_as_loaded__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+WARNING: Field /1_as_loaded__Survey/instrument/electronanalyzer/target_bias has no documentation.
+WARNING: Invalid: The entry `1_as_loaded__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-regular-vms-reader-nxxps/pynxtools-xps-regular-vms-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.

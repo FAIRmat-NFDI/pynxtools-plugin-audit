@@ -1,0 +1,7 @@
+The unit /PBTTT_1_2_V__C1s/channels_averaging/data/data/@units = counts_per_second has no documentation.
+The unit /PBTTT_1_2_V__C1s/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+The unit /PBTTT_1_2_V__C1s/scan_averaging/data/data/@units = counts_per_second has no documentation.
+The entry `PBTTT_1_2_V__C1s` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-specs-xml-reader-nxxps/pynxtools-xps-specs-xml-reader-nxxps_output.nxs` is valid according to the `NXxps` application definition.
+The unit /PBTTT_1_2_V__Survey/channels_averaging/data/data/@units = counts_per_second has no documentation.
+The unit /PBTTT_1_2_V__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts has no documentation.
+The entry `PBTTT_1_2_V__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/conversions/pynxtools-xps-specs-xml-reader-nxxps/pynxtools-xps-specs-xml-reader-nxxps_output.nxs` is valid according to the `NXxps` application definition.

@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-em/conversions/pynxtools-em-extra_default/pynxtools-em-extra_default_output.nxs"
+  ],
+  "started": "2026-10-26T15:55:35",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.866,
+  "user_cpu_s": 0.97,
+  "sys_cpu_s": 0.97,
+  "peak_rss_mb": 130.6
+}

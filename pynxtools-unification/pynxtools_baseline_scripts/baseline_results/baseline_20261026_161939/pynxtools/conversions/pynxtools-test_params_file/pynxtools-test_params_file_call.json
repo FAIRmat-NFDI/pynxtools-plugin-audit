@@ -1,0 +1,16 @@
+{
+  "test_id": "tests/dataconverter/test_convert.py::test_params_file",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools/tests/data/dataconverter",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.138,
+  "call": {
+    "input_file": "readers/example/testdata.json",
+    "reader": "example",
+    "nxdl": "NXtest",
+    "output": "testdata.nxs"
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-test_params_file"
+}

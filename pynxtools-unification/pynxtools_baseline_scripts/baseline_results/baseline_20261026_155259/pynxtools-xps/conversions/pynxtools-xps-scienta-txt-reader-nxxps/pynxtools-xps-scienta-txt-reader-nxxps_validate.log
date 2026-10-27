@@ -1,0 +1,10 @@
+WARNING: Field /Ag__001__Ag3d/data_file has no documentation.
+The unit /Ag__001__Ag3d/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Attribute /Ag__001__Ag3d/method/@long_name has no documentation.
+WARNING: Field /Ag__001__Ag3d/sequence_file has no documentation.
+WARNING: Invalid: The entry `Ag__001__Ag3d` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-scienta-txt-reader-nxxps/pynxtools-xps-scienta-txt-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+WARNING: Field /Ag__002__VB/data_file has no documentation.
+The unit /Ag__002__VB/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Attribute /Ag__002__VB/method/@long_name has no documentation.
+WARNING: Field /Ag__002__VB/sequence_file has no documentation.
+WARNING: Invalid: The entry `Ag__002__VB` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-scienta-txt-reader-nxxps/pynxtools-xps-scienta-txt-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.

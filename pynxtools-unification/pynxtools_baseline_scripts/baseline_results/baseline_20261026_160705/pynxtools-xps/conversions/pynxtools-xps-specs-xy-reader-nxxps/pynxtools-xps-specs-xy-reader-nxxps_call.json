@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[specs-xy-reader-nxxps]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xps",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.55,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/specs_xy/MgFe2O4_small.xy",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/specs_xy/eln_data_specs_xy.yaml"
+    ],
+    "reader": "xps",
+    "nxdl": "NXxps",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xps/pytest/tmp_files/test_nexus_conversion_specs_xy0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xps-specs-xy-reader-nxxps"
+}

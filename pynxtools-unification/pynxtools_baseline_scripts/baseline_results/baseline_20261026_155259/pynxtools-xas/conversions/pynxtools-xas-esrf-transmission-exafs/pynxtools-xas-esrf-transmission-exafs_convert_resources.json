@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-transmission-exafs/pynxtools-xas-esrf-transmission-exafs_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-esrf-transmission-exafs/pynxtools-xas-esrf-transmission-exafs_output.nxs"
+  ],
+  "started": "2026-10-26T16:01:43",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 2.873,
+  "user_cpu_s": 3.962,
+  "sys_cpu_s": 1.054,
+  "peak_rss_mb": 203.0
+}

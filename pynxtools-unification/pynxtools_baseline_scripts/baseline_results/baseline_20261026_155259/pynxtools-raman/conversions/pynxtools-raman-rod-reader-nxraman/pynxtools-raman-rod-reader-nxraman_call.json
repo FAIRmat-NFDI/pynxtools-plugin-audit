@@ -1,0 +1,20 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[rod-reader-nxraman]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-raman",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.337,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/rod/rod_file_1000679.rod"
+    ],
+    "reader": "raman",
+    "nxdl": "NXraman",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_rod_read0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-raman-rod-reader-nxraman"
+}

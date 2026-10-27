@@ -1,0 +1,20 @@
+{
+  "test_id": "tests/dataconverter/test_convert.py::test_find_nxdl[exists-in-contributed]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools",
+  "status_in_test": "raised NotImplementedError: The chosen NXDL isn't supported by the selected reader.",
+  "seconds_in_test": 0.003,
+  "call": {
+    "input_file": [],
+    "reader": "example",
+    "nxdl": "NXcontainer",
+    "output": "output.nxs",
+    "skip_verify": false,
+    "append": false,
+    "ignore_undocumented": false,
+    "fail": false
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-exists-in-contributed"
+}

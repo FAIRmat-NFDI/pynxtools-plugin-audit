@@ -1,0 +1,84 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-mpes
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 10 items
+
+tests/nomad/test_nomad_apps.py::test_importing_app PASSED                [ 10%]
+tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[mpes.scheme.archive.yml] PASSED [ 20%]
+tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[mpes_example_upload_entry_point] PASSED [ 30%]
+tests/test_nomad_north_tools.py::test_north_tool_entry_point_registered PASSED [ 40%]
+tests/test_nomad_north_tools.py::test_north_tool_id_url_safe PASSED      [ 50%]
+tests/test_nomad_north_tools.py::test_north_tool_image_reference PASSED  [ 60%]
+tests/test_nomad_north_tools.py::test_north_tool_metadata PASSED         [ 70%]
+tests/test_reader.py::test_nexus_conversion[basic-conversion-nxmpes] PASSED [ 80%]
+tests/test_reader.py::test_nexus_conversion[conversion-with-eln-nxmpes] PASSED [ 90%]
+tests/test_utils_versioning.py::test_get_pynxtools_mpes_version PASSED   [100%]
+
+=============================== warnings summary ===============================
+tests/test_reader.py::test_nexus_conversion[basic-conversion-nxmpes]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:19: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParser(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[basic-conversion-nxmpes]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:37: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParserV2(**self.dict())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+________________ test_nexus_conversion[basic-conversion-nxmpes] ________________
+----------------------------- Captured stderr call -----------------------------
+Using mpes reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/xarray_saved_small_calibration.h5
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/config_file.json
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_basic_co0///output.nxs.
+The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_basic_co0///output.nxs` is valid according to the `NXmpes` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using mpes reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/xarray_saved_small_calibration.h5
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/config_file.json
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_basic_co0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_basic_co0///output.nxs` is valid according to the `NXmpes` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:23:37Z"}
+INFO     nomad.client:parser.py:556 {"event": "found non-finite integer, unsigned, or floating scalar", "parser": "pynxtools.nomad.parsers:nexus_parser", "target_name": "size__field[size__field]", "timestamp": "2026-10-26T15:23:37Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:23:38Z"}
+______________ test_nexus_conversion[conversion-with-eln-nxmpes] _______________
+----------------------------- Captured stderr call -----------------------------
+Using mpes reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/xarray_saved_small_calibration.h5
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/eln_data.yaml
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_conversi0///output.nxs.
+The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_conversi0///output.nxs` is valid according to the `NXmpes` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using mpes reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/xarray_saved_small_calibration.h5
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-mpes/tests/data/eln_data.yaml
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_conversi0///output.nxs.
+INFO     pynxtools.dataconverter.validate_file:validate_file.py:89 The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/tmp_files/test_nexus_conversion_conversi0///output.nxs` is valid according to the `NXmpes` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:23:40Z"}
+INFO     nomad.client:parser.py:556 {"event": "found non-finite integer, unsigned, or floating scalar", "parser": "pynxtools.nomad.parsers:nexus_parser", "target_name": "size__field[size__field]", "timestamp": "2026-10-26T15:23:40Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:23:41Z"}
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/pytest/pynxtools-mpes_junit.xml -
+============================== slowest durations ===============================
+22.57s call     tests/test_reader.py::test_nexus_conversion[basic-conversion-nxmpes]
+3.19s call     tests/test_reader.py::test_nexus_conversion[conversion-with-eln-nxmpes]
+0.08s call     tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[mpes.scheme.archive.yml]
+0.01s call     tests/test_nomad_north_tools.py::test_north_tool_entry_point_registered
+
+(26 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/nomad/test_nomad_apps.py::test_importing_app
+PASSED tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[mpes.scheme.archive.yml]
+PASSED tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[mpes_example_upload_entry_point]
+PASSED tests/test_nomad_north_tools.py::test_north_tool_entry_point_registered
+PASSED tests/test_nomad_north_tools.py::test_north_tool_id_url_safe
+PASSED tests/test_nomad_north_tools.py::test_north_tool_image_reference
+PASSED tests/test_nomad_north_tools.py::test_north_tool_metadata
+PASSED tests/test_reader.py::test_nexus_conversion[basic-conversion-nxmpes]
+PASSED tests/test_reader.py::test_nexus_conversion[conversion-with-eln-nxmpes]
+PASSED tests/test_utils_versioning.py::test_get_pynxtools_mpes_version
+======================= 10 passed, 2 warnings in 27.56s ========================

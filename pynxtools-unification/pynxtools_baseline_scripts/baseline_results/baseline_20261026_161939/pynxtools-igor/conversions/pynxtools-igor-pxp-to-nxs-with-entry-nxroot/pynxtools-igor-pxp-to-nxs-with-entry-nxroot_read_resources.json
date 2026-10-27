@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-igor/conversions/pynxtools-igor-pxp-to-nxs-with-entry-nxroot/pynxtools-igor-pxp-to-nxs-with-entry-nxroot_output.nxs"
+  ],
+  "started": "2026-10-26T16:23:05",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.716,
+  "user_cpu_s": 0.827,
+  "sys_cpu_s": 0.948,
+  "peak_rss_mb": 103.0
+}

@@ -1,0 +1,32 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./eln_data.yaml",
+    "$HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./test-data.dat"
+  ],
+  "reader": "ellips",
+  "nxdl": "NXellipsometry",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:09:28,732 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:09:28,977 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using ellips reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./eln_data.yaml
+• $HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./test-data.dat
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Psi_60deg]/@long_name with value @data:Psi_60deg_long_name.
+Tried prefixes: [('@data', 'Psi_60deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Psi_70deg]/@long_name with value @data:Psi_70deg_long_name.
+Tried prefixes: [('@data', 'Psi_70deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_50deg]/@long_name with value @data:Delta_50deg_long_name.
+Tried prefixes: [('@data', 'Delta_50deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_60deg]/@long_name with value @data:Delta_60deg_long_name.
+Tried prefixes: [('@data', 'Delta_60deg_long_name')].
+Could not find value for key /ENTRY[entry]/data_collection/DATA[Delta_70deg]/@long_name with value @data:Delta_70deg_long_name.
+Tried prefixes: [('@data', 'Delta_70deg_long_name')].
+Could not find value for key /ENTRY[entry]/SAMPLE[sample]/atom_types with value @data:atom_types.
+Tried prefixes: [('@data', 'atom_types')].
+WARNING: Length of axis /ENTRY[entry]/data_collection/AXISNAME[wavelength] does not match to /ENTRY[entry]/data_collection/Psi_50deg in dimension 0
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_output.nxs

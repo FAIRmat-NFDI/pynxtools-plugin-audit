@@ -1,0 +1,36 @@
+Instrument:
+  hardware:
+    model:
+    model/@version:
+    name: bruker
+    vendor: bruker
+  software:
+    model: SPMLab 1.00
+    model/@version: '1.00'
+    name: SPMLab
+    vendor: bruker
+Sample:
+  chemical_formula: (Y2O3)0.085(ZrO2)0.915
+  description: >-
+    Single-crystalline yttria-stabilised zirconia (8.5 mol% Y2O3) with fluorite
+    structure and (100) surface orientation, 10 mm x 10 mm x 0.5 mm.
+  name: YSZ(100)K_B3320_13
+  physical_form: single crystal
+  short_title: YSZ(100)K_B3320_13
+  situation: air
+  thickness: 0.5
+  thickness/@units: mm
+default: height
+definition: NXafm
+experiment_description: >-
+  Peak Force Tapping AFM height image of a YSZ(100) single crystal, forward scan
+  direction, exported by Bruker SPMLab as a single-channel FLT file.
+experiment_technique: STM
+identifier_collection: B3320_13_061726074638
+identifier_experiment: B3320_13_061726074638.SIG_TOPO_FRW.FLT
+scan_mode: peak force tapping mode
+User:
+  email:
+    - mozumder@physik.hu-berlin.de
+  name:
+    - Rubel Mozumder

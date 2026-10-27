@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-vms-reader-with-data-analysis-nxxps/pynxtools-xps-vms-reader-with-data-analysis-nxxps_output.nxs"
+  ],
+  "started": "2026-10-26T16:31:10",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.267,
+  "user_cpu_s": 1.403,
+  "sys_cpu_s": 0.907,
+  "peak_rss_mb": 119.4
+}

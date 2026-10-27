@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_dflt_conf]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-spm",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.48,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_dflt_conf/B3320_13_061726074638.SIG_TOPO_FRW.FLT",
+      "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/flt_dflt_conf/eln_data.yaml"
+    ],
+    "reader": "spm",
+    "nxdl": "NXafm",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/pytest/tmp_files/test_afm_reader_NXafm_spm__hom2///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_f"
+}

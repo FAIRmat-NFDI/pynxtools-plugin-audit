@@ -1,0 +1,20 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xrd",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.24,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xrd/tests/data/xrdml_918-16_10/XRD-918-16_10.xrdml"
+    ],
+    "reader": "xrd",
+    "nxdl": "NXxrd_pan",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/pytest/tmp_files/test_nexus_conversion_xrdml_nx0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xrd-xrdml-nxxrd_pan"
+}

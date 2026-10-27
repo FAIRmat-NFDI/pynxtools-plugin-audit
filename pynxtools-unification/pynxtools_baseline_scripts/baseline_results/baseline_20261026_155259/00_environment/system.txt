@@ -1,0 +1,23 @@
+date:       2026-10-26T15:52:59+01:00
+host:       $HOSTNAME
+user:       $HOSTNAME
+uname:      Linux $HOSTNAME 7.0.0-38-generic #38~24.04.4-Ubuntu SMP PREEMPT_DYNAMIC Mon Sep 14 16:37:11 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.3 LTS"
+VERSION_ID="24.04"
+cpus:       14
+CPU(s):                                  14
+Model name:                              Intel(R) Core(TM) Ultra 5 235U
+Thread(s) per core:                      2
+CPU(s) scaling MHz:                      33%
+CPU max MHz:                             4900.0000
+CPU min MHz:                             400.0000
+               total        used        free      shared  buff/cache   available
+Mem:           31540        4290       20414        1398        8680       27250
+Swap:           8191           0        8191
+
+disk where the baseline is written:
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p3  926G   53G  826G   6% /
+
+uv: uv 0.12.23 (x86_64-unknown-linux-gnu)
+git: git version 2.43.0

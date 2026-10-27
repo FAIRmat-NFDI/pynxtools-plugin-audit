@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_output.nxs"
+  ],
+  "started": "2026-10-26T16:23:10",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 2.019,
+  "user_cpu_s": 2.0,
+  "sys_cpu_s": 1.067,
+  "peak_rss_mb": 220.0
+}

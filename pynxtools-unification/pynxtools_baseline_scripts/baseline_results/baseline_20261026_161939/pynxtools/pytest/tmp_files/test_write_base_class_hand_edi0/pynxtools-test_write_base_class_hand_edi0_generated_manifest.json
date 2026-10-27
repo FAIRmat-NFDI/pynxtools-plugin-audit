@@ -1,0 +1,10 @@
+{
+  "base_classes/entry": {
+    "classes": {
+      "Entry": {
+        "normalize": "2084a45f66f8a2fe95370f9802a6f988bc1d2cda"
+      }
+    },
+    "imports": []
+  }
+}

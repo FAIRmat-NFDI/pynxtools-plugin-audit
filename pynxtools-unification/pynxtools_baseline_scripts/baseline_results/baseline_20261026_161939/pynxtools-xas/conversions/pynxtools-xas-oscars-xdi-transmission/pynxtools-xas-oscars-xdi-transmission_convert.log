@@ -1,0 +1,18 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/oscars_xdi_transmission/Fe_XDIFiles_prepared.h5"
+  ],
+  "reader": "xas",
+  "nxdl": "NXxas_trans",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:28:33,287 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:28:33,528 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using xas reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/oscars_xdi_transmission/Fe_XDIFiles_prepared.h5
+WARNING: The required field /ENTRY[feo]/INSTRUMENT[instrument]/SOURCE[source]/name hasn't been supplied.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs

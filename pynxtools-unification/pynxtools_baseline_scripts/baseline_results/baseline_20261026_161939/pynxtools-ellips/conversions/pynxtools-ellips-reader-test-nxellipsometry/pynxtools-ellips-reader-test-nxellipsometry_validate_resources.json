@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_output.nxs"
+  ],
+  "started": "2026-10-26T16:22:03",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.866,
+  "user_cpu_s": 1.012,
+  "sys_cpu_s": 0.931,
+  "peak_rss_mb": 114.0
+}

@@ -1,0 +1,16 @@
+The unit /entry/data_collection/Psi_50deg/@units = degree has no documentation.
+WARNING: Length of axis data_collection/wavelength does not match to /entry/data_collection/@Psi_50deg in dimension 0
+The unit /entry/data_collection/Delta_50deg/@units = degree has no documentation.
+The unit /entry/data_collection/Delta_50deg_errors/@units = degree has no documentation.
+The unit /entry/data_collection/Delta_60deg/@units = degree has no documentation.
+The unit /entry/data_collection/Delta_60deg_errors/@units = degree has no documentation.
+The unit /entry/data_collection/Delta_70deg/@units = degree has no documentation.
+The unit /entry/data_collection/Delta_70deg_errors/@units = degree has no documentation.
+The unit /entry/data_collection/Psi_50deg_errors/@units = degree has no documentation.
+The unit /entry/data_collection/Psi_60deg/@units = degree has no documentation.
+The unit /entry/data_collection/Psi_60deg_errors/@units = degree has no documentation.
+The unit /entry/data_collection/Psi_70deg/@units = degree has no documentation.
+The unit /entry/data_collection/Psi_70deg_errors/@units = degree has no documentation.
+The unit /entry/instrument/beam_source/incident_wavelength/@units = nm has no documentation.
+WARNING: Field /entry/instrument/rotating_element_type has no documentation.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_output.nxs` is NOT valid according to the `NXellipsometry` application definition.

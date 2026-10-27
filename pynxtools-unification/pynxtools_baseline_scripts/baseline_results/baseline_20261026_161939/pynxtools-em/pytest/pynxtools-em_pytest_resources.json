@@ -1,0 +1,26 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests",
+    "-p",
+    "baseline_recorder",
+    "-p",
+    "no:cacheprovider",
+    "--continue-on-collection-errors",
+    "-v",
+    "-rA",
+    "--durations=0",
+    "--color=no",
+    "--basetemp=$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-em/pytest/tmp_files",
+    "--junitxml=$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-em/pytest/pynxtools-em_junit.xml"
+  ],
+  "started": "2026-10-26T16:22:05",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 6.383,
+  "user_cpu_s": 7.238,
+  "sys_cpu_s": 1.479,
+  "peak_rss_mb": 423.5
+}

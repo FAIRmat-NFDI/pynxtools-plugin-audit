@@ -1,0 +1,17 @@
+Group '/entry/does' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry/does/not' does not have an NX_class attribute and will therefore not be validated.
+WARNING: NXdata group /entry/nxodd_name/group does not use any of the existing versions (v3/v2/v1) for defining the plottable data.
+WARNING: Missing data for signal in /entry/nxodd_name/data.
+WARNING: The unit 'nm' at /entry/nxodd_name/float_value/@units does not match with the unit category NX_ENERGY of 'float_value'.
+WARNING: The unit 'eV' at /entry/nxodd_name/int_value/@units does not match with the unit category NX_LENGTH of 'int_value'.
+WARNING: The unit 'kg' at /entry/nxodd_name/posint_value/@units does not match with the unit category NX_LENGTH of 'posint_value'.
+The value '2nd type' at /entry/nxodd_name/type2 does not match with the enumerated items from the open enumeration: ['1st type open', '2nd type open'].
+Group '/entry/test_compression' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry/test_link' does not have an NX_class attribute and will therefore not be validated.
+WARNING: A link was used for /entry/test_link/internal_link, but no '@target' attribute was found.
+Group '/entry/test_virtual_dataset' does not have an NX_class attribute and will therefore not be validated.
+WARNING: The required group /entry/specified_group hasn't been supplied.
+WARNING: The required group /entry/specified_group_with_no_name_type hasn't been supplied.
+WARNING: The required attribute /entry/nxodd_name/@AXISNAME_indices hasn't been supplied.
+WARNING: The required field /entry/nxodd_name/anamethatRENAMES hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools/conversions/pynxtools-test_params_file/pynxtools-test_params_file_output.nxs` is NOT valid according to the `NXtest` application definition.

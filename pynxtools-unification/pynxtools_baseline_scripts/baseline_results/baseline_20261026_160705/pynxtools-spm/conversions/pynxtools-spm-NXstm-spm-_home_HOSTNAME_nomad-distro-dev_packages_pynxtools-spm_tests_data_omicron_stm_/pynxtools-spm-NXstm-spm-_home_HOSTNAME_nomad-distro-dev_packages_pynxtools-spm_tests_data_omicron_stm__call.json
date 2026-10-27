@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-spm",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.534,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up/VT220120_A2_0001.sm4",
+      "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/omicron/stm/sm4_dflt_conf_up/eln_data.yaml"
+    ],
+    "reader": "spm",
+    "nxdl": "NXstm",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/pytest/tmp_files/test_stm_reader_NXstm_spm__hom7///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm_"
+}

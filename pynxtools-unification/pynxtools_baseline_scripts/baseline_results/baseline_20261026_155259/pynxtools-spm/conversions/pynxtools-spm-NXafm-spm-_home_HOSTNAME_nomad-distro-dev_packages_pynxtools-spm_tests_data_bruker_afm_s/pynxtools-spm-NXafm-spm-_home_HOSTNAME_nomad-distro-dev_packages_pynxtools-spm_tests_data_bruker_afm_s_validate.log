@@ -1,0 +1,21 @@
+WARNING: The required field /entry/amplitude_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/amplitude_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_forward/DATA hasn't been supplied.
+WARNING: The required field /entry/amplitude_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/amplitude_forward/DATA hasn't been supplied.
+WARNING: The required field /entry/phase_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/phase_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/phase_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/phase_forward/DATA hasn't been supplied.
+WARNING: The required field /entry/tm_deflection_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/tm_deflection_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/tm_deflection_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/tm_deflection_forward/DATA hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/AXISNAME/@units hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/DATA/@units hasn't been supplied.
+WARNING: The required field /entry/z_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/z_forward/DATA hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s_output.nxs` is NOT valid according to the `NXafm` application definition.

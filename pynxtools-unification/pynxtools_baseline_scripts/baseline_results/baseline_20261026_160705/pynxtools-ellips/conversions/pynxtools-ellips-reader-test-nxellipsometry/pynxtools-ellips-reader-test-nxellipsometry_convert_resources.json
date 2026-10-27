@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/conversions/pynxtools-ellips-reader-test-nxellipsometry/pynxtools-ellips-reader-test-nxellipsometry_output.nxs"
+  ],
+  "started": "2026-10-26T16:09:28",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.218,
+  "user_cpu_s": 1.294,
+  "sys_cpu_s": 0.984,
+  "peak_rss_mb": 157.8
+}

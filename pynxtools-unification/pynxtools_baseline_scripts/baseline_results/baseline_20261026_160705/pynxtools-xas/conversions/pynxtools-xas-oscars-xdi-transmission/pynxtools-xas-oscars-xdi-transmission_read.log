@@ -1,0 +1,1700 @@
+════════════════════════════════════════════════════════════
+NeXus file: pynxtools-xas-oscars-xdi-transmission_output.nxs
+
+GROUP / [NXroot]
+  @HDF5_Version = 2.0.0  [OPTIONAL]
+  @NeXus_release = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+  @NeXus_repository = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+  @creator = pynxtools  [OPTIONAL]
+  @creator_version = 0.16.0.post1.dev18+g59f03be0d  [OPTIONAL]
+  @file_name = pynxtools-xas-oscars-xdi-transmission_output.nxs  [OPTIONAL]
+  @file_time = 2026-10-26 16:16:02.927176+01:00  [OPTIONAL]
+  @file_update_time = 2026-10-26 16:16:02.927176+01:00  [OPTIONAL]
+  @h5py_version = 3.16.0  [OPTIONAL]
+════════════════════════════════════════════════════════════
+
+GROUP /fe2o3 [NXentry]  (12 members)
+  Concept   : NXxas_trans/ENTRY  [REQUIRED]
+  Inheritance:
+    NXxas_trans/ENTRY
+    NXxas/ENTRY
+    NXentry
+      Doc       : (**required**) :ref:`NXentry` describes the measurement. The top-level NeXus group
+                  which contains all the data and associated information that comprise a single
+                  measurement. It is mandatory that there is at least one group of this type in the
+                  NeXus file.
+  @default = data  [OPTIONAL]
+
+  GROUP /fe2o3/data [NXdata]  (2 members)
+    Concept   : NXxas/ENTRY/DATA  [OPTIONAL]
+    Inheritance:
+      NXxas/ENTRY/DATA
+        Doc       : Plot of the X-ray absorption intensity versus energy. When several spectra are
+                    stacked along ``nP`` (a time series, a spatial map, an operando series, ...),
+                    the quantity that varies across the stack is stored in its standard NeXus
+                    location (for example ``NXsample/temperature``, ``NXsample/electric_field``, an
+                    ``NXsample/NXtransformations`` axis, or an ``NXbeam`` polarization field) and
+                    linked here as an additional axis with its ``AXISNAME_indices`` set to 0, the
+                    ``nP`` dimension. The application definition does not enumerate these
+                    coordinates: any of them, including ones not listed here, is declared simply by
+                    adding the field in its base-class location and wiring it into this group.
+      NXentry/DATA
+        Doc       : The data group .. note:: Before the NIAC2016 meeting [#]_, at least one
+                    :ref:`NXdata` group was required in each :ref:`NXentry` group. At the NIAC2016
+                    meeting, it was decided to make :ref:`NXdata` an optional group in
+                    :ref:`NXentry` groups for data files that do not use an application definition.
+                    It is recommended strongly that all NeXus data files provide a NXdata group. It
+                    is permissible to omit the NXdata group only when defining the default plot is
+                    not practical or possible from the available data. For example, neutron event
+                    data may not have anything that makes a useful plot without extensive
+                    processing. Certain application definitions override this decision and require
+                    an :ref:`NXdata` group in the :ref:`NXentry` group. The ``minOccurs=0``
+                    attribute in the application definition will indicate the :ref:`NXdata` group is
+                    optional, otherwise, it is required. .. [#] NIAC2016:
+                    https://www.nexusformat.org/NIAC2016.html,
+                    https://github.com/nexusformat/NIAC/issues/16
+      NXobject/DATA
+      NXdata
+        Doc       : The :ref:`NXdata` class is designed to encapsulate all the information required
+                    for a set of data to be plotted. NXdata groups contain plottable data (also
+                    referred to as *signals* or *dependent variables*) and their associated axis
+                    coordinates (also referred to as *axes* or *independent variables*). The actual
+                    names of the :ref:`DATA </NXdata/DATA-field>` and :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields can be chosen :ref:`freely <validItemName>`, as
+                    indicated by the upper case (this is a common convention in all NeXus classes).
+                    .. note:: ``NXdata`` provides data and coordinates to be plotted but does not
+                    describe how the data is to be plotted or even the dimensionality of the plot.
+                    https://www.nexusformat.org/NIAC2018Minutes.html#nxdata-plottype--attribute ..
+                    include:: data/index.rst :start-line: 1 .. admonition:: Example of a simple
+                    curve plot .. code-block:: data:NXdata @signal = "data" @axes = ["x"] data:
+                    float[100] x: float[100] More complex cases are supported * histogram data:
+                    ``x`` has one more value than ``data``. * alternative axes: instead of a single
+                    ``x`` axis you can have several axes, one of which being the default. * signals
+                    with more than one dimension: ``data`` could be 2D with axes ``x`` and ``y``
+                    along each dimension. * axes with more than one dimension: ``data`` could be 2D
+                    with axes ``x`` and ``y`` also being 2D, providing a unique ``(x, y)``
+                    coordinate for each ``data`` point. **Signals:** .. index:: plotting ..
+                    admonition:: Defined by * :ref:`DATA </NXdata/DATA-field>` fields * the
+                    :ref:`signal </NXdata@signal-attribute>` attribute * the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute The
+                    :ref:`DATA </NXdata/DATA-field>` fields contain the signal values to be plotted.
+                    The name of the field to be used as the *default plot signal* is provided by the
+                    :ref:`signal </NXdata@signal-attribute>` attribute. The names of the fields to
+                    be used as *secondary plot signals* are provided by the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute. ..
+                    admonition:: An example with three signals, one of which being the default ..
+                    code-block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2",
+                    "data3"] data1: float[10,20,30] # the default signal data2: float[10,20,30]
+                    data3: float[10,20,30] **Axes:** .. index:: axes (attribute) .. index::
+                    coordinates .. admonition:: Defined by * :ref:`AXISNAME </NXdata/AXISNAME-
+                    field>` fields * the :ref:`axes </NXdata@axes-attribute>` attribute *
+                    :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` attributes The
+                    fields and attributes are defined as follows 1. The :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields contain the axis coordinates associated with
+                    the signal values. 2. The :ref:`axes </NXdata@axes-attribute>` attribute
+                    provides the names of the :ref:`AXISNAME </NXdata/AXISNAME-field>` fields to be
+                    used as the `default axis` for each dimension of the :ref:`DATA </NXdata/DATA-
+                    field>` fields. 3. The :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-
+                    attribute>` attributes describe the :ref:`DATA </NXdata/DATA-field>` dimensions
+                    spanned by the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` fields.
+                    The fields and attributes have the following constraints 1. The length of the
+                    :ref:`axes </NXdata@axes-attribute>` attribute must be equal to the rank of the
+                    :ref:`DATA </NXdata/DATA-field>` fields. When a particular dimension has no
+                    default axis, the string “.” is used in that position. 2. The number of values
+                    in :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` must be equal to
+                    the rank of the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` field. 3.
+                    When :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` is missing for
+                    a given :ref:`AXISNAME </NXdata/AXISNAME-field>` field, the positions of the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field name in the :ref:`axes
+                    </NXdata@axes-attribute>` attribute are used. 4. When :ref:`AXISNAME_indices
+                    </NXdata@AXISNAME_indices-attribute>` is the same as the indices of "AXISNAME"
+                    in the :ref:`axes </NXdata@axes-attribute>` attribute, there is no need to
+                    provide :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 5. The
+                    indices of "AXISNAME" in the :ref:`axes </NXdata@axes-attribute>` attribute must
+                    be a subset of :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 6.
+                    The shape of an :ref:`AXISNAME </NXdata/AXISNAME-field>` field must correspond
+                    to the shape of the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This
+                    means that for each dimension ``i`` in ``[0, AXISNAME.ndim)`` spanned by axis
+                    field :ref:`AXISNAME </NXdata/AXISNAME-field>`, the number of axis values
+                    ``AXISNAME.shape[i]`` along dimension ``i`` must be equal to the number of data
+                    points ``DATA.shape[AXISNAME_indices[i]]`` along dimension ``i`` or one more
+                    than the number of data points ``DATA.shape[AXISNAME_indices[i]]+1`` in case the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field contains histogram bin edges
+                    along dimension ``i``. Highlight consequences of these constraints 1. An
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field can have more than one dimension
+                    and can therefore span more than one :ref:`DATA </NXdata/DATA-field>` dimension.
+                    Conversely, one :ref:`DATA </NXdata/DATA-field>` dimension can be spanned by
+                    more than one :ref:`AXISNAME </NXdata/AXISNAME-field>` field. The default axis
+                    name (if any) of each dimension can be found in the :ref:`axes </NXdata@axes-
+                    attribute>` attribute. 2. A list of all available axes is not provided directly.
+                    All strings in the :ref:`axes </NXdata@axes-attribute>` attribute (excluding the
+                    “.” string) are axis field names. In addition the prefix of an attribute ending
+                    with the string "_indices" is also an axis field name. .. admonition:: The
+                    following example covers all axes features supported (see
+                    :ref:`sphx_glr_classes_base_classes_data_plot_fscan2d.py`) .. code-block::
+                    data:NXdata @signal = "data" @axes = ["x_set", "y_set", "."] # default axes for
+                    all three dimensions @x_encoder_indices = [0, 1] @y_encoder_indices = 1 # or [1]
+                    data: float[10,7,1024] x_encoder: float[11,7] # coordinates along the first and
+                    second dimensions y_encoder: float[7] # coordinates along the second dimension
+                    x_set: float[10] # default coordinates along the first dimension y_set: float[7]
+                    # default coordinates along the second dimension **Uncertainties:** ..
+                    admonition:: Defined by * :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-
+                    field>` fields Standard deviations on data values as well as coordinates can be
+                    provided by :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-field>` fields
+                    where ``FIELDNAME`` is the name of a :ref:`DATA </NXdata/DATA-field>` field or
+                    an :ref:`AXISNAME </NXdata/AXISNAME-field>` field. .. admonition:: An example of
+                    uncertainties on the signal, auxiliary signals and axis coordinates .. code-
+                    block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2", "data3"]
+                    @axes = ["x", ".", "z"] data1: float[10,20,30] data2: float[10,20,30] data3:
+                    float[10,20,30] x: float[10] z: float[30] data1_errors: float[10,20,30]
+                    data2_errors: float[10,20,30] data3_errors: float[10,20,30] x_errors: float[10]
+                    z_errors: float[30]
+    NXdata    : [v3] signal=intensity, 1 axis dataset(s)
+    @axes = ['energy']  [OPTIONAL]
+    @signal = intensity  [OPTIONAL]
+    FIELD /fe2o3/data/energy  shape=(348,)  dtype=float64
+      Dataset referenced as NXdata AXIS #0
+      Value     : [6962.    6972.    6982.    6992.    7002.    7012.    7022.    7032....
+      Concept   : NXdata/ENTRY/DATA/AXISNAME  [OPTIONAL]
+      Inheritance:
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+      @target = /fe2o3/energy  [NeXus link]
+      @units = eV  [OPTIONAL]
+    FIELD /fe2o3/data/intensity  shape=(348,)  dtype=float64
+      Dataset referenced as NXdata SIGNAL
+      Value     : [ 4.52694679e-01  4.41319060e-01  4.28866077e-01  4.17201858e-01...
+      Concept   : NXdata/ENTRY/DATA/DATA  [OPTIONAL]
+      Inheritance:
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+      @target = /fe2o3/intensity  [NeXus link]
+  FIELD /fe2o3/definition  shape=()  dtype=object
+    Value     : NXxas_trans
+    Concept   : NXxas_trans/ENTRY/definition  [REQUIRED]
+    Inheritance:
+      NXxas_trans/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXxas/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXentry/definition
+        Doc       : (alternate use: see same field in :ref:`NXsubentry` for preferred) Official
+                    NeXus NXDL schema to which this entry conforms which must be the name of the
+                    NXDL file (case sensitive without the file extension) that the NXDL schema is
+                    defined in. For example the ``definition`` field for a file that conformed to
+                    the *NXarpes.nxdl.xml* definition must contain the string **NXarpes**. This
+                    field is provided so that :ref:`NXentry` can be the overlay position in a NeXus
+                    data file for an application definition and its set of groups, fields, and
+                    attributes. *It is advised* to use :ref:`NXsubentry`, instead, as the overlay
+                    position.
+    Enums     : [NXxas_trans] NXxas_trans
+    Enums     : [NXxas_trans] NXxas_trans
+    Enums     : [NXxas] NXxas
+    @URL = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+    @version = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+
+  GROUP /fe2o3/edge [NXabsorption_edge]  (2 members)
+    Concept   : NXxas/ENTRY/edge  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/edge
+        Doc       : The absorption edge being probed, defined by the principal quantum number and
+                    orbital symmetry of the photoionized electron (e.g. K, L1, L2, L3, L2,3).
+                    Together with the element uniquely identifies probed electronic transition.
+      NXabsorption_edge
+        Doc       : An absorption edge is a sharp discontinuity in the X-ray absorption spectrum of
+                    an atom that occurs when the incident photon energy reaches the threshold energy
+                    for exciting the atom from its neutral ground state to a core-vacancy state.
+    FIELD /fe2o3/edge/energy  shape=()  dtype=float64
+      Value     : 7112.0
+      Concept   : NXabsorption_edge/ENTRY/edge/energy  [OPTIONAL]
+      Inheritance:
+        NXabsorption_edge/energy
+          Doc       : Energy of the absorption edge.
+      @units = eV  [UNIT: NX_ENERGY]
+    FIELD /fe2o3/edge/name  shape=()  dtype=object
+      Value     : K
+      Concept   : NXabsorption_edge/ENTRY/edge/name  [OPTIONAL]
+      Inheritance:
+        NXabsorption_edge/name
+          Doc       : Name of the absorption edge using `IUPAC notation`_ (e.g., ``K``, ``L2``,
+                      ``M5``), which identifies the core-vacancy state of the atom. Correspondence
+                      between IUPAC notation and electron configuration, expressed as vacancy
+                      notation (superscript :math:`-1`): .. list-table:: :header-rows: 1 * - IUPAC -
+                      Electron configuration * - K - :math:`1s^{-1}` * - L1 - :math:`2s^{-1}` * - L2
+                      - :math:`2p_{1/2}^{-1}` * - L3 - :math:`2p_{3/2}^{-1}` * - M1 -
+                      :math:`3s^{-1}` * - M2 - :math:`3p_{1/2}^{-1}` * - M3 - :math:`3p_{3/2}^{-1}`
+                      * - M4 - :math:`3d_{3/2}^{-1}` * - M5 - :math:`3d_{5/2}^{-1}` * - N1 -
+                      :math:`4s^{-1}` * - N2 - :math:`4p_{1/2}^{-1}` * - N3 - :math:`4p_{3/2}^{-1}`
+                      * - N4 - :math:`4d_{3/2}^{-1}` * - N5 - :math:`4d_{5/2}^{-1}` * - N6 -
+                      :math:`4f_{5/2}^{-1}` * - N7 - :math:`4f_{7/2}^{-1}` * - O1 - :math:`5s^{-1}`
+                      * - O2 - :math:`5p_{1/2}^{-1}` * - O3 - :math:`5p_{3/2}^{-1}` * - O4 -
+                      :math:`5d_{3/2}^{-1}` * - O5 - :math:`5d_{5/2}^{-1}` * - O6 -
+                      :math:`5f_{5/2}^{-1}` * - O7 - :math:`5f_{7/2}^{-1}` * - P1 - :math:`6s^{-1}`
+                      * - P2 - :math:`6p_{1/2}^{-1}` * - P3 - :math:`6p_{3/2}^{-1}` * - P4 -
+                      :math:`6d_{3/2}^{-1}` * - P5 - :math:`6d_{5/2}^{-1}` Per IUPAC, subscripts may
+                      be dropped when unknown or irrelevant. When two spin-orbit split levels are
+                      not distinguished, they may be written together (e.g. ``L2,3``). .. _IUPAC
+                      notation: https://doi.org/10.1002/xrs.1300200308
+      Enums     : [NXabsorption_edge] K, L1, L2, L3, L2,3, M1, M2, M3, M2,3, M4, M5, M4,5, N1, N2, N3, N2,3, N4, N5, N4,5, N6, N7, N6,7, O1, O2, O3, O2,3, O4, O5, O4,5, O6, O7, O6,7, P1, P2, P3, P2,3, P4, P5, P4,5
+      Enums     : [NXabsorption_edge] K, L1, L2, L3, L2,3, M1, M2, M3, M2,3, M4, M5, M4,5, N1, N2, N3, N2,3, N4, N5, N4,5, N6, N7, N6,7, O1, O2, O3, O2,3, O4, O5, O4,5, O6, O7, O6,7, P1, P2, P3, P2,3, P4, P5, P4,5
+
+  GROUP /fe2o3/element [NXelement]  (1 members)
+    Concept   : NXxas/ENTRY/element  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/element
+        Doc       : The element being probed by the incident X-rays.
+      NXelement
+        Doc       : A chemical element of the periodic table. It is identified by its atomic number,
+                    as a species and not as a specific isotope.
+    FIELD /fe2o3/element/name  shape=()  dtype=object
+      Value     : Fe
+      Concept   : NXxas/ENTRY/element/name  [REQUIRED]
+      Inheritance:
+        NXxas/ENTRY/element/name
+  FIELD /fe2o3/energy  shape=(348,)  dtype=float64
+    Value     : [6962.    6972.    6982.    6992.    7002.    7012.    7022.    7032....
+    Concept   : NXxas/ENTRY/energy  [REQUIRED]
+    Dims      : nEnergy
+    Inheritance:
+      NXxas/ENTRY/energy
+        Doc       : The energy axis of the spectrum.
+    @target = /fe2o3/energy  [NeXus link]
+    @units = eV  [UNIT: NX_ENERGY]
+
+  GROUP /fe2o3/instrument [NXinstrument]  (3 members)
+    Concept   : NXxas_trans/ENTRY/INSTRUMENT  [RECOMMENDED]
+    Inheritance:
+      NXxas_trans/ENTRY/INSTRUMENT
+        Doc       : The ``data`` field of each detector below holds the intensity used to compute
+                    the absorption coefficient and may already include corrections. If the
+                    uncorrected values are kept, they are archived in the ``NXcollection`` group and
+                    the corrections are described in ``NXprocess``.
+      NXentry/INSTRUMENT
+      NXinstrument
+        Doc       : Collection of the components of the instrument or beamline. Template of
+                    instrument descriptions comprising various beamline components. Each component
+                    will also be a NeXus group defined by its distance from the sample. Negative
+                    distances represent beamline components that are before the sample while
+                    positive distances represent components that are after the sample. This device
+                    allows the unique identification of beamline components in a way that is valid
+                    for both reactor and pulsed instrumentation.
+
+    GROUP /fe2o3/instrument/i0 [NXdetector]  (1 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/i0  [REQUIRED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/i0
+          Doc       : Detector measuring the incident beam intensity :math:`I_0`.
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /fe2o3/instrument/i0/data  shape=(348,)  dtype=float64
+        Value     : [304063. 306084. 305972. 305954. 305931. 305999. 306003. 305809. 305752....
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/i0/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/i0/data
+          NXdetector/data
+            Doc       : Data values from the detector. The rank and dimension ordering should follow
+                        a principle of slowest to fastest measurement axes and may be explicitly
+                        specified in application definitions. Mechanical scanning of objects (e.g.
+                        sample position/angle, incident beam energy, etc) tends to be the slowest
+                        part of an experiment and so any such scan axes should be allocated to the
+                        first dimensions of the array. Note that in some cases it may be useful to
+                        represent a 2D set of scan points as a single scan-axis in the data array,
+                        especially if the scan pattern doesn't fit a rectangular array nicely.
+                        Repetition of an experiment in a time series tends to be used similar to a
+                        slow scan axis and so will often be in the first dimension of the data
+                        array. The next fastest axes are typically the readout of the detector. A
+                        point detector will not add any dimensions (as it is just a single value per
+                        scan point) to the data array, a strip detector will add one dimension, an
+                        imaging detector will add two dimensions (e.g. X, Y axes) and detectors
+                        outputting higher dimensional data will add the corresponding number of
+                        dimensions. Note that the detector dimensions don't necessarily have to be
+                        written in order of the actual readout speeds - the slowest to fastest rule
+                        principle is only a guide. Finally, detectors that operate in a time-of-
+                        flight mode, such as a neutron spectrometer or a silicon drift detector
+                        (used for X-ray fluorescence) tend to have their dimension(s) added to the
+                        last dimensions in the data array. The type of each dimension should should
+                        follow the order of scan points, detector pixels, then time-of-flight (i.e.
+                        spectroscopy, spectrometry). The rank and dimension sizes (see symbol list)
+                        shown here are merely illustrative of coordination between related datasets.
+
+    GROUP /fe2o3/instrument/itrans [NXdetector]  (1 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/itrans  [REQUIRED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/itrans
+          Doc       : Detector measuring the transmitted beam intensity :math:`I`.
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /fe2o3/instrument/itrans/data  shape=(348,)  dtype=float64
+        Value     : [193357.39 196869.39 199263.39 201589.39 203873.4  206193.4  208788.39...
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/itrans/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/itrans/data
+          NXdetector/data
+            Doc       : Data values from the detector. The rank and dimension ordering should follow
+                        a principle of slowest to fastest measurement axes and may be explicitly
+                        specified in application definitions. Mechanical scanning of objects (e.g.
+                        sample position/angle, incident beam energy, etc) tends to be the slowest
+                        part of an experiment and so any such scan axes should be allocated to the
+                        first dimensions of the array. Note that in some cases it may be useful to
+                        represent a 2D set of scan points as a single scan-axis in the data array,
+                        especially if the scan pattern doesn't fit a rectangular array nicely.
+                        Repetition of an experiment in a time series tends to be used similar to a
+                        slow scan axis and so will often be in the first dimension of the data
+                        array. The next fastest axes are typically the readout of the detector. A
+                        point detector will not add any dimensions (as it is just a single value per
+                        scan point) to the data array, a strip detector will add one dimension, an
+                        imaging detector will add two dimensions (e.g. X, Y axes) and detectors
+                        outputting higher dimensional data will add the corresponding number of
+                        dimensions. Note that the detector dimensions don't necessarily have to be
+                        written in order of the actual readout speeds - the slowest to fastest rule
+                        principle is only a guide. Finally, detectors that operate in a time-of-
+                        flight mode, such as a neutron spectrometer or a silicon drift detector
+                        (used for X-ray fluorescence) tend to have their dimension(s) added to the
+                        last dimensions in the data array. The type of each dimension should should
+                        follow the order of scan points, detector pixels, then time-of-flight (i.e.
+                        spectroscopy, spectrometry). The rank and dimension sizes (see symbol list)
+                        shown here are merely illustrative of coordination between related datasets.
+
+    GROUP /fe2o3/instrument/source [NXsource]  (3 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE  [RECOMMENDED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/SOURCE
+        NXinstrument/SOURCE
+        NXsource
+          Doc       : Radiation source emitting a beam. Examples include particle sources
+                      (electrons, neutrons, protons) or sources for electromagnetic radiation
+                      (photons). This base class can also be used to describe neutron or x-ray
+                      storage ring/facilities.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /fe2o3/instrument/source/name  shape=()  dtype=object
+        Value     : APS
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/name  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/name
+          NXsource/name
+            Doc       : Name of source
+          NXcomponent/name
+            Doc       : Name of the component.
+      FIELD /fe2o3/instrument/source/probe  shape=()  dtype=object
+        Value     : x-ray
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/probe  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/probe
+          NXsource/probe
+            Doc       : type of radiation probe (pick one from the enumerated list and spell
+                        exactly)
+        Enums     : [NXxas_trans] x-ray
+        Enums     : [NXxas_trans] x-ray
+        Enums     : [NXsource] neutron, photon, x-ray, muon, electron, ultraviolet, visible light, positron, proton
+      FIELD /fe2o3/instrument/source/type  shape=()  dtype=object
+        Value     : Synchrotron X-ray Source
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/type  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/type
+          NXsource/type
+            Doc       : type of radiation source (pick one from the enumerated list and spell
+                        exactly)
+        Enums     : [NXsource] Spallation Neutron Source, Pulsed Reactor Neutron Source, Reactor Neutron Source, Synchrotron X-ray Source, Pulsed Muon Source, Rotating Anode X-ray, Fixed Tube X-ray, UV Laser, Free-Electron Laser, Optical Laser, Ion Source, UV Plasma Source, Metal Jet X-ray, Laser, Dye Laser, Broadband Tunable Light Source, Halogen Lamp, LED, Mercury Cadmium Telluride Lamp, Deuterium Lamp, Xenon Lamp, Globar
+  FIELD /fe2o3/intensity  shape=(348,)  dtype=float64
+    Value     : [ 4.52694679e-01  4.41319060e-01  4.28866077e-01  4.17201858e-01...
+    Concept   : NXxas_trans/ENTRY/intensity  [REQUIRED]
+    Inheritance:
+      NXxas_trans/ENTRY/intensity
+        Doc       : The absorption coefficient :math:`\mu(E)t = -\ln(I/I_0)`.
+      NXxas/ENTRY/intensity
+        Doc       : The intensity of the spectrum. The precise definition of what is meant by
+                    intensity depends on the acquisition mode, and will be specified by each
+                    subclass application definition.
+    @target = /fe2o3/intensity  [NeXus link]
+  FIELD /fe2o3/is_experimental  shape=()  dtype=bool
+    Value     : True
+    Concept   : NXxas/ENTRY/is_experimental  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/is_experimental
+        Doc       : Specify if the data comes from an experiment. Use ``true`` for data acquired at
+                    a beamline or laboratory instrument, and ``false`` for spectra
+                    calculated/simulated using a computational tool, reconstructed from a linear
+                    combination of reference components, etc.
+
+  GROUP /fe2o3/process [NXprocess]  (4 members)
+    Concept   : NXxas_trans/ENTRY/PROCESS  [OPTIONAL]
+    Inheritance:
+      NXxas_trans/ENTRY/PROCESS
+        Doc       : Description of how :ref:`intensity </NXxas/ENTRY/intensity-field>` was obtained
+                    from the raw detector data (i0, itrans, and iref). When present, it allows a
+                    third party to fully reproduce the data reduction.
+      NXentry/PROCESS
+      NXprocess
+        Doc       : The :ref:`NXprocess` class describes an operation used to process data as part
+                    of an analysis workflow, providing information such as the software used, the
+                    date of the operation, the input parameters, and the resulting data.
+
+    GROUP /fe2o3/process/note [NXnote]  (2 members)
+      Concept   : NXxas_trans/ENTRY/PROCESS/note  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/note
+          Doc       : Code or notes reproducing the top-level :ref:`intensity
+                      </NXxas/ENTRY/intensity-field>` from the raw data.
+        NXprocess/NOTE
+          Doc       : The note will contain information about how the data was processed or anything
+                      about the data provenance. The contents of the note can be anything that the
+                      processing code can understand, or simple text. The name will be numbered to
+                      allow for ordering of steps.
+        NXobject/NOTE
+        NXnote
+          Doc       : Any additional freeform information not covered by the other base classes.
+                      This class can be used to store additional information in a NeXus file e.g.
+                      pictures, movies, audio, additional text logs
+      FIELD /fe2o3/process/note/data  shape=()  dtype=object
+        Value     : processing done with xraylarch version 0.9.80...
+        Concept   : NXxas_trans/ENTRY/PROCESS/note/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/PROCESS/note/data
+            Doc       : The reproduction code or notes.
+      FIELD /fe2o3/process/note/type  shape=()  dtype=object
+        Value     : text/x-python
+        Concept   : NXxas_trans/ENTRY/PROCESS/note/type  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/PROCESS/note/type
+            Doc       : Mime content type of the note data field.
+          NXnote/type
+            Doc       : Mime content type of note data field e.g. image/jpeg, text/plain, text/html
+        Enums     : [NXxas_trans] text/x-python
+        Enums     : [NXxas_trans] text/x-python
+
+    GROUP /fe2o3/process/parameters [NXparameters]  (1 members)
+      Concept   : NXxas_trans/ENTRY/PROCESS/parameters  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/parameters
+          Doc       : Validated parameters of the corrections applied, for example energy
+                      calibration, deglitching, incident-beam normalization, or scan merging. Each
+                      parameter should carry a units attribute where applicable.
+        NXprocess/PARAMETERS
+          Doc       : Parameters used in performing the data analysis.
+        NXobject/PARAMETERS
+        NXparameters
+          Doc       : Container for parameters used in processing or analysing data. Typically, this
+                      group is stored in a :ref:`NXprocess` group in order to contain parameters
+                      that are either inputs to or resulting from the process defined by the parent
+                      group. However, this base class can also be added to other groups for use in
+                      other contexts. Although this base class can be used to store any kind of
+                      parameter, one possible use case is to store parameters that are refined by a
+                      fitting function or model. A number of attributes have been defined to store
+                      metadata associated with such a refinement.
+      FIELD /fe2o3/process/parameters/normalized_intensity  shape=(348,)  dtype=float64
+        Value     : [ 1.79686946e-03  2.42255132e-03 -8.75276312e-04 -1.30061253e-03...
+        Concept   : NXparameters/ENTRY/PROCESS/parameters/PARAMETER  [OPTIONAL]
+        Inheritance:
+          NXparameters/PARAMETER
+            Doc       : A parameter that is used in or results from processing.
+        @long_name = edge-step normalized mu(E), i.e. (mu - pre_edge) / edge_step  [NOT IN SCHEMA]
+    FIELD /fe2o3/process/program  shape=()  dtype=object
+      Value     : xraylarch
+      Concept   : NXxas_trans/ENTRY/PROCESS/program  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/program
+          Doc       : Name of the program used for processing.
+        NXprocess/program
+          Doc       : Name of the program used
+    FIELD /fe2o3/process/version  shape=()  dtype=object
+      Value     : 0.9.80
+      Concept   : NXxas_trans/ENTRY/PROCESS/version  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/version
+          Doc       : Version of the program used for processing.
+        NXprocess/version
+          Doc       : Version of the program used
+
+  GROUP /fe2o3/sample [NXsample]  (1 members)
+    Concept   : NXxas/ENTRY/SAMPLE  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/SAMPLE
+      NXentry/SAMPLE
+      NXsample
+        Doc       : Any information on the sample. This could include scanned variables that are
+                    associated with one of the data dimensions, e.g. the magnetic field, or logged
+                    data, e.g. monitored temperature vs elapsed time.
+      NXcomponent
+        Doc       : Base class for components of an instrument - real ones or simulated ones.
+    FIELD /fe2o3/sample/name  shape=()  dtype=object
+      Value     : Fe2O3
+      Concept   : NXxas/ENTRY/SAMPLE/name  [REQUIRED]
+      Inheritance:
+        NXxas/ENTRY/SAMPLE/name
+          Doc       : Descriptive name of the sample
+        NXsample/name
+          Doc       : Descriptive name of sample
+        NXcomponent/name
+          Doc       : Name of the component.
+  FIELD /fe2o3/start_time  shape=()  dtype=object
+    Value     : 2002-03-16T14:48:54-06:00
+    Concept   : NXentry/ENTRY/start_time  [OPTIONAL]
+    Inheritance:
+      NXentry/start_time
+        Doc       : Starting time of measurement
+  FIELD /fe2o3/title  shape=()  dtype=object
+    Value     : Fe2O3 APS 13-BM-D
+    Concept   : NXentry/ENTRY/title  [OPTIONAL]
+    Inheritance:
+      NXentry/title
+        Doc       : Extended title for entry
+
+GROUP /fe_metal [NXentry]  (12 members)
+  Concept   : NXxas_trans/ENTRY  [REQUIRED]
+  Inheritance:
+    NXxas_trans/ENTRY
+    NXxas/ENTRY
+    NXentry
+      Doc       : (**required**) :ref:`NXentry` describes the measurement. The top-level NeXus group
+                  which contains all the data and associated information that comprise a single
+                  measurement. It is mandatory that there is at least one group of this type in the
+                  NeXus file.
+  @default = data  [OPTIONAL]
+
+  GROUP /fe_metal/data [NXdata]  (2 members)
+    Concept   : NXxas/ENTRY/DATA  [OPTIONAL]
+    Inheritance:
+      NXxas/ENTRY/DATA
+        Doc       : Plot of the X-ray absorption intensity versus energy. When several spectra are
+                    stacked along ``nP`` (a time series, a spatial map, an operando series, ...),
+                    the quantity that varies across the stack is stored in its standard NeXus
+                    location (for example ``NXsample/temperature``, ``NXsample/electric_field``, an
+                    ``NXsample/NXtransformations`` axis, or an ``NXbeam`` polarization field) and
+                    linked here as an additional axis with its ``AXISNAME_indices`` set to 0, the
+                    ``nP`` dimension. The application definition does not enumerate these
+                    coordinates: any of them, including ones not listed here, is declared simply by
+                    adding the field in its base-class location and wiring it into this group.
+      NXentry/DATA
+        Doc       : The data group .. note:: Before the NIAC2016 meeting [#]_, at least one
+                    :ref:`NXdata` group was required in each :ref:`NXentry` group. At the NIAC2016
+                    meeting, it was decided to make :ref:`NXdata` an optional group in
+                    :ref:`NXentry` groups for data files that do not use an application definition.
+                    It is recommended strongly that all NeXus data files provide a NXdata group. It
+                    is permissible to omit the NXdata group only when defining the default plot is
+                    not practical or possible from the available data. For example, neutron event
+                    data may not have anything that makes a useful plot without extensive
+                    processing. Certain application definitions override this decision and require
+                    an :ref:`NXdata` group in the :ref:`NXentry` group. The ``minOccurs=0``
+                    attribute in the application definition will indicate the :ref:`NXdata` group is
+                    optional, otherwise, it is required. .. [#] NIAC2016:
+                    https://www.nexusformat.org/NIAC2016.html,
+                    https://github.com/nexusformat/NIAC/issues/16
+      NXobject/DATA
+      NXdata
+        Doc       : The :ref:`NXdata` class is designed to encapsulate all the information required
+                    for a set of data to be plotted. NXdata groups contain plottable data (also
+                    referred to as *signals* or *dependent variables*) and their associated axis
+                    coordinates (also referred to as *axes* or *independent variables*). The actual
+                    names of the :ref:`DATA </NXdata/DATA-field>` and :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields can be chosen :ref:`freely <validItemName>`, as
+                    indicated by the upper case (this is a common convention in all NeXus classes).
+                    .. note:: ``NXdata`` provides data and coordinates to be plotted but does not
+                    describe how the data is to be plotted or even the dimensionality of the plot.
+                    https://www.nexusformat.org/NIAC2018Minutes.html#nxdata-plottype--attribute ..
+                    include:: data/index.rst :start-line: 1 .. admonition:: Example of a simple
+                    curve plot .. code-block:: data:NXdata @signal = "data" @axes = ["x"] data:
+                    float[100] x: float[100] More complex cases are supported * histogram data:
+                    ``x`` has one more value than ``data``. * alternative axes: instead of a single
+                    ``x`` axis you can have several axes, one of which being the default. * signals
+                    with more than one dimension: ``data`` could be 2D with axes ``x`` and ``y``
+                    along each dimension. * axes with more than one dimension: ``data`` could be 2D
+                    with axes ``x`` and ``y`` also being 2D, providing a unique ``(x, y)``
+                    coordinate for each ``data`` point. **Signals:** .. index:: plotting ..
+                    admonition:: Defined by * :ref:`DATA </NXdata/DATA-field>` fields * the
+                    :ref:`signal </NXdata@signal-attribute>` attribute * the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute The
+                    :ref:`DATA </NXdata/DATA-field>` fields contain the signal values to be plotted.
+                    The name of the field to be used as the *default plot signal* is provided by the
+                    :ref:`signal </NXdata@signal-attribute>` attribute. The names of the fields to
+                    be used as *secondary plot signals* are provided by the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute. ..
+                    admonition:: An example with three signals, one of which being the default ..
+                    code-block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2",
+                    "data3"] data1: float[10,20,30] # the default signal data2: float[10,20,30]
+                    data3: float[10,20,30] **Axes:** .. index:: axes (attribute) .. index::
+                    coordinates .. admonition:: Defined by * :ref:`AXISNAME </NXdata/AXISNAME-
+                    field>` fields * the :ref:`axes </NXdata@axes-attribute>` attribute *
+                    :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` attributes The
+                    fields and attributes are defined as follows 1. The :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields contain the axis coordinates associated with
+                    the signal values. 2. The :ref:`axes </NXdata@axes-attribute>` attribute
+                    provides the names of the :ref:`AXISNAME </NXdata/AXISNAME-field>` fields to be
+                    used as the `default axis` for each dimension of the :ref:`DATA </NXdata/DATA-
+                    field>` fields. 3. The :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-
+                    attribute>` attributes describe the :ref:`DATA </NXdata/DATA-field>` dimensions
+                    spanned by the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` fields.
+                    The fields and attributes have the following constraints 1. The length of the
+                    :ref:`axes </NXdata@axes-attribute>` attribute must be equal to the rank of the
+                    :ref:`DATA </NXdata/DATA-field>` fields. When a particular dimension has no
+                    default axis, the string “.” is used in that position. 2. The number of values
+                    in :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` must be equal to
+                    the rank of the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` field. 3.
+                    When :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` is missing for
+                    a given :ref:`AXISNAME </NXdata/AXISNAME-field>` field, the positions of the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field name in the :ref:`axes
+                    </NXdata@axes-attribute>` attribute are used. 4. When :ref:`AXISNAME_indices
+                    </NXdata@AXISNAME_indices-attribute>` is the same as the indices of "AXISNAME"
+                    in the :ref:`axes </NXdata@axes-attribute>` attribute, there is no need to
+                    provide :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 5. The
+                    indices of "AXISNAME" in the :ref:`axes </NXdata@axes-attribute>` attribute must
+                    be a subset of :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 6.
+                    The shape of an :ref:`AXISNAME </NXdata/AXISNAME-field>` field must correspond
+                    to the shape of the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This
+                    means that for each dimension ``i`` in ``[0, AXISNAME.ndim)`` spanned by axis
+                    field :ref:`AXISNAME </NXdata/AXISNAME-field>`, the number of axis values
+                    ``AXISNAME.shape[i]`` along dimension ``i`` must be equal to the number of data
+                    points ``DATA.shape[AXISNAME_indices[i]]`` along dimension ``i`` or one more
+                    than the number of data points ``DATA.shape[AXISNAME_indices[i]]+1`` in case the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field contains histogram bin edges
+                    along dimension ``i``. Highlight consequences of these constraints 1. An
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field can have more than one dimension
+                    and can therefore span more than one :ref:`DATA </NXdata/DATA-field>` dimension.
+                    Conversely, one :ref:`DATA </NXdata/DATA-field>` dimension can be spanned by
+                    more than one :ref:`AXISNAME </NXdata/AXISNAME-field>` field. The default axis
+                    name (if any) of each dimension can be found in the :ref:`axes </NXdata@axes-
+                    attribute>` attribute. 2. A list of all available axes is not provided directly.
+                    All strings in the :ref:`axes </NXdata@axes-attribute>` attribute (excluding the
+                    “.” string) are axis field names. In addition the prefix of an attribute ending
+                    with the string "_indices" is also an axis field name. .. admonition:: The
+                    following example covers all axes features supported (see
+                    :ref:`sphx_glr_classes_base_classes_data_plot_fscan2d.py`) .. code-block::
+                    data:NXdata @signal = "data" @axes = ["x_set", "y_set", "."] # default axes for
+                    all three dimensions @x_encoder_indices = [0, 1] @y_encoder_indices = 1 # or [1]
+                    data: float[10,7,1024] x_encoder: float[11,7] # coordinates along the first and
+                    second dimensions y_encoder: float[7] # coordinates along the second dimension
+                    x_set: float[10] # default coordinates along the first dimension y_set: float[7]
+                    # default coordinates along the second dimension **Uncertainties:** ..
+                    admonition:: Defined by * :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-
+                    field>` fields Standard deviations on data values as well as coordinates can be
+                    provided by :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-field>` fields
+                    where ``FIELDNAME`` is the name of a :ref:`DATA </NXdata/DATA-field>` field or
+                    an :ref:`AXISNAME </NXdata/AXISNAME-field>` field. .. admonition:: An example of
+                    uncertainties on the signal, auxiliary signals and axis coordinates .. code-
+                    block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2", "data3"]
+                    @axes = ["x", ".", "z"] data1: float[10,20,30] data2: float[10,20,30] data3:
+                    float[10,20,30] x: float[10] z: float[30] data1_errors: float[10,20,30]
+                    data2_errors: float[10,20,30] data3_errors: float[10,20,30] x_errors: float[10]
+                    z_errors: float[30]
+    NXdata    : [v3] signal=intensity, 1 axis dataset(s)
+    @axes = ['energy']  [OPTIONAL]
+    @signal = intensity  [OPTIONAL]
+    FIELD /fe_metal/data/energy  shape=(348,)  dtype=float64
+      Dataset referenced as NXdata AXIS #0
+      Value     : [6962.    6972.    6982.    6992.    7002.    7012.    7022.    7032....
+      Concept   : NXdata/ENTRY/DATA/AXISNAME  [OPTIONAL]
+      Inheritance:
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+      @target = /fe_metal/energy  [NeXus link]
+      @units = eV  [OPTIONAL]
+    FIELD /fe_metal/data/intensity  shape=(348,)  dtype=float64
+      Dataset referenced as NXdata SIGNAL
+      Value     : [ 1.06328583e-01  9.62326051e-02  8.60220421e-02  7.56410652e-02...
+      Concept   : NXdata/ENTRY/DATA/DATA  [OPTIONAL]
+      Inheritance:
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+      @target = /fe_metal/intensity  [NeXus link]
+  FIELD /fe_metal/definition  shape=()  dtype=object
+    Value     : NXxas_trans
+    Concept   : NXxas_trans/ENTRY/definition  [REQUIRED]
+    Inheritance:
+      NXxas_trans/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXxas/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXentry/definition
+        Doc       : (alternate use: see same field in :ref:`NXsubentry` for preferred) Official
+                    NeXus NXDL schema to which this entry conforms which must be the name of the
+                    NXDL file (case sensitive without the file extension) that the NXDL schema is
+                    defined in. For example the ``definition`` field for a file that conformed to
+                    the *NXarpes.nxdl.xml* definition must contain the string **NXarpes**. This
+                    field is provided so that :ref:`NXentry` can be the overlay position in a NeXus
+                    data file for an application definition and its set of groups, fields, and
+                    attributes. *It is advised* to use :ref:`NXsubentry`, instead, as the overlay
+                    position.
+    Enums     : [NXxas_trans] NXxas_trans
+    Enums     : [NXxas_trans] NXxas_trans
+    Enums     : [NXxas] NXxas
+    @URL = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+    @version = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+
+  GROUP /fe_metal/edge [NXabsorption_edge]  (2 members)
+    Concept   : NXxas/ENTRY/edge  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/edge
+        Doc       : The absorption edge being probed, defined by the principal quantum number and
+                    orbital symmetry of the photoionized electron (e.g. K, L1, L2, L3, L2,3).
+                    Together with the element uniquely identifies probed electronic transition.
+      NXabsorption_edge
+        Doc       : An absorption edge is a sharp discontinuity in the X-ray absorption spectrum of
+                    an atom that occurs when the incident photon energy reaches the threshold energy
+                    for exciting the atom from its neutral ground state to a core-vacancy state.
+    FIELD /fe_metal/edge/energy  shape=()  dtype=float64
+      Value     : 7112.0
+      Concept   : NXabsorption_edge/ENTRY/edge/energy  [OPTIONAL]
+      Inheritance:
+        NXabsorption_edge/energy
+          Doc       : Energy of the absorption edge.
+      @units = eV  [UNIT: NX_ENERGY]
+    FIELD /fe_metal/edge/name  shape=()  dtype=object
+      Value     : K
+      Concept   : NXabsorption_edge/ENTRY/edge/name  [OPTIONAL]
+      Inheritance:
+        NXabsorption_edge/name
+          Doc       : Name of the absorption edge using `IUPAC notation`_ (e.g., ``K``, ``L2``,
+                      ``M5``), which identifies the core-vacancy state of the atom. Correspondence
+                      between IUPAC notation and electron configuration, expressed as vacancy
+                      notation (superscript :math:`-1`): .. list-table:: :header-rows: 1 * - IUPAC -
+                      Electron configuration * - K - :math:`1s^{-1}` * - L1 - :math:`2s^{-1}` * - L2
+                      - :math:`2p_{1/2}^{-1}` * - L3 - :math:`2p_{3/2}^{-1}` * - M1 -
+                      :math:`3s^{-1}` * - M2 - :math:`3p_{1/2}^{-1}` * - M3 - :math:`3p_{3/2}^{-1}`
+                      * - M4 - :math:`3d_{3/2}^{-1}` * - M5 - :math:`3d_{5/2}^{-1}` * - N1 -
+                      :math:`4s^{-1}` * - N2 - :math:`4p_{1/2}^{-1}` * - N3 - :math:`4p_{3/2}^{-1}`
+                      * - N4 - :math:`4d_{3/2}^{-1}` * - N5 - :math:`4d_{5/2}^{-1}` * - N6 -
+                      :math:`4f_{5/2}^{-1}` * - N7 - :math:`4f_{7/2}^{-1}` * - O1 - :math:`5s^{-1}`
+                      * - O2 - :math:`5p_{1/2}^{-1}` * - O3 - :math:`5p_{3/2}^{-1}` * - O4 -
+                      :math:`5d_{3/2}^{-1}` * - O5 - :math:`5d_{5/2}^{-1}` * - O6 -
+                      :math:`5f_{5/2}^{-1}` * - O7 - :math:`5f_{7/2}^{-1}` * - P1 - :math:`6s^{-1}`
+                      * - P2 - :math:`6p_{1/2}^{-1}` * - P3 - :math:`6p_{3/2}^{-1}` * - P4 -
+                      :math:`6d_{3/2}^{-1}` * - P5 - :math:`6d_{5/2}^{-1}` Per IUPAC, subscripts may
+                      be dropped when unknown or irrelevant. When two spin-orbit split levels are
+                      not distinguished, they may be written together (e.g. ``L2,3``). .. _IUPAC
+                      notation: https://doi.org/10.1002/xrs.1300200308
+      Enums     : [NXabsorption_edge] K, L1, L2, L3, L2,3, M1, M2, M3, M2,3, M4, M5, M4,5, N1, N2, N3, N2,3, N4, N5, N4,5, N6, N7, N6,7, O1, O2, O3, O2,3, O4, O5, O4,5, O6, O7, O6,7, P1, P2, P3, P2,3, P4, P5, P4,5
+      Enums     : [NXabsorption_edge] K, L1, L2, L3, L2,3, M1, M2, M3, M2,3, M4, M5, M4,5, N1, N2, N3, N2,3, N4, N5, N4,5, N6, N7, N6,7, O1, O2, O3, O2,3, O4, O5, O4,5, O6, O7, O6,7, P1, P2, P3, P2,3, P4, P5, P4,5
+
+  GROUP /fe_metal/element [NXelement]  (1 members)
+    Concept   : NXxas/ENTRY/element  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/element
+        Doc       : The element being probed by the incident X-rays.
+      NXelement
+        Doc       : A chemical element of the periodic table. It is identified by its atomic number,
+                    as a species and not as a specific isotope.
+    FIELD /fe_metal/element/name  shape=()  dtype=object
+      Value     : Fe
+      Concept   : NXxas/ENTRY/element/name  [REQUIRED]
+      Inheritance:
+        NXxas/ENTRY/element/name
+  FIELD /fe_metal/energy  shape=(348,)  dtype=float64
+    Value     : [6962.    6972.    6982.    6992.    7002.    7012.    7022.    7032....
+    Concept   : NXxas/ENTRY/energy  [REQUIRED]
+    Dims      : nEnergy
+    Inheritance:
+      NXxas/ENTRY/energy
+        Doc       : The energy axis of the spectrum.
+    @target = /fe_metal/energy  [NeXus link]
+    @units = eV  [UNIT: NX_ENERGY]
+
+  GROUP /fe_metal/instrument [NXinstrument]  (3 members)
+    Concept   : NXxas_trans/ENTRY/INSTRUMENT  [RECOMMENDED]
+    Inheritance:
+      NXxas_trans/ENTRY/INSTRUMENT
+        Doc       : The ``data`` field of each detector below holds the intensity used to compute
+                    the absorption coefficient and may already include corrections. If the
+                    uncorrected values are kept, they are archived in the ``NXcollection`` group and
+                    the corrections are described in ``NXprocess``.
+      NXentry/INSTRUMENT
+      NXinstrument
+        Doc       : Collection of the components of the instrument or beamline. Template of
+                    instrument descriptions comprising various beamline components. Each component
+                    will also be a NeXus group defined by its distance from the sample. Negative
+                    distances represent beamline components that are before the sample while
+                    positive distances represent components that are after the sample. This device
+                    allows the unique identification of beamline components in a way that is valid
+                    for both reactor and pulsed instrumentation.
+
+    GROUP /fe_metal/instrument/i0 [NXdetector]  (1 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/i0  [REQUIRED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/i0
+          Doc       : Detector measuring the incident beam intensity :math:`I_0`.
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /fe_metal/instrument/i0/data  shape=(348,)  dtype=float64
+        Value     : [303156. 305705. 305821. 306373. 305919. 305809. 305925. 305603. 306302....
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/i0/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/i0/data
+          NXdetector/data
+            Doc       : Data values from the detector. The rank and dimension ordering should follow
+                        a principle of slowest to fastest measurement axes and may be explicitly
+                        specified in application definitions. Mechanical scanning of objects (e.g.
+                        sample position/angle, incident beam energy, etc) tends to be the slowest
+                        part of an experiment and so any such scan axes should be allocated to the
+                        first dimensions of the array. Note that in some cases it may be useful to
+                        represent a 2D set of scan points as a single scan-axis in the data array,
+                        especially if the scan pattern doesn't fit a rectangular array nicely.
+                        Repetition of an experiment in a time series tends to be used similar to a
+                        slow scan axis and so will often be in the first dimension of the data
+                        array. The next fastest axes are typically the readout of the detector. A
+                        point detector will not add any dimensions (as it is just a single value per
+                        scan point) to the data array, a strip detector will add one dimension, an
+                        imaging detector will add two dimensions (e.g. X, Y axes) and detectors
+                        outputting higher dimensional data will add the corresponding number of
+                        dimensions. Note that the detector dimensions don't necessarily have to be
+                        written in order of the actual readout speeds - the slowest to fastest rule
+                        principle is only a guide. Finally, detectors that operate in a time-of-
+                        flight mode, such as a neutron spectrometer or a silicon drift detector
+                        (used for X-ray fluorescence) tend to have their dimension(s) added to the
+                        last dimensions in the data array. The type of each dimension should should
+                        follow the order of scan points, detector pixels, then time-of-flight (i.e.
+                        spectroscopy, spectrometry). The rank and dimension sizes (see symbol list)
+                        shown here are merely illustrative of coordination between related datasets.
+
+    GROUP /fe_metal/instrument/itrans [NXdetector]  (1 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/itrans  [REQUIRED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/itrans
+          Doc       : Detector measuring the transmitted beam intensity :math:`I`.
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /fe_metal/instrument/itrans/data  shape=(348,)  dtype=float64
+        Value     : [272576.4  277657.4  280613.4  284053.4  286448.39 289276.39 292190.4...
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/itrans/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/itrans/data
+          NXdetector/data
+            Doc       : Data values from the detector. The rank and dimension ordering should follow
+                        a principle of slowest to fastest measurement axes and may be explicitly
+                        specified in application definitions. Mechanical scanning of objects (e.g.
+                        sample position/angle, incident beam energy, etc) tends to be the slowest
+                        part of an experiment and so any such scan axes should be allocated to the
+                        first dimensions of the array. Note that in some cases it may be useful to
+                        represent a 2D set of scan points as a single scan-axis in the data array,
+                        especially if the scan pattern doesn't fit a rectangular array nicely.
+                        Repetition of an experiment in a time series tends to be used similar to a
+                        slow scan axis and so will often be in the first dimension of the data
+                        array. The next fastest axes are typically the readout of the detector. A
+                        point detector will not add any dimensions (as it is just a single value per
+                        scan point) to the data array, a strip detector will add one dimension, an
+                        imaging detector will add two dimensions (e.g. X, Y axes) and detectors
+                        outputting higher dimensional data will add the corresponding number of
+                        dimensions. Note that the detector dimensions don't necessarily have to be
+                        written in order of the actual readout speeds - the slowest to fastest rule
+                        principle is only a guide. Finally, detectors that operate in a time-of-
+                        flight mode, such as a neutron spectrometer or a silicon drift detector
+                        (used for X-ray fluorescence) tend to have their dimension(s) added to the
+                        last dimensions in the data array. The type of each dimension should should
+                        follow the order of scan points, detector pixels, then time-of-flight (i.e.
+                        spectroscopy, spectrometry). The rank and dimension sizes (see symbol list)
+                        shown here are merely illustrative of coordination between related datasets.
+
+    GROUP /fe_metal/instrument/source [NXsource]  (3 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE  [RECOMMENDED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/SOURCE
+        NXinstrument/SOURCE
+        NXsource
+          Doc       : Radiation source emitting a beam. Examples include particle sources
+                      (electrons, neutrons, protons) or sources for electromagnetic radiation
+                      (photons). This base class can also be used to describe neutron or x-ray
+                      storage ring/facilities.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /fe_metal/instrument/source/name  shape=()  dtype=object
+        Value     : APS
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/name  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/name
+          NXsource/name
+            Doc       : Name of source
+          NXcomponent/name
+            Doc       : Name of the component.
+      FIELD /fe_metal/instrument/source/probe  shape=()  dtype=object
+        Value     : x-ray
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/probe  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/probe
+          NXsource/probe
+            Doc       : type of radiation probe (pick one from the enumerated list and spell
+                        exactly)
+        Enums     : [NXxas_trans] x-ray
+        Enums     : [NXxas_trans] x-ray
+        Enums     : [NXsource] neutron, photon, x-ray, muon, electron, ultraviolet, visible light, positron, proton
+      FIELD /fe_metal/instrument/source/type  shape=()  dtype=object
+        Value     : Synchrotron X-ray Source
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/type  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/type
+          NXsource/type
+            Doc       : type of radiation source (pick one from the enumerated list and spell
+                        exactly)
+        Enums     : [NXsource] Spallation Neutron Source, Pulsed Reactor Neutron Source, Reactor Neutron Source, Synchrotron X-ray Source, Pulsed Muon Source, Rotating Anode X-ray, Fixed Tube X-ray, UV Laser, Free-Electron Laser, Optical Laser, Ion Source, UV Plasma Source, Metal Jet X-ray, Laser, Dye Laser, Broadband Tunable Light Source, Halogen Lamp, LED, Mercury Cadmium Telluride Lamp, Deuterium Lamp, Xenon Lamp, Globar
+  FIELD /fe_metal/intensity  shape=(348,)  dtype=float64
+    Value     : [ 1.06328583e-01  9.62326051e-02  8.60220421e-02  7.56410652e-02...
+    Concept   : NXxas_trans/ENTRY/intensity  [REQUIRED]
+    Inheritance:
+      NXxas_trans/ENTRY/intensity
+        Doc       : The absorption coefficient :math:`\mu(E)t = -\ln(I/I_0)`.
+      NXxas/ENTRY/intensity
+        Doc       : The intensity of the spectrum. The precise definition of what is meant by
+                    intensity depends on the acquisition mode, and will be specified by each
+                    subclass application definition.
+    @target = /fe_metal/intensity  [NeXus link]
+  FIELD /fe_metal/is_experimental  shape=()  dtype=bool
+    Value     : True
+    Concept   : NXxas/ENTRY/is_experimental  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/is_experimental
+        Doc       : Specify if the data comes from an experiment. Use ``true`` for data acquired at
+                    a beamline or laboratory instrument, and ``false`` for spectra
+                    calculated/simulated using a computational tool, reconstructed from a linear
+                    combination of reference components, etc.
+
+  GROUP /fe_metal/process [NXprocess]  (4 members)
+    Concept   : NXxas_trans/ENTRY/PROCESS  [OPTIONAL]
+    Inheritance:
+      NXxas_trans/ENTRY/PROCESS
+        Doc       : Description of how :ref:`intensity </NXxas/ENTRY/intensity-field>` was obtained
+                    from the raw detector data (i0, itrans, and iref). When present, it allows a
+                    third party to fully reproduce the data reduction.
+      NXentry/PROCESS
+      NXprocess
+        Doc       : The :ref:`NXprocess` class describes an operation used to process data as part
+                    of an analysis workflow, providing information such as the software used, the
+                    date of the operation, the input parameters, and the resulting data.
+
+    GROUP /fe_metal/process/note [NXnote]  (2 members)
+      Concept   : NXxas_trans/ENTRY/PROCESS/note  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/note
+          Doc       : Code or notes reproducing the top-level :ref:`intensity
+                      </NXxas/ENTRY/intensity-field>` from the raw data.
+        NXprocess/NOTE
+          Doc       : The note will contain information about how the data was processed or anything
+                      about the data provenance. The contents of the note can be anything that the
+                      processing code can understand, or simple text. The name will be numbered to
+                      allow for ordering of steps.
+        NXobject/NOTE
+        NXnote
+          Doc       : Any additional freeform information not covered by the other base classes.
+                      This class can be used to store additional information in a NeXus file e.g.
+                      pictures, movies, audio, additional text logs
+      FIELD /fe_metal/process/note/data  shape=()  dtype=object
+        Value     : processing done with xraylarch version 0.9.80...
+        Concept   : NXxas_trans/ENTRY/PROCESS/note/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/PROCESS/note/data
+            Doc       : The reproduction code or notes.
+      FIELD /fe_metal/process/note/type  shape=()  dtype=object
+        Value     : text/x-python
+        Concept   : NXxas_trans/ENTRY/PROCESS/note/type  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/PROCESS/note/type
+            Doc       : Mime content type of the note data field.
+          NXnote/type
+            Doc       : Mime content type of note data field e.g. image/jpeg, text/plain, text/html
+        Enums     : [NXxas_trans] text/x-python
+        Enums     : [NXxas_trans] text/x-python
+
+    GROUP /fe_metal/process/parameters [NXparameters]  (1 members)
+      Concept   : NXxas_trans/ENTRY/PROCESS/parameters  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/parameters
+          Doc       : Validated parameters of the corrections applied, for example energy
+                      calibration, deglitching, incident-beam normalization, or scan merging. Each
+                      parameter should carry a units attribute where applicable.
+        NXprocess/PARAMETERS
+          Doc       : Parameters used in performing the data analysis.
+        NXobject/PARAMETERS
+        NXparameters
+          Doc       : Container for parameters used in processing or analysing data. Typically, this
+                      group is stored in a :ref:`NXprocess` group in order to contain parameters
+                      that are either inputs to or resulting from the process defined by the parent
+                      group. However, this base class can also be added to other groups for use in
+                      other contexts. Although this base class can be used to store any kind of
+                      parameter, one possible use case is to store parameters that are refined by a
+                      fitting function or model. A number of attributes have been defined to store
+                      metadata associated with such a refinement.
+      FIELD /fe_metal/process/parameters/normalized_intensity  shape=(348,)  dtype=float64
+        Value     : [ 1.77487143e-04  1.19671654e-04  2.52482360e-05 -1.23618088e-04...
+        Concept   : NXparameters/ENTRY/PROCESS/parameters/PARAMETER  [OPTIONAL]
+        Inheritance:
+          NXparameters/PARAMETER
+            Doc       : A parameter that is used in or results from processing.
+        @long_name = edge-step normalized mu(E), i.e. (mu - pre_edge) / edge_step  [NOT IN SCHEMA]
+    FIELD /fe_metal/process/program  shape=()  dtype=object
+      Value     : xraylarch
+      Concept   : NXxas_trans/ENTRY/PROCESS/program  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/program
+          Doc       : Name of the program used for processing.
+        NXprocess/program
+          Doc       : Name of the program used
+    FIELD /fe_metal/process/version  shape=()  dtype=object
+      Value     : 0.9.80
+      Concept   : NXxas_trans/ENTRY/PROCESS/version  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/version
+          Doc       : Version of the program used for processing.
+        NXprocess/version
+          Doc       : Version of the program used
+
+  GROUP /fe_metal/sample [NXsample]  (1 members)
+    Concept   : NXxas/ENTRY/SAMPLE  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/SAMPLE
+      NXentry/SAMPLE
+      NXsample
+        Doc       : Any information on the sample. This could include scanned variables that are
+                    associated with one of the data dimensions, e.g. the magnetic field, or logged
+                    data, e.g. monitored temperature vs elapsed time.
+      NXcomponent
+        Doc       : Base class for components of an instrument - real ones or simulated ones.
+    FIELD /fe_metal/sample/name  shape=()  dtype=object
+      Value     : Fe metal foil
+      Concept   : NXxas/ENTRY/SAMPLE/name  [REQUIRED]
+      Inheritance:
+        NXxas/ENTRY/SAMPLE/name
+          Doc       : Descriptive name of the sample
+        NXsample/name
+          Doc       : Descriptive name of sample
+        NXcomponent/name
+          Doc       : Name of the component.
+  FIELD /fe_metal/start_time  shape=()  dtype=object
+    Value     : 2002-03-16T19:49:43-06:00
+    Concept   : NXentry/ENTRY/start_time  [OPTIONAL]
+    Inheritance:
+      NXentry/start_time
+        Doc       : Starting time of measurement
+  FIELD /fe_metal/title  shape=()  dtype=object
+    Value     : Fe metal foil APS 13-BM-D
+    Concept   : NXentry/ENTRY/title  [OPTIONAL]
+    Inheritance:
+      NXentry/title
+        Doc       : Extended title for entry
+
+GROUP /feo [NXentry]  (12 members)
+  Concept   : NXxas_trans/ENTRY  [REQUIRED]
+  Inheritance:
+    NXxas_trans/ENTRY
+    NXxas/ENTRY
+    NXentry
+      Doc       : (**required**) :ref:`NXentry` describes the measurement. The top-level NeXus group
+                  which contains all the data and associated information that comprise a single
+                  measurement. It is mandatory that there is at least one group of this type in the
+                  NeXus file.
+  @default = data  [OPTIONAL]
+
+  GROUP /feo/data [NXdata]  (2 members)
+    Concept   : NXxas/ENTRY/DATA  [OPTIONAL]
+    Inheritance:
+      NXxas/ENTRY/DATA
+        Doc       : Plot of the X-ray absorption intensity versus energy. When several spectra are
+                    stacked along ``nP`` (a time series, a spatial map, an operando series, ...),
+                    the quantity that varies across the stack is stored in its standard NeXus
+                    location (for example ``NXsample/temperature``, ``NXsample/electric_field``, an
+                    ``NXsample/NXtransformations`` axis, or an ``NXbeam`` polarization field) and
+                    linked here as an additional axis with its ``AXISNAME_indices`` set to 0, the
+                    ``nP`` dimension. The application definition does not enumerate these
+                    coordinates: any of them, including ones not listed here, is declared simply by
+                    adding the field in its base-class location and wiring it into this group.
+      NXentry/DATA
+        Doc       : The data group .. note:: Before the NIAC2016 meeting [#]_, at least one
+                    :ref:`NXdata` group was required in each :ref:`NXentry` group. At the NIAC2016
+                    meeting, it was decided to make :ref:`NXdata` an optional group in
+                    :ref:`NXentry` groups for data files that do not use an application definition.
+                    It is recommended strongly that all NeXus data files provide a NXdata group. It
+                    is permissible to omit the NXdata group only when defining the default plot is
+                    not practical or possible from the available data. For example, neutron event
+                    data may not have anything that makes a useful plot without extensive
+                    processing. Certain application definitions override this decision and require
+                    an :ref:`NXdata` group in the :ref:`NXentry` group. The ``minOccurs=0``
+                    attribute in the application definition will indicate the :ref:`NXdata` group is
+                    optional, otherwise, it is required. .. [#] NIAC2016:
+                    https://www.nexusformat.org/NIAC2016.html,
+                    https://github.com/nexusformat/NIAC/issues/16
+      NXobject/DATA
+      NXdata
+        Doc       : The :ref:`NXdata` class is designed to encapsulate all the information required
+                    for a set of data to be plotted. NXdata groups contain plottable data (also
+                    referred to as *signals* or *dependent variables*) and their associated axis
+                    coordinates (also referred to as *axes* or *independent variables*). The actual
+                    names of the :ref:`DATA </NXdata/DATA-field>` and :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields can be chosen :ref:`freely <validItemName>`, as
+                    indicated by the upper case (this is a common convention in all NeXus classes).
+                    .. note:: ``NXdata`` provides data and coordinates to be plotted but does not
+                    describe how the data is to be plotted or even the dimensionality of the plot.
+                    https://www.nexusformat.org/NIAC2018Minutes.html#nxdata-plottype--attribute ..
+                    include:: data/index.rst :start-line: 1 .. admonition:: Example of a simple
+                    curve plot .. code-block:: data:NXdata @signal = "data" @axes = ["x"] data:
+                    float[100] x: float[100] More complex cases are supported * histogram data:
+                    ``x`` has one more value than ``data``. * alternative axes: instead of a single
+                    ``x`` axis you can have several axes, one of which being the default. * signals
+                    with more than one dimension: ``data`` could be 2D with axes ``x`` and ``y``
+                    along each dimension. * axes with more than one dimension: ``data`` could be 2D
+                    with axes ``x`` and ``y`` also being 2D, providing a unique ``(x, y)``
+                    coordinate for each ``data`` point. **Signals:** .. index:: plotting ..
+                    admonition:: Defined by * :ref:`DATA </NXdata/DATA-field>` fields * the
+                    :ref:`signal </NXdata@signal-attribute>` attribute * the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute The
+                    :ref:`DATA </NXdata/DATA-field>` fields contain the signal values to be plotted.
+                    The name of the field to be used as the *default plot signal* is provided by the
+                    :ref:`signal </NXdata@signal-attribute>` attribute. The names of the fields to
+                    be used as *secondary plot signals* are provided by the
+                    :ref:`auxiliary_signals</NXdata@auxiliary_signals-attribute>` attribute. ..
+                    admonition:: An example with three signals, one of which being the default ..
+                    code-block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2",
+                    "data3"] data1: float[10,20,30] # the default signal data2: float[10,20,30]
+                    data3: float[10,20,30] **Axes:** .. index:: axes (attribute) .. index::
+                    coordinates .. admonition:: Defined by * :ref:`AXISNAME </NXdata/AXISNAME-
+                    field>` fields * the :ref:`axes </NXdata@axes-attribute>` attribute *
+                    :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` attributes The
+                    fields and attributes are defined as follows 1. The :ref:`AXISNAME
+                    </NXdata/AXISNAME-field>` fields contain the axis coordinates associated with
+                    the signal values. 2. The :ref:`axes </NXdata@axes-attribute>` attribute
+                    provides the names of the :ref:`AXISNAME </NXdata/AXISNAME-field>` fields to be
+                    used as the `default axis` for each dimension of the :ref:`DATA </NXdata/DATA-
+                    field>` fields. 3. The :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-
+                    attribute>` attributes describe the :ref:`DATA </NXdata/DATA-field>` dimensions
+                    spanned by the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` fields.
+                    The fields and attributes have the following constraints 1. The length of the
+                    :ref:`axes </NXdata@axes-attribute>` attribute must be equal to the rank of the
+                    :ref:`DATA </NXdata/DATA-field>` fields. When a particular dimension has no
+                    default axis, the string “.” is used in that position. 2. The number of values
+                    in :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` must be equal to
+                    the rank of the corresponding :ref:`AXISNAME </NXdata/AXISNAME-field>` field. 3.
+                    When :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>` is missing for
+                    a given :ref:`AXISNAME </NXdata/AXISNAME-field>` field, the positions of the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field name in the :ref:`axes
+                    </NXdata@axes-attribute>` attribute are used. 4. When :ref:`AXISNAME_indices
+                    </NXdata@AXISNAME_indices-attribute>` is the same as the indices of "AXISNAME"
+                    in the :ref:`axes </NXdata@axes-attribute>` attribute, there is no need to
+                    provide :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 5. The
+                    indices of "AXISNAME" in the :ref:`axes </NXdata@axes-attribute>` attribute must
+                    be a subset of :ref:`AXISNAME_indices </NXdata@AXISNAME_indices-attribute>`. 6.
+                    The shape of an :ref:`AXISNAME </NXdata/AXISNAME-field>` field must correspond
+                    to the shape of the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This
+                    means that for each dimension ``i`` in ``[0, AXISNAME.ndim)`` spanned by axis
+                    field :ref:`AXISNAME </NXdata/AXISNAME-field>`, the number of axis values
+                    ``AXISNAME.shape[i]`` along dimension ``i`` must be equal to the number of data
+                    points ``DATA.shape[AXISNAME_indices[i]]`` along dimension ``i`` or one more
+                    than the number of data points ``DATA.shape[AXISNAME_indices[i]]+1`` in case the
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field contains histogram bin edges
+                    along dimension ``i``. Highlight consequences of these constraints 1. An
+                    :ref:`AXISNAME </NXdata/AXISNAME-field>` field can have more than one dimension
+                    and can therefore span more than one :ref:`DATA </NXdata/DATA-field>` dimension.
+                    Conversely, one :ref:`DATA </NXdata/DATA-field>` dimension can be spanned by
+                    more than one :ref:`AXISNAME </NXdata/AXISNAME-field>` field. The default axis
+                    name (if any) of each dimension can be found in the :ref:`axes </NXdata@axes-
+                    attribute>` attribute. 2. A list of all available axes is not provided directly.
+                    All strings in the :ref:`axes </NXdata@axes-attribute>` attribute (excluding the
+                    “.” string) are axis field names. In addition the prefix of an attribute ending
+                    with the string "_indices" is also an axis field name. .. admonition:: The
+                    following example covers all axes features supported (see
+                    :ref:`sphx_glr_classes_base_classes_data_plot_fscan2d.py`) .. code-block::
+                    data:NXdata @signal = "data" @axes = ["x_set", "y_set", "."] # default axes for
+                    all three dimensions @x_encoder_indices = [0, 1] @y_encoder_indices = 1 # or [1]
+                    data: float[10,7,1024] x_encoder: float[11,7] # coordinates along the first and
+                    second dimensions y_encoder: float[7] # coordinates along the second dimension
+                    x_set: float[10] # default coordinates along the first dimension y_set: float[7]
+                    # default coordinates along the second dimension **Uncertainties:** ..
+                    admonition:: Defined by * :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-
+                    field>` fields Standard deviations on data values as well as coordinates can be
+                    provided by :ref:`FIELDNAME_errors </NXdata/FIELDNAME_errors-field>` fields
+                    where ``FIELDNAME`` is the name of a :ref:`DATA </NXdata/DATA-field>` field or
+                    an :ref:`AXISNAME </NXdata/AXISNAME-field>` field. .. admonition:: An example of
+                    uncertainties on the signal, auxiliary signals and axis coordinates .. code-
+                    block:: data:NXdata @signal = "data1" @auxiliary_signals = ["data2", "data3"]
+                    @axes = ["x", ".", "z"] data1: float[10,20,30] data2: float[10,20,30] data3:
+                    float[10,20,30] x: float[10] z: float[30] data1_errors: float[10,20,30]
+                    data2_errors: float[10,20,30] data3_errors: float[10,20,30] x_errors: float[10]
+                    z_errors: float[30]
+    NXdata    : [v3] signal=intensity, 1 axis dataset(s)
+    @axes = ['energy']  [OPTIONAL]
+    @signal = intensity  [OPTIONAL]
+    FIELD /feo/data/energy  shape=(412,)  dtype=float64
+      Dataset referenced as NXdata AXIS #0
+      Value     : [6911.7671 6916.873  6921.703  6926.8344 6931.7399 6936.9887 6941.7869...
+      Concept   : NXdata/ENTRY/DATA/AXISNAME  [OPTIONAL]
+      Inheritance:
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+      @target = /feo/energy  [NeXus link]
+      @units = eV  [OPTIONAL]
+    FIELD /feo/data/intensity  shape=(412,)  dtype=float64
+      Dataset referenced as NXdata SIGNAL
+      Value     : [-0.03599256 -0.03908161 -0.04219346 -0.04516555 -0.04736556 -0.0518245...
+      Concept   : NXdata/ENTRY/DATA/DATA  [OPTIONAL]
+      Inheritance:
+        NXdata/DATA
+          Doc       : .. index:: plotting Data values to be used as the NeXus *plottable data*. As
+                      the upper case ``DATA`` indicates, the names of the ``DATA`` fields can be
+                      chosen :ref:`freely <validItemName>`. The :ref:`signal attribute
+                      </NXdata@signal-attribute>` and :ref:`auxiliary_signals
+                      attribute</NXdata@auxiliary_signals-attribute>` can be used to find all
+                      datasets in the ``NXdata`` that contain data values. The maximum rank is
+                      ``32`` for compatibility with backend file formats.
+        NXdata/AXISNAME
+          Doc       : Coordinate values along one or more :ref:`DATA </NXdata/DATA-field>`
+                      dimensions. The shape of an ``AXISNAME`` field must correspond to the shape of
+                      the :ref:`DATA </NXdata/DATA-field>` dimensions it spans. This means that for
+                      each ``i`` in ``[0, AXISNAME.ndim)`` the number of data points
+                      ``DATA.shape[AXISNAME_indices[i]]`` must be equal to the number of coordinates
+                      ``AXISNAME.shape[i]`` or the number of bin edges ``AXISNAME.shape[i]+1`` in
+                      case of histogram data. As the upper case ``AXISNAME`` indicates, the names of
+                      the ``AXISNAME`` fields can be chosen :ref:`freely <validItemName>`. Most
+                      ``AXISNAME`` fields will be sequences of numbers but if an axis is better
+                      represented using names, such as channel names, an array of NX_CHAR can be
+                      provided.
+      @target = /feo/intensity  [NeXus link]
+  FIELD /feo/definition  shape=()  dtype=object
+    Value     : NXxas_trans
+    Concept   : NXxas_trans/ENTRY/definition  [REQUIRED]
+    Inheritance:
+      NXxas_trans/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXxas/ENTRY/definition
+        Doc       : Official NeXus NXDL schema to which this file conforms.
+      NXentry/definition
+        Doc       : (alternate use: see same field in :ref:`NXsubentry` for preferred) Official
+                    NeXus NXDL schema to which this entry conforms which must be the name of the
+                    NXDL file (case sensitive without the file extension) that the NXDL schema is
+                    defined in. For example the ``definition`` field for a file that conformed to
+                    the *NXarpes.nxdl.xml* definition must contain the string **NXarpes**. This
+                    field is provided so that :ref:`NXentry` can be the overlay position in a NeXus
+                    data file for an application definition and its set of groups, fields, and
+                    attributes. *It is advised* to use :ref:`NXsubentry`, instead, as the overlay
+                    position.
+    Enums     : [NXxas_trans] NXxas_trans
+    Enums     : [NXxas_trans] NXxas_trans
+    Enums     : [NXxas] NXxas
+    @URL = https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51  [OPTIONAL]
+    @version = v2024.02.post1.dev2011+gaf199a51  [OPTIONAL]
+
+  GROUP /feo/edge [NXabsorption_edge]  (2 members)
+    Concept   : NXxas/ENTRY/edge  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/edge
+        Doc       : The absorption edge being probed, defined by the principal quantum number and
+                    orbital symmetry of the photoionized electron (e.g. K, L1, L2, L3, L2,3).
+                    Together with the element uniquely identifies probed electronic transition.
+      NXabsorption_edge
+        Doc       : An absorption edge is a sharp discontinuity in the X-ray absorption spectrum of
+                    an atom that occurs when the incident photon energy reaches the threshold energy
+                    for exciting the atom from its neutral ground state to a core-vacancy state.
+    FIELD /feo/edge/energy  shape=()  dtype=float64
+      Value     : 7112.0
+      Concept   : NXabsorption_edge/ENTRY/edge/energy  [OPTIONAL]
+      Inheritance:
+        NXabsorption_edge/energy
+          Doc       : Energy of the absorption edge.
+      @units = eV  [UNIT: NX_ENERGY]
+    FIELD /feo/edge/name  shape=()  dtype=object
+      Value     : K
+      Concept   : NXabsorption_edge/ENTRY/edge/name  [OPTIONAL]
+      Inheritance:
+        NXabsorption_edge/name
+          Doc       : Name of the absorption edge using `IUPAC notation`_ (e.g., ``K``, ``L2``,
+                      ``M5``), which identifies the core-vacancy state of the atom. Correspondence
+                      between IUPAC notation and electron configuration, expressed as vacancy
+                      notation (superscript :math:`-1`): .. list-table:: :header-rows: 1 * - IUPAC -
+                      Electron configuration * - K - :math:`1s^{-1}` * - L1 - :math:`2s^{-1}` * - L2
+                      - :math:`2p_{1/2}^{-1}` * - L3 - :math:`2p_{3/2}^{-1}` * - M1 -
+                      :math:`3s^{-1}` * - M2 - :math:`3p_{1/2}^{-1}` * - M3 - :math:`3p_{3/2}^{-1}`
+                      * - M4 - :math:`3d_{3/2}^{-1}` * - M5 - :math:`3d_{5/2}^{-1}` * - N1 -
+                      :math:`4s^{-1}` * - N2 - :math:`4p_{1/2}^{-1}` * - N3 - :math:`4p_{3/2}^{-1}`
+                      * - N4 - :math:`4d_{3/2}^{-1}` * - N5 - :math:`4d_{5/2}^{-1}` * - N6 -
+                      :math:`4f_{5/2}^{-1}` * - N7 - :math:`4f_{7/2}^{-1}` * - O1 - :math:`5s^{-1}`
+                      * - O2 - :math:`5p_{1/2}^{-1}` * - O3 - :math:`5p_{3/2}^{-1}` * - O4 -
+                      :math:`5d_{3/2}^{-1}` * - O5 - :math:`5d_{5/2}^{-1}` * - O6 -
+                      :math:`5f_{5/2}^{-1}` * - O7 - :math:`5f_{7/2}^{-1}` * - P1 - :math:`6s^{-1}`
+                      * - P2 - :math:`6p_{1/2}^{-1}` * - P3 - :math:`6p_{3/2}^{-1}` * - P4 -
+                      :math:`6d_{3/2}^{-1}` * - P5 - :math:`6d_{5/2}^{-1}` Per IUPAC, subscripts may
+                      be dropped when unknown or irrelevant. When two spin-orbit split levels are
+                      not distinguished, they may be written together (e.g. ``L2,3``). .. _IUPAC
+                      notation: https://doi.org/10.1002/xrs.1300200308
+      Enums     : [NXabsorption_edge] K, L1, L2, L3, L2,3, M1, M2, M3, M2,3, M4, M5, M4,5, N1, N2, N3, N2,3, N4, N5, N4,5, N6, N7, N6,7, O1, O2, O3, O2,3, O4, O5, O4,5, O6, O7, O6,7, P1, P2, P3, P2,3, P4, P5, P4,5
+      Enums     : [NXabsorption_edge] K, L1, L2, L3, L2,3, M1, M2, M3, M2,3, M4, M5, M4,5, N1, N2, N3, N2,3, N4, N5, N4,5, N6, N7, N6,7, O1, O2, O3, O2,3, O4, O5, O4,5, O6, O7, O6,7, P1, P2, P3, P2,3, P4, P5, P4,5
+
+  GROUP /feo/element [NXelement]  (1 members)
+    Concept   : NXxas/ENTRY/element  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/element
+        Doc       : The element being probed by the incident X-rays.
+      NXelement
+        Doc       : A chemical element of the periodic table. It is identified by its atomic number,
+                    as a species and not as a specific isotope.
+    FIELD /feo/element/name  shape=()  dtype=object
+      Value     : Fe
+      Concept   : NXxas/ENTRY/element/name  [REQUIRED]
+      Inheritance:
+        NXxas/ENTRY/element/name
+  FIELD /feo/energy  shape=(412,)  dtype=float64
+    Value     : [6911.7671 6916.873  6921.703  6926.8344 6931.7399 6936.9887 6941.7869...
+    Concept   : NXxas/ENTRY/energy  [REQUIRED]
+    Dims      : nEnergy
+    Inheritance:
+      NXxas/ENTRY/energy
+        Doc       : The energy axis of the spectrum.
+    @target = /feo/energy  [NeXus link]
+    @units = eV  [UNIT: NX_ENERGY]
+
+  GROUP /feo/instrument [NXinstrument]  (3 members)
+    Concept   : NXxas_trans/ENTRY/INSTRUMENT  [RECOMMENDED]
+    Inheritance:
+      NXxas_trans/ENTRY/INSTRUMENT
+        Doc       : The ``data`` field of each detector below holds the intensity used to compute
+                    the absorption coefficient and may already include corrections. If the
+                    uncorrected values are kept, they are archived in the ``NXcollection`` group and
+                    the corrections are described in ``NXprocess``.
+      NXentry/INSTRUMENT
+      NXinstrument
+        Doc       : Collection of the components of the instrument or beamline. Template of
+                    instrument descriptions comprising various beamline components. Each component
+                    will also be a NeXus group defined by its distance from the sample. Negative
+                    distances represent beamline components that are before the sample while
+                    positive distances represent components that are after the sample. This device
+                    allows the unique identification of beamline components in a way that is valid
+                    for both reactor and pulsed instrumentation.
+
+    GROUP /feo/instrument/i0 [NXdetector]  (1 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/i0  [REQUIRED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/i0
+          Doc       : Detector measuring the incident beam intensity :math:`I_0`.
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /feo/instrument/i0/data  shape=(412,)  dtype=float64
+        Value     : [280101.   278863.   278149.   277292.   265707.   286669.   285989....
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/i0/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/i0/data
+          NXdetector/data
+            Doc       : Data values from the detector. The rank and dimension ordering should follow
+                        a principle of slowest to fastest measurement axes and may be explicitly
+                        specified in application definitions. Mechanical scanning of objects (e.g.
+                        sample position/angle, incident beam energy, etc) tends to be the slowest
+                        part of an experiment and so any such scan axes should be allocated to the
+                        first dimensions of the array. Note that in some cases it may be useful to
+                        represent a 2D set of scan points as a single scan-axis in the data array,
+                        especially if the scan pattern doesn't fit a rectangular array nicely.
+                        Repetition of an experiment in a time series tends to be used similar to a
+                        slow scan axis and so will often be in the first dimension of the data
+                        array. The next fastest axes are typically the readout of the detector. A
+                        point detector will not add any dimensions (as it is just a single value per
+                        scan point) to the data array, a strip detector will add one dimension, an
+                        imaging detector will add two dimensions (e.g. X, Y axes) and detectors
+                        outputting higher dimensional data will add the corresponding number of
+                        dimensions. Note that the detector dimensions don't necessarily have to be
+                        written in order of the actual readout speeds - the slowest to fastest rule
+                        principle is only a guide. Finally, detectors that operate in a time-of-
+                        flight mode, such as a neutron spectrometer or a silicon drift detector
+                        (used for X-ray fluorescence) tend to have their dimension(s) added to the
+                        last dimensions in the data array. The type of each dimension should should
+                        follow the order of scan points, detector pixels, then time-of-flight (i.e.
+                        spectroscopy, spectrometry). The rank and dimension sizes (see symbol list)
+                        shown here are merely illustrative of coordination between related datasets.
+
+    GROUP /feo/instrument/itrans [NXdetector]  (1 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/itrans  [REQUIRED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/itrans
+          Doc       : Detector measuring the transmitted beam intensity :math:`I`.
+        NXinstrument/DETECTOR
+        NXdetector
+          Doc       : A detector, detector bank, or multidetector.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /feo/instrument/itrans/data  shape=(412,)  dtype=float64
+        Value     : [290366.18 289977.18 290136.18 290103.18 278595.18 301917.18 301961.18...
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/itrans/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/itrans/data
+          NXdetector/data
+            Doc       : Data values from the detector. The rank and dimension ordering should follow
+                        a principle of slowest to fastest measurement axes and may be explicitly
+                        specified in application definitions. Mechanical scanning of objects (e.g.
+                        sample position/angle, incident beam energy, etc) tends to be the slowest
+                        part of an experiment and so any such scan axes should be allocated to the
+                        first dimensions of the array. Note that in some cases it may be useful to
+                        represent a 2D set of scan points as a single scan-axis in the data array,
+                        especially if the scan pattern doesn't fit a rectangular array nicely.
+                        Repetition of an experiment in a time series tends to be used similar to a
+                        slow scan axis and so will often be in the first dimension of the data
+                        array. The next fastest axes are typically the readout of the detector. A
+                        point detector will not add any dimensions (as it is just a single value per
+                        scan point) to the data array, a strip detector will add one dimension, an
+                        imaging detector will add two dimensions (e.g. X, Y axes) and detectors
+                        outputting higher dimensional data will add the corresponding number of
+                        dimensions. Note that the detector dimensions don't necessarily have to be
+                        written in order of the actual readout speeds - the slowest to fastest rule
+                        principle is only a guide. Finally, detectors that operate in a time-of-
+                        flight mode, such as a neutron spectrometer or a silicon drift detector
+                        (used for X-ray fluorescence) tend to have their dimension(s) added to the
+                        last dimensions in the data array. The type of each dimension should should
+                        follow the order of scan points, detector pixels, then time-of-flight (i.e.
+                        spectroscopy, spectrometry). The rank and dimension sizes (see symbol list)
+                        shown here are merely illustrative of coordination between related datasets.
+
+    GROUP /feo/instrument/source [NXsource]  (2 members)
+      Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE  [RECOMMENDED]
+      Inheritance:
+        NXxas_trans/ENTRY/INSTRUMENT/SOURCE
+        NXinstrument/SOURCE
+        NXsource
+          Doc       : Radiation source emitting a beam. Examples include particle sources
+                      (electrons, neutrons, protons) or sources for electromagnetic radiation
+                      (photons). This base class can also be used to describe neutron or x-ray
+                      storage ring/facilities.
+        NXcomponent
+          Doc       : Base class for components of an instrument - real ones or simulated ones.
+      FIELD /feo/instrument/source/probe  shape=()  dtype=object
+        Value     : x-ray
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/probe  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/probe
+          NXsource/probe
+            Doc       : type of radiation probe (pick one from the enumerated list and spell
+                        exactly)
+        Enums     : [NXxas_trans] x-ray
+        Enums     : [NXxas_trans] x-ray
+        Enums     : [NXsource] neutron, photon, x-ray, muon, electron, ultraviolet, visible light, positron, proton
+      FIELD /feo/instrument/source/type  shape=()  dtype=object
+        Value     : Synchrotron X-ray Source
+        Concept   : NXxas_trans/ENTRY/INSTRUMENT/SOURCE/type  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/INSTRUMENT/SOURCE/type
+          NXsource/type
+            Doc       : type of radiation source (pick one from the enumerated list and spell
+                        exactly)
+        Enums     : [NXsource] Spallation Neutron Source, Pulsed Reactor Neutron Source, Reactor Neutron Source, Synchrotron X-ray Source, Pulsed Muon Source, Rotating Anode X-ray, Fixed Tube X-ray, UV Laser, Free-Electron Laser, Optical Laser, Ion Source, UV Plasma Source, Metal Jet X-ray, Laser, Dye Laser, Broadband Tunable Light Source, Halogen Lamp, LED, Mercury Cadmium Telluride Lamp, Deuterium Lamp, Xenon Lamp, Globar
+  FIELD /feo/intensity  shape=(412,)  dtype=float64
+    Value     : [-0.03599256 -0.03908161 -0.04219346 -0.04516555 -0.04736556 -0.0518245...
+    Concept   : NXxas_trans/ENTRY/intensity  [REQUIRED]
+    Inheritance:
+      NXxas_trans/ENTRY/intensity
+        Doc       : The absorption coefficient :math:`\mu(E)t = -\ln(I/I_0)`.
+      NXxas/ENTRY/intensity
+        Doc       : The intensity of the spectrum. The precise definition of what is meant by
+                    intensity depends on the acquisition mode, and will be specified by each
+                    subclass application definition.
+    @target = /feo/intensity  [NeXus link]
+  FIELD /feo/is_experimental  shape=()  dtype=bool
+    Value     : True
+    Concept   : NXxas/ENTRY/is_experimental  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/is_experimental
+        Doc       : Specify if the data comes from an experiment. Use ``true`` for data acquired at
+                    a beamline or laboratory instrument, and ``false`` for spectra
+                    calculated/simulated using a computational tool, reconstructed from a linear
+                    combination of reference components, etc.
+
+  GROUP /feo/process [NXprocess]  (4 members)
+    Concept   : NXxas_trans/ENTRY/PROCESS  [OPTIONAL]
+    Inheritance:
+      NXxas_trans/ENTRY/PROCESS
+        Doc       : Description of how :ref:`intensity </NXxas/ENTRY/intensity-field>` was obtained
+                    from the raw detector data (i0, itrans, and iref). When present, it allows a
+                    third party to fully reproduce the data reduction.
+      NXentry/PROCESS
+      NXprocess
+        Doc       : The :ref:`NXprocess` class describes an operation used to process data as part
+                    of an analysis workflow, providing information such as the software used, the
+                    date of the operation, the input parameters, and the resulting data.
+
+    GROUP /feo/process/note [NXnote]  (2 members)
+      Concept   : NXxas_trans/ENTRY/PROCESS/note  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/note
+          Doc       : Code or notes reproducing the top-level :ref:`intensity
+                      </NXxas/ENTRY/intensity-field>` from the raw data.
+        NXprocess/NOTE
+          Doc       : The note will contain information about how the data was processed or anything
+                      about the data provenance. The contents of the note can be anything that the
+                      processing code can understand, or simple text. The name will be numbered to
+                      allow for ordering of steps.
+        NXobject/NOTE
+        NXnote
+          Doc       : Any additional freeform information not covered by the other base classes.
+                      This class can be used to store additional information in a NeXus file e.g.
+                      pictures, movies, audio, additional text logs
+      FIELD /feo/process/note/data  shape=()  dtype=object
+        Value     : processing done with xraylarch version 0.9.80...
+        Concept   : NXxas_trans/ENTRY/PROCESS/note/data  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/PROCESS/note/data
+            Doc       : The reproduction code or notes.
+      FIELD /feo/process/note/type  shape=()  dtype=object
+        Value     : text/x-python
+        Concept   : NXxas_trans/ENTRY/PROCESS/note/type  [REQUIRED]
+        Inheritance:
+          NXxas_trans/ENTRY/PROCESS/note/type
+            Doc       : Mime content type of the note data field.
+          NXnote/type
+            Doc       : Mime content type of note data field e.g. image/jpeg, text/plain, text/html
+        Enums     : [NXxas_trans] text/x-python
+        Enums     : [NXxas_trans] text/x-python
+
+    GROUP /feo/process/parameters [NXparameters]  (1 members)
+      Concept   : NXxas_trans/ENTRY/PROCESS/parameters  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/parameters
+          Doc       : Validated parameters of the corrections applied, for example energy
+                      calibration, deglitching, incident-beam normalization, or scan merging. Each
+                      parameter should carry a units attribute where applicable.
+        NXprocess/PARAMETERS
+          Doc       : Parameters used in performing the data analysis.
+        NXobject/PARAMETERS
+        NXparameters
+          Doc       : Container for parameters used in processing or analysing data. Typically, this
+                      group is stored in a :ref:`NXprocess` group in order to contain parameters
+                      that are either inputs to or resulting from the process defined by the parent
+                      group. However, this base class can also be added to other groups for use in
+                      other contexts. Although this base class can be used to store any kind of
+                      parameter, one possible use case is to store parameters that are refined by a
+                      fitting function or model. A number of attributes have been defined to store
+                      metadata associated with such a refinement.
+      FIELD /feo/process/parameters/normalized_intensity  shape=(412,)  dtype=float64
+        Value     : [ 2.27680398e-03  2.10863319e-03  1.81292063e-03  1.73924213e-03...
+        Concept   : NXparameters/ENTRY/PROCESS/parameters/PARAMETER  [OPTIONAL]
+        Inheritance:
+          NXparameters/PARAMETER
+            Doc       : A parameter that is used in or results from processing.
+        @long_name = edge-step normalized mu(E), i.e. (mu - pre_edge) / edge_step  [NOT IN SCHEMA]
+    FIELD /feo/process/program  shape=()  dtype=object
+      Value     : xraylarch
+      Concept   : NXxas_trans/ENTRY/PROCESS/program  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/program
+          Doc       : Name of the program used for processing.
+        NXprocess/program
+          Doc       : Name of the program used
+    FIELD /feo/process/version  shape=()  dtype=object
+      Value     : 0.9.80
+      Concept   : NXxas_trans/ENTRY/PROCESS/version  [OPTIONAL]
+      Inheritance:
+        NXxas_trans/ENTRY/PROCESS/version
+          Doc       : Version of the program used for processing.
+        NXprocess/version
+          Doc       : Version of the program used
+
+  GROUP /feo/sample [NXsample]  (1 members)
+    Concept   : NXxas/ENTRY/SAMPLE  [REQUIRED]
+    Inheritance:
+      NXxas/ENTRY/SAMPLE
+      NXentry/SAMPLE
+      NXsample
+        Doc       : Any information on the sample. This could include scanned variables that are
+                    associated with one of the data dimensions, e.g. the magnetic field, or logged
+                    data, e.g. monitored temperature vs elapsed time.
+      NXcomponent
+        Doc       : Base class for components of an instrument - real ones or simulated ones.
+    FIELD /feo/sample/name  shape=()  dtype=object
+      Value     : FeO
+      Concept   : NXxas/ENTRY/SAMPLE/name  [REQUIRED]
+      Inheritance:
+        NXxas/ENTRY/SAMPLE/name
+          Doc       : Descriptive name of the sample
+        NXsample/name
+          Doc       : Descriptive name of sample
+        NXcomponent/name
+          Doc       : Name of the component.
+  FIELD /feo/start_time  shape=()  dtype=object
+    Value     : 2001-08-10T11:10:00-05:00
+    Concept   : NXentry/ENTRY/start_time  [OPTIONAL]
+    Inheritance:
+      NXentry/start_time
+        Doc       : Starting time of measurement
+  FIELD /feo/title  shape=()  dtype=object
+    Value     : FeO  20BM
+    Concept   : NXentry/ENTRY/title  [OPTIONAL]
+    Inheritance:
+      NXentry/title
+        Doc       : Extended title for entry
+
+========================
+=== Default Plottable ===
+========================
+
+NXentry has been identified: /fe2o3
+
+NXdata group has been identified: /fe2o3/data
+
+Signal has been identified: /fe2o3/data/intensity
+
+For Axis #0, 1 axes have been identified: [<HDF5 dataset "energy": shape (348,), type "<f8">]

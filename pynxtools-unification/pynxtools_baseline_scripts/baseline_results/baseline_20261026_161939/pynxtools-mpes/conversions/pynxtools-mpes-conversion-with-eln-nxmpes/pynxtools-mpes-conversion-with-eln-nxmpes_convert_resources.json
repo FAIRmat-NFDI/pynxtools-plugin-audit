@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/conversions/pynxtools-mpes-conversion-with-eln-nxmpes/pynxtools-mpes-conversion-with-eln-nxmpes_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-mpes/conversions/pynxtools-mpes-conversion-with-eln-nxmpes/pynxtools-mpes-conversion-with-eln-nxmpes_output.nxs"
+  ],
+  "started": "2026-10-26T16:23:52",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 2.321,
+  "user_cpu_s": 3.348,
+  "sys_cpu_s": 1.031,
+  "peak_rss_mb": 288.1
+}

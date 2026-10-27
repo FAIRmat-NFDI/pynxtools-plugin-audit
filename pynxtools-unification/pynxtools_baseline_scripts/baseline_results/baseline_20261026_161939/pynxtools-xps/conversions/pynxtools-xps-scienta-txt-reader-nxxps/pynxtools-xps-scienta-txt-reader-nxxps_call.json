@@ -1,0 +1,22 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[scienta-txt-reader-nxxps]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xps",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.538,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/scienta_txt/Ag_0001.txt",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/scienta_txt/Ag_0002.txt",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/scienta_txt/eln_data_scienta_txt.yaml"
+    ],
+    "reader": "xps",
+    "nxdl": "NXxps",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/pytest/tmp_files/test_nexus_conversion_scienta_1///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xps-scienta-txt-reader-nxxps"
+}

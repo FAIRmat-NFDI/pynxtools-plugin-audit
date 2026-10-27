@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[reader-test-nxellipsometry]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-ellips",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.312,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./eln_data.yaml",
+      "$HOME/nomad-distro-dev/packages/pynxtools-ellips/tests/data/./test-data.dat"
+    ],
+    "reader": "ellips",
+    "nxdl": "NXellipsometry",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-ellips/pytest/tmp_files/test_nexus_conversion_reader_t0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-ellips-reader-test-nxellipsometry"
+}

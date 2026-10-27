@@ -1,0 +1,64 @@
+WARNING: Field /entry1/profiling/event_mtex/ebsd_elapsed_time has no documentation.
+WARNING: Field /entry1/profiling/event_mtex/load_elapsed_time has no documentation.
+WARNING: Field /entry1/profiling/event_mtex/microstructure_elapsed_time has no documentation.
+WARNING: Field /entry1/profiling/event_mtex/odf_elapsed_time has no documentation.
+Group '/entry1/profiling/event_mtex/program1' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry1/profiling/event_mtex/program2' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry1/profiling/event_mtex/program3' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /entry1/profiling/event_mtex/total_elapsed_time has no documentation.
+Group '/entry1/profiling/event_pynxtools' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry1/profiling/event_pynxtools/program1' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /entry1/roi1/ebsd/indexing/microstructure1/configuration/comments has no documentation.
+WARNING: The value '2' at /entry1/roi1/ebsd/indexing/microstructure1/configuration/dimensionality should be one of the following: ['1', '2', '3'].
+WARNING: Field /entry1/roi1/ebsd/indexing/microstructure1/configuration/discretization_threshold has no documentation.
+WARNING: Field /entry1/roi1/ebsd/indexing/microstructure1/crystals/area requires a unit in the unit category NX_AREA.
+WARNING: Field /entry1/roi1/ebsd/indexing/microstructure1/crystals/area_by_pixel has no documentation.
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/microstructure1/crystals/index_offset, but there is no associated field index.
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/microstructure1/interfaces/index_offset, but there is no associated field index.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/microstructure1/interfaces/indices_crystal/@depends_on has no documentation.
+WARNING: Field /entry1/roi1/ebsd/indexing/microstructure1/interfaces/indices_polyline has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/microstructure1/interfaces/indices_polyline/@depends_on has no documentation.
+WARNING: The value '2' at /entry1/roi1/ebsd/indexing/microstructure1/points/dimensionality should be one of the following: ['1', '2', '3'].
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/microstructure1/points/index_offset, but there is no associated field index.
+WARNING: The value '2' at /entry1/roi1/ebsd/indexing/microstructure1/polylines/dimensionality should be one of the following: ['1', '2', '3'].
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/microstructure1/polylines/index_offset, but there is no associated field index.
+WARNING: Field /entry1/roi1/ebsd/indexing/microstructure1/polylines/indices_interface has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/microstructure1/polylines/indices_interface/@depends_on has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/microstructure1/polylines/polylines/@depends_on has no documentation.
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/microstructure1/triple_junctions/index_offset, but there is no associated field index.
+Group '/entry1/roi1/ebsd/indexing/microstructure1/triple_junctions/indices_crystal' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry1/roi1/ebsd/indexing/microstructure1/triple_junctions/indices_interface' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry1/roi1/ebsd/indexing/microstructure1/triple_junctions/indices_polyline' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /entry1/roi1/ebsd/indexing/phase0/index_offset has no documentation.
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/phase0/index_offset, but there is no associated field index.
+WARNING: Field /entry1/roi1/ebsd/indexing/phase1/index_offset has no documentation.
+WARNING: Reserved suffix '_offset' was used in /entry1/roi1/ebsd/indexing/phase1/index_offset, but there is no associated field index.
+WARNING: Length of axis roi1/ebsd/indexing/phase1/ipf1/legend/axis_x does not match to /entry1/roi1/ebsd/indexing/phase1/ipf1/legend/@data in dimension 0
+WARNING: Length of axis roi1/ebsd/indexing/phase1/ipf1/legend/axis_y does not match to /entry1/roi1/ebsd/indexing/phase1/ipf1/legend/@data in dimension 1
+WARNING: Attribute /entry1/roi1/ebsd/indexing/phase1/ipf1/legend/data/@CLASS has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/phase1/ipf1/legend/data/@IMAGE_VERSION has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/phase1/ipf1/legend/data/@SUBCLASS_VERSION has no documentation.
+WARNING: Length of axis roi1/ebsd/indexing/phase1/ipf1/map/axis_x does not match to /entry1/roi1/ebsd/indexing/phase1/ipf1/map/@data in dimension 0
+WARNING: Length of axis roi1/ebsd/indexing/phase1/ipf1/map/axis_y does not match to /entry1/roi1/ebsd/indexing/phase1/ipf1/map/@data in dimension 1
+WARNING: Attribute /entry1/roi1/ebsd/indexing/phase1/ipf1/map/data/@CLASS has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/phase1/ipf1/map/data/@IMAGE_VERSION has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/phase1/ipf1/map/data/@SUBCLASS_VERSION has no documentation.
+WARNING: Field /entry1/roi1/ebsd/indexing/phase1/odf1/kth_extrema/intensity has no documentation.
+Group '/entry1/roi1/ebsd/indexing/phase1/odf1/noncircular' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Length of axis roi1/ebsd/indexing/phase1/odf1/phi_two_plot/varphi_one does not match to /entry1/roi1/ebsd/indexing/phase1/odf1/phi_two_plot/@intensity in dimension 0
+WARNING: Length of axis roi1/ebsd/indexing/phase1/odf1/phi_two_plot/varphi_two does not match to /entry1/roi1/ebsd/indexing/phase1/odf1/phi_two_plot/@intensity in dimension 2
+WARNING: Field /entry1/roi1/ebsd/indexing/pixel_unit_cell has no documentation.
+WARNING: Length of axis roi1/ebsd/indexing/roi/axis_x does not match to /entry1/roi1/ebsd/indexing/roi/@data in dimension 0
+WARNING: Length of axis roi1/ebsd/indexing/roi/axis_y does not match to /entry1/roi1/ebsd/indexing/roi/@data in dimension 1
+WARNING: Attribute /entry1/roi1/ebsd/indexing/roi/data/@CLASS has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/roi/data/@IMAGE_VERSION has no documentation.
+WARNING: Attribute /entry1/roi1/ebsd/indexing/roi/data/@SUBCLASS_VERSION has no documentation.
+WARNING: The required group /entry1/roi1/ebsd/indexing/phase0/ipfID hasn't been supplied.
+WARNING: The required group /entry1/roi1/ebsd/indexing/phase0/unit_cell hasn't been supplied.
+WARNING: The required field /entry1/roi1/ebsd/indexing/microstructure1/configuration/program1/program hasn't been supplied.
+WARNING: The required attribute /entry1/roi1/ebsd/indexing/phase1/odf1/phi_two_plot/intensity/@long_name hasn't been supplied.
+WARNING: The required field /entry1/roi1/ebsd/indexing/phase1/unit_cell/space_group hasn't been supplied.
+WARNING: The required field /entry1/sample/is_simulation hasn't been supplied.
+WARNING: The required field /entry1/sample/preparation_date hasn't been supplied.
+WARNING: The required field /entry1/start_time hasn't been supplied.
+WARNING: Invalid: The entry `entry1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_output.nxs` is NOT valid according to the `NXem` application definition.

@@ -1,0 +1,229 @@
+Extra conversions from: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/extra_conversions.tsv
+
+[15:52:59] Baseline output: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259
+
+[15:52:59] Distro: $HOME/nomad-distro-dev | Python: $HOME/nomad-distro-dev/.venv/bin/python
+
+[15:52:59] Packages (11): pynxtools pynxtools-ellips pynxtools-em pynxtools-igor pynxtools-microstructure pynxtools-mpes pynxtools-raman pynxtools-spm pynxtools-xas pynxtools-xps pynxtools-xrd
+
+[15:52:59] Recording environment in $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/00_environment
+
+[15:53:08] [pynxtools] pytest (log: pynxtools/pytest/pynxtools_pytest.log)
+
+[15:54:45] [pynxtools] pytest exit code 0 (================= 735 passed, 621 warnings in 87.34s (0:01:27) =================)
+
+[15:54:45] [pynxtools] 7 conversion(s) to run
+
+[15:54:46] [pynxtools] pynxtools-exists-in-contributed: CONVERT_FAILED (0.616 s, 99.7 MB)
+
+[15:54:46] [pynxtools] pynxtools-exists-in-applications: CONVERT_FAILED (0.616 s, 100.3 MB)
+
+[15:54:47] [pynxtools] pynxtools-does-not-exist: CONVERT_FAILED (0.616 s, 99.1 MB)
+
+[15:54:48] [pynxtools] pynxtools-input-file: CONVERT_FAILED (1.017 s, 136.3 MB)
+
+[15:54:51] [pynxtools] pynxtools-test_links_and_virtual_datasets: OK (0.816 s, 110.5 MB)
+
+[15:54:53] [pynxtools] pynxtools-test_compression: OK (0.766 s, 110.4 MB)
+
+[15:54:56] [pynxtools] pynxtools-test_params_file: OK (0.766 s, 110.3 MB)
+
+[15:54:56] [pynxtools-ellips] pytest (log: pynxtools-ellips/pytest/pynxtools-ellips_pytest.log)
+
+[15:55:22] [pynxtools-ellips] pytest exit code 0 (======================= 19 passed, 5 warnings in 21.44s ========================)
+
+[15:55:22] [pynxtools-ellips] 1 conversion(s) to run
+
+[15:55:25] [pynxtools-ellips] pynxtools-ellips-reader-test-nxellipsometry: OK (1.167 s, 157.6 MB)
+
+[15:55:25] [pynxtools-em] pytest (log: pynxtools-em/pytest/pynxtools-em_pytest.log)
+
+[15:55:32] [pynxtools-em] pytest exit code 0 (========================= 6 passed, 1 skipped in 3.27s =========================)
+
+[15:55:32] [pynxtools-em] 4 conversion(s) to run
+
+[15:55:37] [pynxtools-em] pynxtools-em-extra_default: OK (3.324 s, 380.2 MB)
+
+[15:55:42] [pynxtools-em] pynxtools-em-extra_ingan_eds_spectra: OK (3.324 s, 396.5 MB)
+
+[15:55:48] [pynxtools-em] pynxtools-em-extra_ingan_eds_map: OK (3.624 s, 409.7 MB)
+
+[15:55:54] [pynxtools-em] pynxtools-em-extra_ingan_eds_linescan: OK (3.324 s, 391.6 MB)
+
+[15:55:54] [pynxtools-igor] pytest (log: pynxtools-igor/pytest/pynxtools-igor_pytest.log)
+
+[15:56:19] [pynxtools-igor] pytest exit code 0 (================== 5 passed, 1 skipped, 7 warnings in 20.68s ===================)
+
+[15:56:19] [pynxtools-igor] 3 conversion(s) to run
+
+[15:56:21] [pynxtools-igor] pynxtools-igor-ibw-to-nxs-nxroot: OK (0.816 s, 104.3 MB)
+
+[15:56:24] [pynxtools-igor] pynxtools-igor-ibw-to-nxs-with-entry-nxroot: OK (0.817 s, 104.0 MB)
+
+[15:56:26] [pynxtools-igor] pynxtools-igor-pxp-to-nxs-with-entry-nxroot: OK (0.866 s, 104.2 MB)
+
+[15:56:26] [pynxtools-microstructure] pytest (log: pynxtools-microstructure/pytest/pynxtools-microstructure_pytest.log)
+
+[15:56:30] [pynxtools-microstructure] pytest exit code 0 (========================= 2 passed, 4 skipped in 1.59s =========================)
+
+[15:56:30] [pynxtools-microstructure] 1 conversion(s) to run
+
+[15:56:35] [pynxtools-microstructure] pynxtools-microstructure-extra_mtex_example: OK (2.019 s, 220.0 MB)
+
+[15:56:35] [pynxtools-mpes] pytest (log: pynxtools-mpes/pytest/pynxtools-mpes_pytest.log)
+
+[15:57:07] [pynxtools-mpes] pytest exit code 0 (======================= 10 passed, 2 warnings in 27.21s ========================)
+
+[15:57:07] [pynxtools-mpes] 2 conversion(s) to run
+
+[15:57:12] [pynxtools-mpes] pynxtools-mpes-basic-conversion-nxmpes: OK (2.321 s, 288.2 MB)
+
+[15:57:17] [pynxtools-mpes] pynxtools-mpes-conversion-with-eln-nxmpes: OK (2.371 s, 288.6 MB)
+
+[15:57:17] [pynxtools-raman] pytest (log: pynxtools-raman/pytest/pynxtools-raman_pytest.log)
+
+[15:57:49] [pynxtools-raman] pytest exit code 0 (====================== 128 passed, 198 warnings in 26.77s ======================)
+
+[15:57:49] [pynxtools-raman] 12 conversion(s) to run
+
+[15:57:52] [pynxtools-raman] pynxtools-raman-test_converts_real_rod_fixture_to_nxs: OK (1.066 s, 139.4 MB)
+
+[15:57:55] [pynxtools-raman] pynxtools-raman-test_converts_into_separate_output_dir: OK (1.067 s, 139.4 MB)
+
+[15:57:58] [pynxtools-raman] pynxtools-raman-test_full_pipeline_produces_rod_nxs_and_nomad_json: OK (1.067 s, 139.5 MB)
+
+[15:58:01] [pynxtools-raman] pynxtools-raman-test_accepting_convert_confirmation_overwrites_existing_nxs: OK (1.067 s, 139.4 MB)
+
+[15:58:04] [pynxtools-raman] pynxtools-raman-test_yes_flag_skips_convert_confirmation_too: OK (1.067 s, 139.4 MB)
+
+[15:58:07] [pynxtools-raman] pynxtools-raman-test_no_convert_prompt_when_no_existing_nxs_files: OK (1.067 s, 139.3 MB)
+
+[15:58:10] [pynxtools-raman] pynxtools-raman-test_ids_file_is_combined_with_positional_ids: OK (1.117 s, 139.3 MB)
+
+[15:58:13] [pynxtools-raman] pynxtools-raman-test_all_flag_uses_bundled_known_ids_file: OK (1.117 s, 139.4 MB)
+
+[15:58:16] [pynxtools-raman] pynxtools-raman-test_all_flag_uses_bundled_known_ids_file-2: OK (1.067 s, 139.4 MB)
+
+[15:58:19] [pynxtools-raman] pynxtools-raman-test_all_flag_de_duplicates_against_positional_ids: OK (1.117 s, 139.5 MB)
+
+[15:58:22] [pynxtools-raman] pynxtools-raman-rod-reader-nxraman: OK (1.067 s, 139.3 MB)
+
+[15:58:25] [pynxtools-raman] pynxtools-raman-witec-reader-nxraman: OK (1.017 s, 135.8 MB)
+
+[15:58:25] [pynxtools-spm] pytest (log: pynxtools-spm/pytest/pynxtools-spm_pytest.log)
+
+[15:59:43] [pynxtools-spm] pytest exit code 0 (=========== 348 passed, 12 skipped, 262 warnings in 72.35s (0:01:12) ===========)
+
+[15:59:43] [pynxtools-spm] 19 conversion(s) to run
+
+[15:59:48] [pynxtools-spm] pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_: OK (2.371 s, 216.8 MB)
+
+[15:59:52] [pynxtools-spm] pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_-2: OK (2.32 s, 217.2 MB)
+
+[15:59:57] [pynxtools-spm] pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_-3: OK (2.422 s, 217.0 MB)
+
+[16:00:02] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_: OK (2.221 s, 218.9 MB)
+
+[16:00:06] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-2: OK (2.271 s, 235.4 MB)
+
+[16:00:10] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-3: OK (2.17 s, 216.6 MB)
+
+[16:00:15] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-4: OK (2.12 s, 214.3 MB)
+
+[16:00:19] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-5: OK (2.07 s, 214.3 MB)
+
+[16:00:23] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6: OK (2.171 s, 212.4 MB)
+
+[16:00:27] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-7: OK (2.12 s, 212.0 MB)
+
+[16:00:32] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm_: OK (2.171 s, 228.9 MB)
+
+[16:00:36] [pynxtools-spm] pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_omicron_stm_-2: OK (2.071 s, 214.8 MB)
+
+[16:00:41] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_: OK (2.372 s, 226.7 MB)
+
+[16:00:45] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2: OK (2.32 s, 225.4 MB)
+
+[16:00:49] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_f: OK (2.121 s, 217.3 MB)
+
+[16:00:53] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_f-2: OK (2.071 s, 217.5 MB)
+
+[16:00:58] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s: OK (2.221 s, 270.1 MB)
+
+[16:01:02] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s-2: OK (2.07 s, 212.6 MB)
+
+[16:01:06] [pynxtools-spm] pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_t: OK (2.023 s, 207.0 MB)
+
+[16:01:06] [pynxtools-xas] pytest (log: pynxtools-xas/pytest/pynxtools-xas_pytest.log)
+
+[16:01:37] [pynxtools-xas] pytest exit code 0 (======================= 4 passed, 11 warnings in 26.11s ========================)
+
+[16:01:37] [pynxtools-xas] 4 conversion(s) to run
+
+[16:01:43] [pynxtools-xas] pynxtools-xas-specs-xy-aey: OK (3.424 s, 265.2 MB)
+
+[16:01:48] [pynxtools-xas] pynxtools-xas-esrf-transmission-exafs: OK (2.873 s, 203.0 MB)
+
+[16:01:52] [pynxtools-xas] pynxtools-xas-esrf-fluorescence-id21: OK (2.973 s, 202.6 MB)
+
+[16:01:57] [pynxtools-xas] pynxtools-xas-oscars-xdi-transmission: OK (2.973 s, 204.9 MB)
+
+[16:01:58] [pynxtools-xps] pytest (log: pynxtools-xps/pytest/pynxtools-xps_pytest.log)
+
+[16:03:31] [pynxtools-xps] pytest exit code 0 (================= 212 passed, 36 warnings in 86.01s (0:01:26) ==================)
+
+[16:03:31] [pynxtools-xps] 11 conversion(s) to run
+
+[16:03:37] [pynxtools-xps] pynxtools-xps-phi-spe-reader-nxxps: OK (3.875 s, 316.6 MB)
+
+[16:03:49] [pynxtools-xps] pynxtools-xps-phi-pro-reader-nxxps: OK (5.027 s, 372.7 MB)
+
+[16:03:58] [pynxtools-xps] pynxtools-xps-specs-sle-reader-nxxps: OK (4.526 s, 382.3 MB)
+
+[16:04:05] [pynxtools-xps] pynxtools-xps-specs-xml-reader-nxxps: OK (3.826 s, 310.2 MB)
+
+[16:04:12] [pynxtools-xps] pynxtools-xps-specs-xy-reader-nxxps: OK (3.675 s, 307.9 MB)
+
+[16:04:18] [pynxtools-xps] pynxtools-xps-scienta-ibw-reader-nxxps: OK (3.725 s, 308.5 MB)
+
+[16:04:25] [pynxtools-xps] pynxtools-xps-scienta-txt-reader-nxxps: OK (3.725 s, 308.4 MB)
+
+[16:04:31] [pynxtools-xps] pynxtools-xps-vms-reader-with-data-analysis-nxxps: OK (3.725 s, 306.8 MB)
+
+[16:04:37] [pynxtools-xps] pynxtools-xps-irregular-vms-reader-nxxps: OK (3.574 s, 299.0 MB)
+
+[16:04:43] [pynxtools-xps] pynxtools-xps-regular-vms-reader-nxxps: OK (3.574 s, 299.0 MB)
+
+[16:04:51] [pynxtools-xps] pynxtools-xps-vms-txt-export-reader-nxxps: OK (3.975 s, 321.2 MB)
+
+[16:04:52] [pynxtools-xrd] pytest (log: pynxtools-xrd/pytest/pynxtools-xrd_pytest.log)
+
+[16:05:17] [pynxtools-xrd] pytest exit code 0 (======================= 1 passed, 30 warnings in 20.72s ========================)
+
+[16:05:17] [pynxtools-xrd] 1 conversion(s) to run
+
+[16:05:20] [pynxtools-xrd] pynxtools-xrd-xrdml-nxxrd_pan: OK (0.917 s, 111.8 MB)
+
+[16:05:20] Stopping resource monitor (results in 00_monitor/)
+[monitor] 5872 samples, 420 processes, 200 steps -> $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/00_monitor
+
+[16:05:20] Writing summary_tests.csv, summary_conversions.csv and MANIFEST.sha256
+
+package                       tests   pass   fail   err   skip    wall_s   RSS_MB
+pynxtools                       735    735      0     0      0    97.149   2037.3
+pynxtools-ellips                 19     19      0     0      0    26.023    436.0
+pynxtools-em                      7      6      0     0      1     6.482    423.3
+pynxtools-igor                    6      5      0     0      1    25.122    401.9
+pynxtools-microstructure          6      2      0     0      4     3.724    217.0
+pynxtools-mpes                   10     10      0     0      0    32.492    663.7
+pynxtools-raman                 128    128      0     0      0    31.637    505.8
+pynxtools-spm                   360    348      0     0     12    78.052   1232.1
+pynxtools-xas                     4      4      0     0      0    31.739    538.5
+pynxtools-xps                   212    212      0     0      0    93.131   1405.7
+pynxtools-xrd                     1      1      0     0      0     25.22    409.3
+
+conversions: 65 total, 61 OK, 4 not OK (see summary_conversions.csv)
+
+[16:05:20] Done. Baseline is in: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259
+
+[16:05:20] Archive it with:  tar -czf baseline_20261026_155259.tar.gz -C $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results baseline_20261026_155259

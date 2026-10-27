@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_-3/pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_-3_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_-3/pynxtools-spm-NXsts-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_sts_-3_output.nxs"
+  ],
+  "started": "2026-10-26T15:59:52",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 2.422,
+  "user_cpu_s": 3.495,
+  "sys_cpu_s": 1.063,
+  "peak_rss_mb": 217.0
+}

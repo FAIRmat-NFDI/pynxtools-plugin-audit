@@ -1,0 +1,13 @@
+package,n_steps,total_duration_s,peak_group_rss_mb,cpu_s,n_processes
+-,2,749.67,422.7,11.67,11
+pynxtools,14,108.02,2051.3,119.5,28
+pynxtools-ellips,4,29.0,449.7,32.77,8
+pynxtools-em,13,28.51,436.8,44.8,26
+pynxtools-igor,10,32.51,415.4,40.81,21
+pynxtools-microstructure,4,8.5,230.2,11.91,8
+pynxtools-mpes,7,44.01,677.1,50.65,15
+pynxtools-raman,37,71.02,519.1,96.87,76
+pynxtools-spm,58,161.03,1249.5,222.29,125
+pynxtools-xas,13,52.01,552.0,66.64,26
+pynxtools-xps,34,172.53,1419.5,211.53,68
+pynxtools-xrd,4,28.01,422.5,32.2,8

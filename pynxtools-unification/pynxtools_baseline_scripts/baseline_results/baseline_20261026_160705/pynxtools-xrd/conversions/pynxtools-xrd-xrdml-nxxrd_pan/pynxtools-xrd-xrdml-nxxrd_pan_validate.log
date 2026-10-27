@@ -1,0 +1,13 @@
+WARNING: The unit '' at /entry/instrument/source/kbeta/@units does not match with the unit category NX_WAVELENGTH of 'kbeta'.
+WARNING: The required field /entry/experiment_config/beam_attenuation_factors hasn't been supplied.
+WARNING: The required field /entry/experiment_result/data hasn't been supplied.
+WARNING: The required field /entry/experiment_result/polar_angle hasn't been supplied.
+WARNING: The required field /entry/instrument/detector/data hasn't been supplied.
+WARNING: The required field /entry/instrument/detector/polar_angle hasn't been supplied.
+WARNING: The required field /entry/instrument/source/name hasn't been supplied.
+WARNING: The required field /entry/instrument/source/probe hasn't been supplied.
+WARNING: The required field /entry/instrument/source/type hasn't been supplied.
+WARNING: The required field /entry/start_time hasn't been supplied.
+WARNING: The required field /entry/title hasn't been supplied.
+WARNING: Inconsistent dimensions for NXDL symbol 'nDet' in group '/entry/experiment_result': 'intensity': size 5027, 'omega': size 5027, 'phi': size 1, 'two_theta': size 5027.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xrd/conversions/pynxtools-xrd-xrdml-nxxrd_pan/pynxtools-xrd-xrdml-nxxrd_pan_output.nxs` is NOT valid according to the `NXxrd_pan` application definition.

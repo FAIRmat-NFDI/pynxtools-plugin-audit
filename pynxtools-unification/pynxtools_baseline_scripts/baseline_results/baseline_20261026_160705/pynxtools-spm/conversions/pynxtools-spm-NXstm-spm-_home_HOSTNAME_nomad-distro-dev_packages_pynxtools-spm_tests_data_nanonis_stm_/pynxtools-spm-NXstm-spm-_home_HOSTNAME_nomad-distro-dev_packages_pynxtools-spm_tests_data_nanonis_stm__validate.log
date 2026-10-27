@@ -1,0 +1,11 @@
+WARNING: A link was used for /entry/reproducibility_indicators/modulation_signal, but no '@target' attribute was found.
+WARNING: A link was used for /entry/resolution_indicators/modulation_signal, but no '@target' attribute was found.
+WARNING: The required field /entry/current_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/current_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/current_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/current_forward/DATA hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/AXISNAME/@units hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/DATA/@units hasn't been supplied.
+WARNING: The required field /entry/z_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/z_forward/DATA hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm__output.nxs` is NOT valid according to the `NXstm` application definition.

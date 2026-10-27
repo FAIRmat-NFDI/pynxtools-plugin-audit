@@ -1,0 +1,23 @@
+[Data Parameters]
+
+[Data Version]
+Program=SPMLab
+Version=1.00
+[Scan]
+
+   
+a line without an equals sign
+ScanRangeX=1.0000 µm
+Rotation=0.0 °
+ScanningRate=1.0000 µm/s
+ZTransferCoefficient=0.7731 µm/V
+SetPoint=-3.5e-2 V
+ResolutionX=512
+ScanDirection=FORWARD
+Feedback=1.0 on
+GainP=0.800000 (1000.000000)
+Expression=a=b=c
+Leveling=None
+[PreProcessing]
+Leveling=1D Line Fit
+[Data]

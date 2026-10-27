@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_down]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-spm",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.451,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_down/VGEP-15m-.0_00000.spm",
+      "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/bruker/afm/spm_v_9_4_dflt_conf_down/eln_data.yaml"
+    ],
+    "reader": "spm",
+    "nxdl": "NXafm",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/pytest/tmp_files/test_afm_reader_NXafm_spm__hom4///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s"
+}

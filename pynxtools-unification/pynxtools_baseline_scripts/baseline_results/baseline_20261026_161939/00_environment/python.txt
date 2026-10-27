@@ -1,0 +1,4 @@
+executable: $HOME/nomad-distro-dev/.venv/bin/python
+version:    3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]
+platform:   Linux-7.0.0-38-generic-x86_64-with-glibc2.39
+h5py 3.16.0 | HDF5 2.0.0 | numpy 1.26.4

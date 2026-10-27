@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-raman/conversions/pynxtools-raman-test_no_convert_prompt_when_no_existing_nxs_files/pynxtools-raman-test_no_convert_prompt_when_no_existing_nxs_files_output.nxs"
+  ],
+  "started": "2026-10-26T16:24:46",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.867,
+  "user_cpu_s": 0.968,
+  "sys_cpu_s": 0.945,
+  "peak_rss_mb": 111.0
+}

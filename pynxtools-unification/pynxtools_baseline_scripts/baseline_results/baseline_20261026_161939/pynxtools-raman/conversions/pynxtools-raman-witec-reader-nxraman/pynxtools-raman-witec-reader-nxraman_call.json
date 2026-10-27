@@ -1,0 +1,21 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[witec-reader-nxraman]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-raman",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.336,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/witec/Si-wafer-Raman-Spectrum-1.txt",
+      "$HOME/nomad-distro-dev/packages/pynxtools-raman/tests/data/witec/eln_data.yaml"
+    ],
+    "reader": "raman",
+    "nxdl": "NXraman",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-raman/pytest/tmp_files/test_nexus_conversion_witec_re0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-raman-witec-reader-nxraman"
+}

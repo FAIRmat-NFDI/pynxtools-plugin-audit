@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs"
+  ],
+  "started": "2026-10-26T16:01:56",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.017,
+  "user_cpu_s": 1.131,
+  "sys_cpu_s": 0.933,
+  "peak_rss_mb": 114.9
+}

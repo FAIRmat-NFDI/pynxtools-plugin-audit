@@ -1,0 +1,14 @@
+WARNING: Field /entry/cite_id/author has no documentation.
+WARNING: A link was used for /entry/reproducibility_indicators/modulation_signal, but no '@target' attribute was found.
+WARNING: A link was used for /entry/resolution_indicators/modulation_signal, but no '@target' attribute was found.
+Group '/entry/sample/History' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry/sample/History/note' does not have an NX_class attribute and will therefore not be validated.
+WARNING: The required field /entry/current_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/current_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/current_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/current_forward/DATA hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/AXISNAME/@units hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/DATA/@units hasn't been supplied.
+WARNING: The required field /entry/z_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/z_forward/DATA hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-4/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-4_output.nxs` is NOT valid according to the `NXstm` application definition.

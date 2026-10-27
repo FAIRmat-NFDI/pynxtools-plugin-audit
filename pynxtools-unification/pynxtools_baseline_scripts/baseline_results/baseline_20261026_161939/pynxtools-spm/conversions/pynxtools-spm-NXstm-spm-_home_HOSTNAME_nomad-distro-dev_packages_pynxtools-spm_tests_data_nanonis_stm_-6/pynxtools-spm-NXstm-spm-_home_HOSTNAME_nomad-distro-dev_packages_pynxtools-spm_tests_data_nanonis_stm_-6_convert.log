@@ -1,0 +1,25 @@
+Replaying conversion from test: tests/test_reader.py::test_stm_reader[NXstm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up/config.json",
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up/const_dos_No14_003.sxm",
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up/eln_data.yaml"
+  ],
+  "reader": "spm",
+  "nxdl": "NXstm",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:27:00,310 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:27:00,551 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using spm reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up/config.json
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up/const_dos_No14_003.sxm
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/stm/v_gen_4_descrb_nx_dt_up/eln_data.yaml
+No auxiliary files provided. If there are auxiliary files, please provide them as a list of file paths to the formatter.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/bias_spectroscopy_environment/SPM_BIAS_SPECTROSCOPY[spm_bias_spectroscopy]/BIAS_SWEEP[bias_sweep]/scan_region/scan_start_bias hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/bias_spectroscopy_environment/SPM_BIAS_SPECTROSCOPY[spm_bias_spectroscopy]/BIAS_SWEEP[bias_sweep]/scan_region/scan_end_bias hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/bias_spectroscopy_environment/SPM_BIAS_SPECTROSCOPY[spm_bias_spectroscopy]/BIAS_SWEEP[bias_sweep]/linear_sweep hasn't been supplied.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_-6_output.nxs

@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-em/conversions/pynxtools-em-extra_ingan_eds_linescan/pynxtools-em-extra_ingan_eds_linescan_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-em/conversions/pynxtools-em-extra_ingan_eds_linescan/pynxtools-em-extra_ingan_eds_linescan_output.nxs"
+  ],
+  "started": "2026-10-26T16:22:28",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 3.374,
+  "user_cpu_s": 4.422,
+  "sys_cpu_s": 1.276,
+  "peak_rss_mb": 391.2
+}

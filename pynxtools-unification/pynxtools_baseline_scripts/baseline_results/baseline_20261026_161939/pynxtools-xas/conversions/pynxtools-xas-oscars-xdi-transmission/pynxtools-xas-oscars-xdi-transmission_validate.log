@@ -1,0 +1,7 @@
+WARNING: Attribute /fe2o3/process/parameters/normalized_intensity/@long_name has no documentation.
+WARNING: Invalid: The entry `fe2o3` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs` is NOT valid according to the `NXxas_trans` application definition.
+WARNING: Attribute /fe_metal/process/parameters/normalized_intensity/@long_name has no documentation.
+WARNING: Invalid: The entry `fe_metal` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs` is NOT valid according to the `NXxas_trans` application definition.
+WARNING: Attribute /feo/process/parameters/normalized_intensity/@long_name has no documentation.
+WARNING: The required field /feo/instrument/source/name hasn't been supplied.
+WARNING: Invalid: The entry `feo` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-oscars-xdi-transmission/pynxtools-xas-oscars-xdi-transmission_output.nxs` is NOT valid according to the `NXxas_trans` application definition.

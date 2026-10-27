@@ -1,0 +1,9 @@
+{
+  "root_pid": 107480,
+  "cmd": [],
+  "interval_s": 0.5,
+  "started": 1793027979.7463362,
+  "host": "$HOSTNAME",
+  "cpu_count": 14,
+  "ram_total_mb": 31541
+}

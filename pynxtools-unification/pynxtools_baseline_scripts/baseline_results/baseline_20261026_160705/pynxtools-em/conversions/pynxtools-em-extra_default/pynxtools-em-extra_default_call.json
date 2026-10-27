@@ -1,0 +1,16 @@
+{
+  "source": "extra_tsv",
+  "test_id": "extra::default",
+  "replayable": true,
+  "missing_inputs": [],
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/em.oasis.specific.yaml",
+      "$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/output.nxs_eln_data.yaml"
+    ],
+    "reader": "em",
+    "nxdl": "NXem",
+    "ignore_undocumented": true
+  },
+  "conversion_name": "pynxtools-em-extra_default"
+}

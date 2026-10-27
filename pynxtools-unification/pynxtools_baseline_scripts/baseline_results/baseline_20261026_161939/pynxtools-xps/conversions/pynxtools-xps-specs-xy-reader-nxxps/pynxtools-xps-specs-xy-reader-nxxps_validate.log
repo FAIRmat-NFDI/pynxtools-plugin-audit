@@ -1,0 +1,6 @@
+The unit /1_as_loaded__Fe2p/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Attribute /1_as_loaded__Fe2p/method/@long_name has no documentation.
+WARNING: Invalid: The entry `1_as_loaded__Fe2p` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-xy-reader-nxxps/pynxtools-xps-specs-xy-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+The unit /1_as_loaded__Survey/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Attribute /1_as_loaded__Survey/method/@long_name has no documentation.
+WARNING: Invalid: The entry `1_as_loaded__Survey` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-specs-xy-reader-nxxps/pynxtools-xps-specs-xy-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.

@@ -1,0 +1,21 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json",
+    "$HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0057.ibw",
+    "$HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0059.ibw"
+  ],
+  "reader": "igor",
+  "nxdl": "NXroot",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-igor/conversions/pynxtools-igor-ibw-to-nxs-nxroot/pynxtools-igor-ibw-to-nxs-nxroot_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:22:59,098 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:22:59,338 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0057.ibw
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Norm_0059.ibw
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-igor/conversions/pynxtools-igor-ibw-to-nxs-nxroot/pynxtools-igor-ibw-to-nxs-nxroot_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-igor/conversions/pynxtools-igor-ibw-to-nxs-nxroot/pynxtools-igor-ibw-to-nxs-nxroot_output.nxs

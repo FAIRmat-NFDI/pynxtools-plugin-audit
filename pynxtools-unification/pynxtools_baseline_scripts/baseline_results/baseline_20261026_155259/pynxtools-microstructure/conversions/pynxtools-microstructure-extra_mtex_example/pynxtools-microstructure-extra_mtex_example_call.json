@@ -1,0 +1,16 @@
+{
+  "source": "extra_tsv",
+  "test_id": "extra::mtex_example",
+  "replayable": true,
+  "missing_inputs": [],
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/test_data/microstructure/001.de24e9c9cb6ff26988fbe9a52864d70a70e969eb1960c4244126ed7d7dac1530.e9baebe3e2a2ccd34c17ac8482e221c8413987545c30a9765050a46627c19f20.crc.mtex.h5"
+    ],
+    "reader": "microstructure",
+    "nxdl": "NXem",
+    "ignore_undocumented": true,
+    "skip_verify": true
+  },
+  "conversion_name": "pynxtools-microstructure-extra_mtex_example"
+}

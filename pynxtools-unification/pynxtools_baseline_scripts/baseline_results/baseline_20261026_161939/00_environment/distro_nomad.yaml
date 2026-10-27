@@ -1,0 +1,8 @@
+keycloak:
+  realm_name: "fairdi_nomad_test"
+
+north:
+  enabled: true
+  enable_new_hub_api: true
+  hub_host: 'localhost'
+  hub_port: 9000  

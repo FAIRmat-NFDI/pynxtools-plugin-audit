@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs"
+  ],
+  "started": "2026-10-26T16:15:50",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.816,
+  "user_cpu_s": 0.933,
+  "sys_cpu_s": 0.952,
+  "peak_rss_mb": 105.7
+}

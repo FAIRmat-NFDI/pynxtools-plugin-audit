@@ -1,0 +1,424 @@
+{"t": 1793028522.3232346, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[xps.scheme.archive.yaml]", "pid": 116849}
+{"t": 1793028522.460733, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[xps.scheme.archive.yaml]", "pid": 116849}
+{"t": 1793028522.461032, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[xps_example_upload]", "pid": 116849}
+{"t": 1793028522.466546, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[xps_example_upload]", "pid": 116849}
+{"t": 1793028522.466747, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[ScanMode-scan_mode]", "pid": 116849}
+{"t": 1793028522.4674823, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[ScanMode-scan_mode]", "pid": 116849}
+{"t": 1793028522.4675868, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[EnergyType-energy_type]", "pid": 116849}
+{"t": 1793028522.4680517, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[EnergyType-energy_type]", "pid": 116849}
+{"t": 1793028522.4681437, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[XPS-xps]", "pid": 116849}
+{"t": 1793028522.4685678, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[XPS-xps]", "pid": 116849}
+{"t": 1793028522.4686575, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[PassEnergy-pass_energy]", "pid": 116849}
+{"t": 1793028522.4690852, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[PassEnergy-pass_energy]", "pid": 116849}
+{"t": 1793028522.469173, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[already_snake-already_snake]", "pid": 116849}
+{"t": 1793028522.4695897, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[already_snake-already_snake]", "pid": 116849}
+{"t": 1793028522.4696777, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[key[unit]-key[unit]]", "pid": 116849}
+{"t": 1793028522.470094, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[key[unit]-key[unit]]", "pid": 116849}
+{"t": 1793028522.4701807, "event": "start", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[ABCDef-abc_def]", "pid": 116849}
+{"t": 1793028522.4705908, "event": "finish", "nodeid": "tests/test_helpers.py::test_convert_pascal_to_snake[ABCDef-abc_def]", "pid": 116849}
+{"t": 1793028522.4706807, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[23/10/2023 14:30:00-possible_date_formats0-tzinfo0-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4714332, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[23/10/2023 14:30:00-possible_date_formats0-tzinfo0-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4715369, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[23/10/2023 14:30-possible_date_formats1-tzinfo1-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4722698, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[23/10/2023 14:30-possible_date_formats1-tzinfo1-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4723768, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[October 23, 2023 14:30-possible_date_formats2-tzinfo2-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.47315, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[October 23, 2023 14:30-possible_date_formats2-tzinfo2-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4732528, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[2023-10-23T14:30:00Z-possible_date_formats3-tzinfo3-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4737523, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[2023-10-23T14:30:00Z-possible_date_formats3-tzinfo3-2023-10-23T14:30:00+00:00]", "pid": 116849}
+{"t": 1793028522.4738553, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[2023-10-23T14:30:00+0200-possible_date_formats4-tzinfo4-2023-10-23T14:30:00+02:00]", "pid": 116849}
+{"t": 1793028522.4743388, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[2023-10-23T14:30:00+0200-possible_date_formats4-tzinfo4-2023-10-23T14:30:00+02:00]", "pid": 116849}
+{"t": 1793028522.4744327, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[23.10.2023 14:30:00-possible_date_formats5-tzinfo5-2023-10-23T14:30:00+01:00]", "pid": 116849}
+{"t": 1793028522.4752047, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[23.10.2023 14:30:00-possible_date_formats5-tzinfo5-2023-10-23T14:30:00+01:00]", "pid": 116849}
+{"t": 1793028522.4753096, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime[2023-10-23 14:30:00-possible_date_formats6-None-2023-10-23T14:30:00]", "pid": 116849}
+{"t": 1793028522.4758139, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime[2023-10-23 14:30:00-possible_date_formats6-None-2023-10-23T14:30:00]", "pid": 116849}
+{"t": 1793028522.4759078, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime_invalid[invalid date string-possible_date_formats0]", "pid": 116849}
+{"t": 1793028522.476724, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime_invalid[invalid date string-possible_date_formats0]", "pid": 116849}
+{"t": 1793028522.4768257, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime_invalid[2023-10-23 invalid-possible_date_formats1]", "pid": 116849}
+{"t": 1793028522.4774156, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime_invalid[2023-10-23 invalid-possible_date_formats1]", "pid": 116849}
+{"t": 1793028522.4775124, "event": "start", "nodeid": "tests/test_helpers.py::test_parse_datetime_invalid[23-10-2023-possible_date_formats2]", "pid": 116849}
+{"t": 1793028522.47807, "event": "finish", "nodeid": "tests/test_helpers.py::test_parse_datetime_invalid[23-10-2023-possible_date_formats2]", "pid": 116849}
+{"t": 1793028522.4781713, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[C 1s-C_1s]", "pid": 116849}
+{"t": 1793028522.4785955, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[C 1s-C_1s]", "pid": 116849}
+{"t": 1793028522.4786866, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[Fe-2p-Fe_2p]", "pid": 116849}
+{"t": 1793028522.4790926, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[Fe-2p-Fe_2p]", "pid": 116849}
+{"t": 1793028522.4791782, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[Au/Ag-Au_Ag]", "pid": 116849}
+{"t": 1793028522.4795742, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[Au/Ag-Au_Ag]", "pid": 116849}
+{"t": 1793028522.479663, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[a.b-a_b]", "pid": 116849}
+{"t": 1793028522.4800649, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[a.b-a_b]", "pid": 116849}
+{"t": 1793028522.4801505, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[a:b-a_b]", "pid": 116849}
+{"t": 1793028522.4805405, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[a:b-a_b]", "pid": 116849}
+{"t": 1793028522.480626, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[a+b-a_b]", "pid": 116849}
+{"t": 1793028522.481025, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[a+b-a_b]", "pid": 116849}
+{"t": 1793028522.481107, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[a=b-ab]", "pid": 116849}
+{"t": 1793028522.4814894, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[a=b-ab]", "pid": 116849}
+{"t": 1793028522.481575, "event": "start", "nodeid": "tests/test_helpers.py::test_align_name_part[clean-clean]", "pid": 116849}
+{"t": 1793028522.4819763, "event": "finish", "nodeid": "tests/test_helpers.py::test_align_name_part[clean-clean]", "pid": 116849}
+{"t": 1793028522.4820604, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts0-C_1s]", "pid": 116849}
+{"t": 1793028522.4824555, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts0-C_1s]", "pid": 116849}
+{"t": 1793028522.4825392, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts1-C_1s__scan1]", "pid": 116849}
+{"t": 1793028522.4829288, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts1-C_1s__scan1]", "pid": 116849}
+{"t": 1793028522.4830186, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts2-C_1s]", "pid": 116849}
+{"t": 1793028522.483408, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts2-C_1s]", "pid": 116849}
+{"t": 1793028522.4834929, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts3-]", "pid": 116849}
+{"t": 1793028522.4838731, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_entry_name[parts3-]", "pid": 116849}
+{"t": 1793028522.4839587, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum0-cycle0_scan3]", "pid": 116849}
+{"t": 1793028522.4843438, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum0-cycle0_scan3]", "pid": 116849}
+{"t": 1793028522.4844303, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum1-cycle0_scan0]", "pid": 116849}
+{"t": 1793028522.484811, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum1-cycle0_scan0]", "pid": 116849}
+{"t": 1793028522.4848924, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum2-cycle2_scan0]", "pid": 116849}
+{"t": 1793028522.4852686, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum2-cycle2_scan0]", "pid": 116849}
+{"t": 1793028522.4853523, "event": "start", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum3-cycle1_scan0]", "pid": 116849}
+{"t": 1793028522.4857264, "event": "finish", "nodeid": "tests/test_helpers.py::test_construct_data_key[spectrum3-cycle1_scan0]", "pid": 116849}
+{"t": 1793028522.4858093, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[1-None-a-tags0]", "pid": 116849}
+{"t": 1793028522.4864972, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[1-None-a-tags0]", "pid": 116849}
+{"t": 1793028522.4865992, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[2-3.14-b-tags1]", "pid": 116849}
+{"t": 1793028522.4870913, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[2-3.14-b-tags1]", "pid": 116849}
+{"t": 1793028522.48718, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[3-None-c-tags2]", "pid": 116849}
+{"t": 1793028522.4876466, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[3-None-c-tags2]", "pid": 116849}
+{"t": 1793028522.487732, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[0-0.0--tags3]", "pid": 116849}
+{"t": 1793028522.4882317, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_valid[0-0.0--tags3]", "pid": 116849}
+{"t": 1793028522.4883194, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_coercion", "pid": 116849}
+{"t": 1793028522.488641, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_coercion", "pid": 116849}
+{"t": 1793028522.4887264, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_invalid[abc-None-a-tags0]", "pid": 116849}
+{"t": 1793028522.4892297, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_invalid[abc-None-a-tags0]", "pid": 116849}
+{"t": 1793028522.4893143, "event": "start", "nodeid": "tests/test_helpers.py::test_xps_dataclass_invalid[1-not_a_float-a-tags1]", "pid": 116849}
+{"t": 1793028522.4898129, "event": "finish", "nodeid": "tests/test_helpers.py::test_xps_dataclass_invalid[1-not_a_float-a-tags1]", "pid": 116849}
+{"t": 1793028522.4899805, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[temperature [K]-temperature-K]", "pid": 116849}
+{"t": 1793028522.4904368, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[temperature [K]-temperature-K]", "pid": 116849}
+{"t": 1793028522.490527, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[voltage [mV]-voltage-mV]", "pid": 116849}
+{"t": 1793028522.4909613, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[voltage [mV]-voltage-mV]", "pid": 116849}
+{"t": 1793028522.4910471, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[no_unit-no_unit-None]", "pid": 116849}
+{"t": 1793028522.4914732, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[no_unit-no_unit-None]", "pid": 116849}
+{"t": 1793028522.4915602, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[key_ [eV]-key-eV]", "pid": 116849}
+{"t": 1793028522.4919946, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[key_ [eV]-key-eV]", "pid": 116849}
+{"t": 1793028522.4920845, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[key [nU]-key-nU]", "pid": 116849}
+{"t": 1793028522.492527, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[key [nU]-key-nU]", "pid": 116849}
+{"t": 1793028522.492612, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[energy [counts/s]-energy-counts/s]", "pid": 116849}
+{"t": 1793028522.4930384, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_key_and_unit[energy [counts/s]-energy-counts/s]", "pid": 116849}
+{"t": 1793028522.4931252, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[5.0 eV-5.0-eV]", "pid": 116849}
+{"t": 1793028522.4935582, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[5.0 eV-5.0-eV]", "pid": 116849}
+{"t": 1793028522.493641, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[300K-300-K]", "pid": 116849}
+{"t": 1793028522.4940622, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[300K-300-K]", "pid": 116849}
+{"t": 1793028522.494147, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[1.5e-3 A-1.5e-3-A]", "pid": 116849}
+{"t": 1793028522.494558, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[1.5e-3 A-1.5e-3-A]", "pid": 116849}
+{"t": 1793028522.4946396, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[-1.2 mm--1.2-mm]", "pid": 116849}
+{"t": 1793028522.495066, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[-1.2 mm--1.2-mm]", "pid": 116849}
+{"t": 1793028522.4951491, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[hello-hello-None]", "pid": 116849}
+{"t": 1793028522.495567, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[hello-hello-None]", "pid": 116849}
+{"t": 1793028522.4956527, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[42-42-None]", "pid": 116849}
+{"t": 1793028522.496093, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_split_value_and_unit[42-42-None]", "pid": 116849}
+{"t": 1793028522.4961798, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[old_key-new_key]", "pid": 116849}
+{"t": 1793028522.4966176, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[old_key-new_key]", "pid": 116849}
+{"t": 1793028522.496708, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[tilt-sample_tilt]", "pid": 116849}
+{"t": 1793028522.4971282, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[tilt-sample_tilt]", "pid": 116849}
+{"t": 1793028522.4972131, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[ScanMode-scan_mode]", "pid": 116849}
+{"t": 1793028522.497639, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[ScanMode-scan_mode]", "pid": 116849}
+{"t": 1793028522.4977255, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[pass_energy-pass_energy]", "pid": 116849}
+{"t": 1793028522.4981425, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_normalize_key[pass_energy-pass_energy]", "pid": 116849}
+{"t": 1793028522.4982302, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[5.0 eV-5.0-eV]", "pid": 116849}
+{"t": 1793028522.498682, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[5.0 eV-5.0-eV]", "pid": 116849}
+{"t": 1793028522.498764, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[300-300-None]", "pid": 116849}
+{"t": 1793028522.499219, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[300-300-None]", "pid": 116849}
+{"t": 1793028522.4993072, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[text-text-None]", "pid": 116849}
+{"t": 1793028522.499747, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[text-text-None]", "pid": 116849}
+{"t": 1793028522.4998302, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[None-None-None]", "pid": 116849}
+{"t": 1793028522.5002754, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[None-None-None]", "pid": 116849}
+{"t": 1793028522.5003653, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[42.0-42.0-None]", "pid": 116849}
+{"t": 1793028522.5007985, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[42.0-42.0-None]", "pid": 116849}
+{"t": 1793028522.5008817, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[--None]", "pid": 116849}
+{"t": 1793028522.5013273, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_parse_value_and_unit[--None]", "pid": 116849}
+{"t": 1793028522.5014176, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[temperature-K-temperature-K]", "pid": 116849}
+{"t": 1793028522.5018923, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[temperature-K-temperature-K]", "pid": 116849}
+{"t": 1793028522.5019825, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[temperature [K]-None-temperature-K]", "pid": 116849}
+{"t": 1793028522.5024743, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[temperature [K]-None-temperature-K]", "pid": 116849}
+{"t": 1793028522.5025578, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[no_unit-None-no_unit-None]", "pid": 116849}
+{"t": 1793028522.503124, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[no_unit-None-no_unit-None]", "pid": 116849}
+{"t": 1793028522.5032172, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[bias_voltage [nU]-None-bias_voltage-V]", "pid": 116849}
+{"t": 1793028522.5037205, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[bias_voltage [nU]-None-bias_voltage-V]", "pid": 116849}
+{"t": 1793028522.5038116, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[drain_current [nU]-None-drain_current-A]", "pid": 116849}
+{"t": 1793028522.5043197, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_resolve_unit_from_key[drain_current [nU]-None-drain_current-A]", "pid": 116849}
+{"t": 1793028522.5044086, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_get_default_unit[sample_tilt-degree]", "pid": 116849}
+{"t": 1793028522.5048296, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_get_default_unit[sample_tilt-degree]", "pid": 116849}
+{"t": 1793028522.5049164, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_get_default_unit[pass_energy-eV]", "pid": 116849}
+{"t": 1793028522.5053246, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_get_default_unit[pass_energy-eV]", "pid": 116849}
+{"t": 1793028522.5054107, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_get_default_unit[unknown_key-None]", "pid": 116849}
+{"t": 1793028522.5058146, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_get_default_unit[unknown_key-None]", "pid": 116849}
+{"t": 1793028522.505901, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[eV-eV]", "pid": 116849}
+{"t": 1793028522.5063167, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[eV-eV]", "pid": 116849}
+{"t": 1793028522.5064025, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[s-1-1/s]", "pid": 116849}
+{"t": 1793028522.5068116, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[s-1-1/s]", "pid": 116849}
+{"t": 1793028522.5068977, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[norm-None]", "pid": 116849}
+{"t": 1793028522.5073004, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[norm-None]", "pid": 116849}
+{"t": 1793028522.5073886, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[mm-mm]", "pid": 116849}
+{"t": 1793028522.5078053, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[mm-mm]", "pid": 116849}
+{"t": 1793028522.5078878, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[None-None]", "pid": 116849}
+{"t": 1793028522.5083175, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_unit[None-None]", "pid": 116849}
+{"t": 1793028522.508408, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_value[energy_type-Binding-binding]", "pid": 116849}
+{"t": 1793028522.5088444, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_value[energy_type-Binding-binding]", "pid": 116849}
+{"t": 1793028522.5089383, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_value[unmapped-anything-anything]", "pid": 116849}
+{"t": 1793028522.509391, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_map_value[unmapped-anything-anything]", "pid": 116849}
+{"t": 1793028522.509476, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[42-42_0]", "pid": 116849}
+{"t": 1793028522.5099962, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[42-42_0]", "pid": 116849}
+{"t": 1793028522.5100918, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[3.14-3.14]", "pid": 116849}
+{"t": 1793028522.5105195, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[3.14-3.14]", "pid": 116849}
+{"t": 1793028522.5106041, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[1e-3-0.001]", "pid": 116849}
+{"t": 1793028522.511025, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[1e-3-0.001]", "pid": 116849}
+{"t": 1793028522.5111127, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[-5--5]", "pid": 116849}
+{"t": 1793028522.5115314, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[-5--5]", "pid": 116849}
+{"t": 1793028522.5116181, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[hello-hello]", "pid": 116849}
+{"t": 1793028522.5120423, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[hello-hello]", "pid": 116849}
+{"t": 1793028522.5121295, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[None-None]", "pid": 116849}
+{"t": 1793028522.5125427, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[None-None]", "pid": 116849}
+{"t": 1793028522.5126295, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[42-42_1]", "pid": 116849}
+{"t": 1793028522.5130544, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format_value[42-42_1]", "pid": 116849}
+{"t": 1793028522.5131404, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[old_key-5.0 eV-new_key-5.0-eV]", "pid": 116849}
+{"t": 1793028522.513682, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[old_key-5.0 eV-new_key-5.0-eV]", "pid": 116849}
+{"t": 1793028522.513772, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[tilt-30-sample_tilt-30-degree]", "pid": 116849}
+{"t": 1793028522.514298, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[tilt-30-sample_tilt-30-degree]", "pid": 116849}
+{"t": 1793028522.514387, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[pass_energy-50-pass_energy-50-eV]", "pid": 116849}
+{"t": 1793028522.5149066, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[pass_energy-50-pass_energy-50-eV]", "pid": 116849}
+{"t": 1793028522.5150023, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[temperature [K]-300-temperature-300-K]", "pid": 116849}
+{"t": 1793028522.5155337, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[temperature [K]-300-temperature-300-K]", "pid": 116849}
+{"t": 1793028522.5156178, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[ScanMode-FAT-scan_mode-FAT-None]", "pid": 116849}
+{"t": 1793028522.5161495, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[ScanMode-FAT-scan_mode-FAT-None]", "pid": 116849}
+{"t": 1793028522.516239, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[rate [s-1]-3-rate-3-1/s]", "pid": 116849}
+{"t": 1793028522.5167632, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_metadata_context_format[rate [s-1]-3-rate-3-1/s]", "pid": 116849}
+{"t": 1793028522.5168476, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_format_dict", "pid": 116849}
+{"t": 1793028522.5172176, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_format_dict", "pid": 116849}
+{"t": 1793028522.5173042, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[tilt-5-sample_tilt-5-degree]", "pid": 116849}
+{"t": 1793028522.5178123, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[tilt-5-sample_tilt-5-degree]", "pid": 116849}
+{"t": 1793028522.5179, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[lens-Wide-lens_mode-Wide-None]", "pid": 116849}
+{"t": 1793028522.5184064, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[lens-Wide-lens_mode-Wide-None]", "pid": 116849}
+{"t": 1793028522.518496, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[start-100.0-energy_start-100.0-None]", "pid": 116849}
+{"t": 1793028522.519027, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[start-100.0-energy_start-100.0-None]", "pid": 116849}
+{"t": 1793028522.519118, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[resolution-0.5-resolution-0.5-eV]", "pid": 116849}
+{"t": 1793028522.5197175, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[resolution-0.5-resolution-0.5-eV]", "pid": 116849}
+{"t": 1793028522.5198088, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[charge_neutraliser-yes-charge_neutraliser-True-None]", "pid": 116849}
+{"t": 1793028522.5203269, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[charge_neutraliser-yes-charge_neutraliser-True-None]", "pid": 116849}
+{"t": 1793028522.5204165, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[anode_library-Al-anode_material-Al-None]", "pid": 116849}
+{"t": 1793028522.5209167, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_kratos_context_format[anode_library-Al-anode_material-Al-None]", "pid": 116849}
+{"t": 1793028522.5210066, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[block_id-C 1s-analysis_region-C 1s-None]", "pid": 116849}
+{"t": 1793028522.5215285, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[block_id-C 1s-analysis_region-C 1s-None]", "pid": 116849}
+{"t": 1793028522.5216181, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[technique-XPS-analysis_method-XPS-None]", "pid": 116849}
+{"t": 1793028522.5221195, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[technique-XPS-analysis_method-XPS-None]", "pid": 116849}
+{"t": 1793028522.5222075, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[source_energy-1486.6-excitation_energy-1486.6-eV]", "pid": 116849}
+{"t": 1793028522.522731, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[source_energy-1486.6-excitation_energy-1486.6-eV]", "pid": 116849}
+{"t": 1793028522.5228152, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[analyzer_mode-FAT-energy_scan_mode-fixed_analyzer_transmission-None]", "pid": 116849}
+{"t": 1793028522.5233247, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[analyzer_mode-FAT-energy_scan_mode-fixed_analyzer_transmission-None]", "pid": 116849}
+{"t": 1793028522.5234125, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[abscissa_label-KE-energy_label-kinetic-None]", "pid": 116849}
+{"t": 1793028522.5239048, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_vms_context_format[abscissa_label-KE-energy_label-kinetic-None]", "pid": 116849}
+{"t": 1793028522.523994, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[analyzer_slit-0.3 mm-entrance_slit-0.3-mm]", "pid": 116849}
+{"t": 1793028522.5244913, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[analyzer_slit-0.3 mm-entrance_slit-0.3-mm]", "pid": 116849}
+{"t": 1793028522.524581, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[ScanMode-FAT-scan_mode-fixed_analyzer_transmission-None]", "pid": 116849}
+{"t": 1793028522.5250788, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[ScanMode-FAT-scan_mode-fixed_analyzer_transmission-None]", "pid": 116849}
+{"t": 1793028522.5251663, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[values/curve-100-n_values-100-None]", "pid": 116849}
+{"t": 1793028522.5256703, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[values/curve-100-n_values-100-None]", "pid": 116849}
+{"t": 1793028522.5257547, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[energy_axis-Binding Energy-x_units-binding-None]", "pid": 116849}
+{"t": 1793028522.5262637, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[energy_axis-Binding Energy-x_units-binding-None]", "pid": 116849}
+{"t": 1793028522.5263534, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[rate [s-1]-3-rate-3-1/s]", "pid": 116849}
+{"t": 1793028522.5268545, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[rate [s-1]-3-rate-3-1/s]", "pid": 116849}
+{"t": 1793028522.526947, "event": "start", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[pass_energy-50-pass_energy-50.0-eV]", "pid": 116849}
+{"t": 1793028522.5274532, "event": "finish", "nodeid": "tests/test_metadata_contexts.py::test_specs_xy_context_format[pass_energy-50-pass_energy-50.0-eV]", "pid": 116849}
+{"t": 1793028522.527612, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[vamas-vms]", "pid": 116849}
+{"t": 1793028522.5281503, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[vamas-vms]", "pid": 116849}
+{"t": 1793028522.5282378, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[vamas-export-txt]", "pid": 116849}
+{"t": 1793028522.5287054, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[vamas-export-txt]", "pid": 116849}
+{"t": 1793028522.5287933, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[vamas-result-csv]", "pid": 116849}
+{"t": 1793028522.5292375, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[vamas-result-csv]", "pid": 116849}
+{"t": 1793028522.5293212, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[specs-xml]", "pid": 116849}
+{"t": 1793028522.529764, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[specs-xml]", "pid": 116849}
+{"t": 1793028522.5298483, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[specs-xy]", "pid": 116849}
+{"t": 1793028522.5302846, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[specs-xy]", "pid": 116849}
+{"t": 1793028522.5303686, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[specs-sle]", "pid": 116849}
+{"t": 1793028522.5312402, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[specs-sle]", "pid": 116849}
+{"t": 1793028522.531342, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[phi-spe]", "pid": 116849}
+{"t": 1793028522.532201, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[phi-spe]", "pid": 116849}
+{"t": 1793028522.5322976, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[phi-pro]", "pid": 116849}
+{"t": 1793028522.5331302, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[phi-pro]", "pid": 116849}
+{"t": 1793028522.5332272, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[scienta-txt]", "pid": 116849}
+{"t": 1793028522.533776, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[scienta-txt]", "pid": 116849}
+{"t": 1793028522.5338898, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[scienta-igor-old]", "pid": 116849}
+{"t": 1793028522.5365124, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[scienta-igor-old]", "pid": 116849}
+{"t": 1793028522.5366256, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_positive[scienta-igor-wrapper]", "pid": 116849}
+{"t": 1793028522.5384521, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_positive[scienta-igor-wrapper]", "pid": 116849}
+{"t": 1793028522.5385613, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[vamas-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5391448, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[vamas-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5392418, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[vamas-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.539778, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[vamas-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5398715, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[specs-xml-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5403492, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[specs-xml-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5404396, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[specs-xml-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5408916, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[specs-xml-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5409803, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[phi-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5418386, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[phi-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5419295, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[casa-xps-export-rejects-scienta-txt]", "pid": 116849}
+{"t": 1793028522.542447, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[casa-xps-export-rejects-scienta-txt]", "pid": 116849}
+{"t": 1793028522.5425391, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[casa-xps-export-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5430038, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[casa-xps-export-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5430903, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[scienta-txt-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5435278, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[scienta-txt-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.543609, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[specs-xy-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5440478, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[specs-xy-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5441318, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[scienta-igor-old-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5445955, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[scienta-igor-old-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5446773, "event": "start", "nodeid": "tests/test_parser.py::test_matches_file_negative[scienta-igor-peak-rejects-old-ibw]", "pid": 116849}
+{"t": 1793028522.545797, "event": "finish", "nodeid": "tests/test_parser.py::test_matches_file_negative[scienta-igor-peak-rejects-old-ibw]", "pid": 116849}
+{"t": 1793028522.545899, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[vamas-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5465896, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[vamas-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5466797, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[vamas-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5472531, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[vamas-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.547342, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[specs-xml-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5478635, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[specs-xml-rejects-vms]", "pid": 116849}
+{"t": 1793028522.547953, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[specs-xml-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5484724, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[specs-xml-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5485573, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[phi-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5494313, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[phi-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5495253, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[casa-xps-export-rejects-scienta-txt]", "pid": 116849}
+{"t": 1793028522.5501354, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[casa-xps-export-rejects-scienta-txt]", "pid": 116849}
+{"t": 1793028522.5502307, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[casa-xps-export-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5507455, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[casa-xps-export-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5508304, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[scienta-txt-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5513835, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[scienta-txt-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5514705, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[specs-xy-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5519733, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[specs-xy-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5520632, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[scienta-igor-old-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5525734, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[scienta-igor-old-rejects-vms]", "pid": 116849}
+{"t": 1793028522.552657, "event": "start", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[scienta-igor-peak-rejects-old-ibw]", "pid": 116849}
+{"t": 1793028522.5539052, "event": "finish", "nodeid": "tests/test_parser.py::test_is_mainfile_rejection_is_silent[scienta-igor-peak-rejects-old-ibw]", "pid": 116849}
+{"t": 1793028522.554017, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[vamas-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5546162, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[vamas-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5547063, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[vamas-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5552616, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[vamas-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.55535, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[specs-xml-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5558572, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[specs-xml-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5559492, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[specs-xml-rejects-xy]", "pid": 116849}
+{"t": 1793028522.5564525, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[specs-xml-rejects-xy]", "pid": 116849}
+{"t": 1793028522.556538, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[phi-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5573692, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[phi-rejects-vms]", "pid": 116849}
+{"t": 1793028522.55746, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[casa-xps-export-rejects-scienta-txt]", "pid": 116849}
+{"t": 1793028522.558039, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[casa-xps-export-rejects-scienta-txt]", "pid": 116849}
+{"t": 1793028522.558131, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[casa-xps-export-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5586305, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[casa-xps-export-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5587146, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[scienta-txt-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5592494, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[scienta-txt-rejects-casa-xps-export]", "pid": 116849}
+{"t": 1793028522.5593362, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[specs-xy-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5598261, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[specs-xy-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5599148, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[scienta-igor-old-rejects-vms]", "pid": 116849}
+{"t": 1793028522.560413, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[scienta-igor-old-rejects-vms]", "pid": 116849}
+{"t": 1793028522.5604956, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[scienta-igor-peak-rejects-old-ibw]", "pid": 116849}
+{"t": 1793028522.5616968, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_explains_rejection_without_logging[scienta-igor-peak-rejects-old-ibw]", "pid": 116849}
+{"t": 1793028522.5617964, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[vamas-vms]", "pid": 116849}
+{"t": 1793028522.5623333, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[vamas-vms]", "pid": 116849}
+{"t": 1793028522.5624223, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[vamas-export-txt]", "pid": 116849}
+{"t": 1793028522.5628848, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[vamas-export-txt]", "pid": 116849}
+{"t": 1793028522.562974, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[vamas-result-csv]", "pid": 116849}
+{"t": 1793028522.5634196, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[vamas-result-csv]", "pid": 116849}
+{"t": 1793028522.563511, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[specs-xml]", "pid": 116849}
+{"t": 1793028522.5639632, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[specs-xml]", "pid": 116849}
+{"t": 1793028522.564051, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[specs-xy]", "pid": 116849}
+{"t": 1793028522.5644848, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[specs-xy]", "pid": 116849}
+{"t": 1793028522.5645714, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[specs-sle]", "pid": 116849}
+{"t": 1793028522.5654986, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[specs-sle]", "pid": 116849}
+{"t": 1793028522.5656004, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[phi-spe]", "pid": 116849}
+{"t": 1793028522.5663977, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[phi-spe]", "pid": 116849}
+{"t": 1793028522.5664873, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[phi-pro]", "pid": 116849}
+{"t": 1793028522.5672474, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[phi-pro]", "pid": 116849}
+{"t": 1793028522.5673373, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[scienta-txt]", "pid": 116849}
+{"t": 1793028522.5678067, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[scienta-txt]", "pid": 116849}
+{"t": 1793028522.5678916, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[scienta-igor-old]", "pid": 116849}
+{"t": 1793028522.569074, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[scienta-igor-old]", "pid": 116849}
+{"t": 1793028522.5691915, "event": "start", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[scienta-igor-wrapper]", "pid": 116849}
+{"t": 1793028522.5707984, "event": "finish", "nodeid": "tests/test_parser.py::test_match_failure_reason_none_on_match[scienta-igor-wrapper]", "pid": 116849}
+{"t": 1793028522.5708961, "event": "start", "nodeid": "tests/test_parser.py::test_reader_does_not_warn_on_extension_overlap", "pid": 116849}
+{"t": 1793028522.7698889, "event": "finish", "nodeid": "tests/test_parser.py::test_reader_does_not_warn_on_extension_overlap", "pid": 116849}
+{"t": 1793028522.7701113, "event": "start", "nodeid": "tests/test_parser.py::test_reader_reports_all_reasons_when_no_parser_matches", "pid": 116849}
+{"t": 1793028522.77272, "event": "finish", "nodeid": "tests/test_parser.py::test_reader_reports_all_reasons_when_no_parser_matches", "pid": 116849}
+{"t": 1793028522.773009, "event": "start", "nodeid": "tests/test_peak_finding.py::test_find_xps_peaks_appends_nxfit", "pid": 116849}
+{"t": 1793028524.142706, "event": "finish", "nodeid": "tests/test_peak_finding.py::test_find_xps_peaks_appends_nxfit", "pid": 116849}
+{"t": 1793028524.1430347, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[phi-spe-reader-nxxps]", "pid": 116849}
+{"t": 1793028547.3775022, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[phi-spe-reader-nxxps]", "pid": 116849}
+{"t": 1793028547.377857, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[phi-pro-reader-nxxps]", "pid": 116849}
+{"t": 1793028561.605105, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[phi-pro-reader-nxxps]", "pid": 116849}
+{"t": 1793028561.6053622, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-sle-reader-nxxps]", "pid": 116849}
+{"t": 1793028571.2327616, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-sle-reader-nxxps]", "pid": 116849}
+{"t": 1793028571.2331233, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-xml-reader-nxxps]", "pid": 116849}
+{"t": 1793028576.3366237, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-xml-reader-nxxps]", "pid": 116849}
+{"t": 1793028576.3368592, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-xy-reader-nxxps]", "pid": 116849}
+{"t": 1793028580.2553675, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-xy-reader-nxxps]", "pid": 116849}
+{"t": 1793028580.2556062, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[scienta-ibw-reader-nxxps]", "pid": 116849}
+{"t": 1793028584.0508332, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[scienta-ibw-reader-nxxps]", "pid": 116849}
+{"t": 1793028584.0510628, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[scienta-txt-reader-nxxps]", "pid": 116849}
+{"t": 1793028587.8535078, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[scienta-txt-reader-nxxps]", "pid": 116849}
+{"t": 1793028587.8537352, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[vms-reader-with-data-analysis-nxxps]", "pid": 116849}
+{"t": 1793028591.3607495, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[vms-reader-with-data-analysis-nxxps]", "pid": 116849}
+{"t": 1793028591.3610198, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[irregular-vms-reader-nxxps]", "pid": 116849}
+{"t": 1793028595.4071388, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[irregular-vms-reader-nxxps]", "pid": 116849}
+{"t": 1793028595.40743, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[regular-vms-reader-nxxps]", "pid": 116849}
+{"t": 1793028597.8595235, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[regular-vms-reader-nxxps]", "pid": 116849}
+{"t": 1793028597.8597894, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[vms-txt-export-reader-nxxps]", "pid": 116849}
+{"t": 1793028604.7168686, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[vms-txt-export-reader-nxxps]", "pid": 116849}
+{"t": 1793028604.7172692, "event": "start", "nodeid": "tests/test_versioning.py::test_get_pynxtools_xps_version", "pid": 116849}
+{"t": 1793028604.7187486, "event": "finish", "nodeid": "tests/test_versioning.py::test_get_pynxtools_xps_version", "pid": 116849}
+{"t": 1793028604.7188838, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[4.75-expected0]", "pid": 116849}
+{"t": 1793028604.7194715, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[4.75-expected0]", "pid": 116849}
+{"t": 1793028604.7195795, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[4-expected1]", "pid": 116849}
+{"t": 1793028604.720045, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[4-expected1]", "pid": 116849}
+{"t": 1793028604.7201412, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[2019R2-expected2]", "pid": 116849}
+{"t": 1793028604.7206545, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[2019R2-expected2]", "pid": 116849}
+{"t": 1793028604.7208128, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[v3_1-expected3]", "pid": 116849}
+{"t": 1793028604.7213376, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[v3_1-expected3]", "pid": 116849}
+{"t": 1793028604.7214313, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[3-2-expected4]", "pid": 116849}
+{"t": 1793028604.721874, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[3-2-expected4]", "pid": 116849}
+{"t": 1793028604.7219682, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[4.100-expected5]", "pid": 116849}
+{"t": 1793028604.7223926, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[4.100-expected5]", "pid": 116849}
+{"t": 1793028604.7224967, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[1.2.3-expected6]", "pid": 116849}
+{"t": 1793028604.722916, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[1.2.3-expected6]", "pid": 116849}
+{"t": 1793028604.7230077, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version[  4.75  -expected7]", "pid": 116849}
+{"t": 1793028604.7234166, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version[  4.75  -expected7]", "pid": 116849}
+{"t": 1793028604.7235067, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version_invalid[None-TypeError]", "pid": 116849}
+{"t": 1793028604.7239695, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version_invalid[None-TypeError]", "pid": 116849}
+{"t": 1793028604.7240562, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version_invalid[-ValueError]", "pid": 116849}
+{"t": 1793028604.724481, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version_invalid[-ValueError]", "pid": 116849}
+{"t": 1793028604.7245703, "event": "start", "nodeid": "tests/test_versioning.py::test_normalize_version_invalid[----ValueError]", "pid": 116849}
+{"t": 1793028604.724998, "event": "finish", "nodeid": "tests/test_versioning.py::test_normalize_version_invalid[----ValueError]", "pid": 116849}
+{"t": 1793028604.7250843, "event": "start", "nodeid": "tests/test_versioning.py::test_format_version[version0-4.75]", "pid": 116849}
+{"t": 1793028604.7255094, "event": "finish", "nodeid": "tests/test_versioning.py::test_format_version[version0-4.75]", "pid": 116849}
+{"t": 1793028604.7255971, "event": "start", "nodeid": "tests/test_versioning.py::test_format_version[version1-2019.R.2]", "pid": 116849}
+{"t": 1793028604.72601, "event": "finish", "nodeid": "tests/test_versioning.py::test_format_version[version1-2019.R.2]", "pid": 116849}
+{"t": 1793028604.726099, "event": "start", "nodeid": "tests/test_versioning.py::test_format_version[version2-1]", "pid": 116849}
+{"t": 1793028604.7265239, "event": "finish", "nodeid": "tests/test_versioning.py::test_format_version[version2-1]", "pid": 116849}
+{"t": 1793028604.7266111, "event": "start", "nodeid": "tests/test_versioning.py::test_format_version[version3-1.2.3]", "pid": 116849}
+{"t": 1793028604.7270298, "event": "finish", "nodeid": "tests/test_versioning.py::test_format_version[version3-1.2.3]", "pid": 116849}
+{"t": 1793028604.7271214, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[None-supported0-True]", "pid": 116849}
+{"t": 1793028604.727574, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[None-supported0-True]", "pid": 116849}
+{"t": 1793028604.727658, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[None-supported1-False]", "pid": 116849}
+{"t": 1793028604.7281134, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[None-supported1-False]", "pid": 116849}
+{"t": 1793028604.7282023, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version2-supported2-True]", "pid": 116849}
+{"t": 1793028604.7286592, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version2-supported2-True]", "pid": 116849}
+{"t": 1793028604.728749, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version3-supported3-True]", "pid": 116849}
+{"t": 1793028604.7292082, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version3-supported3-True]", "pid": 116849}
+{"t": 1793028604.7292953, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version4-supported4-True]", "pid": 116849}
+{"t": 1793028604.7297525, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version4-supported4-True]", "pid": 116849}
+{"t": 1793028604.7298462, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version5-supported5-False]", "pid": 116849}
+{"t": 1793028604.7302904, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version5-supported5-False]", "pid": 116849}
+{"t": 1793028604.7303774, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version6-supported6-False]", "pid": 116849}
+{"t": 1793028604.7308366, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version6-supported6-False]", "pid": 116849}
+{"t": 1793028604.730921, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version7-supported7-True]", "pid": 116849}
+{"t": 1793028604.7313724, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version7-supported7-True]", "pid": 116849}
+{"t": 1793028604.7314591, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version8-supported8-False]", "pid": 116849}
+{"t": 1793028604.731898, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version8-supported8-False]", "pid": 116849}
+{"t": 1793028604.7319887, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version9-supported9-True]", "pid": 116849}
+{"t": 1793028604.7324414, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version9-supported9-True]", "pid": 116849}
+{"t": 1793028604.7325232, "event": "start", "nodeid": "tests/test_versioning.py::test_is_version_supported[version10-supported10-False]", "pid": 116849}
+{"t": 1793028604.732967, "event": "finish", "nodeid": "tests/test_versioning.py::test_is_version_supported[version10-supported10-False]", "pid": 116849}
+{"t": 1793028604.7331254, "event": "start", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[Kratos metadata]", "pid": 116849}
+{"t": 1793028604.7349188, "event": "finish", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[Kratos metadata]", "pid": 116849}
+{"t": 1793028604.735028, "event": "start", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[PHI metadata]", "pid": 116849}
+{"t": 1793028604.740661, "event": "finish", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[PHI metadata]", "pid": 116849}
+{"t": 1793028604.7407675, "event": "start", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[CasaXPS header]", "pid": 116849}
+{"t": 1793028604.7413485, "event": "finish", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[CasaXPS header]", "pid": 116849}
+{"t": 1793028604.7414393, "event": "start", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[CasaXPS processing]", "pid": 116849}
+{"t": 1793028604.7426674, "event": "finish", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[CasaXPS processing]", "pid": 116849}
+{"t": 1793028604.742768, "event": "start", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[SPECS header metadata]", "pid": 116849}
+{"t": 1793028604.7433684, "event": "finish", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[SPECS header metadata]", "pid": 116849}
+{"t": 1793028604.743457, "event": "start", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[SPECS block metadata]", "pid": 116849}
+{"t": 1793028604.7441583, "event": "finish", "nodeid": "tests/test_vms_comment_handler.py::test_vms_comment_handler[SPECS block metadata]", "pid": 116849}

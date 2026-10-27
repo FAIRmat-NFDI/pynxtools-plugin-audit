@@ -1,0 +1,23 @@
+Replaying conversion from test: tests/dataconverter/test_convert.py::test_find_nxdl[exists-in-contributed]
+{
+  "input_file": [],
+  "reader": "example",
+  "nxdl": "NXcontainer",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools/conversions/pynxtools-exists-in-contributed/pynxtools-exists-in-contributed_output.nxs",
+  "skip_verify": false,
+  "append": false,
+  "ignore_undocumented": false,
+  "fail": false
+}
+2026-10-26 16:21:25,126 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:21:25,362 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using example reader to convert the given files:  
+Traceback (most recent call last):
+  File "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py", line 16, in <module>
+    convert(**call)
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/dataconverter/convert.py", line 202, in convert
+    data = transfer_data_into_template(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/dataconverter/convert.py", line 129, in transfer_data_into_template
+    raise NotImplementedError(
+NotImplementedError: The chosen NXDL isn't supported by the selected reader.

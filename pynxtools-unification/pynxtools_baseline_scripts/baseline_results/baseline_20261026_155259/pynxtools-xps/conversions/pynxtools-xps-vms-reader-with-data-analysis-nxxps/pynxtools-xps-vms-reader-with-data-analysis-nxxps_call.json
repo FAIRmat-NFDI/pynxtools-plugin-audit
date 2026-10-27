@@ -1,0 +1,23 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[vms-reader-with-data-analysis-nxxps]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xps",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.532,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed.vms",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed_lineshapes_cols.txt",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed_results.csv",
+      "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/eln.yaml"
+    ],
+    "reader": "xps",
+    "nxdl": "NXxps",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/pytest/tmp_files/test_nexus_conversion_vms_read0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xps-vms-reader-with-data-analysis-nxxps"
+}

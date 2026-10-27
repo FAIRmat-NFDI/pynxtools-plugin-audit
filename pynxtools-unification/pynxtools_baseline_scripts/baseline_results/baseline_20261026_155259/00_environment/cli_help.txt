@@ -1,0 +1,62 @@
+Usage: pynx validate [OPTIONS] FILE
+
+  Validate a NeXus HDF5 file against its application definition.
+
+Options:
+  --ignore-undocumented  Ignore all undocumented concepts during validation.
+  --help                 Show this message and exit.
+
+Usage: dataconverter [OPTIONS] COMMAND [ARGS]...
+
+  Convert data to NeXus.
+
+Options:
+  --help                          Show this message and exit.
+  --input-file TEXT               Deprecated: Please use the positional file
+                                  arguments instead. The path to the input
+                                  data file to read. Repeat for more than one
+                                  file. default=[] This option is required if
+                                  no '--params-file' is supplied.
+  --reader [apm|ellips|em|example|igor|json_map|json_yml|microstructure|mpes|multi|raman|spm|xas|xps|xrd]
+                                  The reader to use. Examples are json_map or
+                                  readers from a pynxtools plugin.
+                                  default='json_map' This option is required
+                                  if no '--params-file' is supplied.
+  --nxdl TEXT                     The name of the NeXus application definition
+                                  file to use without the extension nxdl.xml.
+                                  This option is required if no '--params-
+                                  file' is supplied.
+  --output TEXT                   The path to the output NeXus file to be
+                                  generated. default='output.nxs'
+  --params-file FILENAME          Allows to pass a .yaml file with all the
+                                  parameters the converter supports.
+  --append                        Appends instance data to the given <output>
+                                  file if the file already exists.Will prevent
+                                  an overwriting of existent data and adding
+                                  of new NXentry instances.If True, will skip
+                                  the validation whatever irrespective if
+                                  --skip-verify is passed.
+  --ignore-undocumented           Ignore all undocumented concepts during
+                                  validation.
+  --fail                          Fail conversion and don't create an output
+                                  file if the validation fails.
+  --skip-verify                   Skips the verification routine during
+                                  conversion. When --append is used the
+                                  verification is always skipped irrespective
+                                  if --skip-verify is used or not.
+  --mapping TEXT                  Takes a <name>.mapping.json file and
+                                  converts data from given input files.
+                                  Deprecated. Will be removed in a future
+                                  release. The --config flag can be used
+                                  instead.
+  -c, --config FILE               A json config file for the reader
+
+Commands:
+  run*               Convert input files to a NeXus HDF5 file.
+  generate-template  Print a conversion template for a NeXus application...
+  get-readers        List all installed readers.
+  reader-info        Show supported NXDLs and file extensions for a reader.
+
+Info:
+  You can see more options by using --help for specific commands. For example:
+  pynx convert generate-template --help

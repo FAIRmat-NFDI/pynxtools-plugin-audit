@@ -1,0 +1,45 @@
+[Data Version]
+Program=SPMLab
+Version=1.00
+
+[Data Parameters]
+CreationTime=Jun.17.2026 08:03:43
+DataName=Height
+DataID=SIG_TOPO
+
+ScanRangeX=1.0000 µm
+ScanRangeY=1.0000 µm
+OffsetX=1.0000 µm
+OffsetY=1.0000 µm
+Rotation=0.0 °
+ScanningRate=1.0000 µm/s
+ResolutionX=512
+ResolutionY=512
+ScanDirection=FORWARD
+ZTransferCoefficient=0.7731 µm/V
+Leveling=None
+
+[PreProcessing]
+Leveling=1D Line Fit
+
+[System Info]
+XLinOn=TRUE
+YLinOn=TRUE
+Mode=Peak Force Tapping
+SetPoint=0.030000 V
+GainP=0.800000 (1000.000000)
+GainI=0.300000 (1000.000000)
+GainD=0.000000 (1000.000000)
+XLinGainP=1.000000 (1200.000000)
+XLinGainI=12.000000 (1200.000000)
+XLinGainD=0.000000 (1200.000000)
+YLinGainP=1.000000 (1200.000000)
+YLinGainI=12.000000 (1200.000000)
+YLinGainD=0.000000 (1200.000000)
+
+[Piezo Parameters]
+X Transfer Coefficient=4.423937 µm/V
+Y Transfer Coefficient=4.856491 µm/V
+Z Transfer Coefficient=0.773091 µm/V
+
+[Data]

@@ -1,0 +1,26 @@
+Replaying conversion from test: extra::mtex_example
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/test_data/microstructure/001.de24e9c9cb6ff26988fbe9a52864d70a70e969eb1960c4244126ed7d7dac1530.e9baebe3e2a2ccd34c17ac8482e221c8413987545c30a9765050a46627c19f20.crc.mtex.h5"
+  ],
+  "reader": "microstructure",
+  "nxdl": "NXem",
+  "ignore_undocumented": true,
+  "skip_verify": true,
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_output.nxs"
+}
+2026-10-26 15:56:30,890 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 15:56:31,132 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using microstructure reader to convert the given files:  
+• $HOME/nomad-distro-dev/pynxtools_baseline_scripts/test_data/microstructure/001.de24e9c9cb6ff26988fbe9a52864d70a70e969eb1960c4244126ed7d7dac1530.e9baebe3e2a2ccd34c17ac8482e221c8413987545c30a9765050a46627c19f20.crc.mtex.h5
+2026-10-26 15:56:31,368 INFO pynxtools-microstructure: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example
+2026-10-26 15:56:31,391 INFO pynxtools-microstructure: Parsing $HOME/nomad-distro-dev/pynxtools_baseline_scripts/test_data/microstructure/001.de24e9c9cb6ff26988fbe9a52864d70a70e969eb1960c4244126ed7d7dac1530.e9baebe3e2a2ccd34c17ac8482e221c8413987545c30a9765050a46627c19f20.crc.mtex.h5 MTex with SHA256 beead6dc8b58bf5a256f5612ad39ea2d2dd7c46ed64510210a42201174bfb086 ...
+2026-10-26 15:56:31,627 INFO pynxtools-em: 0 NXdata instances with priority 1
+2026-10-26 15:56:31,627 INFO pynxtools-em: 0 NXdata instances with priority 2
+2026-10-26 15:56:31,627 INFO pynxtools-em: 0 NXdata instances with priority 3
+2026-10-26 15:56:31,627 INFO pynxtools-em: 0 NXdata instances with priority 4
+2026-10-26 15:56:31,627 INFO pynxtools-em: 1 NXdata instances with priority 5
+2026-10-26 15:56:31,627 INFO pynxtools-em: Decorating /ENTRY[entry1]/roiID[roi1]/ebsd/indexing/phaseID[phase1]/ipfID[ipf1]/map as the default plot for H5Web ...
+2026-10-26 15:56:31,628 INFO pynxtools-em: Identified atom_types O, Si
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_output.nxs

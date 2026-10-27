@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-microstructure/conversions/pynxtools-microstructure-extra_mtex_example/pynxtools-microstructure-extra_mtex_example_output.nxs"
+  ],
+  "started": "2026-10-26T16:23:13",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.167,
+  "user_cpu_s": 1.264,
+  "sys_cpu_s": 0.963,
+  "peak_rss_mb": 141.4
+}

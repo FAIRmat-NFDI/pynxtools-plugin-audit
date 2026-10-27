@@ -1,0 +1,33 @@
+Replaying conversion from test: tests/dataconverter/test_convert.py::test_cli[input-file]
+{
+  "input_file": [
+    "test_input"
+  ],
+  "reader": "json_map",
+  "nxdl": "NXtest",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools/conversions/pynxtools-input-file/pynxtools-input-file_output.nxs",
+  "skip_verify": false,
+  "append": false,
+  "ignore_undocumented": false,
+  "fail": false
+}
+2026-10-26 15:54:47,980 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 15:54:48,223 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using json_map reader to convert the given files:  
+• test_input
+WARNING: File test_input has an unsupported extension, ignoring file.
+Traceback (most recent call last):
+  File "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/_tools/replay_convert.py", line 16, in <module>
+    convert(**call)
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/dataconverter/convert.py", line 202, in convert
+    data = transfer_data_into_template(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/dataconverter/convert.py", line 137, in transfer_data_into_template
+    data = data_reader().read(  # type: ignore[operator]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/dataconverter/readers/json_map/reader.py", line 218, in read
+    raise OSError(
+OSError: Please supply a JSON mapping file:  my_nxdl_map.mapping.json
+
+ You can use this template for the required fields: 
+{}

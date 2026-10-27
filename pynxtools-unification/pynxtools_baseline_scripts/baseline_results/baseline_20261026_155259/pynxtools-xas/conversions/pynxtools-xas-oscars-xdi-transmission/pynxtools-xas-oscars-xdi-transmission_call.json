@@ -1,0 +1,20 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xas",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.82,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/oscars_xdi_transmission/Fe_XDIFiles_prepared.h5"
+    ],
+    "reader": "xas",
+    "nxdl": "NXxas_trans",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_oscars_x0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xas-oscars-xdi-transmission"
+}

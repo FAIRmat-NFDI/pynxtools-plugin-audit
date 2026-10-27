@@ -1,0 +1,6 @@
+WARNING: A link was used for /Spectrum_Group__Co_L_135/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING: Invalid: The entry `Spectrum_Group__Co_L_135` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: A link was used for /Spectrum_Group__La_M_136/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING: Invalid: The entry `Spectrum_Group__La_M_136` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs` is NOT valid according to the `NXxas` application definition.
+WARNING: A link was used for /Spectrum_Group__O_K_134/instrument/i0/plot/i0, but no '@target' attribute was found.
+WARNING: Invalid: The entry `Spectrum_Group__O_K_134` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xas/conversions/pynxtools-xas-specs-xy-aey/pynxtools-xas-specs-xy-aey_output.nxs` is NOT valid according to the `NXxas` application definition.

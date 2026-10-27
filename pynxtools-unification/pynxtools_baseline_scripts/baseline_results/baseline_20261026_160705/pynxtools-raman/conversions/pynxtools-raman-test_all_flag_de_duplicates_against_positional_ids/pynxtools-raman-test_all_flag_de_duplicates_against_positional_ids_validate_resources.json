@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/conversions/pynxtools-raman-test_all_flag_de_duplicates_against_positional_ids/pynxtools-raman-test_all_flag_de_duplicates_against_positional_ids_output.nxs"
+  ],
+  "started": "2026-10-26T16:12:24",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.817,
+  "user_cpu_s": 0.991,
+  "sys_cpu_s": 0.916,
+  "peak_rss_mb": 113.6
+}

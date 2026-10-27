@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-raman/conversions/pynxtools-raman-test_all_flag_uses_bundled_known_ids_file/pynxtools-raman-test_all_flag_uses_bundled_known_ids_file_output.nxs"
+  ],
+  "started": "2026-10-26T15:58:11",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.816,
+  "user_cpu_s": 0.985,
+  "sys_cpu_s": 0.922,
+  "peak_rss_mb": 113.6
+}

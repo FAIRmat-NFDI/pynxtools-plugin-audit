@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-igor/conversions/pynxtools-igor-ibw-to-nxs-nxroot/pynxtools-igor-ibw-to-nxs-nxroot_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-igor/conversions/pynxtools-igor-ibw-to-nxs-nxroot/pynxtools-igor-ibw-to-nxs-nxroot_output.nxs"
+  ],
+  "started": "2026-10-26T16:22:58",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.817,
+  "user_cpu_s": 0.915,
+  "sys_cpu_s": 0.947,
+  "peak_rss_mb": 104.1
+}

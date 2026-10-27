@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-xps/conversions/pynxtools-xps-phi-pro-reader-nxxps/pynxtools-xps-phi-pro-reader-nxxps_output.nxs"
+  ],
+  "started": "2026-10-26T16:30:23",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 3.923,
+  "user_cpu_s": 3.946,
+  "sys_cpu_s": 1.047,
+  "peak_rss_mb": 223.2
+}

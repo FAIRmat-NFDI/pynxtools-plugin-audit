@@ -1,0 +1,26 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests",
+    "-p",
+    "baseline_recorder",
+    "-p",
+    "no:cacheprovider",
+    "--continue-on-collection-errors",
+    "-v",
+    "-rA",
+    "--durations=0",
+    "--color=no",
+    "--basetemp=$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-ellips/pytest/tmp_files",
+    "--junitxml=$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-ellips/pytest/pynxtools-ellips_junit.xml"
+  ],
+  "started": "2026-10-26T15:54:56",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 26.023,
+  "user_cpu_s": 26.71,
+  "sys_cpu_s": 1.348,
+  "peak_rss_mb": 436.0
+}

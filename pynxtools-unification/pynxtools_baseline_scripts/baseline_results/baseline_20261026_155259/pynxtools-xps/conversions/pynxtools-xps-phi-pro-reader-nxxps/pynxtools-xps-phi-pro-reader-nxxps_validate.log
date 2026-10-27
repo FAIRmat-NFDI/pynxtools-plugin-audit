@@ -1,0 +1,272 @@
+WARNING: Field /C1s/acquisition_filename has no documentation.
+WARNING: Field /C1s/instrument/defect_positioner_reference_image has no documentation.
+WARNING: Field /C1s/instrument/electronanalyzer/detector/delay_before_acquire has no documentation.
+WARNING: Field /C1s/instrument/electronanalyzer/detector/number_of_channels has no documentation.
+The unit /C1s/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Field /C1s/instrument/electronanalyzer/energydispersion/xps_scan_mode has no documentation.
+WARNING: Field /C1s/instrument/electronanalyzer/rotator_current has no documentation.
+WARNING: Field /C1s/instrument/electronanalyzer/shutter_bias_voltage has no documentation.
+WARNING: Field /C1s/instrument/electronanalyzer/solid_angle has no documentation.
+WARNING: Field /C1s/instrument/source_flood_gun/flood_gun_mode has no documentation.
+WARNING: Field /C1s/instrument/source_flood_gun/gain has no documentation.
+WARNING: Field /C1s/instrument/source_flood_gun/ramp_rate has no documentation.
+WARNING: Field /C1s/instrument/source_flood_gun/rate has no documentation.
+WARNING: Field /C1s/instrument/source_flood_gun/time_per_step has no documentation.
+The value 'Monochromatized electron source' at /C1s/instrument/source_flood_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /C1s/instrument/source_flood_gun/x_steering has no documentation.
+WARNING: Field /C1s/instrument/source_flood_gun/y_steering has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/cluster_size has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/focus has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/ionization_voltage has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/magnet_current has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/raster_offset_x has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/raster_offset_y has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/raster_size_x has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/raster_size_y has no documentation.
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/rate has no documentation.
+The value 'Gas cluster ion beam source' at /C1s/instrument/source_gas_cluster_ion_beam/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /C1s/instrument/source_gas_cluster_ion_beam/wien_filter_voltage has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/deflection_bias has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/float_voltage has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/grid_voltage has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/ion has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/raster_offset_x has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/raster_offset_y has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/raster_size_x has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/raster_size_y has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/rate has no documentation.
+WARNING: Field /C1s/instrument/source_neutral_ion_gun/target_sputter_time has no documentation.
+The value 'Neutral ion beam source' at /C1s/instrument/source_neutral_ion_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /C1s/instrument/source_probe/anode_position has no documentation.
+WARNING: Field /C1s/instrument/source_probe/deflector/span_x has no documentation.
+WARNING: Field /C1s/instrument/source_probe/deflector/span_y has no documentation.
+WARNING: Field /C1s/instrument/source_probe/delay_factor_x has no documentation.
+WARNING: Field /C1s/instrument/source_probe/delay_factor_y has no documentation.
+WARNING: Field /C1s/instrument/source_probe/emission_control has no documentation.
+WARNING: Field /C1s/instrument/source_probe/filament_current_limit has no documentation.
+WARNING: Field /C1s/instrument/source_probe/magnification_factor_x has no documentation.
+WARNING: Field /C1s/instrument/source_probe/magnification_factor_y has no documentation.
+WARNING: Field /C1s/instrument/source_probe/offset_x has no documentation.
+WARNING: Field /C1s/instrument/source_probe/offset_y has no documentation.
+WARNING: Field /C1s/instrument/source_probe/rotation has no documentation.
+Group '/C1s/instrument/source_probe/transformations' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /C1s/instrument/source_sputter_gun/deflection_bias has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/float_voltage has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/grid_voltage has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/ion has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/ion_gun_mode has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/raster_offset_x has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/raster_offset_y has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/raster_size_x has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/raster_size_y has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/rate has no documentation.
+WARNING: Field /C1s/instrument/source_sputter_gun/target_sputter_time has no documentation.
+The value 'Ion sputter gun' at /C1s/instrument/source_sputter_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Attribute /C1s/method/@long_name has no documentation.
+The unit /C1s/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: Field /C1s/transmission_correction/intensity_calibration_coefficients has no documentation.
+WARNING: Invalid: The entry `C1s` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-phi-pro-reader-nxxps/pynxtools-xps-phi-pro-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+WARNING: Field /Si2p/acquisition_filename has no documentation.
+WARNING: Field /Si2p/instrument/defect_positioner_reference_image has no documentation.
+WARNING: Field /Si2p/instrument/electronanalyzer/detector/delay_before_acquire has no documentation.
+WARNING: Field /Si2p/instrument/electronanalyzer/detector/number_of_channels has no documentation.
+The unit /Si2p/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Field /Si2p/instrument/electronanalyzer/energydispersion/xps_scan_mode has no documentation.
+WARNING: Field /Si2p/instrument/electronanalyzer/rotator_current has no documentation.
+WARNING: Field /Si2p/instrument/electronanalyzer/shutter_bias_voltage has no documentation.
+WARNING: Field /Si2p/instrument/electronanalyzer/solid_angle has no documentation.
+WARNING: Field /Si2p/instrument/source_flood_gun/flood_gun_mode has no documentation.
+WARNING: Field /Si2p/instrument/source_flood_gun/gain has no documentation.
+WARNING: Field /Si2p/instrument/source_flood_gun/ramp_rate has no documentation.
+WARNING: Field /Si2p/instrument/source_flood_gun/rate has no documentation.
+WARNING: Field /Si2p/instrument/source_flood_gun/time_per_step has no documentation.
+The value 'Monochromatized electron source' at /Si2p/instrument/source_flood_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Si2p/instrument/source_flood_gun/x_steering has no documentation.
+WARNING: Field /Si2p/instrument/source_flood_gun/y_steering has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/cluster_size has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/focus has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/ionization_voltage has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/magnet_current has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/raster_offset_x has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/raster_offset_y has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/raster_size_x has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/raster_size_y has no documentation.
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/rate has no documentation.
+The value 'Gas cluster ion beam source' at /Si2p/instrument/source_gas_cluster_ion_beam/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Si2p/instrument/source_gas_cluster_ion_beam/wien_filter_voltage has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/deflection_bias has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/float_voltage has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/grid_voltage has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/ion has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/raster_offset_x has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/raster_offset_y has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/raster_size_x has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/raster_size_y has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/rate has no documentation.
+WARNING: Field /Si2p/instrument/source_neutral_ion_gun/target_sputter_time has no documentation.
+The value 'Neutral ion beam source' at /Si2p/instrument/source_neutral_ion_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Si2p/instrument/source_probe/anode_position has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/deflector/span_x has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/deflector/span_y has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/delay_factor_x has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/delay_factor_y has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/emission_control has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/filament_current_limit has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/magnification_factor_x has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/magnification_factor_y has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/offset_x has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/offset_y has no documentation.
+WARNING: Field /Si2p/instrument/source_probe/rotation has no documentation.
+Group '/Si2p/instrument/source_probe/transformations' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /Si2p/instrument/source_sputter_gun/deflection_bias has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/float_voltage has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/grid_voltage has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/ion has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/ion_gun_mode has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/raster_offset_x has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/raster_offset_y has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/raster_size_x has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/raster_size_y has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/rate has no documentation.
+WARNING: Field /Si2p/instrument/source_sputter_gun/target_sputter_time has no documentation.
+The value 'Ion sputter gun' at /Si2p/instrument/source_sputter_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Attribute /Si2p/method/@long_name has no documentation.
+The unit /Si2p/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: Field /Si2p/transmission_correction/intensity_calibration_coefficients has no documentation.
+WARNING: Invalid: The entry `Si2p` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-phi-pro-reader-nxxps/pynxtools-xps-phi-pro-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+WARNING: Field /Sn3d5/acquisition_filename has no documentation.
+WARNING: Field /Sn3d5/instrument/defect_positioner_reference_image has no documentation.
+WARNING: Field /Sn3d5/instrument/electronanalyzer/detector/delay_before_acquire has no documentation.
+WARNING: Field /Sn3d5/instrument/electronanalyzer/detector/number_of_channels has no documentation.
+The unit /Sn3d5/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Field /Sn3d5/instrument/electronanalyzer/energydispersion/xps_scan_mode has no documentation.
+WARNING: Field /Sn3d5/instrument/electronanalyzer/rotator_current has no documentation.
+WARNING: Field /Sn3d5/instrument/electronanalyzer/shutter_bias_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/electronanalyzer/solid_angle has no documentation.
+WARNING: Field /Sn3d5/instrument/source_flood_gun/flood_gun_mode has no documentation.
+WARNING: Field /Sn3d5/instrument/source_flood_gun/gain has no documentation.
+WARNING: Field /Sn3d5/instrument/source_flood_gun/ramp_rate has no documentation.
+WARNING: Field /Sn3d5/instrument/source_flood_gun/rate has no documentation.
+WARNING: Field /Sn3d5/instrument/source_flood_gun/time_per_step has no documentation.
+The value 'Monochromatized electron source' at /Sn3d5/instrument/source_flood_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Sn3d5/instrument/source_flood_gun/x_steering has no documentation.
+WARNING: Field /Sn3d5/instrument/source_flood_gun/y_steering has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/cluster_size has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/focus has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/ionization_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/magnet_current has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/raster_offset_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/raster_offset_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/raster_size_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/raster_size_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/rate has no documentation.
+The value 'Gas cluster ion beam source' at /Sn3d5/instrument/source_gas_cluster_ion_beam/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Sn3d5/instrument/source_gas_cluster_ion_beam/wien_filter_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/deflection_bias has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/float_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/grid_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/ion has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/raster_offset_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/raster_offset_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/raster_size_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/raster_size_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/rate has no documentation.
+WARNING: Field /Sn3d5/instrument/source_neutral_ion_gun/target_sputter_time has no documentation.
+The value 'Neutral ion beam source' at /Sn3d5/instrument/source_neutral_ion_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Sn3d5/instrument/source_probe/anode_position has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/deflector/span_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/deflector/span_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/delay_factor_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/delay_factor_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/emission_control has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/filament_current_limit has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/magnification_factor_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/magnification_factor_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/offset_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/offset_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_probe/rotation has no documentation.
+Group '/Sn3d5/instrument/source_probe/transformations' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/deflection_bias has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/float_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/grid_voltage has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/ion has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/ion_gun_mode has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/raster_offset_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/raster_offset_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/raster_size_x has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/raster_size_y has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/rate has no documentation.
+WARNING: Field /Sn3d5/instrument/source_sputter_gun/target_sputter_time has no documentation.
+The value 'Ion sputter gun' at /Sn3d5/instrument/source_sputter_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Attribute /Sn3d5/method/@long_name has no documentation.
+The unit /Sn3d5/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: Field /Sn3d5/transmission_correction/intensity_calibration_coefficients has no documentation.
+WARNING: Invalid: The entry `Sn3d5` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-phi-pro-reader-nxxps/pynxtools-xps-phi-pro-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.
+WARNING: Field /Su1s/acquisition_filename has no documentation.
+WARNING: Field /Su1s/instrument/defect_positioner_reference_image has no documentation.
+WARNING: Field /Su1s/instrument/electronanalyzer/detector/delay_before_acquire has no documentation.
+WARNING: Field /Su1s/instrument/electronanalyzer/detector/number_of_channels has no documentation.
+The unit /Su1s/instrument/electronanalyzer/detector/raw_data/raw/@units = counts_per_second has no documentation.
+WARNING: Field /Su1s/instrument/electronanalyzer/energydispersion/xps_scan_mode has no documentation.
+WARNING: Field /Su1s/instrument/electronanalyzer/rotator_current has no documentation.
+WARNING: Field /Su1s/instrument/electronanalyzer/shutter_bias_voltage has no documentation.
+WARNING: Field /Su1s/instrument/electronanalyzer/solid_angle has no documentation.
+WARNING: Field /Su1s/instrument/source_flood_gun/flood_gun_mode has no documentation.
+WARNING: Field /Su1s/instrument/source_flood_gun/gain has no documentation.
+WARNING: Field /Su1s/instrument/source_flood_gun/ramp_rate has no documentation.
+WARNING: Field /Su1s/instrument/source_flood_gun/rate has no documentation.
+WARNING: Field /Su1s/instrument/source_flood_gun/time_per_step has no documentation.
+The value 'Monochromatized electron source' at /Su1s/instrument/source_flood_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Su1s/instrument/source_flood_gun/x_steering has no documentation.
+WARNING: Field /Su1s/instrument/source_flood_gun/y_steering has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/cluster_size has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/focus has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/ionization_voltage has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/magnet_current has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/raster_offset_x has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/raster_offset_y has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/raster_size_x has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/raster_size_y has no documentation.
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/rate has no documentation.
+The value 'Gas cluster ion beam source' at /Su1s/instrument/source_gas_cluster_ion_beam/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Su1s/instrument/source_gas_cluster_ion_beam/wien_filter_voltage has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/deflection_bias has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/float_voltage has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/grid_voltage has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/ion has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/raster_offset_x has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/raster_offset_y has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/raster_size_x has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/raster_size_y has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/rate has no documentation.
+WARNING: Field /Su1s/instrument/source_neutral_ion_gun/target_sputter_time has no documentation.
+The value 'Neutral ion beam source' at /Su1s/instrument/source_neutral_ion_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Field /Su1s/instrument/source_probe/anode_position has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/deflector/span_x has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/deflector/span_y has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/delay_factor_x has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/delay_factor_y has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/emission_control has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/filament_current_limit has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/magnification_factor_x has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/magnification_factor_y has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/offset_x has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/offset_y has no documentation.
+WARNING: Field /Su1s/instrument/source_probe/rotation has no documentation.
+Group '/Su1s/instrument/source_probe/transformations' does not have an NX_class attribute and will therefore not be validated.
+WARNING: Field /Su1s/instrument/source_sputter_gun/deflection_bias has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/float_voltage has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/grid_voltage has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/ion has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/ion_gun_mode has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/raster_offset_x has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/raster_offset_y has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/raster_size_x has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/raster_size_y has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/rate has no documentation.
+WARNING: Field /Su1s/instrument/source_sputter_gun/target_sputter_time has no documentation.
+The value 'Ion sputter gun' at /Su1s/instrument/source_sputter_gun/type does not match with the enumerated items from the open enumeration: ['Spallation Neutron Source', 'Pulsed Reactor Neutron Source', 'Reactor Neutron Source', 'Synchrotron X-ray Source', 'Pulsed Muon Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Free-Electron Laser', 'Optical Laser', 'Ion Source', 'UV Plasma Source', 'Metal Jet X-ray', 'Laser', 'Dye Laser', 'Broadband Tunable Light Source', 'Halogen Lamp', 'LED', 'Mercury Cadmium Telluride Lamp', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+WARNING: Attribute /Su1s/method/@long_name has no documentation.
+The unit /Su1s/scan_averaging/data/data/@units = counts_per_second has no documentation.
+WARNING: Field /Su1s/transmission_correction/intensity_calibration_coefficients has no documentation.
+WARNING: Invalid: The entry `Su1s` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-phi-pro-reader-nxxps/pynxtools-xps-phi-pro-reader-nxxps_output.nxs` is NOT valid according to the `NXxps` application definition.

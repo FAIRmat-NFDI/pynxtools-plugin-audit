@@ -1,0 +1,27 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[vms-reader-with-data-analysis-nxxps]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed.vms",
+    "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed_lineshapes_cols.txt",
+    "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed_results.csv",
+    "$HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/eln.yaml"
+  ],
+  "reader": "xps",
+  "nxdl": "NXxps",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-vms-reader-with-data-analysis-nxxps/pynxtools-xps-vms-reader-with-data-analysis-nxxps_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:04:25,704 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:04:25,947 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using xps reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed.vms
+• $HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed_lineshapes_cols.txt
+• $HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/FeO_analyzed_results.csv
+• $HOME/nomad-distro-dev/packages/pynxtools-xps/tests/data/vms_analysis/eln.yaml
+Main element /ENTRY[FeO__Fe2p]/DATA[data_reduced]/data not provided. Removing the parent group /ENTRY[FeO__Fe2p]/DATA[data_reduced].
+Main element /ENTRY[FeO__Fe2p]/PROCESS[channels_averaging]/sequence_index not provided. Removing the parent group /ENTRY[FeO__Fe2p]/PROCESS[channels_averaging].
+Main element /ENTRY[FeO__Fe2p]/PROCESS[scan_averaging]/sequence_index not provided. Removing the parent group /ENTRY[FeO__Fe2p]/PROCESS[scan_averaging].
+Main element /ENTRY[FeO__Fe2p]/PROCESS[cycle_averaging]/sequence_index not provided. Removing the parent group /ENTRY[FeO__Fe2p]/PROCESS[cycle_averaging].
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-vms-reader-with-data-analysis-nxxps/pynxtools-xps-vms-reader-with-data-analysis-nxxps_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xps/conversions/pynxtools-xps-vms-reader-with-data-analysis-nxxps/pynxtools-xps-vms-reader-with-data-analysis-nxxps_output.nxs

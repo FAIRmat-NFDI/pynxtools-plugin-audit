@@ -1,0 +1,17 @@
+WARNING: Field /entry/cite_id/author has no documentation.
+Group '/entry/sample/History' does not have an NX_class attribute and will therefore not be validated.
+Group '/entry/sample/History/note' does not have an NX_class attribute and will therefore not be validated.
+The value 'PeakForce Tapping' at /entry/scan_mode does not match with the enumerated items from the open enumeration: ['contact mode', 'tapping mode', 'non-contact mode', 'peak force tapping mode'].
+WARNING: The required field /entry/amplitude_error_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/amplitude_error_forward/DATA hasn't been supplied.
+WARNING: The required field /entry/phase_backward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/phase_backward/DATA hasn't been supplied.
+WARNING: The required field /entry/phase_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/phase_forward/DATA hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/AXISNAME/@units hasn't been supplied.
+WARNING: The required attribute /entry/z_backward/DATA/@units hasn't been supplied.
+WARNING: The required field /entry/z_forward/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/z_forward/DATA hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s-2/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_s-2_output.nxs` is NOT valid according to the `NXafm` application definition.

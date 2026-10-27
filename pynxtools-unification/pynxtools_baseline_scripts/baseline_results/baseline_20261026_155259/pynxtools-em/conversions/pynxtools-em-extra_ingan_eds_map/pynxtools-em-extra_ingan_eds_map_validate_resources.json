@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-em/conversions/pynxtools-em-extra_ingan_eds_map/pynxtools-em-extra_ingan_eds_map_output.nxs"
+  ],
+  "started": "2026-10-26T15:55:46",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 1.017,
+  "user_cpu_s": 1.143,
+  "sys_cpu_s": 0.922,
+  "peak_rss_mb": 138.2
+}

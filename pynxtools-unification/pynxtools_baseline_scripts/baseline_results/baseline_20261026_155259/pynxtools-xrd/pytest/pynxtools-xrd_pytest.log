@@ -1,0 +1,102 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- $HOME/nomad-distro-dev/.venv/bin/python
+rootdir: $HOME/nomad-distro-dev/packages/pynxtools-xrd
+configfile: pyproject.toml
+plugins: asyncio-1.4.0, typeguard-4.6.0, split-0.11.0, socket-0.8.1, xdist-3.8.0, timeout-2.4.0, anyio-4.15.1, cov-7.1.0, platformdirs-4.12.3
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 1 item
+
+tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan] PASSED      [100%]
+
+=============================== warnings summary ===============================
+tests/test_reader.py: 28 warnings
+  $HOME/nomad-distro-dev/.venv/lib/python3.12/site-packages/logstash/formatter.py:73: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    tstamp = datetime.utcfromtimestamp(time)
+
+tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:19: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParser(**self.dict())
+
+tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]
+  $HOME/nomad-distro-dev/packages/pynxtools/src/pynxtools/nomad/parsers/__init__.py:37: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    return NexusParserV2(**self.dict())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+____________________ test_nexus_conversion[xrdml-nxxrd_pan] ____________________
+----------------------------- Captured stderr call -----------------------------
+Using xrd reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xrd/tests/data/xrdml_918-16_10/XRD-918-16_10.xrdml
+WARNING: The unit '' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units does not match with the unit category NX_WAVELENGTH of 'kbeta'.
+The value '' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units does not match with the enumerated items from the open enumeration: ['angstrom']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/type hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/name hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/probe hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/DETECTOR[detector]/polar_angle hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/DETECTOR[detector]/data hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/BEAM hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/CRYSTAL hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/experiment_config/beam_attenuation_factors hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/experiment_result/polar_angle hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/experiment_result/data hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/title hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/start_time hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/MONITOR hasn't been supplied.
+WARNING: Inconsistent dimensions for NXDL symbol 'nDet' in group '/ENTRY[entry]/experiment_result': 'intensity': size 5027, 'omega': size 5027, 'phi': size 1, 'two_theta': size 5027.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/pytest/tmp_files/test_nexus_conversion_xrdml_nx0///output.nxs.
+WARNING: The unit '' at /entry/instrument/source/kbeta/@units does not match with the unit category NX_WAVELENGTH of 'kbeta'.
+WARNING: The required field /entry/experiment_config/beam_attenuation_factors hasn't been supplied.
+WARNING: The required field /entry/experiment_result/data hasn't been supplied.
+WARNING: The required field /entry/experiment_result/polar_angle hasn't been supplied.
+WARNING: The required field /entry/instrument/detector/data hasn't been supplied.
+WARNING: The required field /entry/instrument/detector/polar_angle hasn't been supplied.
+WARNING: The required field /entry/instrument/source/name hasn't been supplied.
+WARNING: The required field /entry/instrument/source/probe hasn't been supplied.
+WARNING: The required field /entry/instrument/source/type hasn't been supplied.
+WARNING: The required field /entry/start_time hasn't been supplied.
+WARNING: The required field /entry/title hasn't been supplied.
+WARNING: Inconsistent dimensions for NXDL symbol 'nDet' in group '/entry/experiment_result': 'intensity': size 5027, 'omega': size 5027, 'phi': size 1, 'two_theta': size 5027.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/pytest/tmp_files/test_nexus_conversion_xrdml_nx0///output.nxs` is NOT valid according to the `NXxrd_pan` application definition.
+------------------------------ Captured log call -------------------------------
+INFO     pynxtools:convert.py:120 Using xrd reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xrd/tests/data/xrdml_918-16_10/XRD-918-16_10.xrdml
+WARNING  pynxtools:helpers.py:157 WARNING: The unit '' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units does not match with the unit category NX_WAVELENGTH of 'kbeta'.
+INFO     pynxtools:helpers.py:179 The value '' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units does not match with the enumerated items from the open enumeration: ['angstrom']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/type hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/name hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/probe hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/DETECTOR[detector]/polar_angle hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/DETECTOR[detector]/data hasn't been supplied.
+WARNING  pynxtools:helpers.py:183 WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/BEAM hasn't been supplied.
+WARNING  pynxtools:helpers.py:183 WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/CRYSTAL hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/experiment_config/beam_attenuation_factors hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/experiment_result/polar_angle hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/experiment_result/data hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/title hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /ENTRY[entry]/start_time hasn't been supplied.
+WARNING  pynxtools:helpers.py:183 WARNING: The required group /ENTRY[entry]/MONITOR hasn't been supplied.
+WARNING  pynxtools:helpers.py:313 WARNING: Inconsistent dimensions for NXDL symbol 'nDet' in group '/ENTRY[entry]/experiment_result': 'intensity': size 5027, 'omega': size 5027, 'phi': size 1, 'two_theta': size 5027.
+INFO     pynxtools:convert.py:222 The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/pytest/tmp_files/test_nexus_conversion_xrdml_nx0///output.nxs.
+WARNING  pynxtools:helpers.py:157 WARNING: The unit '' at /entry/instrument/source/kbeta/@units does not match with the unit category NX_WAVELENGTH of 'kbeta'.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/experiment_config/beam_attenuation_factors hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/experiment_result/data hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/experiment_result/polar_angle hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/instrument/detector/data hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/instrument/detector/polar_angle hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/instrument/source/name hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/instrument/source/probe hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/instrument/source/type hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/start_time hasn't been supplied.
+WARNING  pynxtools:helpers.py:185 WARNING: The required field /entry/title hasn't been supplied.
+WARNING  pynxtools:helpers.py:313 WARNING: Inconsistent dimensions for NXDL symbol 'nDet' in group '/entry/experiment_result': 'intensity': size 5027, 'omega': size 5027, 'phi': size 1, 'two_theta': size 5027.
+WARNING  pynxtools.dataconverter.validate_file:validate_file.py:94 WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/pytest/tmp_files/test_nexus_conversion_xrdml_nx0///output.nxs` is NOT valid according to the `NXxrd_pan` application definition.
+INFO     nomad.client:processing.py:67 {"event": "identified parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:05:13Z"}
+INFO     nomad.client:processing.py:82 {"event": "ran parser", "parser": "pynxtools.nomad.parsers:nexus_parser", "timestamp": "2026-10-26T15:05:13Z"}
+- generated xml file: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/pytest/pynxtools-xrd_junit.xml -
+============================== slowest durations ===============================
+18.77s call     tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+=========================== short test summary info ============================
+PASSED tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]
+======================= 1 passed, 30 warnings in 20.72s ========================

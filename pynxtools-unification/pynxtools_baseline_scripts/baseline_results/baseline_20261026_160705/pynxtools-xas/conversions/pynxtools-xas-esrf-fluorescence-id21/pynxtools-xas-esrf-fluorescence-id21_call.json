@@ -1,0 +1,20 @@
+{
+  "test_id": "tests/test_reader.py::test_nexus_conversion[esrf-fluorescence-id21]",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-xas",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.254,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/packages/pynxtools-xas/tests/data/esrf_fluorescence_id21/ID21.h5"
+    ],
+    "reader": "xas",
+    "nxdl": "NXxas",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xas/pytest/tmp_files/test_nexus_conversion_esrf_flu0///output.nxs",
+    "skip_verify": false,
+    "ignore_undocumented": true
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-xas-esrf-fluorescence-id21"
+}

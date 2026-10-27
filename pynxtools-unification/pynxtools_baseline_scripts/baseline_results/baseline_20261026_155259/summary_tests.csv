@@ -1,0 +1,12 @@
+package,tests,passed,failed,errors,skipped,pytest_exit_code,wall_s,peak_rss_mb,conversions_recorded
+pynxtools,735,735,0,0,0,0,97.149,2037.3,7
+pynxtools-ellips,19,19,0,0,0,0,26.023,436.0,1
+pynxtools-em,7,6,0,0,1,0,6.482,423.3,
+pynxtools-igor,6,5,0,0,1,0,25.122,401.9,3
+pynxtools-microstructure,6,2,0,0,4,0,3.724,217.0,
+pynxtools-mpes,10,10,0,0,0,0,32.492,663.7,2
+pynxtools-raman,128,128,0,0,0,0,31.637,505.8,12
+pynxtools-spm,360,348,0,0,12,0,78.052,1232.1,19
+pynxtools-xas,4,4,0,0,0,0,31.739,538.5,4
+pynxtools-xps,212,212,0,0,0,0,93.131,1405.7,11
+pynxtools-xrd,1,1,0,0,0,0,25.22,409.3,1

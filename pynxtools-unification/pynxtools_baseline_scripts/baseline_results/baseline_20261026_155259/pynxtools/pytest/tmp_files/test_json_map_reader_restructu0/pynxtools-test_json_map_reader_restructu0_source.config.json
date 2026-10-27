@@ -1,0 +1,5 @@
+{
+  "/ENTRY[entry]/SAMPLE[sample]/temperature": "@data:entry/measurement",
+  "/ENTRY[entry]/SAMPLE[sample]/temperature/@units": "@data:entry/measurement@units",
+  "/ENTRY[entry]/INSTRUMENT[instrument]/detector/count_time": 42
+}

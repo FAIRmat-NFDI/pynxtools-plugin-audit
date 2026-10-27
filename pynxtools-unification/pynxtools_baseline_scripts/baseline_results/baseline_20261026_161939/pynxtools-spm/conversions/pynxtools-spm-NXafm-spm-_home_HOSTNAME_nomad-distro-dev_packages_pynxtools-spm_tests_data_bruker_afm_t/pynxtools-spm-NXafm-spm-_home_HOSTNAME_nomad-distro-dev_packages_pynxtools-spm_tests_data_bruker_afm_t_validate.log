@@ -1,0 +1,11 @@
+WARNING: The required field /entry/deflection_extension/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/deflection_extension/DATA hasn't been supplied.
+WARNING: The required field /entry/deflection_retrace/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/deflection_retrace/DATA hasn't been supplied.
+WARNING: The required field /entry/height_sensor_extension/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/height_sensor_extension/DATA hasn't been supplied.
+WARNING: The required field /entry/height_sensor_retrace/AXISNAME hasn't been supplied.
+WARNING: The required field /entry/height_sensor_retrace/DATA hasn't been supplied.
+WARNING: The required field /entry/instrument/scan_environment/spm_scan_control/point_force_scan/scan_points_x hasn't been supplied.
+WARNING: The required field /entry/instrument/scan_environment/spm_scan_control/point_force_scan/scan_points_y hasn't been supplied.
+WARNING: Invalid: The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_t/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_bruker_afm_t_output.nxs` is NOT valid according to the `NXafm` application definition.

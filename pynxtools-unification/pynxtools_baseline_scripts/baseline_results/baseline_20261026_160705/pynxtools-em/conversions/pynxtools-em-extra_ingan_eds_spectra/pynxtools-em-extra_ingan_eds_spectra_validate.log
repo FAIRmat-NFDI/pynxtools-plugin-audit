@@ -1,0 +1,13 @@
+WARNING: Field /entry1/profiling/architecture has no documentation.
+WARNING: Field /entry1/profiling/operating_system has no documentation.
+WARNING: Field /entry1/profiling/template_filling_elapsed_time has no documentation.
+WARNING: The required group /entry1/measurement/instrument hasn't been supplied.
+WARNING: The required field /entry1/custom_reference_frame/x hasn't been supplied.
+WARNING: The required field /entry1/custom_reference_frame/y hasn't been supplied.
+WARNING: The required field /entry1/custom_reference_frame/z hasn't been supplied.
+WARNING: The required field /entry1/measurement/event1/image1/process/detector_identifier hasn't been supplied.
+WARNING: The required field /entry1/measurement/event1/image1/process/input/type hasn't been supplied.
+WARNING: The required field /entry1/measurement/event1/spectrum1/process/detector_identifier hasn't been supplied.
+WARNING: The required field /entry1/measurement/event1/spectrum1/process/input/type hasn't been supplied.
+WARNING: The required field /entry1/sample/atom_types hasn't been supplied.
+WARNING: Invalid: The entry `entry1` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-em/conversions/pynxtools-em-extra_ingan_eds_spectra/pynxtools-em-extra_ingan_eds_spectra_output.nxs` is NOT valid according to the `NXem` application definition.

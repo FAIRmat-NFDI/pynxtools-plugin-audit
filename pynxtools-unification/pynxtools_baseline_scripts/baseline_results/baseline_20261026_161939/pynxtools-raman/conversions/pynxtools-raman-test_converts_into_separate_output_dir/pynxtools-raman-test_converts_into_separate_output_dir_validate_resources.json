@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-raman/conversions/pynxtools-raman-test_converts_into_separate_output_dir/pynxtools-raman-test_converts_into_separate_output_dir_output.nxs"
+  ],
+  "started": "2026-10-26T16:24:33",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.816,
+  "user_cpu_s": 0.963,
+  "sys_cpu_s": 0.948,
+  "peak_rss_mb": 113.8
+}

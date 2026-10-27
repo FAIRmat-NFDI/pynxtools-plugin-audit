@@ -1,0 +1,25 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json",
+    "$HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Fig2a.pxp",
+    "$HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Scan57_59.yaml.entry"
+  ],
+  "reader": "igor",
+  "nxdl": "NXroot",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-igor/conversions/pynxtools-igor-pxp-to-nxs-with-entry-nxroot/pynxtools-igor-pxp-to-nxs-with-entry-nxroot_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:10:31,037 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:10:31,283 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using igor reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/config_file.json
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Fig2a.pxp
+• $HOME/nomad-distro-dev/packages/pynxtools-igor/tests/data/Scan57_59.yaml.entry
+WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/AXISNAME[l]/@units' are not valid. Please provide a valid unit.
+WARNING: Units provided for path: '/ENTRY[Scan57]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+WARNING: Units provided for path: '/ENTRY[Scan59]/DATA[data]/AXISNAME[l]/@units' are not valid. Please provide a valid unit.
+WARNING: Units provided for path: '/ENTRY[Scan59]/DATA[data]/DATA[data]/@units' are not valid. Please provide a valid unit.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-igor/conversions/pynxtools-igor-pxp-to-nxs-with-entry-nxroot/pynxtools-igor-pxp-to-nxs-with-entry-nxroot_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-igor/conversions/pynxtools-igor-pxp-to-nxs-with-entry-nxroot/pynxtools-igor-pxp-to-nxs-with-entry-nxroot_output.nxs

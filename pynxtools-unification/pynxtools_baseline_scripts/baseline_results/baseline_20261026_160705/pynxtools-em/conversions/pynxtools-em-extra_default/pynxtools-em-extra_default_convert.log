@@ -1,0 +1,52 @@
+Replaying conversion from test: extra::default
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/em.oasis.specific.yaml",
+    "$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/output.nxs_eln_data.yaml"
+  ],
+  "reader": "em",
+  "nxdl": "NXem",
+  "ignore_undocumented": true,
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-em/conversions/pynxtools-em-extra_default/pynxtools-em-extra_default_output.nxs"
+}
+2026-10-26 16:09:38,573 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:09:38,812 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using em reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/em.oasis.specific.yaml
+• $HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/output.nxs_eln_data.yaml
+2026-10-26 16:09:40,267 INFO pynxtools-em: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-em/conversions/pynxtools-em-extra_default
+2026-10-26 16:09:40,267 INFO pynxtools-em: Oasis local config: ['$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/em.oasis.specific.yaml']
+Oasis ELN: ['$HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/output.nxs_eln_data.yaml']
+Custom ELN: []
+Tech (meta)data: []
+
+2026-10-26 16:09:40,268 INFO pynxtools-em: key: custom_coordinate_system, val: [{'alias': 'Following the idea of McStas that the z-axis points along the beam, electron microscopy as a beam line to study electron/matter interaction.', 'type': 'cartesian', 'xaxis_direction': 'Direction 1 that is perpendicular to the z_direction for a right_handed cartesian', 'xaxis_alias': 'x-axis', 'yaxis_direction': 'Direction 2 that is perpendicular to the xaxis_direction and the z_direction for a right_handed cartesian', 'yaxis_alias': 'y-axis', 'zaxis_direction': 'Direction of an electron travelling hypothetically exactly along the optical axis towards the specimen', 'zaxis_alias': 'Ideal beam direction', 'origin': 'E.g. a characteristic point along electron-optical setup such as the point where the probe exits what is considered as the gun (source).'}]
+2026-10-26 16:09:40,268 INFO pynxtools-em: Parsing $HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/em.oasis.specific.yaml NOMAD Oasis/config with SHA256 52aaba55c5773fdaa02919ad0063740189d97239f175adab6987a1848e8bdc48 ...
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: entry/end_time, value: 2025-03-22T10:02:00+00:00
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: entry/experiment_alias, value: InGaN
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: entry/experiment_description, value: <p>normal<br /><strong>bold</strong></p>
+<p><em>italics</em></p>
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: entry/start_time, value: 2025-03-22T10:02:00+00:00
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/chemical_formula, value: InGaN
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/description, value: <p>normal<br /><strong>bold</strong></p>
+<p><em>italics</em></p>
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/is_simulation, value: False
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/name, value: InGaN
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/preparation_date, value: 2025-03-22T10:02:00+00:00
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/thickness/unit, value: nm
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: sample/thickness/value, value: 999.9999999999999
+2026-10-26 16:09:40,269 INFO pynxtools-em: key: user, value: [{'name': 'Aidan', 'orcid': '0000-0000-0000-0000'}, {'name': 'JonasL'}, {'name': 'MarkusK'}]
+2026-10-26 16:09:40,269 INFO pynxtools-em: Parsing $HOME/nomad-distro-dev/packages/pynxtools-em/tests/data/default/output.nxs_eln_data.yaml NOMAD Oasis/ELN with SHA256 db7a6e778692765bce64cd998bfd082c1bf671e3a1fa8d1fe4b3f9021e7f87d7 ...
+2026-10-26 16:09:40,270 INFO pynxtools-em: 0 NXdata instances with priority 1
+2026-10-26 16:09:40,270 INFO pynxtools-em: 0 NXdata instances with priority 2
+2026-10-26 16:09:40,270 INFO pynxtools-em: 0 NXdata instances with priority 3
+2026-10-26 16:09:40,270 INFO pynxtools-em: 0 NXdata instances with priority 4
+2026-10-26 16:09:40,270 INFO pynxtools-em: 0 NXdata instances with priority 5
+2026-10-26 16:09:40,270 WARNING pynxtools-em: No default plot!
+2026-10-26 16:09:40,270 WARNING pynxtools-em: Unable to identify atom_types
+WARNING: The required field /ENTRY[entry1]/sampleID[sample]/atom_types hasn't been supplied.
+WARNING: The required field /ENTRY[entry1]/NAMED_reference_frameID[custom_reference_frame]/x hasn't been supplied.
+WARNING: The required field /ENTRY[entry1]/NAMED_reference_frameID[custom_reference_frame]/y hasn't been supplied.
+WARNING: The required field /ENTRY[entry1]/NAMED_reference_frameID[custom_reference_frame]/z hasn't been supplied.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-em/conversions/pynxtools-em-extra_default/pynxtools-em-extra_default_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-em/conversions/pynxtools-em-extra_default/pynxtools-em-extra_default_output.nxs

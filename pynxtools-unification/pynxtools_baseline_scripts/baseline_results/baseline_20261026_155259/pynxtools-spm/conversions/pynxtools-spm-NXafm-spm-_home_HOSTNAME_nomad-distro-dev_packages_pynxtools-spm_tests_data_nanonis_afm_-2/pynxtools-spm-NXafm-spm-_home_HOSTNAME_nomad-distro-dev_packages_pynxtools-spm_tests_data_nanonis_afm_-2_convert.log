@@ -1,0 +1,20 @@
+Replaying conversion from test: tests/test_reader.py::test_afm_reader[NXafm-spm-$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up/A151216.123306-02602.sxm",
+    "$HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up/eln_data.yaml"
+  ],
+  "reader": "spm",
+  "nxdl": "NXafm",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:00:41,253 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:00:41,495 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using spm reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up/A151216.123306-02602.sxm
+• $HOME/nomad-distro-dev/packages/pynxtools-spm/tests/data/nanonis/afm/v_gen_4_dflt_conf_up/eln_data.yaml
+No auxiliary files provided. If there are auxiliary files, please provide them as a list of file paths to the formatter.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2/pynxtools-spm-NXafm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_afm_-2_output.nxs

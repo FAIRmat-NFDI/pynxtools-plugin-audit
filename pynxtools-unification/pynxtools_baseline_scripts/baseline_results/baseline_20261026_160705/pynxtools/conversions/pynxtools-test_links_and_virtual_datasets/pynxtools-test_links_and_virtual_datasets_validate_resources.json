@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "validate",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools/conversions/pynxtools-test_links_and_virtual_datasets/pynxtools-test_links_and_virtual_datasets_output.nxs"
+  ],
+  "started": "2026-10-26T16:08:55",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.666,
+  "user_cpu_s": 0.845,
+  "sys_cpu_s": 0.916,
+  "peak_rss_mb": 105.4
+}

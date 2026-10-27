@@ -1,0 +1,47 @@
+Replaying conversion from test: tests/dataconverter/test_convert.py::test_compression
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools/tests/dataconverter/../data/dataconverter/readers/example/testdata.json"
+  ],
+  "reader": "example",
+  "nxdl": "NXtest",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools/conversions/pynxtools-test_compression/pynxtools-test_compression_output.nxs"
+}
+2026-10-26 16:08:57,475 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:08:57,717 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using example reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools/tests/dataconverter/../data/dataconverter/readers/example/testdata.json
+The entry '/ENTRY[entry]/definition/@version' (value: v2024.02.post1.dev2011+gaf199a51) should not be changed by the reader. The provided version '1.0' is kept. We assume you know what you are doing.
+WARNING: Broken link at /ENTRY[entry]/my_link to NXentry/NXdata/specified_group_with_no_name_type.
+WARNING: The key /ENTRY[entry]/my_link will not be written.
+WARNING: The required group /ENTRY[entry]/specified_group_with_no_name_type hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/specified_group hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/any_groupGROUP hasn't been supplied.
+WARNING: Missing data for signal in /ENTRY[entry]/NXODD_name[nxodd_name]/data.
+WARNING: The required field /ENTRY[entry]/NXODD_name[nxodd_name]/anamethatRENAMES hasn't been supplied.
+WARNING: The unit 'nm' at /ENTRY[entry]/NXODD_name[nxodd_name]/float_value/@units does not match with the unit category NX_ENERGY of 'float_value'.
+WARNING: The unit 'eV' at /ENTRY[entry]/NXODD_name[nxodd_name]/int_value/@units does not match with the unit category NX_LENGTH of 'int_value'.
+WARNING: The unit 'kg' at /ENTRY[entry]/NXODD_name[nxodd_name]/posint_value/@units does not match with the unit category NX_LENGTH of 'posint_value'.
+The value '2nd type' at /ENTRY[entry]/NXODD_name[nxodd_name]/type2 does not match with the enumerated items from the open enumeration: ['1st type open', '2nd type open']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+The value '2nd type' at /ENTRY[entry]/NXODD_name[nxodd_name]/type2 does not match with the enumerated items from the open enumeration: ['1st type open', '2nd type open'].
+WARNING: The required attribute /ENTRY[entry]/NXODD_name[nxodd_name]/@AXISNAME_indices hasn't been supplied.
+WARNING: Field /ENTRY[entry]/does/not/exist has no documentation.
+WARNING: Field /ENTRY[entry]/test_link/internal_link has no documentation.
+WARNING: Field /ENTRY[entry]/test_link/external_link has no documentation.
+WARNING: Field /ENTRY[entry]/test_virtual_dataset/concatenate_datasets has no documentation.
+WARNING: Field /ENTRY[entry]/test_virtual_dataset/sliced_dataset has no documentation.
+WARNING: Field /ENTRY[entry]/test_virtual_dataset/sliced_dataset2 has no documentation.
+WARNING: Field /ENTRY[entry]/test_virtual_dataset/sliced_dataset3 has no documentation.
+WARNING: Field /ENTRY[entry]/test_compression/not_to_compress has no documentation.
+WARNING: Field /ENTRY[entry]/test_compression/compressed_data has no documentation.
+WARNING: The NXroot entry '/@file_name' (value: None) should not be changed by the reader. This is overwritten by the actually used value 'pynxtools-test_compression_output.nxs'
+WARNING: The NXroot entry '/@file_time' (value: None) should not be changed by the reader. This is overwritten by the actually used value '2026-10-26 16:08:57.836917+01:00'
+WARNING: The NXroot entry '/@file_update_time' (value: None) should not be changed by the reader. This is overwritten by the actually used value '2026-10-26 16:08:57.836917+01:00'
+WARNING: The NXroot entry '/@NeXus_repository' (value: None) should not be changed by the reader. This is overwritten by the actually used value 'https://github.com/FAIRmat-NFDI/nexus_definitions/blob/af199a51'
+WARNING: The NXroot entry '/@NeXus_release' (value: None) should not be changed by the reader. This is overwritten by the actually used value 'v2024.02.post1.dev2011+gaf199a51'
+WARNING: The NXroot entry '/@HDF5_Version' (value: None) should not be changed by the reader. This is overwritten by the actually used value '2.0.0'
+WARNING: The NXroot entry '/@h5py_version' (value: None) should not be changed by the reader. This is overwritten by the actually used value '3.16.0'
+WARNING: The NXroot entry '/@creator' (value: None) should not be changed by the reader. This is overwritten by the actually used value 'pynxtools'
+WARNING: The NXroot entry '/@creator_version' (value: None) should not be changed by the reader. This is overwritten by the actually used value '0.16.0.post1.dev18+g59f03be0d'
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools/conversions/pynxtools-test_compression/pynxtools-test_compression_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools/conversions/pynxtools-test_compression/pynxtools-test_compression_output.nxs

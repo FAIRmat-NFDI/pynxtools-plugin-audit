@@ -1,0 +1,12 @@
+{"t": 1793026589.1110923, "event": "start", "nodeid": "tests/nomad/test_nomad_apps.py::test_importing_app", "pid": 87409}
+{"t": 1793026589.1153893, "event": "finish", "nodeid": "tests/nomad/test_nomad_apps.py::test_importing_app", "pid": 87409}
+{"t": 1793026589.1156127, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[NOTSET]", "pid": 87409}
+{"t": 1793026589.1161044, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[NOTSET]", "pid": 87409}
+{"t": 1793026589.1162095, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[microstructure_example_upload]", "pid": 87409}
+{"t": 1793026589.11714, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[microstructure_example_upload]", "pid": 87409}
+{"t": 1793026589.1173136, "event": "start", "nodeid": "tests/nomad/test_nomad_north_tools.py::test_importing_north_tool", "pid": 87409}
+{"t": 1793026589.1176677, "event": "finish", "nodeid": "tests/nomad/test_nomad_north_tools.py::test_importing_north_tool", "pid": 87409}
+{"t": 1793026589.1178226, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[test-id-nxem]", "pid": 87409}
+{"t": 1793026589.1181674, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[test-id-nxem]", "pid": 87409}
+{"t": 1793026589.118314, "event": "start", "nodeid": "tests/test_utils_versioning.py::test_get_pynxtools_microstructure_version", "pid": 87409}
+{"t": 1793026589.1186197, "event": "finish", "nodeid": "tests/test_utils_versioning.py::test_get_pynxtools_microstructure_version", "pid": 87409}

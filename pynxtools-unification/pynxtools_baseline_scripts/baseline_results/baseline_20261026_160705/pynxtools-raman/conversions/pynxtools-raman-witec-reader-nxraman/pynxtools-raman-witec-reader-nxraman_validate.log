@@ -1,0 +1,8 @@
+The unit /entry/data/y_values/@units = counts has no documentation.
+The unit /entry/data/x_values_raman/@units = 1/cm has no documentation.
+The unit /entry/data/x_values/@units = nm has no documentation.
+The unit /entry/instrument/beam_incident/wavelength/@units = nm has no documentation.
+The value 'Serial Number' at /entry/instrument/detector_ccd/device_information/identifier/@type does not match with the enumerated items from the open enumeration: ['ARK', 'DOI', 'Hdl', 'IGSN', 'ISNI', 'ISSN', 'ISSN-L', 'ORCID', 'PURL', 'ROR', 'URL', 'URN'].
+The unit /entry/instrument/detector_ccd/number_of_cycles/@units = counts has no documentation.
+The value 'laser' at /entry/instrument/source_532nmlaser/type does not match with the enumerated items from the open enumeration: ['Synchrotron X-ray Source', 'Rotating Anode X-ray', 'Fixed Tube X-ray', 'UV Laser', 'Optical Laser', 'Laser', 'Dye-Laser', 'Broadband Tunable Light Source', 'Halogen lamp', 'LED', 'Mercury Cadmium Telluride', 'Deuterium Lamp', 'Xenon Lamp', 'Globar'].
+The entry `entry` in file `$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-raman/conversions/pynxtools-raman-witec-reader-nxraman/pynxtools-raman-witec-reader-nxraman_output.nxs` is valid according to the `NXraman` application definition.

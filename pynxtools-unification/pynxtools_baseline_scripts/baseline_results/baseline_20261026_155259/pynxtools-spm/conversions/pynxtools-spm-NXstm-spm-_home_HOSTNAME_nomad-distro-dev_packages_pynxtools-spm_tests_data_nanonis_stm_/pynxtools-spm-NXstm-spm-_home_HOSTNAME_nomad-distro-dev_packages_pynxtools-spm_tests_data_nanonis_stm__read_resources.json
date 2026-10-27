@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-spm/conversions/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm_/pynxtools-spm-NXstm-spm-_home_$HOSTNAME_nomad-distro-dev_packages_pynxtools-spm_tests_data_nanonis_stm__output.nxs"
+  ],
+  "started": "2026-10-26T16:00:01",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.966,
+  "user_cpu_s": 1.074,
+  "sys_cpu_s": 0.978,
+  "peak_rss_mb": 114.9
+}

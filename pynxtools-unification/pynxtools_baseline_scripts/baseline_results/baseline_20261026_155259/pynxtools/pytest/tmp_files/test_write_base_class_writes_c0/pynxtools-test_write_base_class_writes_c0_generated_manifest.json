@@ -1,0 +1,36 @@
+{
+  "base_classes/testbase": {
+    "classes": {
+      "Testbase": {
+        "collection_quantity": "0e086a4c5c4df0cefff98866ea28e1aadfb53392",
+        "count": "b5136d790745e9250f83cd5c918ee951758e1121",
+        "data": "dfd6ddd713e9fb1a1578469230940faaf268f2f6",
+        "energy": "23494ecdeeb5f30373fc5efcac6cae22b2a10755",
+        "energy_link": "297bb59d11eea48a67a1e790fe4023dc64113d0e",
+        "flag": "a8c84b38ec7a20724a6e9e517af93e72c18b7d3c",
+        "instrument": "2ca56bd74ea59faf2d5028bad923aa84e2681cb4",
+        "label": "d49caca5c14b30d3ac8280e19ba778e30f4197d8",
+        "labelID": "11356deedf97bc362da6b83b729f02dff1fe44ae",
+        "m_def": "0b1dd41c559ed8e9922108860b5b398bf3751b23",
+        "mode": "97dcd95d5305c8adce0c2e625c80d05b480c0c78",
+        "normalize": "a3bbf5aff11b1dae7a53f52a223dbd1d81263c61",
+        "offset": "3b0d61acbd328265bd22f9d960d0da57eba87611",
+        "quality": "2267bda6afd3b7c1d1b5c1c88521380e0c7e50db",
+        "sampleID": "068f6f7145165f1465bd80fa8f7a82dcc6c8d480",
+        "sampled_values": "e37bdc4b4e3cef78b1d4615d26c33112f68f065b",
+        "scale_factor": "07456902e03c12e9ab7caea4a9b75cb9c3ef4164",
+        "version": "e89a1381fbbcc4be523d5b30a8095a08acf80431"
+      }
+    },
+    "imports": [
+      "021649aa18241fb02d8c14bc2404c8fc80430392",
+      "1489a6a2e8e8818e2ec6645b6237b854da2d434f",
+      "4bd76f8ab442a03f8f2dc3cc1d6c22965525cf5a",
+      "93f8733b4e4ee8049914c9020bc471e960100923",
+      "bcab709e15bed658b61ee4181f314cd59ed91952",
+      "c12dae8304a649ebff1e0c806d6b21b6a0c44d90",
+      "e5f5c7cbf98ebd199f0366bf12fae0f3c57b2309",
+      "fc59eec49d4caba3437186fda93b32d705dbd740"
+    ]
+  }
+}

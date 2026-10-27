@@ -1,0 +1,15 @@
+{
+  "cmd": [
+    "$HOME/nomad-distro-dev/.venv/bin/python",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/_tools/replay_convert.py",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-em/conversions/pynxtools-em-extra_default/pynxtools-em-extra_default_call.json",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-em/conversions/pynxtools-em-extra_default/pynxtools-em-extra_default_output.nxs"
+  ],
+  "started": "2026-10-26T15:55:32",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 3.324,
+  "user_cpu_s": 4.365,
+  "sys_cpu_s": 1.284,
+  "peak_rss_mb": 380.2
+}

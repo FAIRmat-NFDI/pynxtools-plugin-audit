@@ -1,0 +1,2 @@
+{"t": 1793027942.477504, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]", "pid": 107255}
+{"t": 1793027961.523478, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]", "pid": 107255}

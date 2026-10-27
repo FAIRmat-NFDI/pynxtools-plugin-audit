@@ -1,0 +1,8 @@
+{
+  "comment": "Contains Raman spectra sourced from the Raman Open Database (ROD, https://solsa.crystallography.net/rod/). Released under the CC0 1.0 Universal Public Domain Dedication (https://creativecommons.org/publicdomain/zero/1.0/). Please cite the database: El Mendili, Y. et al. (2019). Raman Open Database: first interconnected Raman-X-ray diffraction open-access resource for material identification. J. Appl. Cryst. 52, 618-625. https://doi.org/10.1107/S1600576719004229",
+  "references": [
+    "https://doi.org/10.1107/S1600576719004229",
+    "https://wiki.crystallography.net/rod/citing/",
+    "https://creativecommons.org/publicdomain/zero/1.0/"
+  ]
+}

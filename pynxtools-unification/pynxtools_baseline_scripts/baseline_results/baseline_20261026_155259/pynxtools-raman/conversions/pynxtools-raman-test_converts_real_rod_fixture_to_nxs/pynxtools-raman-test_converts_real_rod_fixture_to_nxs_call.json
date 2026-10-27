@@ -1,0 +1,18 @@
+{
+  "test_id": "tests/rod_database/test_rod_batch.py::TestConvertRodFiles::test_converts_real_rod_fixture_to_nxs",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-raman",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.35,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-raman/pytest/tmp_files/test_converts_real_rod_fixture0/rod_file_1000679.rod"
+    ],
+    "reader": "raman",
+    "nxdl": "NXraman",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-raman/pytest/tmp_files/test_converts_real_rod_fixture0/rod_file_1000679.nxs"
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-raman-test_converts_real_rod_fixture_to_nxs"
+}

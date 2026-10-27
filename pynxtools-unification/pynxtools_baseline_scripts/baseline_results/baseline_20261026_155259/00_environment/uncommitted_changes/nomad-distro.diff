@@ -1,0 +1,16 @@
+ M pyproject.toml
+?? .env.north
+?? packages/pynxtools-apm/
+
+diff --git a/pyproject.toml b/pyproject.toml
+index eb7e8de..046e6a4 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -47,6 +47,7 @@ pynxtools-xrd = { workspace = true }
+ fairmat-readers-xrd = { workspace = true }
+ pynxtools-microstructure = { workspace = true }
+ pynxtools = { workspace = true }
++nomad-utility-workflows = { git = "https://github.com/FAIRmat-NFDI/nomad-utility-workflows", rev = "bb975517385568fab1a359539411ad4f341a66d0" }
+ 
+ [tool.uv]
+ extra-index-url = [

@@ -1,0 +1,33 @@
+Replaying conversion from test: tests/test_reader.py::test_nexus_conversion[xrdml-nxxrd_pan]
+{
+  "input_file": [
+    "$HOME/nomad-distro-dev/packages/pynxtools-xrd/tests/data/xrdml_918-16_10/XRD-918-16_10.xrdml"
+  ],
+  "reader": "xrd",
+  "nxdl": "NXxrd_pan",
+  "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xrd/conversions/pynxtools-xrd-xrdml-nxxrd_pan/pynxtools-xrd-xrdml-nxxrd_pan_output.nxs",
+  "skip_verify": false,
+  "ignore_undocumented": true
+}
+2026-10-26 16:19:25,590 INFO numexpr.utils: NumExpr defaulting to 14 threads.
+2026-10-26 16:19:25,831 WARNING pint.util: Redefining '[magnetic_flux]' (<class 'pint.delegates.txt_defparser.plain.DerivedDimensionDefinition'>)
+Using xrd reader to convert the given files:  
+• $HOME/nomad-distro-dev/packages/pynxtools-xrd/tests/data/xrdml_918-16_10/XRD-918-16_10.xrdml
+WARNING: The unit '' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units does not match with the unit category NX_WAVELENGTH of 'kbeta'.
+The value '' at /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units does not match with the enumerated items from the open enumeration: ['angstrom']. When a different value is used, a boolean 'custom=True' attribute must be added. It was added here automatically.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/type hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/name hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/SOURCE[source]/probe hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/DETECTOR[detector]/polar_angle hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/INSTRUMENT[instrument]/DETECTOR[detector]/data hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/BEAM hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/INSTRUMENT[instrument]/CRYSTAL hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/experiment_config/beam_attenuation_factors hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/experiment_result/polar_angle hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/experiment_result/data hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/title hasn't been supplied.
+WARNING: The required field /ENTRY[entry]/start_time hasn't been supplied.
+WARNING: The required group /ENTRY[entry]/MONITOR hasn't been supplied.
+WARNING: Inconsistent dimensions for NXDL symbol 'nDet' in group '/ENTRY[entry]/experiment_result': 'intensity': size 5027, 'omega': size 5027, 'phi': size 1, 'two_theta': size 5027.
+The output file generated: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xrd/conversions/pynxtools-xrd-xrdml-nxxrd_pan/pynxtools-xrd-xrdml-nxxrd_pan_output.nxs.
+Conversion finished: $HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_160705/pynxtools-xrd/conversions/pynxtools-xrd-xrdml-nxxrd_pan/pynxtools-xrd-xrdml-nxxrd_pan_output.nxs

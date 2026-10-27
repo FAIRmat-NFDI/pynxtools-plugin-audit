@@ -1,0 +1,8 @@
+{"t": 1793028470.4108362, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-xy-aey]", "pid": 116112}
+{"t": 1793028489.7145748, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[specs-xy-aey]", "pid": 116112}
+{"t": 1793028489.7150302, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[esrf-transmission-exafs]", "pid": 116112}
+{"t": 1793028490.3682642, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[esrf-transmission-exafs]", "pid": 116112}
+{"t": 1793028490.3684893, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[esrf-fluorescence-id21]", "pid": 116112}
+{"t": 1793028491.2372134, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[esrf-fluorescence-id21]", "pid": 116112}
+{"t": 1793028491.237438, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]", "pid": 116112}
+{"t": 1793028493.1024795, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[oscars-xdi-transmission]", "pid": 116112}

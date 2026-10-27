@@ -1,0 +1,14 @@
+{"t": 1793028128.8715546, "event": "start", "nodeid": "tests/nomad/test_nomad_apps.py::test_importing_app", "pid": 109115}
+{"t": 1793028128.8758714, "event": "finish", "nodeid": "tests/nomad/test_nomad_apps.py::test_importing_app", "pid": 109115}
+{"t": 1793028128.8761055, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[em.scheme.archive.yaml]", "pid": 109115}
+{"t": 1793028128.9213104, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[em.scheme.archive.yaml]", "pid": 109115}
+{"t": 1793028128.921508, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[em_example_upload]", "pid": 109115}
+{"t": 1793028128.9227493, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[em_example_upload]", "pid": 109115}
+{"t": 1793028128.9229593, "event": "start", "nodeid": "tests/test_nomad_examples.py::test_parse_nomad_examples[em.scheme.archive.yaml]", "pid": 109115}
+{"t": 1793028128.9378896, "event": "finish", "nodeid": "tests/test_nomad_examples.py::test_parse_nomad_examples[em.scheme.archive.yaml]", "pid": 109115}
+{"t": 1793028128.938043, "event": "start", "nodeid": "tests/test_nomad_examples.py::test_example_upload_entry_point_valid[em_example_upload]", "pid": 109115}
+{"t": 1793028128.9389944, "event": "finish", "nodeid": "tests/test_nomad_examples.py::test_example_upload_entry_point_valid[em_example_upload]", "pid": 109115}
+{"t": 1793028128.9391751, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[NOMAD simple EM example, NXem]", "pid": 109115}
+{"t": 1793028128.9396758, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[NOMAD simple EM example, NXem]", "pid": 109115}
+{"t": 1793028128.9398282, "event": "start", "nodeid": "tests/test_utils_versioning.py::test_get_pynxtools_em_version", "pid": 109115}
+{"t": 1793028128.9410136, "event": "finish", "nodeid": "tests/test_utils_versioning.py::test_get_pynxtools_em_version", "pid": 109115}

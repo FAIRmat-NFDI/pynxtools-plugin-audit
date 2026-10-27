@@ -1,0 +1,12 @@
+{"t": 1793026556.6355307, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[NOTSET]", "pid": 86892}
+{"t": 1793026556.6392825, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_parse_nomad_examples[NOTSET]", "pid": 86892}
+{"t": 1793026556.639424, "event": "start", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[igor_example_upload]", "pid": 86892}
+{"t": 1793026556.6815224, "event": "finish", "nodeid": "tests/nomad/test_nomad_example_uploads.py::test_example_upload_entry_point_valid[igor_example_upload]", "pid": 86892}
+{"t": 1793026556.682187, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]", "pid": 86892}
+{"t": 1793026575.0958233, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-nxroot]", "pid": 86892}
+{"t": 1793026575.0961614, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-with-entry-nxroot]", "pid": 86892}
+{"t": 1793026575.3878605, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[ibw-to-nxs-with-entry-nxroot]", "pid": 86892}
+{"t": 1793026575.3881497, "event": "start", "nodeid": "tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]", "pid": 86892}
+{"t": 1793026575.700489, "event": "finish", "nodeid": "tests/test_reader.py::test_nexus_conversion[pxp-to-nxs-with-entry-nxroot]", "pid": 86892}
+{"t": 1793026575.700812, "event": "start", "nodeid": "tests/test_utils_versioning.py::test_get_pynxtools_igor_version", "pid": 86892}
+{"t": 1793026575.702213, "event": "finish", "nodeid": "tests/test_utils_versioning.py::test_get_pynxtools_igor_version", "pid": 86892}

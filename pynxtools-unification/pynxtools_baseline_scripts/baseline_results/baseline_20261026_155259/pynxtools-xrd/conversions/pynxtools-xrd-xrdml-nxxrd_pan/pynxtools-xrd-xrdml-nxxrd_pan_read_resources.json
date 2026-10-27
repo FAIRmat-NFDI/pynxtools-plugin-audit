@@ -1,0 +1,14 @@
+{
+  "cmd": [
+    "pynx",
+    "read",
+    "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_155259/pynxtools-xrd/conversions/pynxtools-xrd-xrdml-nxxrd_pan/pynxtools-xrd-xrdml-nxxrd_pan_output.nxs"
+  ],
+  "started": "2026-10-26T16:05:19",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 0.766,
+  "user_cpu_s": 0.867,
+  "sys_cpu_s": 0.96,
+  "peak_rss_mb": 105.3
+}

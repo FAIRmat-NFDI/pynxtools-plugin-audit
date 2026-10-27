@@ -1,0 +1,18 @@
+{
+  "test_id": "tests/rod_database/test_rod_batch.py::TestBuildRodUploadBatchCli::test_yes_flag_skips_convert_confirmation_too",
+  "cwd": "$HOME/nomad-distro-dev/packages/pynxtools-raman",
+  "status_in_test": "ok",
+  "seconds_in_test": 0.331,
+  "call": {
+    "input_file": [
+      "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-raman/pytest/tmp_files/test_yes_flag_skips_convert_co0/1000679.rod"
+    ],
+    "reader": "raman",
+    "nxdl": "NXraman",
+    "output": "$HOME/nomad-distro-dev/pynxtools_baseline_scripts/baseline_results/baseline_20261026_161939/pynxtools-raman/pytest/tmp_files/test_yes_flag_skips_convert_co0/1000679.nxs"
+  },
+  "replayable": true,
+  "source": "pytest",
+  "duplicate_of_earlier_call": false,
+  "conversion_name": "pynxtools-raman-test_yes_flag_skips_convert_confirmation_too"
+}
