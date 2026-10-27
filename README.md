@@ -8,7 +8,7 @@ The repository has four parts:
 
 - **Overview** (`overview_table.ods`, repository root): one row per plugin with its technique, NeXus application definition, links and known issues.
 - **Parser documentation** (`docs/`): one folder per plugin, with a plugin README, one document per parser and, for some plugins, a findings sheet.
-- **Preliminary audit** (`preliminary_audit/`): a static scanner and its CSV results, used as a first automated pass over a plugin's code.
+- **Preliminary audit** (`preliminary_audit_scans/`): a static scanner with one profile per package and its CSV results, used as a first automated pass over each package's code.
 - **Unification** (`pynxtools-unification/`): a cross-plugin findings report, a plan to unify all readers around `MultiFormatReader`, and a reproducible **pre-redesign baseline** (converted NeXus files plus computing resources) to compare against after the redesign.
 
 Each part is described below.
@@ -83,11 +83,37 @@ Sheets exist so far for `pynxtools-xps`, `pynxtools-spm` and `pynxtools-em`.
 ├── overview_table.ods                                                   # Master overview across all plugins (sheets: About, pynxtools_plugins_general)
 ├── overview_table.pdf                                                   # PDF export of the plugin overview sheet
 ├── overview_table_about.pdf                                             # PDF export of the About sheet (task description)
-├── preliminary_audit/
-│   ├── preliminary_audit_scripts/
-│   │   └── audit_scan_xps.py                                            # Static scanner (audit_scan.py), as run on pynxtools-xps
-│   └── preliminary_results/
-│       └── audit_xps.csv                                                # Scanner findings for pynxtools-xps
+├── preliminary_audit_scans/                                             # Static scanner, per-package profiles and scan results
+│   ├── README.md                                                        # Full reference: options, profiles, rules
+│   ├── audit_scan.py                                                    # The scanner
+│   ├── run_all.sh                                                       # Scans all 12 repos, one CSV each
+│   ├── profiles/                                                        # What is normal for each repo (merged onto _base.toml)
+│   │   ├── _base.toml                                                   # Applies to every repo
+│   │   ├── pynxtools.toml
+│   │   ├── pynxtools-ellips.toml
+│   │   ├── pynxtools-em.toml
+│   │   ├── pynxtools-igor.toml
+│   │   ├── pynxtools-microstructure.toml
+│   │   ├── pynxtools-mpes.toml
+│   │   ├── pynxtools-raman.toml
+│   │   ├── pynxtools-spm.toml
+│   │   ├── pynxtools-xas.toml
+│   │   ├── pynxtools-xps.toml
+│   │   ├── pynxtools-xrd.toml
+│   │   └── readers-xrd.toml
+│   ├── results/                                                         # One CSV of findings per package (same names as profiles/)
+│   │   ├── pynxtools.csv
+│   │   ├── pynxtools-ellips.csv ... pynxtools-xrd.csv
+│   │   └── readers-xrd.csv
+│   └── tests/
+│       ├── test_audit_scan.py                                           # Regression test: every planted bug must be reported
+│       └── fixture_repo/                                                # Fake plugin with one planted bug per rule family
+│           ├── pyproject.toml
+│           └── src/pynxtools_fixture/
+│               ├── reader.py
+│               └── config/
+│                   ├── config.json
+│                   └── nested.json
 ├── pynxtools-unification/                                               # Cross-plugin review and unification strategy
 │   ├── FINDINGS.md                                                      # Architecture review, per-plugin findings, bug list
 │   ├── IMPLEMENTATION_PLAN.md                                           # Phased plan to unify all readers around MultiFormatReader
@@ -109,9 +135,14 @@ Sheets exist so far for `pynxtools-xps`, `pynxtools-spm` and `pynxtools-em`.
 │           ├── baseline_20261026_155259/
 │           ├── baseline_20261026_160705/
 │           └── baseline_20261026_161939/
-│               ├── run.log, summary_tests.csv, summary_conversions.csv, MANIFEST.sha256
-│               ├── 00_environment/  00_monitor/  _tools/
-│               └── pynxtools/  pynxtools-ellips/  pynxtools-em/  ...  pynxtools-xrd/
+│               ├── run.log
+│               ├── summary_tests.csv
+│               ├── summary_conversions.csv
+│               ├── MANIFEST.sha256
+│               ├── 00_environment/
+│               ├── 00_monitor/
+│               ├── _tools/
+│               └── pynxtools/, pynxtools-<plugin>/
 │                   ├── pytest/
 │                   └── conversions/
 └── docs/
@@ -120,7 +151,7 @@ Sheets exist so far for `pynxtools-xps`, `pynxtools-spm` and `pynxtools-em`.
     │   ├── multi_format_reader.md
     │   └── multi_reader_description.md                                  # Line-by-line walkthrough of multi/reader.py
     ├── apm/
-    │   ├── README.md                                                    # Plugin overview (same in every plugin folder)
+    │   ├── README.md                                                    # Plugin overview (in every plugin)
     │   ├── apm_oasis_config.md
     │   ├── apm_oasis_eln.md
     │   ├── ifes_ranging.md
@@ -128,9 +159,10 @@ Sheets exist so far for `pynxtools-xps`, `pynxtools-spm` and `pynxtools-em`.
     ├── ellips/
     │   ├── README.md
     │   └── ellips_plugin_woollam_parser.md
-    ├── em/
+    ├── em/                                                              # InGaN nanowire EDS .edaxh5 files (Zenodo 11208725)
     │   ├── README.md
-    │   ├── pynxtools-em.ods, pynxtools-em.pdf                           # Plugin findings sheet + PDF export
+    │   ├── pynxtools-em.ods                                             # Plugin findings sheet
+    │   ├── pynxtools-em.pdf                                             # PDF export of the findings sheet
     │   ├── hdf5_vendor_parsers.md
     │   ├── image_parsers.md
     │   ├── nxs_nion.md
@@ -152,7 +184,8 @@ Sheets exist so far for `pynxtools-xps`, `pynxtools-spm` and `pynxtools-em`.
     │   └── witec.md
     ├── spm/
     │   ├── README.md
-    │   ├── pynxtools-spm.ods, pynxtools-spm.pdf
+    │   ├── pynxtools-spm.ods
+    │   ├── pynxtools-spm.pdf
     │   ├── bruker_flt.md
     │   ├── bruker_spm.md
     │   ├── bruker_txt.md
@@ -168,7 +201,8 @@ Sheets exist so far for `pynxtools-xps`, `pynxtools-spm` and `pynxtools-em`.
     │   └── specs_xy.md
     ├── xps/
     │   ├── README.md
-    │   ├── pynxtools-xps.ods, pynxtools-xps.pdf
+    │   ├── pynxtools-xps.ods
+    │   ├── pynxtools-xps.pdf
     │   ├── kratos.md
     │   ├── phi.md
     │   ├── scienta.md
@@ -211,25 +245,54 @@ For a plugin that is one reader with no separate parsers, see [`docs/mpes/mpes-r
 
 ## Preliminary audit
 
-Before a plugin's parsers are documented by hand, its code gets a first automated pass: a static scanner flags places where data may be changed, defaulted or hard-coded without notice. The resulting list tells the reviewer where to look first, and each relevant hit is then checked manually and, if it holds, written up in the parser document (section 7, *Scanner findings*). The scanner script is in [`preliminary_audit/preliminary_audit_scripts/`](preliminary_audit/preliminary_audit_scripts/) and its CSV results are in [`preliminary_audit/preliminary_results/`](preliminary_audit/preliminary_results/).
+Before a plugin's parsers are documented by hand, its code gets a first automated pass: a static scanner flags places where data may be changed, defaulted or hard-coded without notice. The resulting list tells the reviewer where to look first, and each relevant hit is then checked manually and, if it holds, written up in the parser document (section 7, *Scanner findings*).
+
+Everything for this step lives in [`preliminary_audit_scans/`](preliminary_audit_scans/). It scans 12 repositories: pynxtools, pynxtools-ellips, -em, -igor, -microstructure, -mpes, -raman, -spm, -xas, -xps, -xrd and readers-xrd. The full reference (all options, profile sections, rule IDs) is in [`preliminary_audit_scans/README.md`](preliminary_audit_scans/README.md).
 
 ### The `audit_scan.py` scanner
 
-`audit_scan.py` is a rule-based static analysis tool for Python packages, with a focus on pynxtools plugins and their data-processing and configuration logic. It uses Python's Abstract Syntax Tree (AST) and tokenization to inspect Python source files, and dedicated parsers and pattern-based checks to analyse JSON and YAML configuration files.
+`audit_scan.py` is a rule-based static analysis tool for pynxtools and its plugins. It reads a repository's Python source with Python's Abstract Syntax Tree (AST) and tokenizer, and its JSON and YAML configuration files with dedicated parsers and pattern-based checks. It then lists places worth a manual look, grouped into rule families: **U** units, **N** numbers and hard-coded constants, **A** data-changing operations, **D** defaults and silent fallbacks, **E** error handling, **T** date and time, **K** consistency (duplicate keys, inconsistent naming, copy-pasted or divergent functions), **C** config files, **S** unsafe handling of uploaded files, and **M** miscellaneous. Unit strings are checked with pint against pynxtools' own `default_en.txt`, so they are judged exactly as the dataconverter judges them.
 
-Its rule set covers unit-string validation and canonicalization, hard-coded physical constants and numeric values, default parameters and silent fallbacks, data transformations and reductions, array reversals and truncation, exception handling, datetime and timezone operations, duplicate dictionary and JSON keys, inconsistent key naming, duplicated or divergent function implementations, hard-coded configuration values, syntax and parsing errors, and TODO/FIXME markers.
+The scan is read-only: it never changes the repositories and sends nothing anywhere. Its findings are heuristic pointers for review, not definitive evidence of defects.
 
-Findings are collected with rule identifiers, severity levels, file paths, line numbers, qualified function or class names where applicable, diagnostic messages, and source snippets, then written to a CSV report for manual inspection. The command-line interface supports configurable severity filtering, selective rule suppression, optional scanning of tests and NOMAD example directories, and integration with an existing CSV inventory to aggregate findings by code unit.
+### How it works
 
-The scanner is intended as a review aid for identifying potentially error-prone or inconsistent implementation patterns; its findings are heuristic indicators rather than definitive evidence of defects.
+The folder has four parts:
 
-The version in this repository is [`preliminary_audit/preliminary_audit_scripts/audit_scan_xps.py`](preliminary_audit/preliminary_audit_scripts/audit_scan_xps.py). Run it from the plugin root (next to `pyproject.toml`):
+- **`audit_scan.py`**: the scanner. The rules are the same for every repository.
+- **`profiles/`**: what is *normal* for each repository, so that normal things are not reported as suspicious. `_base.toml` applies to every repository: which files are scanned (`src/`, minus NOMAD example uploads, apps and NORTH tools), which config values count as lookups (`@attrs:`, `@data:`, `@eln`, ...), the field-name to unit-dimension table (e.g. `wavelength` must be a length) and default duplicate-function exceptions. Each `<repo>.toml` is merged on top of it (tables combine, lists extend, single values override) and adds repository-specific settings, such as disabled or regraded rules, extra unit traps (VAMAS `d`, SPECS `nU` in xps) and known constants (Al Kα 1486.6 eV). The profile is picked automatically from the `pyproject.toml` name. When a rule is noisy for one plugin, its profile is changed, not the script.
+- **`run_all.sh`**: runs the scanner once per repository with the distro's Python and writes `results/<repo>.csv`. Repositories missing from `packages/` are skipped.
+- **`tests/`**: `fixture_repo/` is a fake plugin with one deliberate bug per rule family, and `test_audit_scan.py` fails if any of them is no longer reported. Run it after editing the script or `_base.toml`.
+
+### Usage
+
+The scanner runs inside a `nomad-distro-dev` checkout, where the scanned repositories live in `packages/`. Copy the folder there as `audit_scans/`, **next to** `packages/` and never inside it (uv treats every folder in `packages/` as a workspace member, which would break every `uv` command), and keep it out of the distro's git status:
 
 ```bash
-python audit_scan_xps.py --min-severity low
+echo "audit_scans/" >> ~/nomad-distro-dev/.git/info/exclude
 ```
 
-Its results are in [`preliminary_audit/preliminary_results/`](preliminary_audit/preliminary_results/) in `.csv` format (currently `audit_xps.csv` for `pynxtools-xps`).
+Scan all repositories, or one:
+
+```bash
+bash ~/nomad-distro-dev/audit_scans/run_all.sh                          # all, to audit_scans/results/<repo>.csv
+bash ~/nomad-distro-dev/audit_scans/run_all.sh --min-severity medium    # extra options are passed on
+
+cd ~/nomad-distro-dev/audit_scans
+../.venv/bin/python audit_scan.py ../packages/pynxtools-xps --out results/pynxtools-xps.csv
+```
+
+Use the distro's `.venv/bin/python` rather than `uv run`, because it has pint. Python 3.11 or newer is needed (3.10 with `tomli`). Useful options are `--min-severity`, `--disable`, `--profile`, `--include-tests`, `--list-rules` and `--list-profiles`.
+
+Each repository prints a header such as `== pynxtools-em  (profile: pynxtools-em; units: pint: .../default_en.txt)`. `profile:` should name the repository (`_base` means no profile matched), and `units:` should point at pynxtools' `default_en.txt` (`built-in unit table` means pint was not found and some unit rules were skipped).
+
+### Results
+
+[`preliminary_audit_scans/results/`](preliminary_audit_scans/results/) holds one CSV per repository, with one row per finding, sorted by severity:
+
+`plugin, rule, severity, category, file, line, qualname, message, snippet, reviewed, notes`
+
+`file` and `line` are relative to the repository root. `reviewed` and `notes` are empty columns for triage. A new run overwrites the CSV, so copy or rename it before annotating.
 
 ---
 
