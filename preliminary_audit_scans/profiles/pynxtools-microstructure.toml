@@ -1,0 +1,21 @@
+# Microstructure (EBSD/MTex): em-style functor dicts (oasis_config, nxs_mtex) and
+# MATLAB/MTex HDF5 results. Shares the em mapping conventions.
+[plugin]
+match = ["pynxtools-microstructure"]
+description = "microstructure/EBSD: em-style functor mappings, MTex HDF5"
+
+[scan]
+exclude = ["src/pynxtools_microstructure/examples/**"]
+
+[rules]
+disable = ["C01"]
+
+[functors]
+enabled = true
+
+[units]
+define = ["nx_unitless = 1", "nx_dimensionless = 1", "nx_any = 1"]
+expect = [
+  ["^(step_size|scan_step|pixel_size|grain_size|equivalent_diameter)$", "[length]"],
+  ["^(misorientation|euler|phi1|phi2|bunge)$", "[angle]"],
+]

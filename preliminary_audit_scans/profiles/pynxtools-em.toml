@@ -1,0 +1,41 @@
+# Electron microscopy: mapping lives in Python (configurations/*_cfg.py) as
+# functor dicts {"map_to_f8": [("trg", ureg.X, "src", ureg.Y)]}; custom pint
+# units in utils/pint_custom_unit_registry.py (harvested automatically).
+[plugin]
+match = ["pynxtools-em"]
+description = "EM: Python functor mappings with pint units, many vendor parsers"
+
+[scan]
+exclude = ["src/pynxtools_em/examples/**"]   # site-specific batch scripts, not the reader
+
+[rules]
+disable = ["C01"]           # NeXus paths in Python are the design (configurations/)
+
+[rules.severity]
+E05 = "info"                # TODOs are mostly schema notes
+D05 = "info"                # vendor keyword switches
+
+[functors]
+enabled = true
+
+[units]
+define = ["nx_unitless = 1", "nx_dimensionless = 1", "nx_any = 1"]
+expect = [
+  ["^(working_distance|size|diameter|pixel_size|thickness|defocus|camera_length|magnification_length)$", "[length]"],
+  ["^(dwell_time|exposure_time|frame_time)$", "[time]"],
+  ["^(high_voltage|acceleration_voltage|voltage)$", "[electric_potential]"],
+  ["^(probe_current|beam_current|emission_current)$", "[current]"],
+  ["^(semi_convergence_angle|tilt[12]?|rotation)$", "[angle]"],
+]
+
+[numbers]
+
+[duplicates]
+ignore_functions = ["check_if_supported", "parse_content", "annotate_information_source",
+                    "process_into_template", "parse_and_normalize", "process_event_data_em_metadata",
+                    "process_event_data_em_data", "parse_and_normalize_eds_spc",
+                    "process_roi_overview", "process_roi_ebsd_maps"]
+
+[numbers.constants]
+"9.1093837015e-31" = "electron mass (kg)"
+"1.95695e-6" = "relativistic factor 1/(2 m c^2) in 1/eV"

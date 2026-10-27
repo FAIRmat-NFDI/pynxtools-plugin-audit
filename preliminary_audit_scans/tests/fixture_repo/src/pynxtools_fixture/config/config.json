@@ -1,0 +1,10 @@
+{
+  "/ENTRY/energy/@units": "eV",
+  "/ENTRY/intensity/@units": "['@attrs:y_units', 'c/s']",
+  "/ENTRY/sample/temperature/@units": "@attrs:temp_units",
+  "/ENTRY/source/wavelength/@units": "eV",
+  "/ENTRY/title": "",
+  "/ENTRY/instrument/name": "Fixture 3000",
+  "/ENTRY/instrument/name": "dup",
+  "/ENTRY/analyser/pass_energy": 20
+}

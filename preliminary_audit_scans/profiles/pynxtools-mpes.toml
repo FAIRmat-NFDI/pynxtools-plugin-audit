@@ -1,0 +1,21 @@
+# Multidimensional photoemission (SED/xarray HDF5). The reader copies binned
+# data + axes from HDF5; units come from HDF5 attrs. Mapping = example config.
+[plugin]
+match = ["pynxtools-mpes"]
+description = "MPES: HDF5/xarray input, mapping in example/test config_file.json"
+
+[scan]
+force_include = ["src/**/nomad/example_uploads/**/config_file*.json", "tests/data/**/config_file*.json"]
+
+[units]
+expect = [
+  ["^(kx|ky|kz|k_parallel)$", "1/[length]"],
+  ["^(delay|delay_time|time_delay)$", "[time]"],
+  ["^(e_fermi|fermi_energy|photon_energy|energy_resolution)$", "[energy]"],
+]
+
+[numbers]
+
+[numbers.constants]
+"1.054571817e-34" = "hbar (J s)"
+"0.5123167" = "sqrt(2 m_e)/hbar in 1/(Å sqrt(eV)) (k-conversion)"

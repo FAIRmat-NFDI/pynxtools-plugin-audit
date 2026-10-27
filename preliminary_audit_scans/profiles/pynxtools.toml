@@ -1,0 +1,30 @@
+# pynxtools core: dataconverter, readers (MultiFormatReader, json_map, json_yml),
+# NeXus tooling (nexus/, annotator/, eln_mapper/) and the NOMAD integration.
+[plugin]
+match = ["pynxtools"]
+description = "core: dataconverter, NeXus tooling, NOMAD parser/schema"
+
+[scan]
+exclude = [
+  # generated from NXDL by `pynx nomad generate-metainfo`: audit the generator
+  # (nomad/converters/nxdl_to_metainfo.py) instead of its 300 outputs
+  "src/pynxtools/nomad/metainfo/applications/**",
+  "src/pynxtools/nomad/metainfo/base_classes/**",
+  "src/pynxtools/nomad/metainfo/generated_manifest.json",
+  "src/pynxtools/definitions/**",     # NeXus definitions submodule
+]
+
+[rules]
+# The framework *is* the place where NeXus paths live
+disable = ["C01"]
+
+[rules.severity]
+D05 = "info"   # concept-name comparisons are the core's business logic
+E05 = "info"
+S06 = "low"    # core XML parsing is mostly NXDL from the package; uploads go through plugins
+
+[duplicates]
+# MultiFormatReader callbacks are meant to be re-implemented by every reader
+ignore_functions = ["handle_objects", "get_attr", "get_data", "get_eln_data",
+                    "get_data_dims", "set_config_file", "handle_eln_file",
+                    "post_process", "setup_template", "_handle_yaml_file"]

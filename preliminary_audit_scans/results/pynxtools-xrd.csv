@@ -1,0 +1,11 @@
+plugin,rule,severity,category,file,line,qualname,message,snippet,reviewed,notes
+pynxtools-xrd,N04,medium,rounding to fixed decimals,src/pynxtools_xrd/reader.py,94,_get_minimal_step,rounded to 2 decimals: loses precision for fine steps / small values,"step = round(np.min(diff[diff != 0]), 2)",,
+pynxtools-xrd,U01,medium,unit string not parseable (pint / unit table),src/pynxtools_xrd/xrd.config.json,49,<config>,pint cannot parse unit 'kBeta@units' (UndefinedUnitError) (config),"""/ENTRY/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units"":""kBeta@units"",",,
+pynxtools-xrd,E02,low,exception swallowed,src/pynxtools_xrd/reader.py,186,XRDReader.get_attr,"except (KeyError, TypeError): error is swallowed and execution continues","except (KeyError, TypeError):",,
+pynxtools-xrd,U07,low,unit hard-coded in config,src/pynxtools_xrd/xrd.config.json,49,<config>,unit 'kBeta@units' is fixed for every file (key 'INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units'),"""/ENTRY/INSTRUMENT[instrument]/SOURCE[source]/kbeta/@units"":""kBeta@units"",",,
+pynxtools-xrd,C02,info,hard-coded string value in config,src/pynxtools_xrd/xrd.config.json,2,<config>,hard-coded value 'NXxrd_pan' for '/ENTRY/definition',"""/ENTRY/definition"":""NXxrd_pan"",",,
+pynxtools-xrd,C02,info,hard-coded string value in config,src/pynxtools_xrd/xrd.config.json,3,<config>,hard-coded value 'experiment_result' for '/ENTRY/@default',"""/ENTRY/@default"":""experiment_result"",",,
+pynxtools-xrd,C02,info,hard-coded string value in config,src/pynxtools_xrd/xrd.config.json,4,<config>,hard-coded value 'X-Ray Diffraction (XRD)' for '/ENTRY/method',"""/ENTRY/method"":""X-Ray Diffraction (XRD)"",",,
+pynxtools-xrd,C02,info,hard-coded string value in config,src/pynxtools_xrd/xrd.config.json,6,<config>,hard-coded value 'intensity' for '/ENTRY/experiment_result/@signal',"""/ENTRY/experiment_result/@signal"":""intensity"",",,
+pynxtools-xrd,C02,info,hard-coded string value in config,src/pynxtools_xrd/xrd.config.json,7,<config>,hard-coded value 'two_theta' for '/ENTRY/experiment_result/@axes',"""/ENTRY/experiment_result/@axes"":""two_theta"",",,
+pynxtools-xrd,C06,info,config keys left empty (placeholders),src/pynxtools_xrd/xrd.config.json,16,<config>,"6 keys mapped to '' (placeholders, written as nothing); lines 16, 17, 18, 19, 20, 21",,,

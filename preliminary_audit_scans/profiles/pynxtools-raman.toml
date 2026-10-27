@@ -1,0 +1,19 @@
+# Raman: WITec and ROD (Raman Open Database, CIF-like) parsers; MultiFormatReader configs.
+[plugin]
+match = ["pynxtools-raman"]
+description = "Raman (WITec, ROD/CIF); Raman shift in 1/cm"
+
+[units]
+expect = [
+  ["^(raman_shift|wavenumber|wavenumbers)$", "1/[length]"],
+  ["^(average_power|power_on_sample)$", "[power]"],
+  ["^(extent|spot_size|period)$", "[length]"],
+]
+
+[numbers]
+
+[numbers.constants]
+"1e7" = "nm -> 1/cm (Raman shift)"
+"532.0" = "laser line (nm), should come from file/ELN"
+"633.0" = "laser line (nm)"
+"785.0" = "laser line (nm)"

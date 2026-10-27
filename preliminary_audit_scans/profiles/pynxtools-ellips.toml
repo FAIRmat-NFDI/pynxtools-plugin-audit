@@ -1,0 +1,17 @@
+# Ellipsometry: Woollam-style data -> NXellipsometry via a MultiFormatReader config.
+# Psi/Delta and angles are expected in degree; wildcard paths DATA[*].
+[plugin]
+match = ["pynxtools-ellips"]
+description = "ellipsometry (Psi/Delta in degree, wildcard DATA[*] configs)"
+
+[units]
+expect = [
+  ["^(psi|delta|angle_of_incidence|angle_of_detection)$", "[angle]"],
+  ["^(wavelength|thickness|layer_thickness)$", "[length]"],
+  ["^photon_energy$", "[energy]"],
+]
+
+[numbers]
+
+[numbers.constants]
+"1239.84198" = "hc in eV*nm (wavelength <-> photon energy)"

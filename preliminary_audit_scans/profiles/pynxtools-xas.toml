@@ -1,0 +1,16 @@
+# XAS: SPECS/beamline text and HDF5 parsers; MultiFormatReader configs
+# (transmission / fluorescence / xy). Energies in eV, I0 / mu normalisation.
+[plugin]
+match = ["pynxtools-xas"]
+description = "XAS: beamline/SPECS parsers, transmission/fluorescence configs"
+
+[units]
+expect = [
+  ["^(edge_energy|energy|monochromator_energy)$", "[energy]"],
+  ["^(absorbed_beam|mu|absorption)$", "[dimensionless]"],
+]
+
+[numbers]
+
+[numbers.constants]
+"12398.419843" = "hc in eV*Angstrom (monochromator angle <-> energy)"

@@ -1,0 +1,20 @@
+# XRD reader: thin layer over fairmat-readers-xrd; one flat MultiFormatReader-style
+# config (xrd.config.json) with "@attrs:" lookups and "" placeholders.
+[plugin]
+match = ["pynxtools-xrd"]
+description = "XRD reader on top of fairmat-readers-xrd; flat config"
+
+[units]
+expect = [
+  ["^(kalpha_one|kalpha_two|kalpha|kbeta|xray_wavelength)$", "[length]"],
+  ["^(q_parallel|q_perpendicular|q_norm|q)$", "1/[length]"],
+  ["^(two_theta|omega|chi|phi|theta)$", "[angle]"],
+]
+
+[numbers]
+
+[numbers.constants]
+"1.5406" = "Cu Kα1 wavelength (Å)"
+"1.54443" = "Cu Kα2 wavelength (Å)"
+"1.39222" = "Cu Kβ wavelength (Å)"
+"0.70930" = "Mo Kα1 wavelength (Å)"

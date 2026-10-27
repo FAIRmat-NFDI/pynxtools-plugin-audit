@@ -1,0 +1,33 @@
+# XPS: many vendor parsers (VAMAS, SPECS sle/xml/xy/slh, Scienta txt/ibw/hdf5,
+# Kratos, PHI) sharing a parser base class; MultiFormatReader JSON configs with
+# fallback lists like "['@attrs:x', '@eln', 'eV']".
+[plugin]
+match = ["pynxtools-xps"]
+description = "XPS vendor parsers + MultiFormatReader configs"
+
+[rules.severity]
+C02 = "info"
+D05 = "info"   # vendor keyword switches in the parsers
+K02 = "info"   # mapping.py renames vendor keys ('Binding Energy' -> 'binding_energy') on purpose
+
+[units.ambiguous]
+"d" = "VAMAS 'd' = unit not specified in the file"
+"nU" = "SPECS/Scienta nano-units; voltage or current?"
+
+[units]
+expect = [
+  ["^(step_size|energy_step|start_energy|end_energy|binding_energy|kinetic_energy)$", "[energy]"],
+  ["^(dwell_time|acquisition_time|time_per_spectrum_channel)$", "[time]"],
+]
+
+[numbers]
+
+[duplicates]
+# parser interface + polymorphic lineshape models
+ignore_functions = ["_parse", "matches_file", "detect_version", "_build_parsed_spectra",
+                    "calc_lineshape", "formula", "_parse_header", "_parse_data"]
+
+[numbers.constants]
+"1486.6" = "Al Kα photon energy (eV)"
+"1253.6" = "Mg Kα photon energy (eV)"
+"4.5" = "typical analyser work function (eV), should come from the file/ELN"

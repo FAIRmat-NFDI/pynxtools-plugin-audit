@@ -1,0 +1,12 @@
+{
+  "ENTRY[entry]": {
+    "bias": {
+      "raw_path": "/Bias/value",
+      "@units": "/Bias/unit"
+    },
+    "scan_speed": {
+      "raw_path": "/Scan/speed",
+      "@units": "unit comes from raw_path"
+    }
+  }
+}

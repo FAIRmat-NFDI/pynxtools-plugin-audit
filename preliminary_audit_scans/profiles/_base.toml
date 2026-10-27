@@ -1,0 +1,86 @@
+# Base profile: applied to every repository; a plugin profile is merged on top.
+# Merge rules: tables merge recursively, lists are extended, scalars override.
+
+[scan]
+# Globs are relative to the repo root. ** matches any number of folders.
+include = ["src/**/*.py", "src/**/*.json", "src/**/*.yaml", "src/**/*.yml"]
+exclude = [
+  "**/nomad/example_uploads/**",   # example data, ELN archives
+  "**/nomad/north_tools/**",       # NORTH container assets
+  "**/nomad/apps/**",              # NOMAD app/search definitions
+  "**/mkdocs.py",                  # docs macros
+  "**/*.archive.json",
+  "**/package.json", "**/tsconfig.json", "**/package-lock.json",
+]
+# Matched files are scanned even if an exclude pattern hits them
+force_include = []
+# Added only with --include-tests
+tests = ["tests/**/*.py"]
+
+[rules]
+disable = []
+
+[rules.severity]
+# Override the built-in severity of a rule for this repo, e.g. D05 = "info"
+
+[config]
+# Values starting with these prefixes are lookups (MultiFormatReader convention),
+# not hard-coded values.
+lookup_prefixes = ["@attrs:", "@data:", "@eln", "@link:", "!@", "@"]
+# Values that are lookups because of their *key* (e.g. raw_path in spm configs)
+lookup_keys = []
+# "" values: report once per file as C06 instead of per line
+placeholder_empty = true
+# "['@attrs:x', '@eln', 'eV']": check the literal fallbacks (C07 + units)
+fallback_lists = true
+
+[units]
+# Strings accepted even if pint cannot parse them (e.g. a deliberate NX_ANY marker)
+accept = []
+# Extra pint definitions ("name = expression"), applied before checking
+define = []
+# Also apply every ureg.define("...") found in the scanned code
+harvest_defines = true
+# Regexes for strings accepted as-is (NeXus unit categories used as markers)
+accept_patterns = ["NX_[A-Z_]+"]
+# U10: field-name regex -> expected pint dimensionality. First match wins.
+# The field is the last path segment before /@units (NAME[name] -> name).
+expect = [
+  ["(^|_)(energy|work_function)$|^(binding|kinetic|photon|pass|excitation|incident)_energy", "[energy]"],
+  ["wavelength$", "[length]"],
+  ["(^|_)(duration|count_time|dwell_time|acquisition_time|exposure_time|integration_time|exposure)$", "[time]"],
+  ["temperature$", "[temperature]"],
+  ["pressure$", "[pressure]"],
+  ["solid_angle$", "[angle] ** 2"],
+  ["(^|_)(angle|polar|azimuth|tilt|two_theta|omega|chi|phi)$|^angle_of_", "[angle]"],
+  ["(^|_)(current|beam_current|probe_current)$", "[current]"],
+  ["(^|_)(voltage|bias)$", "[electric_potential]"],
+  ["(^|_)frequency$", "[frequency]"],
+  ["(^|_)power$", "[power]"],
+  ["(^|_)charge$", "[charge]"],
+]
+
+
+[units.ambiguous]
+# "unit" = "why it is ambiguous"  (merged into the built-in table)
+
+[units.traps]
+# "unit" = "what pint silently turns it into"  (merged into the built-in table)
+
+[numbers]
+# Extra physical constants (value = label) and scale factors for N01
+constants = {}
+scales = []
+# Numbers never reported in arithmetic (N02)
+ignore = []
+
+[duplicates]
+# Functions whose many copies are an interface, not copy-paste (K03/K04)
+ignore_functions = ["__init__", "parse", "_parse", "read", "get_template"]
+similarity = 0.6
+
+[functors]
+# pynxtools-em style mapping dicts: "map_to_f8": [("trg", ureg.X, "src", ureg.Y)]
+enabled = false
+keys = "^map(_to_\\w+)?$"
+unit_namespaces = ["ureg"]

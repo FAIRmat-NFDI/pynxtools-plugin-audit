@@ -1,0 +1,13 @@
+# Igor Pro waves (.ibw/.pxp) -> NeXus. The reader is tiny; the actual mapping is
+# the user-supplied config, of which the example upload is the reference copy.
+[plugin]
+match = ["pynxtools-igor"]
+description = "Igor waves; mapping lives in the example config"
+
+[scan]
+force_include = ["src/**/nomad/example_uploads/**/config*.json", "tests/data/**/config*.json"]
+
+[units]
+expect = [
+  ["^(delay|delay_time|pump_probe_delay)$", "[time]"],
+]

@@ -1,0 +1,24 @@
+# fairmat-readers-xrd: vendor file parsers (PANalytical .xrdml, Rigaku .rasx,
+# Bruker .brml/.raw) used by pynxtools-xrd and nomad-measurements. Mostly XML
+# and binary parsing of uploaded files, so S05/S06 matter here.
+[plugin]
+match = ["readers-xrd", "fairmat-readers-xrd"]
+description = "XRD vendor parsers (xrdml, rasx, brml, raw); XML/zip input"
+
+[units]
+expect = [
+  ["^(2theta|two_theta|omega|chi|phi)$", "[angle]"],
+  ["^(kalpha_one|kalpha_two|kbeta|wavelength)$", "[length]"],
+  ["^(scan_time|count_time|time_per_step)$", "[time]"],
+]
+
+[numbers]
+
+[duplicates]
+ignore_functions = ["get_scan_data", "get_scan_info", "get_source_info", "find_float", "find_string"]
+
+[numbers.constants]
+"1.5406" = "Cu Kα1 wavelength (Å)"
+"1.54443" = "Cu Kα2 wavelength (Å)"
+"1.39222" = "Cu Kβ wavelength (Å)"
+"0.70930" = "Mo Kα1 wavelength (Å)"

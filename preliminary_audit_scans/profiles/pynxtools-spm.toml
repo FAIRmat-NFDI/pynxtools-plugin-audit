@@ -1,0 +1,29 @@
+# SPM (STM/STS/AFM; Nanonis, Bruker, Omicron): nested JSON configs where
+# "raw_path" and "@units" values are paths into the parsed raw data ("/Bias/Offset/@unit"),
+# "@default:..." picks plot data, and "" leaves a NeXus field unfilled.
+# nxformatters/ turn the parsed data into the template.
+[plugin]
+match = ["pynxtools-spm"]
+description = "SPM (Nanonis/Bruker/Omicron): nested raw_path configs, nxformatters"
+
+[config]
+lookup_prefixes = ["/", "@default:"]
+lookup_keys = ["raw_path"]
+
+[rules.severity]
+C02 = "info"
+D05 = "info"   # vendor keyword switches in parsers / nxformatters
+
+[units]
+expect = [
+  ["^(bias|bias_voltage|offset|amplitude_voltage)$", "[electric_potential]"],
+  ["^(setpoint|current|tunneling_current)$", "[current]"],
+  ["^(scan_speed|speed|tip_speed)$", "[length]/[time]"],
+  ["^(scan_range|scan_offset|tip_lift|z|z_offset|step_size)$", "[length]"],
+  ["^(reference_frequency|resonance_frequency|frequency_shift|cutoff_frequency)$", "[frequency]"],
+  ["^(time_constant|integration_time|settling_time|switch_off_delay)$", "[time]"],
+]
+
+[duplicates]
+# parser classes share these entry points; the nxformatter copies are real duplicates
+ignore_functions = ["get_appropriate_parser", "parse", "__get_raw_metadata_and_signal"]
