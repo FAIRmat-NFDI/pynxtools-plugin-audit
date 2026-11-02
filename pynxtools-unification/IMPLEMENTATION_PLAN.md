@@ -13,14 +13,14 @@ This plan builds on [FINDINGS.md](FINDINGS.md). IDs such as **C3**, **B5** or **
 ## Guiding principles
 
 - **Additive first, then migrate, then delete.** New core APIs land in pynxtools as optional features. Plugins migrate one at a time. Duplicated plugin code is removed only after its plugin is migrated and its regression tests are green.
-- **Output must not change unintentionally.** Each migration step has to reproduce the reference NeXus files (Phase 0), except where a change is an explicit bug fix that is documented in the plugin changelog.
+- **Output must not change unintentionally.** Each migration step has to reproduce the reference NeXus files of the pre-redesign baseline (Phase 0), except where a change is an explicit bug fix that is documented in the plugin changelog.
 - **Keep the good ideas** listed in FINDINGS §7. Most of the new core is a promotion of code that already exists in pynxtools-xps.
 
 ## Phase overview
 
 | Phase | Content | Repos | Depends on |
 |---|---|---|---|
-| 0 | Safety net: golden files, benchmarks, CI matrix | all | — |
+| 0 | Safety net: pre-redesign baseline of outputs and resources (done) | all | — |
 | 1 | Quick bug fixes (no architecture change) | all | 0 |
 | 2 | Core: parser framework (`FileProbe`, `FileParser`, versioning, registry) | pynxtools | 0 |
 | 3 | Core: MFR v2 (dispatch, config precedence, ELN, finalize, entries, kwargs) | pynxtools | 2 |
@@ -31,24 +31,35 @@ This plan builds on [FINDINGS.md](FINDINGS.md). IDs such as **C3**, **B5** or **
 
 ---
 
-## Phase 0: Safety net
+## Phase 0: Safety net (done: the pre-redesign baseline)
+**Issue:** the refactor touches every reader. Without a baseline, regressions in NeXus content or in resource use would go unnoticed.
+**Status:** covered by the pre-redesign baseline in [`pynxtools_baseline_scripts/`](pynxtools_baseline_scripts/) (guide: [`BASELINE_GUIDE.md`](pynxtools_baseline_scripts/BASELINE_GUIDE.md)). It records enough about the current behaviour of pynxtools and its plugins to detect unintended changes, so no further Phase 0 work is required before Phase 1. The items under "Known limits" are optional and are taken up only if maintainers ask for them.
 
-### Step 0.1: Freeze reference outputs for every plugin
-**Issue:** the refactor touches every reader. Without a baseline, regressions in NeXus content would go unnoticed.
-**How:**
-- For every plugin, run the existing `ReaderTest` examples and store the produced `.nxs` (or the `.log` diff output that `ReaderTest` already compares) as **golden references** in `tests/data/**/ref/`.
-- Add any missing example cases. pynxtools-xas and pynxtools-xrd have one test file each (§5.6), so add at least one case per supported parser and vendor.
-- Add a test that converts **with a user `-c` config** and **with upper-case extensions**, to catch B3, B5, B11 and B13 going forward.
+### Step 0.1: Reference outputs (done)
+- `run_baseline.sh` runs the pytest suite of pynxtools and of every plugin in a `nomad-distro-dev` checkout, records every `convert()` call (mostly the `ReaderTest` examples), and replays each conversion in a fresh process. The produced `.nxs` files, all terminal output, the test results and an annotator dump of every output are kept per run.
+- The em and microstructure conversion tests are skipped upstream, so [`extra_conversions.tsv`](pynxtools_baseline_scripts/extra_conversions.tsv) adds em's `tests/data/default` example, three InGaN EDS `.edaxh5` files and a microstructure `*.mtex.h5` example.
+- The pinned commit of every package is in [`baseline_commits_links.md`](pynxtools_baseline_scripts/baseline_commits_links.md). Three runs from 2026-10-26 are committed under `baseline_results/`, each with 65 recorded conversions (61 `OK`, and 4 `CONVERT_FAILED` from pynxtools core tests that pass invalid inputs on purpose).
 
-**Done when:** each plugin's CI compares the current output against the references, and every parser class is covered by at least one example file.
+### Step 0.2: Resource numbers (done)
+- Every replayed conversion has its wall time, CPU time and peak RAM in `summary_conversions.csv`, and each test suite has the same in `summary_tests.csv`.
+- `monitor_resources.py` logs CPU, RAM, threads and disk I/O of every process during the run (`00_monitor/`). The three committed runs give the run-to-run noise used to set the comparison tolerances.
 
-### Step 0.2: Benchmark harness
-**Issue:** "optimise resources" needs numbers.
-**How:** add `tests/benchmarks/` to pynxtools. It is a pytest-benchmark plus `tracemalloc` (or `memray`) fixture that records wall time, peak RSS and number of `open()` calls for a conversion. Run it on one large file per plugin: Velox EMD, a large SXM, an XPS SLE, an APM `.apt`.
-**Done when:** the baseline numbers are stored in the repo and printed in CI (not gating yet).
+### Step 0.3: Comparing after each change (done)
+After a migration step, rebuild the environment the same way, run the same scripts on the same machine, and compare:
 
-### Step 0.3: Cross-plugin CI matrix
-**How:** in pynxtools CI, add a job that installs pynxtools from the PR branch together with each plugin's `main` and runs that plugin's tests. This exposes core changes that break plugins, such as the entry-skeleton change in Step 3.8.
+```bash
+../.venv/bin/python compare_baselines.py baseline_results/baseline_<before> baseline_results/baseline_<after> --out <report>
+```
+
+`compare_baselines.py` reports test outcome changes, conversion status changes, NeXus content differences (h5py, with float tolerances, volatile items such as timestamps ignored), new or removed WARNING/ERROR messages, and wall time, CPU or peak RAM changes above `--time-tol` / `--rss-tol`. Its exit code is `1` when functional regressions are found (also for resource regressions with `--fail-on-resources`). In this plan, "the baseline comparison is clean" means exit code `0`, or every reported difference is an intentional bug fix listed in the plugin changelog.
+
+### Known limits (optional follow-ups)
+These are not required steps. Each can be added later if maintainers ask for it.
+- **Coverage gaps.** pynxtools-xas and pynxtools-xrd have one test file each (§5.6), so not every parser and vendor is covered. pynxtools-apm is excluded from the baseline (it is not a distro submodule). There are no large-file inputs (for example a large Velox EMD, SXM, XPS SLE or APM `.apt`).
+- **No user `-c` config or upper-case extension tests**, so B3, B5, B11 and B13 are not caught by the baseline. Add such a test together with the corresponding Phase 1 fix.
+- **Not in each plugin's CI.** The baseline is run by hand in a `nomad-distro-dev` checkout. There are no golden references in each plugin's `tests/data/**/ref/` and no `tests/benchmarks/` pytest-benchmark fixture in pynxtools.
+- **No `open()` counts.** Resource numbers are time, CPU and peak RAM only.
+- **No cross-plugin CI matrix** that installs pynxtools from a PR branch together with each plugin's `main`. Until there is one, run the baseline (which covers all plugins together) before merging core changes such as the entry-skeleton change in Step 3.8.
 
 ---
 
@@ -219,7 +230,7 @@ All changes are backwards compatible: existing `self.extensions` dicts keep work
 3. the reader's class-level `default_config`.
 
 Configs are loaded with `importlib.resources`, never with `Path(__file__)` string building. The chosen config path is logged and recorded in the provenance (Step 3.7).
-**Done when:** all `set_config_file` overrides are deleted and the tests from Step 0.1 for "user config wins" pass in every plugin.
+**Done when:** all `set_config_file` overrides are deleted, and a test that converts with a user `-c` config ("user config wins") passes in every plugin. The baseline has no such test (Phase 0, Known limits), so add it here where a plugin lacks one.
 
 ### Step 3.3: Unified ELN handling
 **Issue:** seven variants (§5.4); ELN bound to the wrong entry (C6).
@@ -311,7 +322,7 @@ The generated configs are reviewed by hand and committed to each plugin's `confi
 
 ## Phase 5: Plugin migrations
 
-The order goes from least to most effort. Each step ends with: golden tests green (Phase 0), duplicated code removed, no `read()` override, and a plugin pin of `pynxtools>=<release with Phases 2-4>`.
+The order goes from least to most effort. Each step ends with: a clean baseline comparison (Step 0.3), duplicated code removed, no `read()` override, and a plugin pin of `pynxtools>=<release with Phases 2-4>`.
 
 ### Step 5.1: pynxtools-xps (reference migration)
 - Subclass the core `FileParser` and `ParsedData`. Delete the local `versioning.py`, the `_Parser` base, `handle_data_file`, `set_config_file`, `_search_metadata`, `get_eln_data` and `_collect_supported_extensions`. `VamasResultParser` becomes `role="metadata"`.
@@ -385,7 +396,7 @@ The baseline (FINDINGS §5.5) shows that none of these costs is visible with the
 ### Step 6.1: Detection without loading data
 - Velox: replace `emd.file_reader` in detection with an `h5py` check of `/Data` and `/Version` in the probe ([rsciio_velox.py:101](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L101)).
 - TIFF: one tag read in the probe, shared by all TIFF parsers.
-- Target: on the benchmark from Step 0.2, peak RSS during detection stays below 2× the probe size, and each input file is opened at most twice (probe and parse).
+- Target: peak RSS during detection stays below 2× the probe size, and each input file is opened at most twice (probe and parse). The baseline (Step 0.2) has no large-file inputs and no `open()` counts, so measuring this target needs one of the optional follow-ups from Phase 0.
 
 ### Step 6.2: Lazy data in the template
 - Allow handlers and parsers to place `h5py.Dataset`, `dask.array` or a `LazyArray(callable)` in `ParsedData.data`, and teach the `Writer` to stream them chunk-wise. The writer already supports chunked writes ([chunk.py](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/chunk.py)).
@@ -396,7 +407,7 @@ Compute checksums at most once per input file (streamed, 1 MiB blocks) in the co
 
 ### Step 6.4: No template copies
 - Remove the spm `deepcopy` and `filled_template`, and the xps `final_template` rebuild. Make `Template.remove_none_values()` plus `finalize()` operate in place.
-- Add a benchmark assertion that peak RSS of a conversion is at most about 1.3× the size of the largest array.
+- Check that peak RSS of a conversion is at most about 1.3× the size of the largest array, and that the baseline comparison (Step 0.3) shows no peak RAM regression.
 
 ### Step 6.5: Core micro-optimisations
 `get_reader` caching (Step 3.10), sorting config keys once (C7), and hoisting the nested helpers and regex in `resolve_special_keys` to module level (today `try_convert` and `parse_config_value` are redefined on every call).
@@ -461,7 +472,7 @@ No extension handling, ELN or config plumbing, `/ENTRY[entry]` literals, `read()
 
 | Milestone | Steps | Rough effort |
 |---|---|---|
-| M1: safety net + bug fixes | 0.1–0.3, 1.1–1.28 | 2–3 weeks (parallel per plugin) |
+| M1: bug fixes (safety net done) | 1.1–1.28 | 2–3 weeks (parallel per plugin) |
 | M2: core framework | 2.1–2.5, 3.1–3.10 | 4–6 weeks |
 | M3: config language | 4.1–4.3 | 2–3 weeks |
 | M4: MFR-native plugins | 5.1–5.6, 5.11 | 3–4 weeks |
@@ -473,7 +484,7 @@ No extension handling, ELN or config plumbing, `/ENTRY[entry]` literals, `read()
 
 | Risk | Mitigation |
 |---|---|
-| Output changes break NOMAD searches or apps | golden files (0.1); intentional changes listed per release; the cross-plugin CI matrix (0.3) |
+| Output changes break NOMAD searches or apps | the pre-redesign baseline and `compare_baselines.py` (Phase 0); intentional changes listed per release |
 | The core API does not fit em/apm (multi-file, sidecars, two-pass workflows) | xps metadata parsers already prove the sidecar model; em goes through adapters first (5.10.1) before rewriting |
 | The config grammar grows into a programming language | only the six features in 4.1; anything more stays in `post_process` Python |
 | Plugins pin old pynxtools for a long time | the compatibility shims (2.1, 2.3) keep the old local bases importable for one minor release with a `DeprecationWarning` |
