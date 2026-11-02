@@ -1,56 +1,67 @@
 # pynxtools plugins: architecture review and findings
 
-Date of review: 2026-10-16. Branch state as checked out under `packages/`:
+Date of review: 2026-10-16, updated 2026-11-02. The document combines three sources:
 
-| Package | HEAD | Reader class | Base class |
-|---|---|---|---|
-| pynxtools | `2d8d4593` (v0.16.0, branch `pynxtools-dev`) | — (core) | — |
-| pynxtools-apm | `c839a42` | `APMReader` | `BaseReader` |
-| pynxtools-ellips | `95c2547` | `EllipsometryReader` | `MultiFormatReader` |
-| pynxtools-em | `340f154` | `EMReader` | `BaseReader` |
-| pynxtools-igor | `07ed951` | `IgorReader` | `MultiFormatReader` |
-| pynxtools-microstructure | `4b06a27` | `MICROSTRUCTUREReader` | `BaseReader` |
-| pynxtools-raman | `9a30f9b` | `RamanReader` | `MultiFormatReader` |
-| pynxtools-spm | `a57cd20` | `SPMReader` | `BaseReader` |
-| pynxtools-xas | `d7dcad5` | `XASReader` | `MultiFormatReader` |
-| pynxtools-xps | `43c5bbe` | `XPSReader` | `MultiFormatReader` |
-| pynxtools-xrd | `ba9b33a` | `XRDReader` | `MultiFormatReader` |
+1. a manual code review of pynxtools and its plugins (2026-10-16);
+2. the [preliminary audit scan](../preliminary_audit_scans/) of 12 repos, whose 2728 hits were all triaged (§6.1);
+3. the [baseline](pynxtools_baseline_scripts/) of test results and resource usage, three identical runs on 2026-10-26 (`baseline_results/`).
 
-All code links point to the reviewed commits on the `keila-moral` GitHub forks, so line numbers stay valid as the branches move on.
+Everything refers to the commits pinned in the baseline ([baseline_commits_links.md](pynxtools_baseline_scripts/baseline_commits_links.md), `nomad-distro-dev` as of 2026-10-23):
+
+| Package | Commit | Reader class | Base class | In scan | In baseline |
+|---|---|---|---|---|---|
+| pynxtools | `59f03be0` (v0.16.0+18) | — (core) | — | yes | yes |
+| pynxtools-apm | `c839a42` | `APMReader` | `BaseReader` | no | no (not in the distro) |
+| pynxtools-ellips | `95c2547` | `EllipsometryReader` | `MultiFormatReader` | yes | yes |
+| pynxtools-em | `340f154` | `EMReader` | `BaseReader` | yes | yes |
+| pynxtools-igor | `07ed951` | `IgorReader` | `MultiFormatReader` | yes | yes |
+| pynxtools-microstructure | `bf0ce65` | `MICROSTRUCTUREReader` | `BaseReader` | yes | yes |
+| pynxtools-mpes | `118ce65` | `MPESReader` | `MultiFormatReader` | yes | yes |
+| pynxtools-raman | `9a30f9b` | `RamanReader` | `MultiFormatReader` | yes | yes |
+| pynxtools-spm | `a57cd20` | `SPMReader` | `BaseReader` | yes | yes |
+| pynxtools-xas | `d7dcad5` | `XASReader` | `MultiFormatReader` | yes | yes |
+| pynxtools-xps | `23299e6` | `XPSReader` | `MultiFormatReader` | yes | yes |
+| pynxtools-xrd | `ba9b33a` | `XRDReader` | `MultiFormatReader` | yes | yes |
+| readers-xrd | `3f3eb8b` (v0.0.10) | — (file library used by pynxtools-xrd) | — | yes | through pynxtools-xrd |
+
+The review was first done on `2d8d459` (pynxtools), `43c5bbe` (xps) and `4b06a27` (microstructure). Between those commits and the baseline commits, the source code changed only in pynxtools (`validation.py`, `nexus/utils.py` and the NOMAD dataconverter, 15 lines), none of it in code cited here. All code links point to the baseline commits on the FAIRmat-NFDI repositories, so line numbers stay valid as the branches move on.
 
 ---
 
 ## 1. Summary
 
-1. The plugins use **two base classes**. Six of them are built on `MultiFormatReader` (MFR): ellips, igor, raman, xas, xps and xrd. Four still subclass the bare `BaseReader` and implement their own pipeline: apm, em, microstructure and spm.
+1. The plugins use **two base classes**. Seven of them are built on `MultiFormatReader` (MFR): ellips, igor, mpes, raman, xas, xps and xrd. Four still subclass the bare `BaseReader` and implement their own pipeline: apm, em, microstructure and spm.
 2. The plugins check file formats in **five different ways**:
-   - by extension only (MFR core, igor, xrd, spm);
+   - by extension only (MFR core, igor, mpes, xrd, spm);
    - by extension, then a hard-coded single parser with `is_mainfile` (ellips, raman);
    - with a parser registry and `is_mainfile` / `match_failure_reason` / version ranges / an ambiguity check (xas, xps);
    - by suffix rules plus "try every parser and let it decide" (em, apm);
    - by an extension → vendor → software-version tree that is driven by **ELN values the user types in** (spm).
 3. There are **four mapping languages** for getting from source data to NeXus paths:
-   - the MFR flat JSON config with `@attrs/@data/@eln/@link` tokens (ellips, igor, raman, xas, xps, xrd, json_map);
+   - the MFR flat JSON config with `@attrs/@data/@eln/@link` tokens (ellips, igor, mpes, raman, xas, xps, xrd, json_map);
    - Python "functor" dictionaries with `prefix_trg`, `map_to_f8`, pint units, `use`, and so on (apm, em, microstructure);
    - a nested JSON with `raw_path`, `@default:` and `@default_link:` (spm);
    - hard-coded template keys in Python (every plugin, in varying amounts).
 4. **Copy-paste duplication** is large. The best design, the XAS/XPS `_Parser` with versioning, exists in four slightly different copies (xas, xps, raman, ellips). APM, EM and microstructure share around 15 forked utility modules that have since drifted (§5.1).
-5. The plugins handle **the ELN in seven different ways** (§5.4), even though NOMAD always writes the same `*_eln_data.yaml` layout ([dataconverter.py:248-252](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/nomad/schema_packages/dataconverter.py#L248)).
-6. I found a number of **real bugs**, several of them silent data loss. They are listed in §6 and most of them come from one of the inconsistencies above.
-7. On **resources**: some detection steps read whole files (Velox EMD), every parser re-hashes the full file, a full `deepcopy` of the template is made (spm), templates are copied after `read` (xps, spm), HDF5 files are loaded eagerly and opened twice (json_map), and the reader module is re-executed on every `get_reader` call.
+5. The plugins handle **the ELN in seven different ways** (§5.4), even though NOMAD always writes the same `*_eln_data.yaml` layout ([dataconverter.py:247-250](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/nomad/schema_packages/dataconverter.py#L247)).
+6. There are **36 real bugs** (§6): 19 from the review and 17 more from the scan. Six are high severity (crashes, user input silently replaced, and code execution from an uploaded `.pickle` file in json_map), 13 medium, 14 low and 3 info. Most come from one of the inconsistencies above.
+7. The scan adds a class of problems the review had not looked for: **numbers, units and time stamps changed or invented while converting** (§5.7). Steps are rounded to 2 decimals (xps, xrd), an energy axis is flipped without its data (xps VAMAS), phases and a transmission function are filled with constants (em, xps), a unit is written as a literal path (xrd), and time stamps get the time zone of the machine that runs the conversion (xps, spm).
+8. Errors are often **swallowed** (§5.8): 167 `except` blocks catch an error and carry on. About a third are harmless format probes and some are deliberate in the NOMAD integration, but in spm, xps and the core `Writer` they hide real failures.
+9. On **resources**: some detection steps read whole files (Velox EMD), every parser re-hashes the full file, a full `deepcopy` of the template is made (spm), templates are copied after `read` (xps, spm), HDF5 files are loaded eagerly and opened twice (json_map), and the reader module is re-executed on every `get_reader` call. The baseline (§5.5) shows that with the shipped test files no conversion is expensive yet: every one finishes in about 5 s or less and below 410 MB peak RSS. The costs above therefore have to be measured on large files.
+10. The **baseline** is green as far as the tests go: all test suites pass, and 61 of 65 recorded conversions succeed. The 4 failures are pynxtools test calls that are not real conversions. But **49 of the 58 plugin outputs are reported as not valid** against their application definition when the baseline validates them, mostly because required fields are missing (§5.5). The plugin tests compare against reference files made the same way, so those are most likely not valid either. Outputs are not byte-identical between runs (only 4 of 65 sha256 match), so the before/after comparison must compare content, not checksums.
 
 ---
 
 ## 2. The core: `BaseReader` and `MultiFormatReader`
 
 ### 2.1 `BaseReader`
-[base/reader.py:13-43](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/base/reader.py#L13)
+[base/reader.py:13-43](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/base/reader.py#L13)
 
-- The abstract `read(template, file_paths, objects)` has **no `**kwargs`** (L33-38). `transfer_data_into_template` still calls `data_reader().read(template=..., file_paths=..., **kwargs)` ([convert.py:137](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/convert.py#L137)), and the CLI injects `config_file` there ([cli.py:234](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/cli.py#L234)). Any plugin that copies the base signature (apm, em, microstructure, spm) therefore fails with a `TypeError` when `-c` or a params file adds keys.
+- The abstract `read(template, file_paths, objects)` has **no `**kwargs`** (L33-38). `transfer_data_into_template` still calls `data_reader().read(template=..., file_paths=..., **kwargs)` ([convert.py:137](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/convert.py#L137)), and the CLI injects `config_file` there ([cli.py:234](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/cli.py#L234)). Any plugin that copies the base signature (apm, em, microstructure, spm) therefore fails with a `TypeError` when `-c` or a params file adds keys (B3).
 - `supported_nxdls = [""]` is the only class-level contract. Nothing declares the supported file formats, so a host such as NOMAD cannot ask "which reader can handle this file?".
 
 ### 2.2 `MultiFormatReader`
-[multi/reader.py](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py)
+[multi/reader.py](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py)
 
 **What it does well:** a fixed pipeline (objects → files → `setup_template` → config → `post_process` → `fill_from_config`), callback hooks, built-in ELN and config handlers, `processing_order`, multi-entry support through `get_entry_names()`, `!` optional-group removal, and `*` wildcard expansion.
 
@@ -58,26 +69,28 @@ All code links point to the reviewed commits on the `keila-moral` GitHub forks, 
 
 | # | Location | Finding |
 |---|---|---|
-| C1 | [L521-528](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L521) | Dispatch uses `os.path.splitext(...)[1]`, which returns **only the last suffix**. Compound suffixes that apm/em/microstructure depend on (`.mtex.h5`, `.oasis.specific.yaml`, `range_.h5`, `_trimmed.txt`, `.mrc.mdoc`) cannot be registered. |
-| C2 | [L522](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L522) vs [L528](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L528) | The ordering key is **not lower-cased**, but dispatch is. `FILE.IBW` or Bruker `.FLT` is dispatched correctly but ignores `processing_order` and is sorted last. |
+| C1 | [L521-528](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L521) | Dispatch uses `os.path.splitext(...)[1]`, which returns **only the last suffix**. Compound suffixes that apm/em/microstructure depend on (`.mtex.h5`, `.oasis.specific.yaml`, `range_.h5`, `_trimmed.txt`, `.mrc.mdoc`) cannot be registered. |
+| C2 | [L522](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L522) vs [L528](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L528) | The ordering key is **not lower-cased**, but dispatch is. `FILE.IBW` or Bruker `.FLT` is dispatched correctly but ignores `processing_order` and is sorted last (B13). |
 | C3 | L528-537 | Dispatch looks **only at the extension**. MFR has no notion of content sniffing or of "one extension, several parsers" (`.txt`, `.h5`, `.dat`, `.xml`, `.json`), so each plugin builds its own detection. |
-| C4 | [L534](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L534) | A missing file only triggers a warning and the conversion continues, so it can "succeed" with an empty template. |
-| C5 | [L498-565](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L498) | There is no "finalize" hook after `fill_from_config`. That is why raman, xas, xps and xrd override `read()` to post-edit the template (`/@default`, link `@target`, unit checks, dropping skeleton keys), and why they all hard-code `suppress_warning=True` and **drop the caller's kwargs** while doing so. |
-| C6 | [L387](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L387) | `handle_eln_file` calls `get_entry_names()[0]` **while files are still being dispatched**, so the ELN is bound to whatever entry exists at that moment, usually `entry`. That explains why xas/xps re-parse with `parent_key="/ENTRY"` and add a generic-entry fallback in `get_eln_data`. |
-| C7 | [L271](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L271) | `sorted(config_dict.items())` runs **once per entry**, inside the entry loop. It is cheap per call, but O(entries × keys log keys) for XPS files with hundreds of regions. |
-| C8 | [L246](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L246) | `has_missing_main` uses `key.startswith(optional_group)` without a trailing `/`. Removing `/ENTRY[e]/sample` therefore also drops `/ENTRY[e]/sample_stage/...`. |
-| C9 | [L144-157](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L144) + [utils.py:369](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/utils.py#L369) | `is_boolean` is an **unanchored** regex (`True|False|...|On|Off|Yes|No`). Any literal fallback that contains "No", "Yes", "On" or "Off" ("November sample", "Notes", "Offset", …) is classed as boolean, and `to_bool()` then returns `None`, so **the value is silently dropped**. I reproduced this: `'["@eln", "November sample"]'` → `{}`. |
-| C10 | [L555](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L555) | `suppress_warning` is a reader kwarg that is popped late. Every MFR plugin hard-codes it to `True`, so missing config values are never reported, which hides config mistakes (see XRD in §4.6). |
-| C11 | [L108](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L108), L223-227 | Link handling is split: `@link:` tokens are rewritten in `link_callback`, again after resolution, and `/entry/` is replaced by plain string substitution. No check is made that the link target exists, and XPS has to add `@target` itself ([xps reader.py:934-935](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/reader.py#L934)). |
+| C4 | [L534](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L534) | A missing file only triggers a warning and the conversion continues, so it can "succeed" with an empty template. |
+| C5 | [L498-565](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L498) | There is no "finalize" hook after `fill_from_config`. That is why raman, xas, xps and xrd override `read()` to post-edit the template (`/@default`, link `@target`, unit checks, dropping skeleton keys), and why they all hard-code `suppress_warning=True` and **drop the caller's kwargs** while doing so. |
+| C6 | [L387](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L387) | `handle_eln_file` calls `get_entry_names()[0]` **while files are still being dispatched**, so the ELN is bound to whatever entry exists at that moment, usually `entry`. That explains why xas/xps re-parse with `parent_key="/ENTRY"` and add a generic-entry fallback in `get_eln_data`. |
+| C7 | [L271](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L271) | `sorted(config_dict.items())` runs **once per entry**, inside the entry loop. It is cheap per call, but O(entries × keys log keys) for XPS files with hundreds of regions. |
+| C8 | [L246](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L246) | `has_missing_main` uses `key.startswith(optional_group)` without a trailing `/`. Removing `/ENTRY[e]/sample` therefore also drops `/ENTRY[e]/sample_stage/...` (B8). |
+| C9 | [L144-157](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L144) + [utils.py:369](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/utils.py#L369) | `is_boolean` is an **unanchored** regex (`True|False|...|On|Off|Yes|No`). Any literal fallback that contains "No", "Yes", "On" or "Off" ("November sample", "Notes", "Offset", …) is classed as boolean, and `to_bool()` then returns `None`, so **the value is silently dropped**. I reproduced this: `'["@eln", "November sample"]'` → `{}` (B1). |
+| C10 | [L555](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L555) | `suppress_warning` is a reader kwarg that is popped late. The four MFR plugins that override `read()` (raman, xas, xps, xrd) hard-code it to `True`, so missing config values are never reported there, which hides config mistakes (see XRD in §4.6). |
+| C11 | [L108](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L108), L223-227 | Link handling is split: `@link:` tokens are rewritten in `link_callback`, again after resolution, and `/entry/` is replaced by plain string substitution. No check is made that the link target exists, and XPS has to add `@target` itself ([xps reader.py:934-935](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/reader.py#L934)). |
 | C12 | — | **No config validation**: keys are never checked against the NXDL template, and tokens other than the four known prefixes (for example `@attr:` in XRD) silently fall back to `identity` and write the *path string* as the value. |
 
 ### 2.3 Other core points
 
-- `get_reader` ([convert.py:34-52](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/convert.py#L34)) runs `exec_module` on the built-in reader file on every call, and falls back to entry points only through a `FileNotFoundError`. Nothing is cached.
-- `transfer_data_into_template` ([convert.py:114](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/convert.py#L114)) seeds NXDL-declared defaults under the literal `/ENTRY[entry]/`. Readers that produce real entry names are left with a bogus `entry` that they must delete by hand ([xas reader.py:229-237](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L229)).
-- `JsonMapReader` loads HDF5 eagerly (`lazy=False`) and then opens the file **a second time** for attributes ([json_map/reader.py:270-281](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/json_map/reader.py#L270)). It also accepts `.pickle` files through `pickle.load` (L261), which executes arbitrary code.
+- `get_reader` ([convert.py:34-52](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/convert.py#L34)) runs `exec_module` on the built-in reader file on every call, and falls back to entry points only through a `FileNotFoundError`. Nothing is cached.
+- `transfer_data_into_template` ([convert.py:114](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/convert.py#L114)) seeds NXDL-declared defaults under the literal `/ENTRY[entry]/`. Readers that produce real entry names are left with a bogus `entry` that they must delete by hand ([xas reader.py:229-237](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L229)).
+- `JsonMapReader` loads HDF5 eagerly (`lazy=False`) and then opens the file **a second time** for attributes ([json_map/reader.py:270-281](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/json_map/reader.py#L270)). It also accepts `.pickle` files through `pickle.load` (L261), which executes arbitrary code from the input file (B20, the only S02 hit in the scan).
+- The `Writer` turns some write failures into warnings: a `ValueError` from `create_dataset` only logs "ValueError caught upon create_dataset" and the dataset is missing from the output ([writer.py:458-461](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/writer.py#L458)), and an `InvalidDictProvided` is only printed (L477-478). In both cases the conversion carries on.
+- The scan reports 580 hits in pynxtools, but most of them are outside the dataconverter: 59 swallowed exceptions, mostly in the NOMAD integration (`nomad/parsers/parser_v2.py`, `nxdl_to_metainfo.py`, `schema_packages/dataconverter.py`), where failures are logged and processing continues on purpose.
 - `readers/utils.py` already holds `parse_yml`, `flatten_and_replace` and `FlattenSettings`. These are the right building blocks for ELN handling, but each plugin wraps them differently (§5.4).
-- `pynxtools.testing.nexus_conversion.ReaderTest` is used by **all 10 plugins**. This is a good shared regression harness and is the basis of Phase 0 in the plan.
+- `pynxtools.testing.nexus_conversion.ReaderTest` is used by **all 11 plugins** (mpes included). This is a good shared regression harness. The baseline replays 60 of its conversions with resource monitoring and is Phase 0 of the plan. em and microstructure skip their `ReaderTest` case because their test data are not in the repo, so the baseline covers them with extra conversions instead.
 
 ---
 
@@ -94,26 +107,47 @@ All code links point to the reviewed commits on the `keila-moral` GitHub forks, 
 | igor | extension | MFR JSON | own `parse_yml`, ignores entry | yes (`.entry` file / objects) | no | user |
 | xas | registry, `is_mainfile`, version, ambiguity | MFR JSON | `parse_yml(parent_key="/ENTRY")` + generic fallback | yes | yes | user > parser default |
 | xps | registry + metadata-parser registry, version, ambiguity | MFR JSON | as xas + atom-type extraction | yes | yes | user > parser default |
+| mpes | extension (`.h5`/`.hdf5`) or an xarray object | MFR JSON (no default config) | `parse_yml(parent_key="/ENTRY")`, no fallback | no | no | user only; the last `.json` wins |
 | xrd | extension (via external `fairmat_readers_xrd`) | MFR JSON built in `__init__` | none | no | yes (drops kwargs) | fixed, user override ignored |
+
+Scan hits, bugs and baseline per package (baseline run `baseline_20261026_161939`; the other two runs differ by less than 1 MB and 0.2 s per conversion):
+
+| Package | Scan hits (high/medium/low/info) | Bugs (§6) | Tests passed / total (skipped) | Conversions OK / recorded | Max peak RSS (MB) | Max wall time (s) | Validation warnings |
+|---|---|---|---|---|---|---|---|
+| pynxtools | 580 (1/33/135/411) | B1, B8, B13, B20 | 735 / 735 | 3 / 7 | 136 | 0.9 | 33 |
+| apm | not scanned | B2, B3, B7, B18 | not in baseline | — | — | — | — |
+| em | 373 (0/42/62/269) | B3, B6, B19, B24, B32, B36 | 6 / 7 (1) | 4 / 4 | 410 | 3.7 | 53 |
+| microstructure | 69 (3/3/15/48) | B3 | 2 / 6 (4) | 1 / 1 | 220 | 2.0 | 55 |
+| spm | 357 (0/17/69/271) | B3, B10, B17, B25, B27, B28 | 348 / 360 (12) | 19 / 19 | 270 | 2.4 | 231 |
+| ellips | 27 (1/0/13/13) | B15, B16 | 19 / 19 | 1 / 1 | 158 | 1.2 | 3 |
+| raman | 59 (0/6/26/27) | B5, B9, B29 | 128 / 128 | 12 / 12 | 140 | 1.2 | 22 |
+| igor | 97 (0/0/43/54) | B14, B31 | 5 / 6 (1) | 3 / 3 | 104 | 0.8 | 0 |
+| mpes | 341 (0/2/161/178) | — | 10 / 10 | 2 / 2 | 288 | 2.3 | 0 |
+| xas | 56 (0/13/19/24) | B12 | 4 / 4 | 4 / 4 | 265 | 3.3 | 21 |
+| xps | 690 (0/56/203/431) | B21, B22, B25, B26, B29, B30, B33, B35, B36 | 212 / 212 | 11 / 11 | 382 | 5.0 | 347 |
+| xrd | 10 (0/2/2/6) | B4, B11, B21, B23 | 1 / 1 | 1 / 1 | 112 | 0.9 | 13 |
+| readers-xrd | 69 (0/4/54/11) | B34, B36 | (tested through xrd) | — | — | — | — |
+
+Scan hit counts depend on how much config a repo has: 209 of the 341 mpes hits and 206 of the 357 spm hits are in JSON configs. They are not a quality ranking.
 
 ---
 
 ## 4. Per-plugin findings
 
 ### 4.1 pynxtools-xps
-[reader.py](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/reader.py), [parsers/base.py](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/parsers/base.py)
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/reader.py), [parsers/base.py](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/base.py)
 
 **Strengths.** XPS is the reference design for "methodical format checking":
-- `_Parser` ([base.py:335-593](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/parsers/base.py#L335)) has `supported_file_extensions`, `supported_versions` (half-open ranges), `detect_version`, `matches_file` (positive identification, at most a few KB), `is_mainfile`, `match_failure_reason`, and `parse` → `_parse`.
-- Reader dispatch ([reader.py:431-500](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/reader.py#L431)) probes all registered parsers, raises on ambiguity, and logs per-parser rejection reasons.
-- `_XPSMetadataParser` ([base.py:621-729](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/parsers/base.py#L621)) lets supplementary files (Vamas results) attach to a compatible primary parser, in any order.
+- `_Parser` ([base.py:335-593](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/base.py#L335)) has `supported_file_extensions`, `supported_versions` (half-open ranges), `detect_version`, `matches_file` (positive identification, at most a few KB), `is_mainfile`, `match_failure_reason`, and `parse` → `_parse`.
+- Reader dispatch ([reader.py:431-500](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/reader.py#L431)) probes all registered parsers, raises on ambiguity, and logs per-parser rejection reasons.
+- `_XPSMetadataParser` ([base.py:621-729](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/base.py#L621)) lets supplementary files (Vamas results) attach to a compatible primary parser, in any order.
 - The typed intermediate representation (`ParsedSpectrum`, xarray-based) is decoupled from NeXus paths.
 - Each parser chooses its config (`parser.config_file`), and a user config takes precedence (`set_config_file(..., replace=False)`).
 
 **Issues.**
-- `is_mainfile` runs for **every** parser and every file, and `parse()` then calls `_is_mainfile` again ([base.py:559](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/parsers/base.py#L559)). Each check re-opens the file and re-reads the header, so detection costs N_parsers + 1 file opens per file.
+- `is_mainfile` runs for **every** parser and every file, and `parse()` then calls `_is_mainfile` again ([base.py:559](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/base.py#L559)). Each check re-opens the file and re-reads the header, so detection costs N_parsers + 1 file opens per file.
 - `parser.parse(file_path, **(self.kwargs or {}))` forwards *all* converter kwargs (`nxdl`, `output`, …) to parsers.
-- `read()` override ([L910-937](https://github.com/keila-moral/pynxtools-xps/blob/43c5bbe227310568b6f7da39d29c6c6c918f51d4/src/pynxtools_xps/reader.py#L910)):
+- `read()` override ([L910-937](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/reader.py#L910)):
   - sets `overwrite_keys` from "more than one extension" (`_check_multiple_extensions`, L232). This is a heuristic proxy for "multiple sources";
   - discards kwargs other than `config_file`;
   - builds a second full `Template` copy to drop orphan `@units`, check units and add link `@target`. All of that is generic core work.
@@ -121,107 +155,170 @@ All code links point to the reviewed commits on the `keila-moral` GitHub forks, 
 - `set_nxdata_defaults` (L864) contains XPS-specific `/@default` logic, while every other plugin sets `/@default` in its own way.
 - `handle_eln_file` (L360-429) mixes generic ELN flattening with domain logic (formula → `atom_types`).
 
-### 4.2 pynxtools-xas
-[reader.py](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py), [parsers/base.py](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/base.py)
+**From the scan and the baseline.**
+- Numbers: `_get_minimal_step` rounds to 2 decimals (B21), and so does the regular VAMAS energy axis. The VAMAS parser flips a `binding energy` axis without its data and compares the label case-sensitively (B22); `MAPPING` mode is a stub (B30); an invalid date becomes `0001-01-01` (B29).
+- SPECS XY time stamps without a zone get the converting machine's zone (B25). SPECS SLE writes a transmission function of all ones when the file has none, and truncates a mismatched one (B26).
+- The class-default `config/template.json` is invalid JSON and only works because it is never read (B33). Two metadata maps have duplicate keys (B35). SLE and SPECS XML parse XML with default parsers (B36).
+- 35 `except` blocks carry on after an error. 13 of them are `matches_file` probes, which is intended. In SLE `_parse`, a failed `RawData` count is only logged, and `_get_raw_ids` returns an empty list on any error ([sle/parser.py:149,694](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/specs/sle/parser.py#L149)).
+- `config_vms.json` falls back to `eV` and `counts_per_second` when a unit lookup fails (16 C07 hits). That is sensible for VAMAS, but nothing in the output says the unit was assumed.
+- Baseline: 212 tests and 11 conversions pass, the largest is SPECS SLE at 382 MB and 4.5 s. 9 of the 11 outputs are not valid against NXxps, and validation reports 304 fields without documentation.
 
-- `_Parser` ([base.py:57-298](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/base.py#L57)) is a near-copy of the XPS one. The XPS-only metadata-parser support is missing, and the error messages differ slightly.
+### 4.2 pynxtools-xas
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py), [parsers/base.py](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/base.py)
+
+- `_Parser` ([base.py:57-298](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/base.py#L57)) is a near-copy of the XPS one. The XPS-only metadata-parser support is missing, and the error messages differ slightly.
 - `versioning.py` is an XPS copy with small drift: the `_version_ranges_overlap` implementation differs (diff of xas vs xps `versioning.py`).
 - `ParsedSpectrum` here uses plain numpy, while XPS uses xarray. They are two incompatible intermediate representations with the same name.
-- `handle_data_file` ([L121-153](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L121)) uses `self.data.update(parser.data)`. Two files that produce the same entry name **overwrite each other silently**. XPS at least merges them (`_combine_datasets`).
-- `get_data` ([L197-210](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L197)) hard-codes three token names (`energy`, `intensity`, `intensity_errors`) instead of resolving paths generically on the dataclass.
-- The `read()` override ([L218-239](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L218)) deletes the skeleton `/ENTRY[entry]/` keys (core issue, §2.3) and drops kwargs.
+- `handle_data_file` ([L121-153](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L121)) uses `self.data.update(parser.data)`. Two files that produce the same entry name **overwrite each other silently**. XPS at least merges them (`_combine_datasets`).
+- `get_data` ([L197-210](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L197)) hard-codes three token names (`energy`, `intensity`, `intensity_errors`) instead of resolving paths generically on the dataclass.
+- The `read()` override ([L218-239](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L218)) deletes the skeleton `/ENTRY[entry]/` keys (core issue, §2.3) and drops kwargs.
+
+**From the scan and the baseline.**
+- ESRF time stamps get an explicit, declared time zone, which is the right way to do it. `esrf_fluo._to_ev` decides between keV and eV by magnitude (values below 100 are taken as keV, [esrf_fluo.py:79](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/esrf_fluo.py#L79)).
+- The `matches_file` probes catch every exception and return False without a rejection reason.
+- Baseline: 4 tests and 4 conversions pass; 3 of the 4 outputs are not valid against NXxas, and 3 links have no `@target`.
 
 ### 4.3 pynxtools-raman
-[reader.py](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py), [parsers/base.py](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/parsers/base.py)
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py), [parsers/base.py](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/parsers/base.py)
 
-- `_RamanParser` ([base.py:33-147](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/parsers/base.py#L33)) is a third copy of the parser base, with versioning but without `match_failure_reason`. `versioning.py` is a third copy too.
-- Dispatch is extension → hard-coded parser (`.rod` → `RodParser`, `.txt` → `WitecParser`, [L53-59](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L53)) instead of a registry, so a second `.txt` vendor would need reader changes.
-- **User config is overwritten.** `_set_parser_data` sets `self.config_file = .../config/<parser default>` unconditionally ([L81](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L81)). Files are dispatched alphabetically by extension, so a user `.json` (`.json` < `.rod` < `.txt`) is always replaced. `-c config.json` is also replaced, because MFR reads kwargs *before* dispatching.
-- For a theoretical `.rod` file the reader sets `self.config_file = Path()` ([L104](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L104)), which is `"."`. `parse_flatten_json(".")` then raises `IsADirectoryError` instead of the intended clean abort.
-- `get_eln_data` ([L126-176](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L126)) rebuilds ELN keys by **stripping upper-case letters** and uses a hard-coded list of "mixed notation" concepts (L148-158). This is fragile and NXDL-unaware.
-- `get_attr` ([L178-206](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L178)):
+- `_RamanParser` ([base.py:33-147](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/parsers/base.py#L33)) is a third copy of the parser base, with versioning but without `match_failure_reason`. `versioning.py` is a third copy too.
+- Dispatch is extension → hard-coded parser (`.rod` → `RodParser`, `.txt` → `WitecParser`, [L53-59](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L53)) instead of a registry, so a second `.txt` vendor would need reader changes.
+- **User config is overwritten.** `_set_parser_data` sets `self.config_file = .../config/<parser default>` unconditionally ([L81](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L81)). Files are dispatched alphabetically by extension, so a user `.json` (`.json` < `.rod` < `.txt`) is always replaced. `-c config.json` is also replaced, because MFR reads kwargs *before* dispatching.
+- For a theoretical `.rod` file the reader sets `self.config_file = Path()` ([L104](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L104)), which is `"."`. `parse_flatten_json(".")` then raises `IsADirectoryError` instead of the intended clean abort.
+- `get_eln_data` ([L126-176](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L126)) rebuilds ELN keys by **stripping upper-case letters** and uses a hard-coded list of "mixed notation" concepts (L148-158). This is fragile and NXDL-unaware.
+- `get_attr` ([L178-206](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L178)):
   - forces `float()` on every value except a hard-coded `space_group` path;
   - mutates `missing_meta_data` as a side effect of lookup;
   - logs a misleading "No axis name" warning for any missing attribute.
-- `read()` ([L225-244](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L225)):
+- `read()` ([L225-244](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L225)):
   - writes the unused metadata under `self.callbacks.entry_name`, which holds whatever the last loop left there;
   - hard-codes `/@default = "entry"`;
   - drops kwargs.
 - **Good pattern to keep:** `unused_attrs` → `COLLECTION[unused_data]`. Unmapped vendor metadata is preserved instead of silently lost, and this should become a core feature.
 
-### 4.4 pynxtools-ellips
-[reader.py](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py), [parsers/base.py](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/parsers/base.py)
+**From the scan and the baseline.**
+- ROD dates get UTC attached, although the format does not say which zone they are in (B29).
+- The ROD download and batch scripts in `rod_database/` live inside the package and swallow request errors. They are tooling, not part of the reader.
+- Baseline: 128 tests and 12 conversions pass, but 11 of the 12 outputs are not valid against NXraman. `identifier_entry` is not a string (it goes through the forced `float()` in `get_attr`), and in every ROD conversion the units of `density`, `unit_cell_abc`, `unit_cell_alphabetagamma` and `unit_cell_volume` are dropped because their fields are missing (44 warnings).
 
-- `_EllipsParser` ([base.py:27-107](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/parsers/base.py#L27)) is a fourth copy of the parser base, without versioning.
-- `CONVERT_DICT` defines `"environment"` twice ([L38](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L38) and [L53](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L53)), so the first mapping is dead.
-- The ELN doubles as **parser configuration** (column names, separator, number of header lines, [L64-75](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L64)). This forces `processing_order` (yaml before dat) and makes the `.dat` unreadable without an ELN ([L137-141](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L137)). Parser options should be a separate input, or should be detected from the header.
-- `handle_eln_file` stores `eln_data` **and** returns the full flattened ELN into the template ([L134](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L134)). Every ELN key is therefore written even when the config does not reference it, which bypasses the config.
-- `handle_dat_file` calls `WoollamParser.is_mainfile` and then `parse()`, which repeats the full check ([L142](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L142), [L150](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L150)).
+### 4.4 pynxtools-ellips
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py), [parsers/base.py](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/parsers/base.py)
+
+- `_EllipsParser` ([base.py:27-107](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/parsers/base.py#L27)) is a fourth copy of the parser base, without versioning.
+- `CONVERT_DICT` defines `"environment"` twice ([L38](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L38) and [L53](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L53)), so the first mapping is dead.
+- The ELN doubles as **parser configuration** (column names, separator, number of header lines, [L64-75](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L64)). This forces `processing_order` (yaml before dat) and makes the `.dat` unreadable without an ELN ([L137-141](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L137)). Parser options should be a separate input, or should be detected from the header.
+- `handle_eln_file` stores `eln_data` **and** returns the full flattened ELN into the template ([L134](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L134)). Every ELN key is therefore written even when the config does not reference it, which bypasses the config.
+- `handle_dat_file` calls `WoollamParser.is_mainfile` and then `parse()`, which repeats the full check ([L142](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L142), [L150](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L150)).
 - `self.data` is not initialised in `__init__`. `get_data` (L155) raises `AttributeError` when no `.dat` was given but the config references `@data`.
 - `setup_template` (L163-174) and `post_process` (L176-200) hard-code `/ENTRY[entry]/...`. The software block records the **pynxtools** version rather than the plugin's, which differs from microstructure and apm.
 - `set_config_file` (L107) re-implements the base method.
 
+**From the scan and the baseline.**
+- The duplicate `"environment"` key above is B15; the scan finds it as its only high-severity K01 hit in the plugins.
+- The Woollam parser compares `Psi/Delta`, `tan(Psi)/cos(Delta)` and `Angstroms` case-sensitively, so another spelling in the header is not recognised.
+- Baseline: 19 tests and 1 conversion pass. The output is not valid against NXellipsometry because an axis length does not match its data.
+
 ### 4.5 pynxtools-igor
-[reader.py](https://github.com/keila-moral/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py)
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py)
 
 - It re-implements `handle_eln_file`, `get_eln_data` and `set_config_file` (L132-147). `self.eln_data = None` (L118) breaks the base-class type contract. `parse_yml` is called without the entry name, so ELN values always target `/ENTRY[entry]` even in multi-entry mode.
-- `get_entry_names` returns `dict_keys`, not a list ([L182](https://github.com/keila-moral/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L182)).
-- `parse_note` splits on **any whitespace** ([L47](https://github.com/keila-moral/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L47)), so note values that contain spaces are truncated or dropped.
+- `get_entry_names` returns `dict_keys`, not a list ([L182](https://github.com/FAIRmat-NFDI/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L182)).
+- `parse_note` splits on **any whitespace** ([L47](https://github.com/FAIRmat-NFDI/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L47)), so note values that contain spaces are truncated or dropped.
 - `process_ibw_files` and `process_pxp_files` duplicate the axis, unit and metadata logic (L210-258 vs L259-332).
 - **Good pattern:** file handlers only register paths, and the heavy work happens in `post_process` once all inputs, including the `.entry` description, are known. This makes processing independent of file order.
 
-### 4.6 pynxtools-xrd
-[reader.py](https://github.com/keila-moral/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py), [xrd.config.json](https://github.com/keila-moral/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/xrd.config.json)
+**From the scan and the baseline.**
+- The entry name is `name.split(".")[0]`, so `a.1.ibw` and `a.2.ibw` collide (B31).
+- 66 of the 97 hits are hard-coded values in the example configs.
+- Baseline: 5 of 6 tests and 3 conversions pass (the NOMAD example test is skipped because its folder has no mainfile). The Scan57 conversions write units that pint cannot parse for `data` and the `l` axis (5 warnings).
 
-- **All four `@link:` entries are silently dropped.** `_clean_mapping` ([L53-67](https://github.com/keila-moral/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L53)) looks up the link target (`"entry/experiment_result/q_norm"`) as a *key* of the config, but the keys are `"/ENTRY/..."`, so no target ever matches. If one did match, `value.copy()` on a `str` (L61) would raise `AttributeError`. The link targets in the JSON are also inconsistent: with and without a leading `/`, and one points at a group (`.../experiment_result/`).
+### 4.6 pynxtools-xrd
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py), [xrd.config.json](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/xrd.config.json)
+
+- **All four `@link:` entries are silently dropped.** `_clean_mapping` ([L53-67](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L53)) looks up the link target (`"entry/experiment_result/q_norm"`) as a *key* of the config, but the keys are `"/ENTRY/..."`, so no target ever matches. If one did match, `value.copy()` on a `str` (L61) would raise `AttributeError`. The link targets in the JSON are also inconsistent: with and without a leading `/`, and one points at a group (`.../experiment_result/`).
 - `_mapping_to_config` (L70-75) emits `@attr:`, but the MFR token is `@attrs`, so any such value would be written as the literal path string (C12). In practice it is dead code because no config value starts with `/`.
 - The config is loaded and cleaned in `__init__` (L136-143). `read()` (L194-201) drops all kwargs, so **`-c user.json` and `overwrite_keys` are ignored**, and `suppress_warning=True` hides every missing value.
 - `handle_objects` raises "provide a file" when objects are not a dict (L172-180). It runs *before* files, so `self.data` is always empty at that point.
 - `suppress_warnings` (L130) is an unused class attribute.
 - File reading is delegated to `fairmat_readers_xrd.read_file`, so detection is by extension only.
 
-### 4.7 pynxtools-spm
-[reader.py](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py), [parsers/\_\_init\_\_.py](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py), [nxformatters/base_formatter.py](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/nxformatters/base_formatter.py)
+**From the scan and the baseline.**
+- `kbeta/@units` is the literal string `"kBeta@units"` (B23). The baseline confirms it: validation reports the unit `''` for `kbeta`, which does not match NX_WAVELENGTH.
+- `_get_minimal_step` is a copy of the xps function and rounds steps to 2 decimals (B21), so a 0.005° step is stored as `0.0`.
+- **readers-xrd** (`fairmat_readers_xrd`, the file library behind this plugin): 69 hits. The `.xy` export writes `Start: 0` and `Step: 0` when the values are missing (B34), the units of axes and of the X-ray source fall back to `deg`, `kV`, `mA` and `angstrom` when the file has none (D01), XML is parsed with default parsers (B36), and it reports with `print()` (6 calls).
+- Baseline: 1 test and 1 conversion pass; the output is not valid against NXxrd_pan (10 required fields missing, inconsistent `nDet` dimensions).
 
-- It subclasses `BaseReader`, and `read()` has no kwargs ([L64-69](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L64)).
-- The formatter is chosen by a hard-coded `if/elif` chain on (ELN `experiment_technique`, extension) ([L109-193](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L109)). It is not cross-checked against the requested NXDL, so NXsts versus NXstm is not validated.
-- **The parser is selected from user-typed ELN values** (`software/vendor`, `software/model`) through a nested dict ([parsers/\_\_init\_\_.py:56-99](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py#L56)). A typo makes it fall back to "try every parser" with `except Exception: pass` ([L181](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py#L181)), which **swallows genuine parse errors**. The vendor and version are written in the file headers (e.g. FLT `Program=SPMLab`, `Version=1.00`), so they can be detected.
-- Indentation bug in the file loop ([L91-100](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L91)): the `else` belongs to the yaml `if`, so every data and JSON file ends up in `auxiliary_files`. The list is unused anyway. If several data files are given, the last one wins silently.
-- `manually_filter_data_type` ([L37-55](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L37)) **`deepcopy`s the entire template, including image arrays**, to run a few hard-coded casts, and reports failures with `print`.
+### 4.7 pynxtools-spm
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py), [parsers/\_\_init\_\_.py](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py), [nxformatters/base_formatter.py](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/nxformatters/base_formatter.py)
+
+- It subclasses `BaseReader`, and `read()` has no kwargs ([L64-69](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L64)).
+- The formatter is chosen by a hard-coded `if/elif` chain on (ELN `experiment_technique`, extension) ([L109-193](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L109)). It is not cross-checked against the requested NXDL, so NXsts versus NXstm is not validated.
+- **The parser is selected from user-typed ELN values** (`software/vendor`, `software/model`) through a nested dict ([parsers/\_\_init\_\_.py:56-99](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py#L56)). A typo makes it fall back to "try every parser" with `except Exception: pass` ([L181](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py#L181)), which **swallows genuine parse errors**. The vendor and version are written in the file headers (e.g. FLT `Program=SPMLab`, `Version=1.00`), so they can be detected.
+- Indentation bug in the file loop ([L91-100](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L91)): the `else` belongs to the yaml `if`, so every data and JSON file ends up in `auxiliary_files`. The list is unused anyway. If several data files are given, the last one wins silently.
+- `manually_filter_data_type` ([L37-55](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L37)) **`deepcopy`s the entire template, including image arrays**, to run a few hard-coded casts, and reports failures with `print`.
 - The template is then copied again into `filled_template` (L195-203), and `/ENTRY[entry]/definition/@version` is hard-coded (L205).
 - The nested config DSL (`raw_path`, `@default:`, `@default_link:`, `#note`) and `walk_though_config_nested_dict` re-implement what `fill_from_config` already does, with a different syntax.
 
-### 4.8 pynxtools-em
-[reader.py](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py), [utils/io_case_logic.py](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py)
+**From the scan and the baseline.**
+- Time stamps without a zone get the converting machine's zone through `tzlocal` (B25).
+- The Bruker scale factor falls back to 1.0 on any error (B27), and three `@units` in `bruker_spm_afm.json` are notes, not lookups (B28). 17 `except` blocks carry on after an error, the worst being B10.
+- 206 of the 357 hits are hard-coded values in the nested JSON configs, which are the mapping language here.
+- Baseline: 348 of 360 tests and all 19 conversions pass (the 12 skips are scan-region tests on files without a 2D scan). All 19 outputs are not valid against NXafm, NXstm or NXsts: 153 required fields are missing, mostly the `DATA` and `AXISNAME` of the image channels, and 24 links have no `@target`.
 
-- It subclasses `BaseReader`, `read()` has no kwargs ([L76-81](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L76)), and `template.clear()` (L87) discards the NXDL skeleton.
-- Production code imports from `examples/` ([L27-36](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L27)). A `production: bool = True` switch with a dead development path sits in `read()` (L89-97).
-- **Brute-force dispatch:** for one data file, 15 parser classes are instantiated in sequence ([L150-171](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L150)). Each constructor opens the file to self-check (detection happens as a side effect of `__init__`). After that, the Tescan and JEOL parsers run, and with two files the Hitachi and MRC parsers run as well (L173-183). Nothing prevents two parsers from both claiming a file.
-- Detection cost, Velox: `check_if_supported` calls `emd.file_reader` and **loads the whole EMD (data included) just to decide support** ([rsciio_velox.py:101](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L101)). The in-code TODO acknowledges the memory problem.
-- Detection cost, TIFF: each TIFF parser mmaps the file, opens it with PIL and reads tags separately (e.g. [image_tiff_zeiss.py:83-106](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/image_tiff_zeiss.py#L83)).
-- **Full-file SHA-256 per parser:** every parser that accepts a file computes its SHA-256 just for a log line (e.g. [image_tiff_zeiss.py:165-166](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/image_tiff_zeiss.py#L165), [rsciio_velox.py:145-146](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L145)).
-- **Suffix logic loses files:** in `check_validity_of_file_combinations` ([L104-120](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py#L104)), the loop `break`s at `.mtex.h5`. Every suffix listed after it (`.h5`, `.hdf5`, `.hdr`, `.mrc`, `.mrc.mdoc`, `.rawtlt`, `.shifts`, `.xml`) is ignored as soon as an `.mtex.h5` is present.
-- **Hidden naming contract:** ELN files are recognised only by name suffix ([L125-134](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py#L125)): `eln_data.yaml` or `nxs_eln_data.yml`, but not `eln_data.yml`. Any other `*.yaml` is silently ignored.
+### 4.8 pynxtools-em
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py), [utils/io_case_logic.py](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py)
+
+- It subclasses `BaseReader`, `read()` has no kwargs ([L76-81](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L76)), and `template.clear()` (L87) discards the NXDL skeleton.
+- Production code imports from `examples/` ([L27-36](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L27)). A `production: bool = True` switch with a dead development path sits in `read()` (L89-97).
+- **Brute-force dispatch:** for one data file, 15 parser classes are instantiated in sequence ([L150-171](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L150)). Each constructor opens the file to self-check (detection happens as a side effect of `__init__`). After that, the Tescan and JEOL parsers run, and with two files the Hitachi and MRC parsers run as well (L173-183). Nothing prevents two parsers from both claiming a file.
+- Detection cost, Velox: `check_if_supported` calls `emd.file_reader` and **loads the whole EMD (data included) just to decide support** ([rsciio_velox.py:101](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L101)). The in-code TODO acknowledges the memory problem.
+- Detection cost, TIFF: each TIFF parser mmaps the file, opens it with PIL and reads tags separately (e.g. [image_tiff_zeiss.py:83-106](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/image_tiff_zeiss.py#L83)).
+- **Full-file SHA-256 per parser:** every parser that accepts a file computes its SHA-256 just for a log line (e.g. [image_tiff_zeiss.py:165-166](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/image_tiff_zeiss.py#L165), [rsciio_velox.py:145-146](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L145)).
+- **Suffix logic loses files:** in `check_validity_of_file_combinations` ([L104-120](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py#L104)), the loop `break`s at `.mtex.h5`. Every suffix listed after it (`.h5`, `.hdf5`, `.hdr`, `.mrc`, `.mrc.mdoc`, `.rawtlt`, `.shifts`, `.xml`) is ignored as soon as an `.mtex.h5` is present.
+- **Hidden naming contract:** ELN files are recognised only by name suffix ([L125-134](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py#L125)): `eln_data.yaml` or `nxs_eln_data.yml`, but not `eln_data.yml`. Any other `*.yaml` is silently ignored.
 - The version concept (`EmSchemaVersion` with exact string match) differs from the xps/xas/raman `VersionRange` concept.
-- **Good to keep:** the configuration dictionaries ([configurations/](https://github.com/keila-moral/pynxtools-em/tree/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/configurations)) with pint units and dtype casting (`map_to_f8`, `map_to_str`) are declarative and close to the MFR config. They add what MFR lacks (unit conversion, dtype enforcement, vector assembly from several source keys).
+- **Good to keep:** the configuration dictionaries ([configurations/](https://github.com/FAIRmat-NFDI/pynxtools-em/tree/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/configurations)) with pint units and dtype casting (`map_to_f8`, `map_to_str`) are declarative and close to the MFR config. They add what MFR lacks (unit conversion, dtype enforcement, vector assembly from several source keys).
+
+**From the scan and the baseline.**
+- The Oxford microstructure path hard-codes one phase, all crystals in phase 1 and `imaging_mode = secondary_electron` for any input (B24). It writes the unit `wt%`, which pint cannot parse (B32).
+- `xmltodict` and `ElementTree` parse XML embedded in uploaded TIFF, PNG and MRC files (B36).
+- The axis flips (A01) are deliberate: TIFF images are flipped to put the origin at the bottom left, and the axis names are reversed with them. 34 `except` blocks carry on after an error, most of them in format probes or optional metadata.
+- Baseline: the reader test is skipped because the test data are not in the repo. The 4 extra conversions (the default example and three InGaN EDS files) pass and are the heaviest in the baseline at 380–410 MB peak RSS, although the outputs are below 1 MB. All 4 are not valid against NXem (25 required fields missing).
 
 ### 4.9 pynxtools-apm
-[reader.py](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py), [utils/io_case_logic.py](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py)
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py), [utils/io_case_logic.py](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py)
 
-- **Crash when no `*.oasis.specific.yaml` is given:** `nx_apm_cfg` is only assigned inside `if len(case.cfg) == 1` ([L81](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py#L81)) but is always read at [L92](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py#L92), which raises `UnboundLocalError`.
-- `.hdf5` appears in **both** `VALID_FILE_NAME_SUFFIX_RECON` ([L33](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L33)) and `..._RANGE` ([L46](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L46)). Both share the same `self.case[".hdf5"]` list, so an `.hdf5` file is added to **both** `reconstruction` and `ranging` and parsed in both roles.
+- **Crash when no `*.oasis.specific.yaml` is given:** `nx_apm_cfg` is only assigned inside `if len(case.cfg) == 1` ([L81](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py#L81)) but is always read at [L92](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py#L92), which raises `UnboundLocalError`.
+- `.hdf5` appears in **both** `VALID_FILE_NAME_SUFFIX_RECON` ([L33](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L33)) and `..._RANGE` ([L46](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L46)). Both share the same `self.case[".hdf5"]` list, so an `.hdf5` file is added to **both** `reconstruction` and `ranging` and parsed in both roles.
 - `"db.yaml"` comes after `".yaml"` in the config suffix list, so it can never match.
-- `is_valid` is unconditionally `True` ([L145](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L145)), which makes the "unsupported combination" branch in the reader dead code. A second reconstruction file is ignored silently (`len(...) == 1`).
+- `is_valid` is unconditionally `True` ([L145](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L145)), which makes the "unsupported combination" branch in the reader dead code. A second reconstruction file is ignored silently (`len(...) == 1`).
 - `report_workflow` computes a full-file SHA-256 of every reconstruction and ranging file (L189, L199). With several files, all of them write to the same template path, so the last one wins.
 - `read()` has no kwargs, uses `template.clear()`, has a hard-coded `entry_id = 1` and contains `logger.info(os.getcwd())`.
 
+**From the scan and the baseline.** pynxtools-apm is not in `nomad-distro-dev`, so it was neither scanned nor run in the baseline. Everything above comes from the review.
+
 ### 4.10 pynxtools-microstructure
-[reader.py](https://github.com/keila-moral/pynxtools-microstructure/blob/4b06a272daa07776a6f896f584d669d35af6ab12/src/pynxtools_microstructure/reader.py)
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-microstructure/blob/bf0ce652eb42b91d24ce5c128c400db964818a03/src/pynxtools_microstructure/reader.py)
 
 - `BaseReader`, no kwargs (L44-49), `template.clear()` (L55).
-- It **imports internals from pynxtools-em** (`SEPARATOR`, `NxEmAtomTypesResolver`, `NxEmDefaultPlotResolver`, [L26-28](https://github.com/keila-moral/pynxtools-microstructure/blob/4b06a272daa07776a6f896f584d669d35af6ab12/src/pynxtools_microstructure/reader.py#L26)). That is a cross-plugin coupling to non-public modules (10 imports in total).
+- It **imports internals from pynxtools-em** (`SEPARATOR`, `NxEmAtomTypesResolver`, `NxEmDefaultPlotResolver`, [L26-28](https://github.com/FAIRmat-NFDI/pynxtools-microstructure/blob/bf0ce652eb42b91d24ce5c128c400db964818a03/src/pynxtools_microstructure/reader.py#L26)). That is a cross-plugin coupling to non-public modules (10 imports in total).
 - The I/O logic is a hand-written loop over two compound suffixes (L60-66). The ELN-like YAML is used only if an `.mtex.h5` is present; otherwise it is silently ignored.
 - Profiling and provenance are written inline (L96-105) in yet another layout.
+
+**From the scan and the baseline.**
+- 54 of the 69 hits are in the MTEX submodule (`src/pynxtools_microstructure/mtex`), which is third-party MATLAB code: duplicate keys in MATLAB `functionSignatures.json` files and a Python 2 test-data script. They are not plugin bugs (§6.1), but the submodule sits inside the package source.
+- Baseline: 2 of 6 tests pass and 4 are skipped (no example data, no release tags, no NORTH tool, no NOMAD example). The extra conversion of the `001.*.mtex.h5` example passes (220 MB, 2.0 s) and writes the largest output in the baseline (26 MB), which is not valid against NXem (55 validation warnings).
+
+### 4.11 pynxtools-mpes
+[reader.py](https://github.com/FAIRmat-NFDI/pynxtools-mpes/blob/118ce65d7513ac338f945d4c555a8f9bdea7e13c/src/pynxtools_mpes/reader.py)
+
+mpes was not part of the review; this section is based on the scan, the baseline and a reading of its 252-line reader.
+- It is a small MFR reader for one pre-binned HDF5 file (`.h5`/`.hdf5`) or an xarray object. Detection is by extension only, and a second data file silently replaces the first (`self.data_xarray = ...`).
+- There is no default config: the user always has to provide the `.json`. `set_config_file` logs "Skipping the new file" but then replaces the config anyway ([L187-191](https://github.com/FAIRmat-NFDI/pynxtools-mpes/blob/118ce65d7513ac338f945d4c555a8f9bdea7e13c/src/pynxtools_mpes/reader.py#L187)), so the last `.json` wins and the log says the opposite.
+- `self.eln_data = None` breaks the base-class type contract, as in igor. The ELN is read with `parse_yml(parent_key="/ENTRY")` and no entry-specific fallback.
+- `h5_to_xarray` reads all axes and the binned data into memory, and writes an empty unit when the file has none ([L117-131](https://github.com/FAIRmat-NFDI/pynxtools-mpes/blob/118ce65d7513ac338f945d4c555a8f9bdea7e13c/src/pynxtools_mpes/reader.py#L117)).
+- 209 of the 341 hits are hard-coded values and literal fallbacks in the example and test configs (e.g. `"resolution": "['@eln:...', '140.0']"` with unit `meV`). No bug was found.
+- Baseline: 10 tests and 2 conversions pass, both outputs are valid, and the larger one peaks at 288 MB.
 
 ---
 
@@ -239,6 +336,9 @@ All code links point to the reviewed commits on the `keila-moral` GitHub forks, 
 | `mapping_functors_pint`, `nxs_concepts`, `get_checksum`, `pint_custom_unit_registry`, `interpret_boolean`, `string_conversions`, `profiling`, `custom_logging`, `hfive_base`, `oasis_config`, `oasis_eln`, `io_case_logic`, … | apm ↔ em (↔ microstructure) | 15 shared module names, all except `get_gitrepo_commit.py` diverged (2 to 261 differing lines) |
 | `/@default` / NXdata default selection | xrd, ellips, raman, xps, em, apm, spm | 7 different implementations |
 | Profiling / provenance (program name, version, filling time) | apm, em, microstructure, ellips | different template paths and different "which version" |
+| `_get_minimal_step` | xps, xrd | identical copy, both carry B21 |
+| `parse_datetime` (ISO 8601, UTC default) | xps, xas | diverged copies; raman, spm and xps SPECS XY attach time zones in three more ways (§5.7) |
+| Formatter methods (`_get_conf_dict`, `rearrange_data_according_to_axes`, `_construct_nxscan_controllers`, `get_nxformatted_template`) | spm (Bruker, Nanonis, Omicron formatters) | the scan finds copies up to 97 % similar inside the plugin (K03) |
 
 ### 5.2 File-format checking
 
@@ -250,6 +350,8 @@ Five strategies are in use (see §1). Only xas and xps meet all of the following
 
 Even there, a file is opened N+1 times. Nobody shares a single *probe* of the file: the first few KB, HDF5 signature and top-level keys, TIFF tags, the extension chain.
 
+The scan shows how probes fail: 51 of the 167 swallowed exceptions are in format probes (`matches_file`, `is_mainfile`, `check_if_*`). Returning False there is right, but the reason is lost, so "this parser rejected the file because it is corrupt" looks the same as "this is not my format". Labels and keywords inside files are compared case-sensitively in 573 places (D05), for example the VAMAS `binding energy` label behind B22.
+
 ### 5.3 Hard-coding hotspots
 
 - **Entry names:** `/ENTRY[entry]` or `entry1` are hard-coded in apm, em, microstructure, spm, ellips, raman, xrd and igor (ELN), although MFR supports `get_entry_names()`.
@@ -257,13 +359,16 @@ Even there, a file is opened N+1 times. Nobody shares a single *probe* of the fi
 - **NeXus paths in Python:** ellips `post_process`, spm `manually_filter_data_type`, raman `get_eln_data` concept list, xps `set_nxdata_defaults`, and all of apm/em/microstructure (functor dicts).
 - **Parser lists** are hard-coded in reader modules. There is no entry-point or registry discovery, so adding a vendor means editing the reader.
 - **Config paths** are built with `Path(__file__).parent / "config" / ...` in each plugin.
+- **Units** (scan): 250 units are hard-coded in configs (U07) and 11 unit labels in Python (U06). Most are correct for formats that do not store units, but nothing in the output says the unit was assumed. Units are also filled in silently when a file has none: xps falls back to `eV` and `counts_per_second` (`config_vms.json`), readers-xrd to `deg`, `kV`, `mA` and `angstrom`, and mpes writes `""`.
+- **Literal fallbacks** in lookup lists (`["@attrs:x", "fallback"]`, 30 C07 hits in xps, igor and mpes configs) are the intended way to give defaults, but they only work once B1 is fixed.
+- The scan counts 35 NeXus path literals in Python (C01) in the repos where the profile does not switch that rule off (em and the core are excluded because paths in Python are their design).
 
 ### 5.4 ELN handling: seven variants for one NOMAD output format
 
 1. MFR built-in `handle_eln_file` (bound to the first entry at dispatch time): nobody uses it unchanged.
 2. igor: `parse_yml` without an entry name.
 3. raman: `parse_yml(parent_key="/ENTRY[entry]")` plus upper-case stripping heuristics.
-4. xas and xps: `parse_yml(parent_key="/ENTRY")`, entry-specific override, generic fallback, datetime → ISO.
+4. xas and xps: `parse_yml(parent_key="/ENTRY")`, entry-specific override, generic fallback, datetime → ISO. mpes uses the same call without the fallback.
 5. ellips: `flatten_and_replace`, `ignore_keys`, written *directly* into the template, and also used as parser options.
 6. spm: `flatten_and_replace` inside the formatter, plus ELN-driven parser selection.
 7. apm, em, microstructure: own `oasis_eln` parsers with functor dicts, recognised by file-name suffix.
@@ -281,13 +386,58 @@ Even there, a file is opened N+1 times. Nobody shares a single *probe* of the fi
 | json_map | eager HDF5 load plus a second open |
 | core `get_reader` | re-executes the reader module on each call |
 | MFR `fill_from_config` | config re-sorted per entry |
+| mpes | the whole binned HDF5 is read into an xarray in memory |
+
+**Measured in the baseline.** Three runs on 2026-10-26 (`baseline_results/`), with peak RSS sampled per process by `monitor_resources.py`. The runs agree to within 0.6 MB and 0.15 s per conversion.
+
+| | Value |
+|---|---|
+| Recorded conversions | 65 (60 replayed from plugin tests, 5 extra conversions for em and microstructure) |
+| Status | 61 OK, 4 `CONVERT_FAILED` (pynxtools `test_find_nxdl` and `test_cli` calls, which do not convert a file) |
+| Total conversion wall time | 140 s for all 65 |
+| Slowest conversion | xps PHI (`phi-pro`): 5.0 s |
+| Highest peak RSS | em InGaN EDS map: 410 MB, for a 0.7 MB output |
+| Largest output | microstructure `.mtex.h5` example: 26 MB (220 MB peak RSS) |
+| Highest test-suite peak RSS | pynxtools 2038 MB, xps 1406 MB, spm 1247 MB (whole pytest session) |
+| Outputs valid against their application definition | 9 of 58 plugin outputs (igor 3, mpes 2, xas 1, xps 2, raman 1) |
+| Byte-identical outputs across runs | 4 of 65 (time stamps and versions differ), so comparisons must be content-based |
+
+Even the smallest conversion (igor) peaks at 104 MB, so roughly 100 MB is probably the cost of starting Python with pint and the NeXus definitions. em uses the most memory for the least output. The test files are small, though: none of the costs in the table at the top shows up at this scale, so Phase 6 needs large files (Velox EMD, large SXM, SPECS SLE) to measure them.
 
 ### 5.6 Packaging and consistency
 
-- Minimum `pynxtools` pins range from `>=0.13.0` to `>=0.16.0` (ellips, igor, raman and xrd pin 0.13.0, xps 0.13.1, apm 0.14.1, em and microstructure 0.14, xas 0.15.2, spm 0.16.0). Plugins that rely on newer MFR features (`processing_order`, built-in `set_config_file`) should pin the version that introduced them.
+- Minimum `pynxtools` pins range from `>=0.13.0` to `>=0.16.0` (ellips, igor, mpes, raman and xrd pin 0.13.0, xps 0.13.1, apm 0.14.1, em and microstructure 0.14, xas 0.15.2, spm 0.16.0). Plugins that rely on newer MFR features (`processing_order`, built-in `set_config_file`) should pin the version that introduced them.
 - Two licence header styles are in use (REUSE SPDX vs Apache boilerplate).
-- Logging: the `"pynxtools"` logger is used in most plugins, but `pynxtools-microstructure` has its own logger, apm and em use `custom_logging`, and spm uses `print`.
-- Tests: all plugins use `ReaderTest`. pynxtools-xas and pynxtools-xrd have one test file each.
+- Logging: the `"pynxtools"` logger is used in most plugins, but `pynxtools-microstructure` has its own logger, apm and em use `custom_logging`, and spm uses `print`. The scan finds 21 `print()` calls: pynxtools 7, readers-xrd 6, em 3, spm 3, xps 2.
+- Tests: all plugins use `ReaderTest`. pynxtools-xas and pynxtools-xrd have one test file each. In the baseline the suites range from 1 test (xrd) to 735 (pynxtools); em and microstructure skip their conversion test because their data are not in the repo.
+- Code that is not part of the reader ships inside the package source: the MTEX submodule in microstructure (third-party MATLAB, 54 scan hits), the ROD download and batch scripts in raman (`rod_database/`), and the NOMAD example uploads and NORTH tools in most plugins (the scan profiles exclude them).
+
+### 5.7 Data integrity: numbers, units and time stamps
+
+The scan's unit, number, data-changing-operation and time rules (U, N, A, D04, T: 518 hits) found the most important new bugs. They all change or invent values without saying so in the output:
+
+| What happens | Where | Bug |
+|---|---|---|
+| steps and axes rounded to 2 decimals | xps `numerics.py`, VAMAS parser; xrd `reader.py` | B21 |
+| energy axis flipped without its data | xps VAMAS | B22 |
+| a lookup path written as the unit | xrd `kbeta/@units` | B23 |
+| unit notes instead of lookups, units lost | spm `bruker_spm_afm.json` | B28 |
+| a unit pint cannot read (`wt%`) | em | B32 |
+| constants written as measured values (phases, imaging mode, transmission function) | em Oxford microstructure, xps SLE | B24, B26 |
+| data truncated to the shorter array | xps SLE transmission function | B26 |
+| scale factor 1.0 when the sensitivity cannot be read | spm Bruker | B27 |
+| local time zone of the converting machine attached | xps SPECS XY, spm | B25 |
+| UTC assumed, or `0001-01-01` written for an invalid date | raman ROD, xps VAMAS | B29 |
+| `0`, `deg`, `kV`, `eV`, … filled in when the file has nothing | readers-xrd, xps VAMAS config | B34, §5.3 |
+
+What the scan also checked and found correct: all 13 numeric factors flagged as possible unit conversions (kX, keV, ns, nm → cm⁻¹), the deliberate image and axis flips in em and spm, and the explicit ESRF time zone in xas. Nothing in the core decides how a plugin handles a missing unit or time zone, so every plugin decides for itself.
+
+### 5.8 Error handling and security
+
+- **Swallowed exceptions.** 167 `except` blocks catch an error and carry on (E02): pynxtools 59, xps 35, em 34, spm 17, raman 7, xas 5, others ≤ 3. 51 are format probes (§5.2) and 28 are in the NOMAD integration, where logging and continuing is intended. The harmful ones hide parse errors (B10, B27, xps SLE) or turn write errors into warnings (core `Writer`, §2.3).
+- **Stubs.** 27 empty function bodies (E04). Most are visitor no-ops or abstract methods; the VAMAS `MAPPING` stub is a bug (B30), and the xps `KratosParser` is an unfinished parser that is only used for VAMAS comments.
+- **Unsafe input handling.** json_map runs `pickle.load` on `.pickle` inputs (B20), which matters because NOMAD converts uploaded files. XML from uploaded files is parsed with default parsers in 18 places (B36); current lxml and expat already block the classic attacks, so this is hardening. The scan found no `eval`/`exec`, unsafe YAML loading, shell calls or archive extraction without path checks.
+- **TODO markers.** 277 TODO/FIXME/TBD comments (E05) are left in the code. One of them documents B24 ("generally wrong, only for the example from Vitesh Shah").
 
 ---
 
@@ -297,25 +447,67 @@ Even there, a file is opened N+1 times. Nobody shares a single *probe* of the fi
 
 | # | Severity | Status | Where | Effect |
 |---|---|---|---|---|
-| B1 | high | confirmed (reproduced) | core [utils.py:369](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/utils.py#L369) via [multi/reader.py:144](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L144) | literal fallbacks containing No/Yes/On/Off are silently dropped |
-| B2 | high | confirmed | apm [reader.py:92](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py#L92) | `UnboundLocalError` when no oasis config yaml is given |
+| B1 | high | confirmed (reproduced) | core [utils.py:369](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/utils.py#L369) via [multi/reader.py:144](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L144) | literal fallbacks containing No/Yes/On/Off are silently dropped |
+| B2 | high | confirmed | apm [reader.py:92](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/reader.py#L92) | `UnboundLocalError` when no oasis config yaml is given |
 | B3 | high | confirmed | apm, em, microstructure, spm `read()` without `**kwargs` | `TypeError` with `-c` or any extra converter kwarg |
-| B4 | high | confirmed | xrd [reader.py:53-67](https://github.com/keila-moral/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L53) | all `@link` entries dropped; `str.copy` crash path |
-| B5 | high | confirmed | raman [reader.py:81](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L81) | user config silently replaced by built-in config |
-| B6 | medium | confirmed | em [io_case_logic.py:106,118](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py#L106) | files after `.mtex.h5` in the suffix list are ignored |
-| B7 | medium | confirmed | apm [io_case_logic.py:33,46](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L33) | `.hdf5` parsed as both reconstruction and ranging |
-| B8 | medium | confirmed | core [multi/reader.py:246](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L246) | `!` removal also removes sibling groups that share a prefix |
-| B9 | medium | confirmed | raman [reader.py:104](https://github.com/keila-moral/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L104) | theoretical `.rod` → `IsADirectoryError` instead of a clean skip |
-| B10 | medium | confirmed | spm [parsers/\_\_init\_\_.py:181](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py#L181) | all parser exceptions swallowed |
-| B11 | medium | confirmed | xrd [reader.py:201](https://github.com/keila-moral/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L201) | `-c` / `overwrite_keys` ignored |
-| B12 | medium | likely | xas [reader.py:150](https://github.com/keila-moral/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L150) | same entry name from two files → silent overwrite |
-| B13 | low | confirmed | core [multi/reader.py:522](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/readers/multi/reader.py#L522) | upper-case extensions ignore `processing_order` |
-| B14 | low | confirmed | igor [reader.py:47](https://github.com/keila-moral/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L47) | wave-note values with spaces lost |
-| B15 | low | confirmed | ellips [reader.py:38,53](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L38) | duplicate dict key, first mapping dead |
-| B16 | low | likely | ellips [reader.py:155](https://github.com/keila-moral/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L155) | `AttributeError` if no `.dat` but config uses `@data` |
-| B17 | low | confirmed | spm [reader.py:99-100](https://github.com/keila-moral/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L99) | mis-indented `else`; multiple data files → last wins silently |
-| B18 | low | confirmed | apm [io_case_logic.py:145](https://github.com/keila-moral/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L145) | validity check disabled; extra reconstruction or ranging files ignored |
-| B19 | info | confirmed | em [reader.py:150-183](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L150) | two parsers can both write into the template for the same file |
+| B4 | high | confirmed | xrd [reader.py:53-67](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L53) | all `@link` entries dropped; `str.copy` crash path |
+| B5 | high | confirmed | raman [reader.py:81](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L81) | user config silently replaced by built-in config |
+| B20 | high | confirmed (code path) | core [json_map/reader.py:186,261](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/json_map/reader.py#L259) | any `.pickle` input is passed to `pickle.load`, so a converted upload (e.g. through the NOMAD dataconverter) can run arbitrary code |
+| B6 | medium | confirmed | em [io_case_logic.py:106,118](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/utils/io_case_logic.py#L106) | files after `.mtex.h5` in the suffix list are ignored |
+| B7 | medium | confirmed | apm [io_case_logic.py:33,46](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L33) | `.hdf5` parsed as both reconstruction and ranging |
+| B8 | medium | confirmed | core [multi/reader.py:246](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L246) | `!` removal also removes sibling groups that share a prefix |
+| B9 | medium | confirmed | raman [reader.py:104](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/reader.py#L104) | theoretical `.rod` → `IsADirectoryError` instead of a clean skip |
+| B10 | medium | confirmed | spm [parsers/\_\_init\_\_.py:181](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/__init__.py#L181) | all parser exceptions swallowed |
+| B11 | medium | confirmed | xrd [reader.py:201](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L201) | `-c` / `overwrite_keys` ignored |
+| B12 | medium | likely | xas [reader.py:150](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L150) | same entry name from two files → silent overwrite |
+| B21 | medium | confirmed (reproduced) | xps [numerics.py:105](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/numerics.py#L105), [vms/parser.py:434,672](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/vms/parser.py#L434); xrd [reader.py:94](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/reader.py#L94) | steps and axes rounded to 2 decimals: steps ≤ 0.005 become `0.0` (division by zero when resampling), 0.025 becomes 0.03 (resampled onto a wrong grid), a 0.005 eV VAMAS axis gets duplicate energies, xrd `*_step` metadata is wrong |
+| B22 | medium | likely | xps [vms/parser.py:436,468](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/vms/parser.py#L436) | for a `binding energy` abscissa only the energy axis is flipped, not the intensities, so x/y pairs are reversed; the match is case-sensitive and no test file has a binding-energy axis |
+| B23 | medium | confirmed | xrd [xrd.config.json:49](https://github.com/FAIRmat-NFDI/pynxtools-xrd/blob/ba9b33ac65389b85a985c6e7d3e308ef5e74175d/src/pynxtools_xrd/xrd.config.json#L49) | `kbeta/@units` is the literal string `"kBeta@units"` (missing `@attrs:metadata/source/`), written as the unit |
+| B24 | medium | confirmed | em [methods/microstructure.py:110,139-155](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/methods/microstructure.py#L139) | Oxford microstructure output always gets `imaging_mode = secondary_electron`, one phase and all crystals in phase 1; the code comment says this is "only for the example from Vitesh Shah" |
+| B25 | medium | confirmed | xps [specs/xy/metadata.py:63](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/specs/xy/metadata.py#L63); spm [nxformatters/helpers.py:77-82](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/nxformatters/helpers.py#L77) | timestamps without a zone get the time zone of the machine that runs the conversion, so the same file gives different `start_time` on a laptop and on a NOMAD server |
+| B26 | medium | confirmed | xps [specs/sle/parser.py:366,489](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/specs/sle/parser.py#L366) | a missing transmission function is written as all ones, as if measured; a length mismatch between energy and intensity is truncated silently |
+| B13 | low | confirmed | core [multi/reader.py:522](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/readers/multi/reader.py#L522) | upper-case extensions ignore `processing_order` |
+| B14 | low | confirmed | igor [reader.py:47](https://github.com/FAIRmat-NFDI/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L47) | wave-note values with spaces lost |
+| B15 | low | confirmed | ellips [reader.py:38,53](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L38) | duplicate dict key, first mapping dead |
+| B16 | low | likely | ellips [reader.py:155](https://github.com/FAIRmat-NFDI/pynxtools-ellips/blob/95c2547118044299cebbccbcf5998f9b8df3ccac/src/pynxtools_ellips/reader.py#L155) | `AttributeError` if no `.dat` but config uses `@data` |
+| B17 | low | confirmed | spm [reader.py:99-100](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/reader.py#L99) | mis-indented `else`; multiple data files → last wins silently |
+| B18 | low | confirmed | apm [io_case_logic.py:145](https://github.com/FAIRmat-NFDI/pynxtools-apm/blob/c839a4250c166af190f351ef632d9bfc0af9870b/src/pynxtools_apm/utils/io_case_logic.py#L145) | validity check disabled; extra reconstruction or ranging files ignored |
+| B27 | low | likely | spm [bruker_spm.py:239-247](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/parsers/bruker_spm.py#L239) | if the sensitivity unit cannot be read, any exception gives scale factor 1.0 and the data are written unscaled without a warning |
+| B28 | low | likely | spm [configs/bruker/bruker_spm_afm.json:21,25,33](https://github.com/FAIRmat-NFDI/pynxtools-spm/blob/a57cd20d6eb349d0ac880f2ca3a2c4b10d4a7d38/src/pynxtools_spm/configs/bruker/bruker_spm_afm.json#L21) | `@units` hold notes ("unit comes from raw_path", …) instead of lookups, so these three fields lose their units |
+| B29 | low | confirmed | xps [vms/parser.py:639](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/vms/parser.py#L639); raman [rod.py:300-306](https://github.com/FAIRmat-NFDI/pynxtools-raman/blob/9a30f9b64c75a4ad78c84a36018be4a77bc964f6/src/pynxtools_raman/parsers/rod.py#L300) | invented time information: an invalid VAMAS date becomes `0001-01-01`, ROD dates get UTC attached |
+| B30 | low | likely | xps [vms/parser.py:492](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/vms/parser.py#L492) | `MAPPING` scan mode is a `pass` stub: the block's data lines are not consumed, so the parser loses sync with the rest of the file instead of rejecting it |
+| B31 | low | likely | igor [reader.py:221](https://github.com/FAIRmat-NFDI/pynxtools-igor/blob/07ed951a137c79d9aab4a9f3a05cf1f2e3dba782/src/pynxtools_igor/reader.py#L221) | entry name is `name.split(".")[0]`, so `a.1.ibw` and `a.2.ibw` both become `a` and the second resets the first entry |
+| B32 | low | confirmed | em [methods/microstructure.py:128](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/methods/microstructure.py#L128) | unit `wt%` is not parseable by pint; the writer flags the units as invalid |
+| B33 | low | confirmed | xps [config/template.json:289](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/config/template.json#L289), [reader.py:291](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/reader.py#L291) | the class-default config is invalid JSON (trailing comma); today it is shadowed by `MultiFormatReader.__init__`, but any fallback to it crashes |
+| B34 | low | confirmed | readers-xrd [bruker_raw_parser.py:366-367](https://github.com/FAIRmat-NFDI/readers-xrd/blob/3f3eb8b307ed13a494ad44f3f3998f8c9120219b/src/fairmat_readers_xrd/bruker_raw_parser.py#L366) | `.xy` export writes `Start: 0.000°` and `Step: 0.0000°` when the values are missing |
+| B19 | info | confirmed | em [reader.py:150-183](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/reader.py#L150) | two parsers can both write into the template for the same file |
+| B35 | info | confirmed | xps [scienta/metadata.py:194](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/scienta/metadata.py#L194), [specs/sle/metadata.py:94](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/specs/sle/metadata.py#L94) | duplicate dict keys with the same value; harmless today, a trap when one copy is edited |
+| B36 | info | likely | xps [specs/sle/parser.py:280,498,771](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/specs/sle/parser.py#L280), [specs/xml/parser.py:87](https://github.com/FAIRmat-NFDI/pynxtools-xps/blob/23299e64391d4738147f814d0adba5eb5c338ae3/src/pynxtools_xps/parsers/specs/xml/parser.py#L87); em `xmltodict`/`ElementTree` (4 files); readers-xrd (4 calls) | XML from uploaded files is parsed with default parsers; lxml ≥ 5 and expat already block external entities and entity bombs, so this is hardening, not an exploit |
+
+B1–B19 come from the code review of the commits listed at the top. B20–B36 were added after triaging every hit of the [preliminary audit scan](../preliminary_audit_scans/) (`results/*.csv`, 12 repos). Like all links in this document, theirs point to the baseline commits. B10 and B15 were also reported by the scan, and the baseline confirms B23 (validation reports an empty unit for `kbeta`).
+
+### 6.1 Preliminary scan triage
+
+All **2728** scanner hits were triaged (5 high, 178 medium, 802 low, 1743 info): pynxtools-xps 690, pynxtools 580, pynxtools-em 373, pynxtools-spm 357, pynxtools-mpes 341, pynxtools-igor 97, pynxtools-microstructure 69, readers-xrd 69, pynxtools-raman 59, pynxtools-xas 56, pynxtools-ellips 27, pynxtools-xrd 10. pynxtools-apm was not scanned. Every medium and high hit was checked against the source; low and info hits were reviewed by rule and file. 456 hits are in example uploads or test configs, and 54 are in the MTEX submodule vendored by pynxtools-microstructure.
+
+| Rule family | Hits | Outcome |
+|---|---|---|
+| S security | 19 | S02 pickle → B20. S06 XML parsing (18) → B36. |
+| U units | 307 | U01 unparseable units → B23, B28, B32. U07 units hard-coded in configs (250), U06 hard-coded unit labels (11), U11 functors without source unit (20) and U04 `mbar` are expected for these formats. U05: the trailing blanks in xps `_DEFAULT_UNITS` (`"degree "`, `"counts_per_second "`) are harmless because pint strips them; mpes writes `""` when a file has no unit. |
+| N numbers | 59 | N04 → B21. N06 → B26. N05 → B31. All 13 N01 "scale factors" are correct conversions (kX → ×1000, keV → eV, ns → s, nm → cm⁻¹). The one heuristic worth knowing is xas [esrf_fluo.py:79](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/esrf_fluo.py#L79), which treats energies below 100 as keV. |
+| A data-changing operations | 86 | A01 in the VAMAS parser → B22. The other flips are deliberate orientation handling (em TIFF image origin, spm scan direction, xps energy ordering with the paired data flipped too), and the 15 `[::-1]` loops only reverse lists of axis names. A02–A04 are documented resampling, reductions and transposes. |
+| D defaults and fallbacks | 756 | D04 → B24, B26. The other 23 D04 hits preallocate arrays that are filled afterwards. D01/D02/D03 → B34; the rest are documented kwargs or lookup defaults. D05 case-sensitive matches (573) are mostly vendor keywords; the relevant one is part of B22. |
+| E error handling | 485 | E02 → B10, B27. 51 of the 167 E02 hits are format probes (`matches_file`, `is_mainfile`, `check_if_*`) that return False by design, and 28 are in the NOMAD integration, where errors are logged. E04 → B30; the other stubs are visitor no-ops or abstract methods. E05 TODO markers (277) led to B24. E03 asserts (14) are in schema loading and `ReaderTest`. |
+| T time | 40 | T01/T02 → B25, B29. The xas ESRF time zone is declared explicitly. T03 naive `strptime` calls (21) only matter where a zone is attached afterwards (B25, B29). |
+| K consistency | 103 | K01 → B15, B35. K03/K04 duplicated functions are covered by §5.1. K02 key spellings (88) are vendor metadata keys. |
+| C config files | 852 | C05 → B33. C01 NeXus paths in Python → §5.3. C02/C03 hard-coded config values (771) and C06 empty placeholders are mostly in example configs. C07 literal fallbacks (30) are intended, but only work once B1 is fixed. |
+| M misc | 21 | `print()` calls → §5.6 (logging). |
+
+**Likely false positives** (kept here rather than dropped):
+- microstructure: C04 duplicate `"plot"` keys and C05 Python 2 syntax are in the vendored MTEX submodule (`mtex/.../functionSignatures.json`, `mtex/data/EBSD/testdata_generator.py`). MATLAB's `functionSignatures.json` allows repeated keys, and the script is never imported.
+- The E02 hits in format probes, the N01 conversion factors, the A01 orientation flips and `[::-1]` loops, and the D04 preallocations listed above.
+- core D02 `append` default, core T01 `/@file_time` (that is the conversion time, so the local zone is correct), and em D02 hash-file suffix: documented behaviour.
+- em E04 empty `NxEmDefaultPlotResolver.__init__`, core E04 visitor no-ops, and the xps `KratosParser`, which is used only for VAMAS comment headers and is not registered as a parser.
 
 ---
 
@@ -332,3 +524,6 @@ Even there, a file is opened N+1 times. Nobody shares a single *probe* of the fi
 | Declarative unit and dtype mapping (pint, `map_to_f8`) | apm, em | unit-safe values without Python code |
 | Entry-specific ELN with generic `/ENTRY/` fallback | xps, xas | one ELN for multi-entry outputs |
 | Shared `ReaderTest` regression harness | all | safety net for the refactor |
+| Time zone declared per format, never taken from the converting machine | xas ESRF parsers | reproducible time stamps (§5.7, B25) |
+| Literal fallback as the last element of a lookup list (`["@attrs:x", "@eln", "eV"]`) | xps, igor, mpes configs | defaults stay in the config instead of in code, once B1 is fixed |
+| Baseline of results and resources (`run_baseline.sh`, `compare_baselines.py`) | this repository | the before/after check for every phase of the plan |

@@ -72,6 +72,20 @@ These can ship immediately, independent of the architecture work. Each one is a 
 | 1.12 | B15, B16 ellips | Remove the duplicate key and initialise `self.data = {}`. |
 | 1.13 | B17 spm | Fix the indentation and raise if more than one data file is given. |
 | 1.14 | B12 xas | Detect entry-name collisions and either merge (as XPS `_combine_datasets` does) or suffix the name. |
+| 1.15 | B20 core pickle | Drop `.pickle` from the json_map extensions, or accept it only behind an explicit opt-in kwarg that the NOMAD dataconverter never sets. |
+| 1.16 | B21 xps, xrd rounding | Compute the minimal step without rounding (compare with `np.isclose`), build the VAMAS axis as `start + i * step` unrounded, and stop rounding `y_cps`. Add a test file with a step below 0.005. |
+| 1.17 | B22 xps VAMAS binding energy | Compare the abscissa label case-insensitively and flip the energy axis together with every `y` array (or don't flip and record the energy type). Add a VAMAS test file with a binding-energy axis. |
+| 1.18 | B23 xrd | Map `kbeta/@units` to `@attrs:metadata/source/kBeta@units`. |
+| 1.19 | B24 em | Read phase indices and imaging mode from the Oxford file, or leave the fields out when they are unknown; remove the example-specific constants. |
+| 1.20 | B25, B29 time zones | Never use the converting machine's zone. If the file has no zone, take it from the ELN or a kwarg, otherwise keep the timestamp naive and log a warning. Leave `start_time` out instead of writing `0001-01-01`. |
+| 1.21 | B26 xps SLE | Write the transmission function only when the file has one, and warn or raise when its length differs from the energy axis. |
+| 1.22 | B27, B28 spm | Log a warning when the sensitivity unit cannot be parsed (catch pint errors only). Replace the prose `@units` in `bruker_spm_afm.json` with real lookups or `@default:` values. |
+| 1.23 | B30 xps VAMAS mapping | Raise a clear "unsupported scan mode" error for `MAPPING` until it is implemented. |
+| 1.24 | B31 igor | Use `Path(file).stem` for the entry name and check for collisions (same fix as 1.14). |
+| 1.25 | B32 em | Write `percent` as the unit; `normalization = weight_percent` already says it is a mass fraction. |
+| 1.26 | B33 xps | Fix the trailing comma in `template.json`, or delete the file and the dead `config_file` class default. |
+| 1.27 | B34 readers-xrd | Leave the `Start`/`Step` header lines out when the values are unknown. |
+| 1.28 | B35, B36 | Remove the duplicate keys. Parse uploaded XML with `defusedxml` or an lxml parser with `resolve_entities=False, no_network=True`. |
 
 ---
 
@@ -311,6 +325,7 @@ Same as xps. The numpy `ParsedSpectrum` becomes a `ParsedData` subclass, and `ge
 - Wrap `fairmat_readers_xrd.read_file` in one `FileParser` per format (`.xrdml`, `.rasx`, `.brml`), with real `matches_file` checks: the XML root tag for xrdml and brml, the zip member list for rasx.
 - Move `_extract_experiment_config` and `_normalize_units` into `post_process` and config dtypes.
 - Rename the config to `config/xrd_pan.json` and use `default_config`.
+- In `fairmat_readers_xrd`, stop filling in units (`deg`, `kV`, `mA`, `angstrom`) and header values when the file has none (B34), and parse XML safely (B36).
 
 ### Step 5.4: pynxtools-raman
 - Add `RodParser` and `WitecParser` to `parsers`. Delete the extension handlers, `set_config_file`, the `get_eln_data` heuristics (Step 3.3) and the `get_attr` float coercion (move it to config dtypes).
@@ -355,17 +370,25 @@ Same as xps. The numpy `ParsedSpectrum` becomes a `ParsedData` subclass, and `ge
 
    Delete the forked copies (§5.1).
 
+### Step 5.11: pynxtools-mpes (smallest change, can go first)
+mpes is already an MFR reader without a `read()` override (FINDINGS §4.11).
+- Add one `FileParser` for the binned HDF5 (detected from its `binned`/`axes` groups) and keep the xarray object input.
+- Ship the example config as `default_config`, delete the `set_config_file` override (its log message contradicts what it does), and initialise `eln_data` as a dict.
+- Read the data lazily (Step 6.2) instead of loading the whole binned array, and leave units out instead of writing `""`.
+
 ---
 
 ## Phase 6: Resource optimisation
 
+The baseline (FINDINGS §5.5) shows that none of these costs is visible with the shipped test files: every conversion runs in about 5 s or less and below 410 MB peak RSS, and roughly 100 MB of that is start-up. Each step below therefore has to be measured on large files.
+
 ### Step 6.1: Detection without loading data
-- Velox: replace `emd.file_reader` in detection with an `h5py` check of `/Data` and `/Version` in the probe ([rsciio_velox.py:101](https://github.com/keila-moral/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L101)).
+- Velox: replace `emd.file_reader` in detection with an `h5py` check of `/Data` and `/Version` in the probe ([rsciio_velox.py:101](https://github.com/FAIRmat-NFDI/pynxtools-em/blob/340f1545aded60ba7e91133892acba6c3d255f45/src/pynxtools_em/parsers/rsciio_velox.py#L101)).
 - TIFF: one tag read in the probe, shared by all TIFF parsers.
 - Target: on the benchmark from Step 0.2, peak RSS during detection stays below 2× the probe size, and each input file is opened at most twice (probe and parse).
 
 ### Step 6.2: Lazy data in the template
-- Allow handlers and parsers to place `h5py.Dataset`, `dask.array` or a `LazyArray(callable)` in `ParsedData.data`, and teach the `Writer` to stream them chunk-wise. The writer already supports chunked writes ([chunk.py](https://github.com/keila-moral/pynxtools/blob/2d8d4593d2b093b96571f525ee5b839691a584ac/src/pynxtools/dataconverter/chunk.py)).
+- Allow handlers and parsers to place `h5py.Dataset`, `dask.array` or a `LazyArray(callable)` in `ParsedData.data`, and teach the `Writer` to stream them chunk-wise. The writer already supports chunked writes ([chunk.py](https://github.com/FAIRmat-NFDI/pynxtools/blob/59f03be0d6422c29c0e72447ffa431624db3e5f5/src/pynxtools/dataconverter/chunk.py)).
 - JsonMapReader: `hdfdict.load(lazy=True)` and read attributes in the same pass (one open).
 
 ### Step 6.3: Hashing once, optionally
@@ -387,9 +410,12 @@ Ship `pynxtools.testing.conformance` with a parametrised pytest suite that every
 - the reader subclasses `MultiFormatReader` and does not override `read`;
 - every parser in `reader.parsers` declares `supported_file_extensions` and implements `matches_file`;
 - no two parsers claim the same example file (ambiguity audit);
+- every reference output is valid against its application definition (today 49 of 58 baseline outputs are not, FINDINGS §5.5);
 - every shipped config passes `validate-config`;
 - `read()` accepts arbitrary kwargs, honours `-c`, and handles upper-case extensions;
 - no top-level module imports another plugin's private modules.
+
+Run `preliminary_audit_scans/run_all.sh` in CI as a report (not gating), so new hard-coded units, rounding, swallowed errors and time-zone assumptions (FINDINGS §5.7, §5.8) show up in review.
 
 ### Step 7.2: Plugin template
 Update the pynxtools plugin cookiecutter so new plugins start from the Phase 3 structure: `parsers/`, `config/`, a reader of about 30 lines, and the conformance test enabled.
@@ -435,10 +461,10 @@ No extension handling, ELN or config plumbing, `/ENTRY[entry]` literals, `read()
 
 | Milestone | Steps | Rough effort |
 |---|---|---|
-| M1: safety net + bug fixes | 0.1–0.3, 1.1–1.14 | 2–3 weeks (parallel per plugin) |
+| M1: safety net + bug fixes | 0.1–0.3, 1.1–1.28 | 2–3 weeks (parallel per plugin) |
 | M2: core framework | 2.1–2.5, 3.1–3.10 | 4–6 weeks |
 | M3: config language | 4.1–4.3 | 2–3 weeks |
-| M4: MFR-native plugins | 5.1–5.6 | 3–4 weeks |
+| M4: MFR-native plugins | 5.1–5.6, 5.11 | 3–4 weeks |
 | M5: spm, microstructure, apm | 5.7–5.9 | 4–6 weeks |
 | M6: em | 5.10 | 6–8 weeks, incremental per vendor |
 | M7: optimisation + governance | 6.x, 7.x | 2–3 weeks, partly in parallel |
