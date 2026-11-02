@@ -5,6 +5,7 @@ compare_baselines.py - compare two folders written by run_baseline.sh
 
 Usage (run it with the distro venv's python, it needs h5py + numpy):
   python compare_baselines.py OLD_BASELINE NEW_BASELINE [--out DIR]
+  python compare_baselines.py OLD NEW --packages pynxtools-ellips   (for a PACKAGES=... run)
          [--time-tol 0.15] [--rss-tol 0.10] [--min-time-s 0.5] [--min-rss-mb 20]
          [--rtol 1e-9] [--atol 0] [--ignore REGEX ...] [--fail-on-resources]
 
@@ -417,7 +418,11 @@ def main():
     ap.add_argument("--unordered", action="append", default=[],
                     help="extra regex of HDF5 paths holding comma-separated lists whose order does not matter")
     ap.add_argument("--fail-on-resources", action="store_true")
+    ap.add_argument("--packages", help="comma-separated packages to compare, e.g. pynxtools-ellips "
+                                       "(for a run with PACKAGES=...); default: all")
     a = ap.parse_args()
+    only = {p.strip() for p in a.packages.split(",") if p.strip()} if a.packages else None
+    keep = lambda pkg: only is None or pkg in only
 
     old, new = os.path.abspath(a.old), os.path.abspath(a.new)
     for d in (old, new):
@@ -436,7 +441,8 @@ def main():
     resource_flags = Counter()
 
     # ---- 1. environment --------------------------------------------------------
-    rep += [f"# Baseline comparison", "", f"- old: `{old}`", f"- new: `{new}`", ""]
+    rep += [f"# Baseline comparison", "", f"- old: `{old}`", f"- new: `{new}`"]
+    rep += [f"- packages compared: {', '.join(sorted(only))}" if only else "- packages compared: all", ""]
     rep += ["## 1. Environment", "", "| item | old | new |", "|---|---|---|"]
     so, sn = (os.path.join(b, "00_environment", "system.txt") for b in (old, new))
     po, pn = (os.path.join(b, "00_environment", "python.txt") for b in (old, new))
@@ -467,7 +473,7 @@ def main():
                 f"(see `packages_diff.csv`)", ""]
 
     # ---- 2. tests --------------------------------------------------------------
-    jo, jn = junit_outcomes(old), junit_outcomes(new)
+    jo, jn = ({k: v for k, v in junit_outcomes(b).items() if keep(k[0])} for b in (old, new))
     test_rows, transitions = [], Counter()
     for k in sorted(set(jo) | set(jn)):
         o, n = jo.get(k, {}).get("outcome", "missing"), jn.get(k, {}).get("outcome", "missing")
@@ -479,8 +485,8 @@ def main():
         test_rows.append({"package": k[0], "test_id": k[1], "old": o, "new": n, "change": change,
                           "old_time_s": jo.get(k, {}).get("time", ""), "new_time_s": jn.get(k, {}).get("time", "")})
     write_csv(os.path.join(out, "tests_comparison.csv"), test_rows)
-    sto = {r["package"]: r for r in read_csv(os.path.join(old, "summary_tests.csv"))}
-    stn = {r["package"]: r for r in read_csv(os.path.join(new, "summary_tests.csv"))}
+    sto = {r["package"]: r for r in read_csv(os.path.join(old, "summary_tests.csv")) if keep(r["package"])}
+    stn = {r["package"]: r for r in read_csv(os.path.join(new, "summary_tests.csv")) if keep(r["package"])}
     rep += ["## 2. Test suites", "", "| package | old pass/fail/err/skip | new pass/fail/err/skip |", "|---|---|---|"]
     fmt = lambda r: "/".join(r.get(k, "–") for k in ("passed", "failed", "errors", "skipped")) if r else "missing"
     for p in sorted(set(sto) | set(stn)):
@@ -493,7 +499,7 @@ def main():
         rep.append("")
 
     # ---- 3/4/5. conversions ------------------------------------------------------
-    co, cn = conversions(old), conversions(new)
+    co, cn = ({k: v for k, v in conversions(b).items() if keep(k[0])} for b in (old, new))
     conv_rows = []
     for key in sorted(set(co) | set(cn), key=lambda k: tuple(map(str, k))):
         pkg, test_id, reader, nxdl, occ = key
@@ -606,8 +612,8 @@ def main():
     rep.append("")
 
     # resources: monitor
-    mo_rows = read_csv(os.path.join(old, "00_monitor", "summary_by_step.csv"))
-    mn_rows = read_csv(os.path.join(new, "00_monitor", "summary_by_step.csv"))
+    mo_rows = [r for r in read_csv(os.path.join(old, "00_monitor", "summary_by_step.csv")) if keep(r.get("package"))]
+    mn_rows = [r for r in read_csv(os.path.join(new, "00_monitor", "summary_by_step.csv")) if keep(r.get("package"))]
     if mo_rows and mn_rows:
         key = lambda r: (r.get("package"), r.get("step"), re.sub(r"^\d+_", "", r.get("case", "")))
         mo_d, mn_d = {key(r): r for r in mo_rows}, {key(r): r for r in mn_rows}
@@ -632,6 +638,12 @@ def main():
     with open(os.path.join(out, "report.md"), "w") as fh:
         fh.write("\n".join(rep) + "\n")
     print(rep[2])
+    if only is None:
+        missing = sorted(set(sto) - set(stn))
+        if missing:
+            print(f"NOTE: {len(missing)} package(s) of the old run are missing in the new one "
+                  f"({', '.join(missing)}). If the new run used PACKAGES=..., pass the same list "
+                  f"with --packages.")
     print(f"Report: {os.path.join(out, 'report.md')}")
     if n_reg or (a.fail_on_resources and resource_flags):
         return 1
