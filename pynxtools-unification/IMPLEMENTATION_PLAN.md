@@ -15,6 +15,7 @@ This plan builds on [FINDINGS.md](FINDINGS.md). IDs such as **C3**, **B5** or **
 - **Additive first, then migrate, then delete.** New core APIs land in pynxtools as optional features. Plugins migrate one at a time. Duplicated plugin code is removed only after its plugin is migrated and its regression tests are green.
 - **Output must not change unintentionally.** Each migration step has to reproduce the reference NeXus files of the pre-redesign baseline (Phase 0), except where a change is an explicit bug fix that is documented in the plugin changelog.
 - **Keep the good ideas** listed in FINDINGS §7. Most of the new core is a promotion of code that already exists in pynxtools-xps.
+- **Plugins stay independent.** After every step, each plugin must still work as its own standalone package, without NOMAD: it installs and runs `pynx convert` with only pynxtools as a dependency, keeps its public import paths (moved code is re-exported), and keeps its format-specific parsers and configs. Shared code moves only into pynxtools core and must not import `nomad`.
 
 ## Phase overview
 
@@ -109,8 +110,8 @@ These can ship immediately, independent of the architecture work. Each one is a 
 **Target:** a new module `pynxtools/dataconverter/readers/parsers/` (public API) that promotes the xps `_Parser` design.
 
 ### Step 2.1: `versioning.py` to core
-Move `VersionTuple`, `VersionRange`, `normalize_version`, `is_version_supported` and `_version_ranges_overlap` from pynxtools-xps into `pynxtools.dataconverter.readers.parsers.versioning`. Reconcile the drift between the xas and xps copies, take the better tested one, and port both test suites.
-**Done when:** xps, xas and raman can import it. Their local copies stay as thin re-exports until Phase 5.
+Move `VersionTuple`, `VersionRange`, `normalize_version`, `is_version_supported` and `_version_ranges_overlap` from pynxtools-xps into `pynxtools.dataconverter.readers.parsers.versioning`, with public names `format_version` and `version_ranges_overlap`. The xas copy behaves the same as the xps one and raman's is a subset (comparison of 2026-11-17), so take the xps copy, which is the only tested one. Port its tests, add tests for `version_ranges_overlap` (none exist), and fix two edge cases found in the comparison: mixed text/number tuples raise `TypeError` (`"2019R2"` vs `"2019.1"`), and `"4"` does not count as `"4.0"`.
+**Done when:** xps, xas and raman can import it, their local copies are thin re-exports until Phase 5, and each of the three still installs and converts without NOMAD.
 
 ### Step 2.2: `FileProbe`: inspect each file once
 **Issue:** every parser re-opens and re-reads the same header, and em loads whole files just to detect them (§5.5).

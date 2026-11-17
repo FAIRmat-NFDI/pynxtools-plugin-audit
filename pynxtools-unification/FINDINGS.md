@@ -167,7 +167,7 @@ Scan hit counts depend on how much config a repo has: 209 of the 341 mpes hits a
 [reader.py](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py), [parsers/base.py](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/base.py)
 
 - `_Parser` ([base.py:57-298](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/parsers/base.py#L57)) is a near-copy of the XPS one. The XPS-only metadata-parser support is missing, and the error messages differ slightly.
-- `versioning.py` is an XPS copy with small drift: the `_version_ranges_overlap` implementation differs (diff of xas vs xps `versioning.py`).
+- `versioning.py` is an XPS copy. The two behave the same: only the license header, docstrings and variable names in `_version_ranges_overlap` differ (rechecked 2026-11-17; the earlier note of a logic drift was wrong).
 - `ParsedSpectrum` here uses plain numpy, while XPS uses xarray. They are two incompatible intermediate representations with the same name.
 - `handle_data_file` ([L121-153](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L121)) uses `self.data.update(parser.data)`. Two files that produce the same entry name **overwrite each other silently**. XPS at least merges them (`_combine_datasets`).
 - `get_data` ([L197-210](https://github.com/FAIRmat-NFDI/pynxtools-xas/blob/d7dcad5e6454a4be9794f2262bb775828aaafe19/src/pynxtools_xas/reader.py#L197)) hard-codes three token names (`energy`, `intensity`, `intensity_errors`) instead of resolving paths generically on the dataclass.
@@ -329,7 +329,7 @@ mpes was not part of the review; this section is based on the scan, the baseline
 | Concept | Copies | Notes |
 |---|---|---|
 | Parser base (`_Parser`, `is_mainfile`, `matches_file`, `_is_mainfile`, `parse`/`_parse`) | xps, xas, raman, ellips | 4 drifting variants: with or without versioning, `match_failure_reason`, metadata parsers |
-| `versioning.py` (`VersionRange`, `normalize_version`, `is_version_supported`) | xps, xas, raman | logic drift in `_version_ranges_overlap` |
+| `versioning.py` (`VersionRange`, `normalize_version`, `is_version_supported`) | xps, xas, raman | same logic; xas renames variables, raman has only `is_version_supported` |
 | `ParsedSpectrum` | xps (xarray), xas (numpy) | same name, different types |
 | `set_config_file(replace=)`, `get_eln_data` with generic `/ENTRY` fallback, `_search_metadata`, `_collect_supported_extensions` | xps, xas | verbatim copies |
 | `set_config_file` / `handle_eln_file` re-implementations of MFR built-ins | ellips, igor, raman, xas, xps | 5 overrides of the same 5-line method |
