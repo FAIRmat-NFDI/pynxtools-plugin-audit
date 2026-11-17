@@ -21,7 +21,7 @@ This plan builds on [FINDINGS.md](FINDINGS.md). IDs such as **C3**, **B5** or **
 | Phase | Content | Repos | Depends on |
 |---|---|---|---|
 | 0 | Safety net: pre-redesign baseline of outputs and resources (done) | all | — |
-| 1 | Quick bug fixes (no architecture change) | all | 0 |
+| 1 | Quick bug fixes (no architecture change) (done, see the Result column) | all | 0 |
 | 2 | Core: parser framework (`FileProbe`, `FileParser`, versioning, registry) | pynxtools | 0 |
 | 3 | Core: MFR v2 (dispatch, config precedence, ELN, finalize, entries, kwargs) | pynxtools | 2 |
 | 4 | Core: config language unification and validation | pynxtools | 3 |
@@ -63,40 +63,43 @@ These are not required steps. Each can be added later if maintainers ask for it.
 
 ---
 
-## Phase 1: Quick bug fixes
+## Phase 1: Quick bug fixes (done)
 
 These can ship immediately, independent of the architecture work. Each one is a small PR with a regression test.
 
-| Step | Bug | Fix |
-|---|---|---|
-| 1.1 | B1 `is_boolean` unanchored | Anchor it: `re.fullmatch(r"(?i)true\|false\|on\|off\|yes\|no", expr.strip())`. Make `to_bool` case-insensitive. In `try_convert`, never return `None` for a non-empty literal. |
-| 1.2 | B8 prefix removal | `key == group or key.startswith(group + "/")` in `has_missing_main`. |
-| 1.3 | B13 case | Lower-case the extension in `get_processing_order` and in `processing_order` itself. |
-| 1.4 | B3 kwargs | Add `**kwargs` to `BaseReader.read` and to the apm, em, microstructure and spm `read()` signatures (interim fix until Phase 5). |
-| 1.5 | B2 apm unbound | Initialise `nx_apm_cfg = None` before the `if`. |
-| 1.6 | B7 apm `.hdf5` | Remove `.hdf5` from one list, or classify it by content (see Step 5.9). |
-| 1.7 | B6 em `.mtex.h5` break | Match each file to its **longest** matching suffix once (`max(..., key=len)`) instead of breaking the suffix loop. |
-| 1.8 | B4, B11 xrd | Delete `_clean_mapping` and `_mapping_to_config`, fix the four link targets in `xrd.config.json` to absolute `/ENTRY[entry]/...` paths, and drop the `read()` override (pass kwargs through). |
-| 1.9 | B5, B9 raman | In `_set_parser_data`, set the config only if none is set (`replace=False` semantics). For theoretical spectra, `return {}` without touching `config_file`. |
-| 1.10 | B10 spm | Catch only the parser's declared exceptions, log each rejection reason, and re-raise if no parser succeeds. |
-| 1.11 | B14 igor | Split notes on line breaks only: `note.splitlines()` and `line.split("=", 1)`. |
-| 1.12 | B15, B16 ellips | Remove the duplicate key and initialise `self.data = {}`. |
-| 1.13 | B17 spm | Fix the indentation and raise if more than one data file is given. |
-| 1.14 | B12 xas | Detect entry-name collisions and either merge (as XPS `_combine_datasets` does) or suffix the name. |
-| 1.15 | B20 core pickle | Drop `.pickle` from the json_map extensions, or accept it only behind an explicit opt-in kwarg that the NOMAD dataconverter never sets. |
-| 1.16 | B21 xps, xrd rounding | Compute the minimal step without rounding (compare with `np.isclose`), build the VAMAS axis as `start + i * step` unrounded, and stop rounding `y_cps`. Add a test file with a step below 0.005. |
-| 1.17 | B22 xps VAMAS binding energy | Compare the abscissa label case-insensitively and flip the energy axis together with every `y` array (or don't flip and record the energy type). Add a VAMAS test file with a binding-energy axis. |
-| 1.18 | B23 xrd | Map `kbeta/@units` to `@attrs:metadata/source/kBeta@units`. |
-| 1.19 | B24 em | Read phase indices and imaging mode from the Oxford file, or leave the fields out when they are unknown; remove the example-specific constants. |
-| 1.20 | B25, B29 time zones | Never use the converting machine's zone. If the file has no zone, take it from the ELN or a kwarg, otherwise keep the timestamp naive and log a warning. Leave `start_time` out instead of writing `0001-01-01`. |
-| 1.21 | B26 xps SLE | Write the transmission function only when the file has one, and warn or raise when its length differs from the energy axis. |
-| 1.22 | B27, B28 spm | Log a warning when the sensitivity unit cannot be parsed (catch pint errors only). Replace the prose `@units` in `bruker_spm_afm.json` with real lookups or `@default:` values. |
-| 1.23 | B30 xps VAMAS mapping | Raise a clear "unsupported scan mode" error for `MAPPING` until it is implemented. |
-| 1.24 | B31 igor | Use `Path(file).stem` for the entry name and check for collisions (same fix as 1.14). |
-| 1.25 | B32 em | Write `percent` as the unit; `normalization = weight_percent` already says it is a mass fraction. |
-| 1.26 | B33 xps | Fix the trailing comma in `template.json`, or delete the file and the dead `config_file` class default. |
-| 1.27 | B34 readers-xrd | Leave the `Start`/`Step` header lines out when the values are unknown. |
-| 1.28 | B35, B36 | Remove the duplicate keys. Parse uploaded XML with `defusedxml` or an lxml parser with `resolve_entities=False, no_network=True`. |
+**Status (2026-11-17):** done within scope. Every fix started with an issue, had its test written first, and was compared against the Phase 0 baseline before the PR. The Result column links the PRs; the decisions taken along the way are summarised in FINDINGS §6 ("Phase 1 outcome"). Two extras came up: B37 (spm omicron `end_time` in days, step 1.29) and a pinned pytest below 9.2 in core ([pynxtools #868](https://github.com/FAIRmat-NFDI/pynxtools/pull/868)).
+
+| Step | Bug | Fix | Result |
+|---|---|---|---|
+| 1.1 | B1 `is_boolean` unanchored | Anchor it: `re.fullmatch(r"(?i)true\|false\|on\|off\|yes\|no", expr.strip())`. Make `to_bool` case-insensitive. In `try_convert`, never return `None` for a non-empty literal. | fixed: [core #862](https://github.com/FAIRmat-NFDI/pynxtools/pull/862) |
+| 1.2 | B8 prefix removal | `key == group or key.startswith(group + "/")` in `has_missing_main`. | fixed: [core #866](https://github.com/FAIRmat-NFDI/pynxtools/pull/866) |
+| 1.3 | B13 case | Lower-case the extension in `get_processing_order` and in `processing_order` itself. | fixed: [core #870](https://github.com/FAIRmat-NFDI/pynxtools/pull/870) |
+| 1.4 | B3 kwargs | Add `**kwargs` to `BaseReader.read` and to the apm, em, microstructure and spm `read()` signatures (interim fix until Phase 5). | core, spm, em fixed ([core #872](https://github.com/FAIRmat-NFDI/pynxtools/pull/872), [spm #119](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/119), [em #183](https://github.com/FAIRmat-NFDI/pynxtools-em/pull/183)); apm, microstructure out of scope |
+| 1.5 | B2 apm unbound | Initialise `nx_apm_cfg = None` before the `if`. | skipped: apm out of scope for now |
+| 1.6 | B7 apm `.hdf5` | Remove `.hdf5` from one list, or classify it by content (see Step 5.9). | skipped: apm out of scope for now |
+| 1.7 | B6 em `.mtex.h5` break | Match each file to its **longest** matching suffix once (`max(..., key=len)`) instead of breaking the suffix loop. | fixed: [em #184](https://github.com/FAIRmat-NFDI/pynxtools-em/pull/184) |
+| 1.8 | B4, B11 xrd | Delete `_clean_mapping` and `_mapping_to_config`, fix the four link targets in `xrd.config.json` to absolute `/ENTRY[entry]/...` paths, and drop the `read()` override (pass kwargs through). | B4: postponed (xrd config work); B11: postponed (xrd config work) |
+| 1.9 | B5, B9 raman | In `_set_parser_data`, set the config only if none is set (`replace=False` semantics). For theoretical spectra, `return {}` without touching `config_file`. | B5: fixed: [raman #68](https://github.com/FAIRmat-NFDI/pynxtools-raman/pull/68); B9: fixed: [raman #69](https://github.com/FAIRmat-NFDI/pynxtools-raman/pull/69) |
+| 1.10 | B10 spm | Catch only the parser's declared exceptions, log each rejection reason, and re-raise if no parser succeeds. | fixed: [spm #120](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/120) |
+| 1.11 | B14 igor | Split notes on line breaks only: `note.splitlines()` and `line.split("=", 1)`. | fixed: [igor #22](https://github.com/FAIRmat-NFDI/pynxtools-igor/pull/22) |
+| 1.12 | B15, B16 ellips | Remove the duplicate key and initialise `self.data = {}`. | B15: fixed: [ellips #49](https://github.com/FAIRmat-NFDI/pynxtools-ellips/pull/49); B16: fixed: [ellips #50](https://github.com/FAIRmat-NFDI/pynxtools-ellips/pull/50) |
+| 1.13 | B17 spm | Fix the indentation and raise if more than one data file is given. | fixed: [spm #121](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/121) |
+| 1.14 | B12 xas | Detect entry-name collisions and either merge (as XPS `_combine_datasets` does) or suffix the name. | fixed: [xas #11](https://github.com/FAIRmat-NFDI/pynxtools-xas/pull/11) |
+| 1.15 | B20 core pickle | Drop `.pickle` from the json_map extensions, or accept it only behind an explicit opt-in kwarg that the NOMAD dataconverter never sets. | fixed: [core #864](https://github.com/FAIRmat-NFDI/pynxtools/pull/864) |
+| 1.16 | B21 xps, xrd rounding | Compute the minimal step without rounding (compare with `np.isclose`), build the VAMAS axis as `start + i * step` unrounded, and stop rounding `y_cps`. Add a test file with a step below 0.005. | fixed: [xps #203](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/203), [xps #204](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/204), [xps #205](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/205), [xrd #39](https://github.com/FAIRmat-NFDI/pynxtools-xrd/pull/39) (final rule differs from this plan, see FINDINGS §6) |
+| 1.17 | B22 xps VAMAS binding energy | Compare the abscissa label case-insensitively and flip the energy axis together with every `y` array (or don't flip and record the energy type). Add a VAMAS test file with a binding-energy axis. | fix in review: [xps #216](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/216) |
+| 1.18 | B23 xrd | Map `kbeta/@units` to `@attrs:metadata/source/kBeta@units`. | fixed: [xrd #38](https://github.com/FAIRmat-NFDI/pynxtools-xrd/pull/38) |
+| 1.19 | B24 em | Read phase indices and imaging mode from the Oxford file, or leave the fields out when they are unknown; remove the example-specific constants. | dropped (decided not to implement) |
+| 1.20 | B25, B29 time zones | Never use the converting machine's zone. If the file has no zone, take it from the ELN or a kwarg, otherwise keep the timestamp naive and log a warning. Leave `start_time` out instead of writing `0001-01-01`. | B25: fixed: [xps #218](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/218), [spm #130](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/130); B29: fixed: [xps #220](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/220), [raman #71](https://github.com/FAIRmat-NFDI/pynxtools-raman/pull/71) (final rule differs from this plan, see FINDINGS §6) |
+| 1.21 | B26 xps SLE | Write the transmission function only when the file has one, and warn or raise when its length differs from the energy axis. | fixed: [xps #222](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/222) (final rule differs from this plan, see FINDINGS §6) |
+| 1.22 | B27, B28 spm | Log a warning when the sensitivity unit cannot be parsed (catch pint errors only). Replace the prose `@units` in `bruker_spm_afm.json` with real lookups or `@default:` values. | B27: fixed: [spm #126](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/126); B28: fixed: [spm #128](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/128) |
+| 1.23 | B30 xps VAMAS mapping | Raise a clear "unsupported scan mode" error for `MAPPING` until it is implemented. | fixed: [xps #207](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/207) |
+| 1.24 | B31 igor | Use `Path(file).stem` for the entry name and check for collisions (same fix as 1.14). | fixed: [igor #23](https://github.com/FAIRmat-NFDI/pynxtools-igor/pull/23) |
+| 1.25 | B32 em | Write `percent` as the unit; `normalization = weight_percent` already says it is a mass fraction. | fixed: [em #185](https://github.com/FAIRmat-NFDI/pynxtools-em/pull/185) |
+| 1.26 | B33 xps | Fix the trailing comma in `template.json`, or delete the file and the dead `config_file` class default. | fixed: [xps #210](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/210) |
+| 1.27 | B34 readers-xrd | Leave the `Start`/`Step` header lines out when the values are unknown. | fixed: [readers-xrd #29](https://github.com/FAIRmat-NFDI/readers-xrd/pull/29) |
+| 1.28 | B35, B36 | Remove the duplicate keys. Parse uploaded XML with `defusedxml` or an lxml parser with `resolve_entities=False, no_network=True`. | B35: [xps #212](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/212); B36: [xps #214](https://github.com/FAIRmat-NFDI/pynxtools-xps/pull/214), [em #189](https://github.com/FAIRmat-NFDI/pynxtools-em/pull/189) (xmltodict>=0.13 instead of defusedxml), readers-xrd needs no change |
+| 1.29 | B37 spm omicron `end_time` | `datetime.timedelta(seconds=float(data))`. | fix in review: [spm #137](https://github.com/FAIRmat-NFDI/pynxtools-spm/pull/137) |
 
 ---
 
