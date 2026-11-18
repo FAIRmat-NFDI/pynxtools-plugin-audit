@@ -443,6 +443,7 @@ Update the pynxtools plugin cookiecutter so new plugins start from the Phase 3 s
 - Write a "How to write a pynxtools reader" guide around `FileParser`, `ParsedData`, config tokens and `finalize`.
 - Write a config language reference (Step 4.1) with examples taken from real plugins.
 - Write a migration guide (from BaseReader, from nested or functor configs).
+- Give the plugin system its own docs space (Lukas, review of #880): a `learn` page explaining the architecture (reader vs. parser, probe, registry, `ParsedData`) and a how-to section with one page per building block, similar to the plugin how-tos in nomad-docs. Consolidate the existing reader/parser how-tos there (e.g. `declare-file-format-versions.md`). Terminology is discussed in pynxtools#882.
 
 ---
 
